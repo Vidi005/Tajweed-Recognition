@@ -1,0 +1,7 @@
+{
+    "app_name": "Tajweed Recognition",
+    "tab_list": ["Mengenali Tajwid", "Daftar Tajwid"],
+    "tab_icons": ["/images/recognition-icon.svg", "/images/list-icon.svg"],
+    "tab_icons_dark": ["/images/recognition-icon-dark.svg", "/images/list-icon-dark.svg"],
+    "color_changer": ["Normal", "Invers", "Monokrom", "Invers Monokrom"]
+}
