@@ -2,7 +2,8 @@ import React from "react"
 import Swal from "sweetalert2"
 import { extractGunnahCharacters, extractIdghamBigunnahCharacters, extractIdghamBilagunnahCharacters, extractIdghamMimiCharacters, extractIdghamSyamsiyahCharacters, extractIdzharCharacters, extractIdzharQamariyahCharacters, extractIdzharSyafawiCharacters, extractIkhfaCharacters, extractIkhfaSyafawiCharacters, extractIqlabCharacters, extractMadAridLissukunCharacters, extractMadBadalCharacters, extractMadIwadCharacters, extractMadJaizCharacters, extractMadLayyinCharacters, extractMadLazimMukhaffafKilmiCharacters, extractMadLazimMutsaqqalKilmiCharacters, extractMadShilahQashirahCharacters, extractMadShilahThawilahCharacters, extractMadThabiiCharacters, extractMadWajibCharacters, extractQalqalahSughraCharacters, isStorageExist, twTextSizes } from "../../../../../utils/data"
 import Tesseract from "tesseract.js"
-import ResultContainer from "./import_mode/ResultContainer"
+import ResultContainer from "./ResultContainer"
+import DropZoneContainer from "./import_mode/DropZoneContainer"
 
 class RecognitionContainer extends React.Component {
   constructor(props) {
@@ -103,12 +104,12 @@ class RecognitionContainer extends React.Component {
     }
   }
 
-  pickImage = (event) => {
-    if (event.target.files.length === 0) return
+  pickImage = (files) => {
+    if (files.length === 0) return
     this.setState({
       isRecognizing: true
     }, () => {
-      const file = event.target.files[0]
+      const file = files[0]
       const validImageExtensions = ['jpeg', 'jpg', 'png', 'webp', 'bmp', 'heic', 'svg']
       const fileExtension = file.name.split('.').pop().toLowerCase()
       if (!validImageExtensions.includes(fileExtension)) {
@@ -364,24 +365,28 @@ class RecognitionContainer extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <DropZoneContainer pickImage={this.pickImage.bind(this)}/>
         <h2>Recognize Tajweed</h2>
-        <p className="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo quod, dolore enim velit repellendus eius distinctio repellat, dicta ducimus blanditiis beatae deserunt consequuntur aspernatur magnam aperiam fuga temporibus rem libero!</p>
-        <div className="btn-container grid grid-flow-row gap-4 items-center justify-center">
-          <button className="btn-capture flex items-center px-4 py-2 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50">
-            <img className="h-7 mr-2" src="images/camera-icon.svg" alt="Capture Image" />
-            <h5>Capture Image</h5>
+        <p className="relative text-justify md:mx-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo quod, dolore enim velit repellendus eius distinctio repellat, dicta ducimus blanditiis beatae deserunt consequuntur aspernatur magnam aperiam fuga temporibus rem libero!</p>
+        <div className="btn-container relative flex flex-wrap items-center justify-center">
+          <button className="btn-capture grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 duration-200">
+            <img className="h-8 md:h-12 mr-2" src="images/camera-icon.svg" alt="Capture Image" />
+            <h5 className="md:text-lg whitespace-nowrap">Capture Image</h5>
           </button>
-          <label htmlFor="image-picker" className="btn-import flex items-center px-4 py-2 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 cursor-pointer">
-            <input type="file" id="image-picker" className="hidden" accept="image/*" onChange={this.pickImage.bind(this)} />
-            <img className="h-7 mr-2" src="images/import-icon.svg" alt="Select an Image" />
-            <h5>Select Image</h5>
+          <label htmlFor="image-picker" className="btn-import grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 cursor-pointer duration-200">
+            <input type="file" id="image-picker" className="hidden" accept="image/*" onChange={e => this.pickImage(e.target.value)} />
+            <img className="h-8 md:h-12 mr-2" src="images/import-icon.svg" alt="Select an Image" />
+            <h5 className="md:text-lg flex-nowrap">Select Image</h5>
           </label>
-          <button className="btn-capture flex items-center px-4 py-2 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50">
-            <img className="h-7 mr-2" src="images/share-screen-icon.svg" alt="Screen Capture" />
-            <h5>Screen Capture</h5>
+          <button className="btn-capture grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 duration-200">
+            <img className="h-8 md:h-12 mr-2" src="images/share-screen-icon.svg" alt="Screen Capture" />
+            <h5 className="md:text-lg whitespace-nowrap">Screen Capture</h5>
+          </button>
+          <button className="btn-manual-input grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 duration-200">
+            <img className="h-8 md:h-12 mr-2" src="images/input-text-icon.svg" alt="Manual Input" />
+            <h5 className="md:text-lg whitespace-nowrap">Input Manually</h5>
           </button>
         </div>
-        <br />
         <h5>Tajweed Recognition @ 2024</h5>
         {this.state.isRecognizing && (
           <div className="fixed inset-0 w-screen h-full flex items-center justify-center bg-black/50 backdrop-blur-sm duration-200 animate__animated animate__fadeIn">
@@ -390,7 +395,7 @@ class RecognitionContainer extends React.Component {
               <span className="text-white text-xl">Recognizing...</span>
             </div>
           </div>
-    )}
+        )}
         <ResultContainer
           props={this.props}
           isResultClosed={this.state.isResultClosed}

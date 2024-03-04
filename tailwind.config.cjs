@@ -8,11 +8,5 @@ module.exports = {
     }
   },
   plugins: [],
-  darkMode: 'class',
-  variants: {
-    extend: {
-      backgroundColor: ['dark', 'dark:hover', 'content-dark', 'content-dark:hover'],
-      textColor: ['dark', 'dark:hover', 'content-dark', 'content-dark:hover']
-    }
-  }
+  darkMode: 'class'
 }

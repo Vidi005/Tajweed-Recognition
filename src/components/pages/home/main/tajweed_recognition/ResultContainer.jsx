@@ -26,7 +26,7 @@ const ResultContainer = ({ props, isResultClosed, twTextSize, isIncreaseTextDisa
               <img className="hidden dark:block h-full duration-200" src="images/tajweed-menu-icon-dark.svg" alt="Tajweed Settings" />
             </Menu.Button>
           </Menu>
-          <button className="discard-btn flex-none p-2 hover:bg-green-300 dark:hover:bg-gray-500 active:bg-green-500 dark:active:bg-gray-300 duration-200 rounded-md" onClick={() => {
+          <button className="discard-btn flex-none h-10 p-2 hover:bg-green-300 dark:hover:bg-gray-500 active:bg-green-500 dark:active:bg-gray-300 duration-200 rounded-md" onClick={() => {
             Swal.fire({
               title: "Are you sure want to close this result?",
               text: "The result data will be removed.",
@@ -38,36 +38,36 @@ const ResultContainer = ({ props, isResultClosed, twTextSize, isIncreaseTextDisa
               if (result.isConfirmed) closeResult()
             })
           }}>
-            <img className="dark:hidden h-7 duration-200" src="images/close-icon.svg" alt="Close" />
-            <img className="hidden dark:block h-7 duration-200" src="images/close-icon-dark.svg" alt="Close" />
+            <img className="dark:hidden h-full duration-200" src="images/close-icon.svg" alt="Close" />
+            <img className="hidden dark:block h-full duration-200" src="images/close-icon-dark.svg" alt="Close" />
           </button>
         </div>
         <div className={`result-container grow flex flex-col m-2 px-2 ${isContentDarkMode ? "bg-gray-800" : "bg-green-100"} rounded-md shadow-md dark:shadow-white/50 duration-200`}>
           <div className={`content-menu flex items-center justify-end border-b ${isContentDarkMode ? "border-b-white" : "border-b-black"}`}>
-            <button className={`border ${isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} active:bg-gray-500 my-2 p-1 rounded duration-200 overflow-hidden`} onClick={increaseTextSize} disabled={isIncreaseTextDisabled}>
+            <button className={`border ${isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 my-2 p-1 rounded duration-200 overflow-hidden`} onClick={increaseTextSize} disabled={isIncreaseTextDisabled}>
               <img className={`${isContentDarkMode ? "invert-0" : "invert"} h-5 duration-200`} src="images/text-increase-icon.svg" alt="Increase" />
             </button>
-            <button className={`border ${isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} active:bg-gray-500 ml-2 p-1 rounded duration-200 overflow-hidden`} onClick={decreaseTextSize} disabled={isDecreaseTextDisabled}>
+            <button className={`border ${isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 ml-2 p-1 rounded duration-200 overflow-hidden`} onClick={decreaseTextSize} disabled={isDecreaseTextDisabled}>
               <img className={`${isContentDarkMode ? "invert-0" : "invert"} h-5 duration-200`} src="images/text-decrease-icon.svg" alt="Decrease" />
             </button>
             {!isEditMode && (
-              <button className={`border ${isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} active:bg-gray-500 ml-2 p-1 rounded duration-200 overflow-hidden`}>
+              <button className={`border ${isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 ml-2 p-1 rounded duration-200 overflow-hidden`}>
                 <img className={`${isContentDarkMode ? "invert-0" : "invert"} h-5 duration-200`} src="images/edit-icon.svg" alt="Edit" onClick={handleTextEditor}/>
               </button>
             )}
-            <button className={`border ${isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} active:bg-gray-500 ml-2 p-1 rounded duration-200 overflow-hidden`} onClick={setContentDisplayMode}>
+            <button className={`border ${isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 ml-2 p-1 rounded duration-200 overflow-hidden`} onClick={setContentDisplayMode}>
               <img className={`${isContentDarkMode ? "invert-0" : "invert"} h-5 duration-200`} src={`${isContentDarkMode ? "images/light-mode-icon.svg" : "images/dark-mode-icon.svg"}`} alt="Dark Mode" />
             </button>
           </div>
           {isEditMode
             ? (
               <React.Fragment>
-                <textarea dir="rtl" className={`border-4 border-double grow w-full p-1 font-lpmq-isep-misbah ${isContentDarkMode ? "border-white bg-black text-white" : "border-green-900 bg-white text-black"} overflow-y-auto rounded-md duration-200`} placeholder="Enter an arabic text here..." style={{ fontSize: `${twTextSize}` }} onChange={onContentChangeHandler}>{recognizedText}</textarea>
+                <textarea dir="rtl" className={`border-4 border-double grow w-full p-1 font-lpmq-isep-misbah ${isContentDarkMode ? "border-white bg-black text-white" : "border-green-900 bg-white text-black"} overflow-y-auto rounded-md duration-200`} placeholder="Enter an arabic text here" style={{ fontSize: `${twTextSize}` }} onChange={onContentChangeHandler}>{recognizedText}</textarea>
                 <button className="generate-btn flex items-center justify-center mx-auto my-2 py-1 px-3 border border-green-900 bg-green-800 hover:bg-green-900 active:bg-green-700  dark:hover:bg-green-700 dark:active:bg-green-500 text-center text-lg text-white shadow dark:shadow-white/50 duration-300 rounded-md" onClick={handleTextEditor}>Generate</button>
               </React.Fragment>
               )
             : (
-              <p dangerouslySetInnerHTML={{ __html: coloredTajweeds }} dir="rtl" className={`flex-auto h-0 w-full p-2 font-lpmq-isep-misbah ${isContentDarkMode ? "text-white bg-black" : "text-black bg-white"} overflow-y-auto rounded-md duration-200`} style={{ fontSize: `${twTextSize}` }}></p>
+              <p dangerouslySetInnerHTML={{ __html: coloredTajweeds }} dir="rtl" className={`flex-auto h-0 w-full my-2 p-2 font-lpmq-isep-misbah ${isContentDarkMode ? "text-white bg-black" : "text-black bg-white"} overflow-y-auto rounded-md duration-200`} style={{ fontSize: `${twTextSize}` }}></p>
               )
           }
         </div>
