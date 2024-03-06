@@ -4,7 +4,7 @@ import Swal from "sweetalert2"
 import { withTranslation } from "react-i18next"
 import { Menu, Transition } from "@headlessui/react"
 
-const ResultContainer = ({ props, isResultClosed, twTextSize, isIncreaseTextDisabled, isDecreaseTextDisabled, isEditMode, isContentDarkMode, increaseTextSize, decreaseTextSize, handleTextEditor, onContentChangeHandler, setContentDisplayMode, coloredTajweeds, recognizedText, closeResult }) => (
+const ResultContainer = ({ props, isResultClosed, twTextSize, isIncreaseTextDisabled, isDecreaseTextDisabled, isEditMode, isContentDarkMode, increaseTextSize, contentContainerRef, tooltipRef, tooltipContent, tooltipColor, decreaseTextSize, handleTextEditor, onContentChangeHandler, setContentDisplayMode, coloredTajweeds, recognizedText, showTooltip, hideTooltip, closeResult }) => (
   !isResultClosed && (
     <Transition
       appear
@@ -67,7 +67,18 @@ const ResultContainer = ({ props, isResultClosed, twTextSize, isIncreaseTextDisa
               </React.Fragment>
               )
             : (
-              <p dangerouslySetInnerHTML={{ __html: coloredTajweeds }} dir="rtl" className={`flex-auto h-0 w-full my-2 p-2 font-lpmq-isep-misbah ${isContentDarkMode ? "text-white bg-black" : "text-black bg-white"} overflow-y-auto rounded-md duration-200`} style={{ fontSize: `${twTextSize}` }}></p>
+              <div ref={contentContainerRef} className={`flex-auto h-0 w-full my-2 p-2 font-lpmq-isep-misbah ${isContentDarkMode ? "text-white bg-black" : "text-black bg-white"} overflow-y-auto rounded-md`} onMouseOut={hideTooltip}>
+                <p dangerouslySetInnerHTML={{ __html: coloredTajweeds }} dir="rtl" className="duration-200" style={{ fontSize: `${twTextSize}` }} onMouseMove={e => showTooltip(e)}></p>
+                {tooltipContent && (
+                  <span
+                    ref={tooltipRef}
+                    className={`absolute p-2 ${isContentDarkMode ? "text-white shadow-white/50" : "text-black"} backdrop-blur-sm bg-opacity-25 rounded shadow-md z-10`}
+                    style={{ backgroundColor: tooltipColor }}
+                  >
+                    {tooltipContent}
+                  </span>
+                )}
+              </div>
               )
           }
         </div>

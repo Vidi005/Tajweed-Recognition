@@ -1,6 +1,6 @@
 import React from "react"
 import Swal from "sweetalert2"
-import { extractGunnahCharacters, extractIdghamBigunnahCharacters, extractIdghamBilagunnahCharacters, extractIdghamMimiCharacters, extractIdghamSyamsiyahCharacters, extractIdzharCharacters, extractIdzharQamariyahCharacters, extractIdzharSyafawiCharacters, extractIkhfaCharacters, extractIkhfaSyafawiCharacters, extractIqlabCharacters, extractMadAridLissukunCharacters, extractMadBadalCharacters, extractMadIwadCharacters, extractMadJaizCharacters, extractMadLayyinCharacters, extractMadLazimMukhaffafKilmiCharacters, extractMadLazimMutsaqqalKilmiCharacters, extractMadShilahQashirahCharacters, extractMadShilahThawilahCharacters, extractMadThabiiCharacters, extractMadWajibCharacters, extractQalqalahSughraCharacters, isStorageExist, twTextSizes } from "../../../../../utils/data"
+import { isStorageExist, tajweedLaws, twTextSizes } from "../../../../../utils/data"
 import Tesseract from "tesseract.js"
 import ResultContainer from "./ResultContainer"
 import DropZoneContainer from "./import_mode/DropZoneContainer"
@@ -15,6 +15,8 @@ class RecognitionContainer extends React.Component {
       facingMode: 'environment',
       recognizedText: '',
       twTextSize: '1.5rem',
+      tooltipContent: '',
+      tooltipColor: '',
       coloredTajweeds: [],
       isCameraModeSelected: false,
       isScreenSharingModeSelected: false,
@@ -25,8 +27,13 @@ class RecognitionContainer extends React.Component {
       isDecreaseTextDisabled: false,
       isEditMode: false,
       isContentDarkMode: false,
+      // isHovered: false,
+      // hoveredTajweed: null,
       isResultClosed: true
     }
+    this.tooltipRef = React.createRef()
+    this.contentContainerRef = React.createRef()
+    // this.hoveredElementRef = React.createRef()
   }
 
   componentDidMount() {
@@ -180,30 +187,6 @@ class RecognitionContainer extends React.Component {
   }
   
   colorizeChars(recognizedText) {
-    const idzharTajweed = extractIdzharCharacters()
-    const idghamBigunnahTajweed = extractIdghamBigunnahCharacters()
-    const idghamBilagunnahTajweed = extractIdghamBilagunnahCharacters()
-    const iqlabTajweed = extractIqlabCharacters()
-    const ikhfaTajweed = extractIkhfaCharacters()
-    const idzharSyafawiTajweed = extractIdzharSyafawiCharacters()
-    const ikhfaSyafawiTajweed = extractIkhfaSyafawiCharacters()
-    const idghamMimiTajweed = extractIdghamMimiCharacters()
-    const gunnahTajweed = extractGunnahCharacters()
-    const idzharQamariyahTajweed = extractIdzharQamariyahCharacters()
-    const idghamSyamsiyahTajweed = extractIdghamSyamsiyahCharacters()
-    const qalqalahSughraTajweed = extractQalqalahSughraCharacters()
-    const madThabiiTajweed = extractMadThabiiCharacters()
-    const madWajibTajweed = extractMadWajibCharacters()
-    const madJaizTajweed = extractMadJaizCharacters()
-    const madLazimMutsaqqalKilmiTajweed = extractMadLazimMutsaqqalKilmiCharacters()
-    const madLazimMukhaffafKilmiTajweed = extractMadLazimMukhaffafKilmiCharacters()
-    const madLayyinTajweed = extractMadLayyinCharacters()
-    const madAridLissukunTajweed = extractMadAridLissukunCharacters()
-    const madShilahQashirahTajweed = extractMadShilahQashirahCharacters()
-    const madShilahThawilahTajweed = extractMadShilahThawilahCharacters()
-    const madIwadTajweed = extractMadIwadCharacters()
-    const madBadalTajweed = extractMadBadalCharacters()
-
     let colorizedChars = recognizedText
     // const shouldSkip = (currentRule, nextRule) => {
     //   // Define rules that should be skipped based on the presence of another rule
@@ -226,7 +209,7 @@ class RecognitionContainer extends React.Component {
     //   }
     // }
     const isInsideSpan = (startIdx, endIdx) => {
-      const spanRegex = /<span\b[^>]*>(.*?)<\/span>/g
+      const spanRegex = /<span\b[^>]*>(.*?)<\/span>/gm
       let match
       while ((match = spanRegex.exec(colorizedChars)) !== null) {
         const spanStart = match.index
@@ -246,104 +229,80 @@ class RecognitionContainer extends React.Component {
         }
       })
     }
-
-    idzharTajweed.forEach(string => {
-      const regex = new RegExp(`(${string})`, 'gm')
-      colorizedChars = colorizedChars.replace(regex, '<span style="color: #ff0000">$1</span>')
-    })
-    idghamBigunnahTajweed.forEach(string => {
-      const regex = new RegExp(`(${string})`, 'gm')
-      colorizedChars = colorizedChars.replace(regex, '<span style="color: #ff8000">$1</span>')
-    })
-    idghamBilagunnahTajweed.forEach(string => {
-      const regex = new RegExp(`(${string})`, 'gm')
-      colorizedChars = colorizedChars.replace(regex, '<span style="color: #ffbf00">$1</span>')
-    })
-    iqlabTajweed.forEach(string => {
-      const regex = new RegExp(`(${string})`, 'gm')
-      colorizedChars = colorizedChars.replace(regex, '<span style="color: #ffff00">$1</span>')
-    })
-    ikhfaTajweed.forEach(string => {
-      const regex = new RegExp(`(${string})`, 'gm')
-      colorizedChars = colorizedChars.replace(regex, '<span style="color: #bfff00">$1</span>')
-    })
-    idzharSyafawiTajweed.forEach(regex => {
-      colorizedChars = colorizedChars.replace(regex, (match) => `<span style="color: #80ff00">${match}</span>`)
-    })
-    ikhfaSyafawiTajweed.forEach(string => {
-      const regex = new RegExp(`(${string})`, 'gm')
-      colorizedChars = colorizedChars.replace(regex, '<span style="color: #40ff00">$1</span>')
-    })
-    idghamMimiTajweed.forEach(string => {
-      const regex = new RegExp(`(${string})`, 'gm')
-      colorizedChars = colorizedChars.replace(regex, '<span style="color: #00ff00">$1</span>')
-    })
-    gunnahTajweed.forEach(string => {
-      const regex = new RegExp(`(${string})`, 'gm')
-      colorizedChars = colorizedChars.replace(regex, '<span style="color: #00ff40">$1</span>')
-    })
-    idzharQamariyahTajweed.forEach(string => {
-      const regex = new RegExp(`(${string})`, 'gm')
-      colorizedChars = colorizedChars.replace(regex, '<span style="color: #00ff80">$1</span>')
-    })
-    idghamSyamsiyahTajweed.forEach(string => {
-      const regex = new RegExp(`(${string})`, 'gm')
-      colorizedChars = colorizedChars.replace(regex, '<span style="color: #00ffbf">$1</span>')
-    })
-    qalqalahSughraTajweed.forEach(string => {
-      const regex = new RegExp(`(${string})`, 'gm')
-      colorizedChars = colorizedChars.replace(regex, '<span style="color: #00ffff">$1</span>')
-    })
-    madWajibTajweed.forEach(string => {
-      const regex = new RegExp(`(${string})`, 'gm')
-      colorizedChars = colorizedChars.replace(regex, '<span style="color: #0080ff">$1</span>')
-    })
-    madJaizTajweed.forEach(string => {
-      const regex = new RegExp(`(${string})`, 'gm')
-      colorizedChars = colorizedChars.replace(regex, '<span style="color: #0040ff">$1</span>')
-    })
-    madAridLissukunTajweed.forEach(regex => {
-      colorizedChars = colorizedChars.replace(regex, match => `<span style="color: #bf00ff">${match}</span>`)
-    })
-    madShilahQashirahTajweed.forEach(string => {
-      const regex = new RegExp(`(${string})`, 'gm')
-      colorizedChars = colorizedChars.replace(regex, '<span style="color: #ff00ff">$1</span>')
-    })
-    madShilahThawilahTajweed.forEach(string => {
-      const regex = new RegExp(`(${string})`, 'gm')
-      colorizedChars = colorizedChars.replace(regex, '<span style="color: #ff00bf">$1</span>')
-    })
-    madBadalTajweed.forEach(string => {
-      const regex = new RegExp(`(${string})`, 'gm')
-      colorizedChars = colorizedChars.replace(regex, '<span style="color: #ff0040">$1</span>')
-    })
-    madIwadTajweed.forEach(string => {
-      const regex = new RegExp(`(${string})`, 'gm')
-      colorizedChars = colorizedChars.replace(regex, '<span style="color: #ff0080">$1</span>')
-    })
-    madThabiiTajweed.forEach(string => {
-      const regex = new RegExp(`(${string})`, 'gm')
-      applyColor(regex, '#00bfff')
-      // colorizedChars = colorizedChars.replace(regex, '<span style="color: #00bfff">$1</span>')
-    })
-    madLazimMutsaqqalKilmiTajweed.forEach(regex => {
-      colorizedChars = colorizedChars.replace(regex, match => `<span style="color: #0000ff">${match}</span>`)
-    })
-    // const applyMadLazimMutsaqqalColor = (match, _, nextChars) => {
-    //   return this.extractAndColorizeMadLazimMutsaqqalKilmi(match, nextChars)
-    // }
-    // madLazimMutsaqqalKilmiTajweed.forEach(regex => {
-    //   colorizedChars = colorizedChars.replace(regex, applyMadLazimMutsaqqalColor)
-    // })
-    madLazimMukhaffafKilmiTajweed.forEach(regex => {
-      colorizedChars = colorizedChars.replace(regex, match => `<span style="color: #4000ff">${match}</span>`)
-    })
-    madLayyinTajweed.forEach(string => {
-      const regex = new RegExp(`(${string})`, 'gm')
-      colorizedChars = colorizedChars.replace(regex, '<span style="color: #8000ff">$1</span>')
+    tajweedLaws().forEach(tajweedLaw => {
+      tajweedLaw.rules.forEach(rule => {
+        if (typeof rule === 'string') {
+          const regex = new RegExp(`(${rule})`, 'gm')
+          applyColor(regex, tajweedLaw.color)
+        } else {
+          applyColor(rule, tajweedLaw.color)
+        }
+      })
     })
     return colorizedChars
   }
+
+  showTooltip(event) {
+    const matchedTajweed = tajweedLaws().find(tajweedLaw => {
+      const regex = this.buildRegExp(tajweedLaw.rules)
+      return regex.test(event.target.innerHTML)
+    })
+    if (matchedTajweed) {
+      const tooltipColor = matchedTajweed.color
+      this.setState({
+        tooltipContent: matchedTajweed.name || '',
+        tooltipColor: tooltipColor,
+      })
+      const contentContainerRect = this.contentContainerRef.current.getBoundingClientRect()
+      const tooltip = this.tooltipRef.current
+      const tooltipWidth = tooltip.offsetWidth
+      const tooltipHeight = tooltip.offsetHeight
+      const containerHalfWidth = contentContainerRect.width / 2
+      const leftPosition = event.clientX
+      if (leftPosition < containerHalfWidth) {
+        tooltip.style.left = `${leftPosition}px`
+        tooltip.style.right = 'auto'
+      } else {
+        tooltip.style.left = `${leftPosition - tooltipWidth}px`
+        tooltip.style.right = 'auto'
+      }
+      tooltip.style.top = `${event.clientY - tooltipHeight - 10}px`
+      tooltip.style.backgroundColor = tooltipColor
+    }
+  }
+
+  buildRegExp(rules) {
+    const isRegexArray = rules.every(rule => rule instanceof RegExp)
+    if (isRegexArray) {
+      return new RegExp(`${rules.map(regex => regex.source).join('|')}`, 'gm')
+    } else {
+      return new RegExp(`(${rules.join('|')})`, 'gm')
+    }
+  }
+
+  hideTooltip() {
+    this.setState({
+      tooltipContent: '',
+      tooltipColor: ''
+    })
+  }
+
+  // handleMouseEnter(tajweedLaw) {
+  //   const rect = this.hoveredElementRef.current.getBoundingClientRect()
+  //   const isCursorHalfPos = window.innerWidth / 2 < rect.right
+  //   const adjustedPos = isCursorHalfPos ? rect.left : rect.right
+  //   this.setState({
+  //     isHovered: true,
+  //     hoveredTajweed: tajweedLaw,
+  //     popUpPos: {
+  //       top: rect.bottom,
+  //       left: adjustedPos
+  //     }})
+  // }
+
+  // handleMouseLeave() {
+  //   this.setState({ isHovered: false, hoveredTajweed: null })
+  // }
 
   // extractAndColorizeMadLazimMutsaqqalKilmi = (colorizedChars, nextChars) => {
   //   // Regular expression to match "Mad Lazim Mutsaqqal Kilmi"
@@ -374,7 +333,7 @@ class RecognitionContainer extends React.Component {
             <h5 className="md:text-lg whitespace-nowrap">Capture Image</h5>
           </button>
           <label htmlFor="image-picker" className="btn-import grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 cursor-pointer duration-200">
-            <input type="file" id="image-picker" className="hidden" accept="image/*" onChange={e => this.pickImage(e.target.value)} />
+            <input type="file" id="image-picker" className="hidden" accept="image/*" onChange={e => this.pickImage(e.target.files)} />
             <img className="h-8 md:h-12 mr-2" src="images/import-icon.svg" alt="Select an Image" />
             <h5 className="md:text-lg flex-nowrap">Select Image</h5>
           </label>
@@ -404,14 +363,19 @@ class RecognitionContainer extends React.Component {
           isDecreaseTextDisabled={this.state.isDecreaseTextDisabled}
           isEditMode={this.state.isEditMode}
           isContentDarkMode={this.state.isContentDarkMode}
+          coloredTajweeds={this.state.coloredTajweeds}
+          recognizedText={this.state.recognizedText}
+          contentContainerRef={this.contentContainerRef}
+          tooltipRef={this.tooltipRef}
+          tooltipContent={this.state.tooltipContent}
           closeResult={this.closeResult.bind(this)}
           increaseTextSize={this.increaseTextSize.bind(this)}
           decreaseTextSize={this.decreaseTextSize.bind(this)}
           handleTextEditor={this.handleTextEditor.bind(this)}
           onContentChangeHandler={this.onContentChangeEventHandler.bind(this)}
           setContentDisplayMode={this.setContentDisplayMode.bind(this)}
-          coloredTajweeds={this.state.coloredTajweeds}
-          recognizedText={this.state.recognizedText}
+          showTooltip={this.showTooltip.bind(this)}
+          hideTooltip={this.hideTooltip.bind(this)}
         />
       </React.Fragment>
     )
