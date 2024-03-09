@@ -218,12 +218,45 @@ class RecognitionContainer extends React.Component {
           return true
         }
       }
+
+      // const tempDiv = document.createElement('div')
+      // tempDiv.innerHTML = colorizedChars
+      // const walker = document.createTreeWalker(tempDiv, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT)
+
+      // while (walker.nextNode()) {
+      //   const node = walker.currentNode;
+      //   let nodeStart = 0;
+      //   let nodeEnd = 0;
+      //   if (node.nodeType === Node.TEXT_NODE) {
+      //     nodeStart = node.nodeValue.indexOf(node.nodeValue);
+      //     nodeEnd = nodeStart + node.nodeValue.length;
+      //   } else if (node.nodeType === Node.ELEMENT_NODE && node.nodeName.toLowerCase() === 'span') {
+      //     const spanText = node.textContent || node.innerText || '';
+      //     nodeStart = colorizedChars.indexOf(spanText);
+      //     nodeEnd = nodeStart + spanText.length;
+      //   }
+      //   if (startIdx >= nodeStart && endIdx <= nodeEnd) {
+      //     return true;
+      //   }
+      // }
+      // while (walker.nextNode()) {
+      //   const node = walker.currentNode;
+      //   const range = document.createRange();
+      //   range.selectNode(node);
+    
+      //   const nodeStart = range.startOffset;
+      //   const nodeEnd = range.endOffset;
+    
+      //   if (startIdx >= nodeStart && endIdx <= nodeEnd && node.nodeName.toLowerCase() === 'span') {
+      //     return true;
+      //   }
+      // }
       return false
     }
     const applyColor = (regex, color) => {
       colorizedChars = colorizedChars.replace(regex, (match, startIdx, endIdx) => {
         if (!isInsideSpan(startIdx, endIdx)) {
-          return `<span style="color: ${color}">${match}</span>`
+          return `<span style="color: ${color}; cursor: pointer;">${match}</span>`
         } else {
           return match
         }
@@ -242,15 +275,39 @@ class RecognitionContainer extends React.Component {
     return colorizedChars
   }
 
+  // shouldColorize(chars) {
+  //   tajweedLaws().map((tajweedLaw, index) => {
+  //     if (typeof tajweedLaw.rules[index] === 'string' && tajweedLaw.rules.some(substr => chars.includes(substr))) {
+  //       return tajweedLaw.color
+  //     } else if (tajweedLaw.rules[index] instanceof RegExp) {
+  //       for (const pattern of tajweedLaw.rules) {
+  //         if (new RegExp(pattern).test(chars)) {
+  //           return tajweedLaw.color
+  //         }
+  //       }
+  //     }
+  //   })
+  //   return null
+  // }
+
+  // renderColoredChars() {
+  //   const characters = this.state.recognizedText.split('')
+  //   const colorizedChars = characters.map((char, index) => {
+  //     const charsColor = this.shouldColorize(char)
+  //     return (<span key={index} style={{ color: charsColor ? charsColor : '' }}>{char}</span>)
+  //   })
+  //   this.setState({ coloredTajweeds: colorizedChars })
+  // }
+
   showTooltip(event) {
-    const matchedTajweed = tajweedLaws().find(tajweedLaw => {
+    const matchedTajweed = tajweedLaws().filter(tajweedLaw => {
       const regex = this.buildRegExp(tajweedLaw.rules)
       return regex.test(event.target.innerHTML)
     })
-    if (matchedTajweed) {
-      const tooltipColor = matchedTajweed.color
+    if (matchedTajweed.length === 1) {
+      const tooltipColor = `${matchedTajweed[0].color}80`
       this.setState({
-        tooltipContent: matchedTajweed.name || '',
+        tooltipContent: matchedTajweed.map(tajweedLaw => tajweedLaw.name).join(', '),
         tooltipColor: tooltipColor,
       })
       const contentContainerRect = this.contentContainerRef.current.getBoundingClientRect()
@@ -286,36 +343,6 @@ class RecognitionContainer extends React.Component {
       tooltipColor: ''
     })
   }
-
-  // handleMouseEnter(tajweedLaw) {
-  //   const rect = this.hoveredElementRef.current.getBoundingClientRect()
-  //   const isCursorHalfPos = window.innerWidth / 2 < rect.right
-  //   const adjustedPos = isCursorHalfPos ? rect.left : rect.right
-  //   this.setState({
-  //     isHovered: true,
-  //     hoveredTajweed: tajweedLaw,
-  //     popUpPos: {
-  //       top: rect.bottom,
-  //       left: adjustedPos
-  //     }})
-  // }
-
-  // handleMouseLeave() {
-  //   this.setState({ isHovered: false, hoveredTajweed: null })
-  // }
-
-  // extractAndColorizeMadLazimMutsaqqalKilmi = (colorizedChars, nextChars) => {
-  //   // Regular expression to match "Mad Lazim Mutsaqqal Kilmi"
-  //   const regex = /(\\u064E[\\u0627\\u0648\\u0649]\s?)([\\u0651\\u0605\\u0653]?)/
-  
-  //   const match = nextChars.match(regex)
-  
-  //   if (match !== null && match[0].length === nextChars.length) {
-  //     return `<span style="color: #0000ff">${colorizedChars}</span>`
-  //   }
-  
-  //   return colorizedChars
-  // }
 
   closeResult () {
     this.setState({ isResultClosed: true })

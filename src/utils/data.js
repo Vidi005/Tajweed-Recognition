@@ -9,28 +9,28 @@ const isStorageExist = content => {
 
 const extractIdzharCharacters = () => [
   'ن ا', 'نْ ا', '\u064B \u0627', '\u064C \u0627', '\u064D \u0627', '\u064B \u0627 \u0627',
-  'ن ع', 'نْ ع', '\u064B \u0641', '\u064C \u0641', '\u064D \u0641', '\u064B \u0627 \u0641',
+  'ن ع', 'نْ ع', '\u064B \u0639', '\u064C \u0639', '\u064D \u0639', '\u064B \u0627 \u0639',
   'ن غ', 'نْ غ', '\u064B \u063A', '\u064C \u063A', '\u064D \u063A', '\u064B \u0627 \u063A',
-  'ن ح', 'نْ ح', '\u064B \u062F', '\u064C \u062F', '\u064D \u062F', '\u064B \u0627 \u062F',
+  'ن ح', 'نْ ح', '\u064B \u062D', '\u064C \u062D', '\u064D \u062D', '\u064B \u0627 \u062D',
   'ن خ', 'نْ خ', '\u064B \u062E', '\u064C \u062E', '\u064D \u062E', '\u064B \u0627 \u062E',
   'ن ه', 'نْ ه', '\u064B \u0647', '\u064C \u0647', '\u064D \u0647', '\u064B \u0627 \u0647',
   'نا', 'نْا', '\u064B\u0627', '\u064C\u0627', '\u064D\u0627', '\u064B\u0627\u0627',
-  'نع', 'نْع', '\u064B\u0641', '\u064C\u0641', '\u064D\u0641', '\u064B\u0627\u0641',
+  'نع', 'نْع', '\u064B\u0639', '\u064C\u0639', '\u064D\u0639', '\u064B\u0627\u0639',
   'نغ', 'نْغ', '\u064B\u063A', '\u064C\u063A', '\u064D\u063A', '\u064B\u0627\u063A',
-  'نح', 'نْح', '\u064B\u062F', '\u064C\u062F', '\u064D\u062F', '\u064B\u0627\u062F',
+  'نح', 'نْح', '\u064B\u062D', '\u064C\u062D', '\u064D\u062D', '\u064B\u0627\u062D',
   'نخ', 'نْخ', '\u064B\u062E', '\u064C\u062E', '\u064D\u062E', '\u064B\u0627\u062E',
   'نه', 'نْه', '\u064B\u0647', '\u064C\u0647', '\u064D\u0647', '\u064B\u0627\u0647'
 ]
 
 const extractIdghamBigunnahCharacters = () => [
-  'ن ي', 'نْ ي', '\u064B \u064A', '\u064C \u064A', '\u064D \u064A', '\u064B \u0627 \u064A',
-  'ن ن', 'نْ ن', '\u064B \u064E', '\u064C \u064E', '\u064D \u064E', '\u064B \u0627 \u064E',
-  'ن م', 'نْ م', '\u064B \u0645', '\u064C \u0645', '\u064D \u0645', '\u064B \u0627 \u0645',
-  'ن و', 'نْ و', '\u064B \u0648', '\u064C \u0648', '\u064D \u0648', '\u064B \u0627 \u0648',
-  'ني', 'نْي', '\u064B\u064A', '\u064C\u064A', '\u064D\u064A', '\u064B\u0627\u064A',
-  'نن', 'نْن', '\u064B\u064E', '\u064C\u064E', '\u064D\u064E', '\u064B\u0627\u064E',
-  'نم', 'نْم', '\u064B\u0645', '\u064C\u0645', '\u064D\u0645', '\u064B\u0627\u0645',
-  'نو', 'نْو', '\u064B\u0648', '\u064C\u0648', '\u064D\u0648', '\u064B\u0627\u0648'
+  'ن ي', 'نْ ي', '\u064B \u064A', '\u064C \u064A', '\u064D \u064A', '\u064B \u0627 \u064A', '\u064D \u0627 \u064A',
+  'ن ن', 'نْ ن', '\u064B \u0646', '\u064C \u0646', '\u064D \u0646', '\u064B \u0627 \u0646', '\u064D \u0627 \u0646',
+  'ن م', 'نْ م', '\u064B \u0645', '\u064C \u0645', '\u064D \u0645', '\u064B \u0627 \u0645', '\u064D \u0627 \u0645',
+  'ن و', 'نْ و', '\u064B \u0648', '\u064C \u0648', '\u064D \u0648', '\u064B \u0627 \u0648', '\u064D \u0627 \u0648',
+  'ني', 'نْي', '\u064B\u064A', '\u064C\u064A', '\u064D\u064A', '\u064B\u0627\u064A', '\u064D\u0627\u064A',
+  'نن', 'نْن', '\u064B\u0646', '\u064C\u0646', '\u064D\u0646', '\u064B\u0627\u0646', '\u064D\u0627\u0646',
+  'نم', 'نْم', '\u064B\u0645', '\u064C\u0645', '\u064D\u0645', '\u064B\u0627\u0645', '\u064D\u0627\u0645',
+  'نو', 'نْو', '\u064B\u0648', '\u064C\u0648', '\u064D\u0648', '\u064B\u0627\u0648', '\u064D\u0627\u0648'
 ]
 
 const extractIdghamBilagunnahCharacters = () => [
@@ -43,24 +43,26 @@ const extractIdghamBilagunnahCharacters = () => [
 const extractIqlabCharacters = () => ['ن ب', 'نْ ب', 'نب', 'نْب', '\u064B \u0628', '\u064C \u0628', '\u064D \u0628', '\u064B\u0628', '\u064C\u0628', '\u064D\u0628']
 
 const extractIkhfaCharacters = () => [
-  'نت', 'نْت', 'ن ت', 'نْ ت', '\u064B \u062A', '\u064C \u062A', '\u064D \u062A', '\u064B\u0627\u062A', '\u064C\u0627\u062A', '\u064D\u0627\u062A', '\u064B\u0627 \u062A', '\u064C\u0627 \u062A', '\u064D\u0627 \u062A', '\u064B \u0627 \u062A', '\u064C \u0627 \u062A', '\u064D \u0627 \u062A',
-  'نث', 'نْث', 'ن ث', 'نْ ث', '\u064B \u062B', '\u064C \u062B', '\u064D \u062B', '\u064B\u0627\u062B', '\u064C\u0627\u062B', '\u064D\u0627\u062B', '\u064B\u0627 \u062B', '\u064C\u0627 \u062B', '\u064D\u0627 \u062B', '\u064B \u0627 \u062B', '\u064C \u0627 \u062B', '\u064D \u0627 \u062B',
-  'نج', 'نْج', 'ن ج', 'نْ ج', '\u064B \u062C', '\u064C \u062C', '\u064D \u062C', '\u064B\u0627\u062C', '\u064C\u0627\u062C', '\u064D\u0627\u062C', '\u064B\u0627 \u062C', '\u064C\u0627 \u062C', '\u064D\u0627 \u062C', '\u064B \u0627 \u062C', '\u064C \u0627 \u062C', '\u064D \u0627 \u062C',
-  'ند', 'نْد', 'ن د', 'نْ د', '\u064B \u062F', '\u064C \u062F', '\u064D \u062F', '\u064B\u0627\u062F', '\u064C\u0627\u062F', '\u064D\u0627\u062F', '\u064B\u0627 \u062F', '\u064C\u0627 \u062F', '\u064D\u0627 \u062F', '\u064B \u0627 \u062F', '\u064C \u0627 \u062F', '\u064D \u0627 \u062F',
-  'نذ', 'نْذ', 'ن ذ', 'نْ ذ', '\u064B \u0630', '\u064C \u0630', '\u064D \u0630', '\u064B\u0627\u0630', '\u064C\u0627\u0630', '\u064D\u0627\u0630', '\u064B\u0627 \u0630', '\u064C\u0627 \u0630', '\u064D\u0627 \u0630', '\u064B \u0627 \u0630', '\u064C \u0627 \u0630', '\u064D \u0627 \u0630',
-  'نز', 'نْز', 'ن ز', 'نْ ز', '\u064B \u0632', '\u064C \u0632', '\u064D \u0632', '\u064B\u0627\u0632', '\u064C\u0627\u0632', '\u064D\u0627\u0632', '\u064B\u0627 \u0632', '\u064C\u0627 \u0632', '\u064D\u0627 \u0632', '\u064B \u0627 \u0632', '\u064C \u0627 \u0632', '\u064D \u0627 \u0632',
-  'نس', 'نْس', 'ن س', 'نْ س', '\u064B \u0633', '\u064C \u0633', '\u064D \u0633', '\u064B\u0627\u0633', '\u064C\u0627\u0633', '\u064D\u0627\u0633', '\u064B\u0627 \u0633', '\u064C\u0627 \u0633', '\u064D\u0627 \u0633', '\u064B \u0627 \u0633', '\u064C \u0627 \u0633', '\u064D \u0627 \u0633',
-  'نش', 'نْش', 'ن ش', 'نْ ش', '\u064B \u0634', '\u064C \u0634', '\u064D \u0634', '\u064B\u0627\u0634', '\u064C\u0627\u0634', '\u064D\u0627\u0634', '\u064B\u0627 \u0634', '\u064C\u0627 \u0634', '\u064D\u0627 \u0634', '\u064B \u0627 \u0634', '\u064C \u0627 \u0634', '\u064D \u0627 \u0634',
-  'نص', 'نْص', 'ن ص', 'نْ ص', '\u064B \u0635', '\u064C \u0635', '\u064D \u0635', '\u064B\u0627\u0635', '\u064C\u0627\u0635', '\u064D\u0627\u0635', '\u064B\u0627 \u0635', '\u064C\u0627 \u0635', '\u064D\u0627 \u0635', '\u064B \u0627 \u0635', '\u064C \u0627 \u0635', '\u064D \u0627 \u0635',
-  'نض', 'نْض', 'ن ض', 'نْ ض', '\u064B \u0636', '\u064C \u0636', '\u064D \u0636', '\u064B\u0627\u0636', '\u064C\u0627\u0636', '\u064D\u0627\u0636', '\u064B\u0627 \u0636', '\u064C\u0627 \u0636', '\u064D\u0627 \u0636', '\u064B \u0627 \u0636', '\u064C \u0627 \u0636', '\u064D \u0627 \u0636',
-  'نط', 'نْط', 'ن ط', 'نْ ط', '\u064B \u0637', '\u064C \u0637', '\u064D \u0637', '\u064B\u0627\u0637', '\u064C\u0627\u0637', '\u064D\u0627\u0637', '\u064B\u0627 \u0637', '\u064C\u0627 \u0637', '\u064D\u0627 \u0637', '\u064B \u0627 \u0637', '\u064C \u0627 \u0637', '\u064D \u0627 \u0637',
-  'نظ', 'نْظ', 'ن ظ', 'نْ ظ', '\u064B \u0638', '\u064C \u0638', '\u064D \u0638', '\u064B\u0627\u0638', '\u064C\u0627\u0638', '\u064D\u0627\u0638', '\u064B\u0627 \u0638', '\u064C\u0627 \u0638', '\u064D\u0627 \u0638', '\u064B \u0627 \u0638', '\u064C \u0627 \u0638', '\u064D \u0627 \u0638',
-  'نف', 'نْف', 'ن ف', 'نْ ف', '\u064B \u0641', '\u064C \u0641', '\u064D \u0641', '\u064B\u0627\u0641', '\u064C\u0627\u0641', '\u064D\u0627\u0641', '\u064B\u0627 \u0641', '\u064C\u0627 \u0641', '\u064D\u0627 \u0641', '\u064B \u0627 \u0641', '\u064C \u0627 \u0641', '\u064D \u0627 \u0641',
-  'نق', 'نْق', 'ن ق', 'نْ ق', '\u064B \u0642', '\u064C \u0642', '\u064D \u0642', '\u064B\u0627\u0642', '\u064C\u0627\u0642', '\u064D\u0627\u0642', '\u064B\u0627 \u0642', '\u064C\u0627 \u0642', '\u064D\u0627 \u0642', '\u064B \u0627 \u0642', '\u064C \u0627 \u0642', '\u064D \u0627 \u0642',
-  'نك', 'نْك', 'ن ك', 'نْ ك', '\u064B \u0643', '\u064C \u0643', '\u064D \u0643', '\u064B\u0627\u0643', '\u064C\u0627\u0643', '\u064D\u0627\u0643', '\u064B\u0627 \u0643', '\u064C\u0627 \u0643', '\u064D\u0627 \u0643', '\u064B \u0627 \u0643', '\u064C \u0627 \u0643', '\u064D \u0627 \u0643'
+  'نْة', 'نْ ة', '\u064B \u0629', '\u064C \u0629', '\u064D \u0629', '\u064B\u0627\u0629', '\u064C\u0627\u0629', '\u064D\u0627\u0629', '\u064B\u0627 \u0629', '\u064C\u0627 \u0629', '\u064D\u0627 \u0629', '\u064B \u0627 \u0629', '\u064C \u0627 \u0629', '\u064D \u0627 \u0629',
+  'نْت', 'نْ ت', '\u064B \u062A', '\u064C \u062A', '\u064D \u062A', '\u064B\u0627\u062A', '\u064C\u0627\u062A', '\u064D\u0627\u062A', '\u064B\u0627 \u062A', '\u064C\u0627 \u062A', '\u064D\u0627 \u062A', '\u064B \u0627 \u062A', '\u064C \u0627 \u062A', '\u064D \u0627 \u062A',
+  'نْث', 'نْ ث', '\u064B \u062B', '\u064C \u062B', '\u064D \u062B', '\u064B\u0627\u062B', '\u064C\u0627\u062B', '\u064D\u0627\u062B', '\u064B\u0627 \u062B', '\u064C\u0627 \u062B', '\u064D\u0627 \u062B', '\u064B \u0627 \u062B', '\u064C \u0627 \u062B', '\u064D \u0627 \u062B',
+  'نْج', 'نْ ج', '\u064B \u062C', '\u064C \u062C', '\u064D \u062C', '\u064B\u0627\u062C', '\u064C\u0627\u062C', '\u064D\u0627\u062C', '\u064B\u0627 \u062C', '\u064C\u0627 \u062C', '\u064D\u0627 \u062C', '\u064B \u0627 \u062C', '\u064C \u0627 \u062C', '\u064D \u0627 \u062C',
+  'نْد', 'نْ د', '\u064B \u062F', '\u064C \u062F', '\u064D \u062F', '\u064B\u0627\u062F', '\u064C\u0627\u062F', '\u064D\u0627\u062F', '\u064B\u0627 \u062F', '\u064C\u0627 \u062F', '\u064D\u0627 \u062F', '\u064B \u0627 \u062F', '\u064C \u0627 \u062F', '\u064D \u0627 \u062F',
+  'نْذ', 'نْ ذ', '\u064B \u0630', '\u064C \u0630', '\u064D \u0630', '\u064B\u0627\u0630', '\u064C\u0627\u0630', '\u064D\u0627\u0630', '\u064B\u0627 \u0630', '\u064C\u0627 \u0630', '\u064D\u0627 \u0630', '\u064B \u0627 \u0630', '\u064C \u0627 \u0630', '\u064D \u0627 \u0630',
+  'نْز', 'نْ ز', '\u064B \u0632', '\u064C \u0632', '\u064D \u0632', '\u064B\u0627\u0632', '\u064C\u0627\u0632', '\u064D\u0627\u0632', '\u064B\u0627 \u0632', '\u064C\u0627 \u0632', '\u064D\u0627 \u0632', '\u064B \u0627 \u0632', '\u064C \u0627 \u0632', '\u064D \u0627 \u0632',
+  'نْس', 'نْ س', '\u064B \u0633', '\u064C \u0633', '\u064D \u0633', '\u064B\u0627\u0633', '\u064C\u0627\u0633', '\u064D\u0627\u0633', '\u064B\u0627 \u0633', '\u064C\u0627 \u0633', '\u064D\u0627 \u0633', '\u064B \u0627 \u0633', '\u064C \u0627 \u0633', '\u064D \u0627 \u0633',
+  'نْش', 'نْ ش', '\u064B \u0634', '\u064C \u0634', '\u064D \u0634', '\u064B\u0627\u0634', '\u064C\u0627\u0634', '\u064D\u0627\u0634', '\u064B\u0627 \u0634', '\u064C\u0627 \u0634', '\u064D\u0627 \u0634', '\u064B \u0627 \u0634', '\u064C \u0627 \u0634', '\u064D \u0627 \u0634',
+  'نْص', 'نْ ص', '\u064B \u0635', '\u064C \u0635', '\u064D \u0635', '\u064B\u0627\u0635', '\u064C\u0627\u0635', '\u064D\u0627\u0635', '\u064B\u0627 \u0635', '\u064C\u0627 \u0635', '\u064D\u0627 \u0635', '\u064B \u0627 \u0635', '\u064C \u0627 \u0635', '\u064D \u0627 \u0635',
+  'نْض', 'نْ ض', '\u064B \u0636', '\u064C \u0636', '\u064D \u0636', '\u064B\u0627\u0636', '\u064C\u0627\u0636', '\u064D\u0627\u0636', '\u064B\u0627 \u0636', '\u064C\u0627 \u0636', '\u064D\u0627 \u0636', '\u064B \u0627 \u0636', '\u064C \u0627 \u0636', '\u064D \u0627 \u0636',
+  'نْط', 'نْ ط', '\u064B \u0637', '\u064C \u0637', '\u064D \u0637', '\u064B\u0627\u0637', '\u064C\u0627\u0637', '\u064D\u0627\u0637', '\u064B\u0627 \u0637', '\u064C\u0627 \u0637', '\u064D\u0627 \u0637', '\u064B \u0627 \u0637', '\u064C \u0627 \u0637', '\u064D \u0627 \u0637',
+  'نْظ', 'نْ ظ', '\u064B \u0638', '\u064C \u0638', '\u064D \u0638', '\u064B\u0627\u0638', '\u064C\u0627\u0638', '\u064D\u0627\u0638', '\u064B\u0627 \u0638', '\u064C\u0627 \u0638', '\u064D\u0627 \u0638', '\u064B \u0627 \u0638', '\u064C \u0627 \u0638', '\u064D \u0627 \u0638',
+  'نْف', 'نْ ف', '\u064B \u0641', '\u064C \u0641', '\u064D \u0641', '\u064B\u0627\u0641', '\u064C\u0627\u0641', '\u064D\u0627\u0641', '\u064B\u0627 \u0641', '\u064C\u0627 \u0641', '\u064D\u0627 \u0641', '\u064B \u0627 \u0641', '\u064C \u0627 \u0641', '\u064D \u0627 \u0641',
+  'نْق', 'نْ ق', '\u064B \u0642', '\u064C \u0642', '\u064D \u0642', '\u064B\u0627\u0642', '\u064C\u0627\u0642', '\u064D\u0627\u0642', '\u064B\u0627 \u0642', '\u064C\u0627 \u0642', '\u064D\u0627 \u0642', '\u064B \u0627 \u0642', '\u064C \u0627 \u0642', '\u064D \u0627 \u0642',
+  'نْك', 'نْ ك', '\u064B \u0643', '\u064C \u0643', '\u064D \u0643', '\u064B\u0627\u0643', '\u064C\u0627\u0643', '\u064D\u0627\u0643', '\u064B\u0627 \u0643', '\u064C\u0627 \u0643', '\u064D\u0627 \u0643', '\u064B \u0627 \u0643', '\u064C \u0627 \u0643', '\u064D \u0627 \u0643',
+  'نْک', 'نْ ک', '\u064B \u06A9', '\u064C \u06A9', '\u064D \u06A9', '\u064B\u0627\u06A9', '\u064C\u0627\u06A9', '\u064D\u0627\u06A9', '\u064B\u0627 \u06A9', '\u064C\u0627 \u06A9', '\u064D\u0627 \u06A9', '\u064B \u0627 \u06A9', '\u064C \u0627 \u06A9', '\u064D \u0627 \u06A9'
 ]
 
-const extractIdzharSyafawiCharacters = () => [/م (?!([مب]))/gm, /مْ (?!([مب]))/gm]
+const extractIdzharSyafawiCharacters = () => [/م (?!([مب]))/gm, /مْ (?!([مب]))/gm, /مْ(?!([مب]))/gm]
 
 const extractIkhfaSyafawiCharacters = () => ['م ب', 'مْ ب', 'مب', 'مْب']
 
@@ -98,9 +100,9 @@ const extractQalqalahKubraCharacters = () => [
 
 const extractMadThabiiCharacters = () => [
   '\u064E\u0627', '\u064E \u0627',
-  '\u064F\u0648', '\u064F \u0648', '\u064F\u0648[\u0652|\u06DF]', '\u064F \u0648[\u0652|\u06DF]',
-  '\u0650\u064A', '\u0650 \u064A', '\u0650\u064A[\u0652|\u06DF]', '\u0650 \u064A[\u0652|\u06DF]',
-  '\u0656', '\u0670', '\u0657', 'لاَ'
+  '\u064F\u0648\u0652', '\u064F \u0648\u0652', '\u064F\u0648\u06DF', '\u064F \u0648\u06DF',
+  '\u0650\u064A\u0652', '\u0650 \u064A\u0652', '\u0650\u064A\u06DF', '\u0650 \u064A\u06DF',
+  '\u0656', '\u0670', '\u0657', 'لاَ', 'لله'
 ]
 
 const extractMadWajibCharacters = () => {
@@ -113,15 +115,16 @@ const extractMadWajibCharacters = () => {
   const madWajibDiacritic2 = dataCopy.map(char => `${char.replace('\u0627', '\u0627\u0653').replace('\u0648', '\u0648\u0653').replace('\u064A', '\u064A\u0653')} \u0621`)
   const madWajibDiacritic3Trimmed = dataCopy.map(char => `${char.replace('\u0627', '\u0627\u0622').replace('\u0648', '\u0648\u0622').replace('\u064A', '\u064A\u0622')}\u0621`)
   const madWajibDiacritic3 = dataCopy.map(char => `${char.replace('\u0627', '\u0627\u0622').replace('\u0648', '\u0648\u0622').replace('\u064A', '\u064A\u0622')} \u0621`)
-  const madWajibDiacritic4Trimmed = dataCopy.map(char => `${char.replace('\u0670', '\u0670\u0623').replace('\u0656', '\u0656\u0623')}\u0621`)
-  const madWajibDiacritic4 = dataCopy.map(char => `${char.replace('\u0670', '\u0670\u0623').replace('\u0656', '\u0656\u0623')} \u0621`)
-  const madWajibDiacritic5Trimmed = dataCopy.map(char => `${char.replace('\u0648', '\u0648\u0652\u0605').replace('\u0648', '\u0648\u0652\u0653').replace('\u0648', '\u0648\u0652\u0622')}\u0621`)
-  const madWajibDiacritic5 = dataCopy.map(char => `${char.replace('\u0648', '\u0648\u0652\u0605').replace('\u0648', '\u0648\u0652\u0653').replace('\u0648', '\u0648\u0652\u0622')} \u0621`)
-  const madWajibDiacritic6Trimmed = dataCopy.map(char => `${char.replace('\u0648', '\u0648\u06DF\u0605').replace('\u0648', '\u0648\u06DF\u0653').replace('\u0648', '\u0648\u06DF\u0622')}\u0621`)
-  const madWajibDiacritic6 = dataCopy.map(char => `${char.replace('\u0648', '\u0648\u06DF\u0605').replace('\u0648', '\u0648\u06DF\u0653').replace('\u0648', '\u0648\u06DF\u0622')} \u0621`)
-  const madWajibDiacritic7Trimmed = dataCopy.map(char => `${char.replace('\u064A', '\u064A\u0652\u0605').replace('\u064A', '\u064A\u0652\u0653').replace('\u064A', '\u064A\u0652\u0622')}\u0621`)
-  const madWajibDiacritic7 = dataCopy.map(char => `${char.replace('\u064A', '\u064A\u0652\u0605').replace('\u064A', '\u064A\u0652\u0653').replace('\u064A', '\u064A\u0652\u0622')} \u0621`)
-  const lam = ['\u0644\u0622\u0621', '\u0644\u0622 \u0621', 'لآَع', 'لآَع', 'لآَع', 'لآَ ع', 'لآَ ع', 'لآَ ع']
+  const madWajibDiacritic4Trimmed = dataCopy.map(char => `${char.replace('\u0648\u0652', '\u0648\u0652\u0605').replace('\u0648\u0652', '\u0648\u0652\u0653').replace('\u0648\u0652', '\u0648\u0652\u0622')}\u0621`)
+  const madWajibDiacritic4 = dataCopy.map(char => `${char.replace('\u0648\u0652', '\u0648\u0652\u0605').replace('\u0648\u0652', '\u0648\u0652\u0653').replace('\u0648\u0652', '\u0648\u0652\u0622')} \u0621`)
+  const madWajibDiacritic5Trimmed = dataCopy.map(char => `${char.replace('\u0648\u06DF', '\u0648\u06DF\u0605').replace('\u0648\u06DF', '\u0648\u06DF\u0653').replace('\u0648\u06DF', '\u0648\u06DF\u0622')}\u0621`)
+  const madWajibDiacritic5 = dataCopy.map(char => `${char.replace('\u0648\u06DF', '\u0648\u06DF\u0605').replace('\u0648\u06DF', '\u0648\u06DF\u0653').replace('\u0648\u06DF', '\u0648\u06DF\u0622')} \u0621`)
+  const madWajibDiacritic6Trimmed = dataCopy.map(char => `${char.replace('\u064A\u0652', '\u064A\u0652\u0605').replace('\u064A\u0652', '\u064A\u0652\u0653').replace('\u064A\u0652', '\u064A\u0652\u0622')}\u0621`)
+  const madWajibDiacritic6 = dataCopy.map(char => `${char.replace('\u064A\u0652', '\u064A\u0652\u0605').replace('\u064A\u0652', '\u064A\u0652\u0653').replace('\u064A\u0652', '\u064A\u0652\u0622')} \u0621`)
+  const madWajibDiacritic7Trimmed = dataCopy.map(char => `${char.replace('\u064A\u06DF', '\u064A\u06DF\u0605').replace('\u064A\u06DF', '\u064A\u06DF\u0653').replace('\u064A\u06DF', '\u064A\u06DF\u0622')}\u0621`)
+  const madWajibDiacritic7 = dataCopy.map(char => `${char.replace('\u064A\u06DF', '\u064A\u06DF\u0605').replace('\u064A\u06DF', '\u064A\u06DF\u0653').replace('\u064A\u06DF', '\u064A\u06DF\u0622')} \u0621`)
+  const alif = ['\u0622\u0621', '\u0622 \u0621']
+  const lam = ['\u0644\u0622\u0621', '\u0644\u0622 \u0621', 'لآَء', 'لآَء', 'لآَء', 'لآَ ء', 'لآَ ء', 'لآَ ء']
   return [
     ...madWajibTrimmed,
     ...madWajib,
@@ -139,6 +142,7 @@ const extractMadWajibCharacters = () => {
     ...madWajibDiacritic6,
     ...madWajibDiacritic7Trimmed,
     ...madWajibDiacritic7,
+    ...alif,
     ...lam
   ]
 }
@@ -157,6 +161,7 @@ const extractMadJaizCharacters = () => {
   const madJaizDiacriticTrimmedVar1 = dataCopy.map(char => `${char.replace('\u0627', '\u0627\u0605')}\u0623`)
   const madJaizDiacriticTrimmedVar2 = dataCopy.map(char => `${char.replace('\u0627', '\u0627\u0605')}\u0625`)
   const madJaizDiacriticTrimmedVar3 = dataCopy.map(char => `${char.replace('\u0627', '\u0627\u0605')}\u0627`)
+  const alif = ['\u0622\u0623', '\u0622 \u0623', '\u0622\u0625', '\u0622 \u0625', '\u0622\u0627', '\u0622 \u0627']
   const lam = [
     '\u0644\u0622\u0623', '\u0644\u0622\u0625', '\u0644\u0622\u0627',
     '\u0644\u0622 \u0623', '\u0644\u0622 \u0625', '\u0644\u0622 \u0627',
@@ -175,6 +180,7 @@ const extractMadJaizCharacters = () => {
     ...madJaizDiacriticTrimmedVar1,
     ...madJaizDiacriticTrimmedVar2,
     ...madJaizDiacriticTrimmedVar3,
+    ...alif,
     ...lam
   ]
 }
@@ -216,8 +222,7 @@ const extractMadLazimMukhaffafKilmiCharacters = () => {
 }
 
 const extractMadLayyinCharacters = () => [
-  '\u064E\u0648', '\u064E\u0649', '\u064E \u0648', '\u064E \u0649',
-  '\u064E\u0648\u0652', '\u064E\u0649\u0652', '\u064E \u0648\u0652', '\u064E \u0649\u0652'
+  /(?:\u064E\u0648\u0652|\u064E\u064A\u0652|\u064E \u0648\u0652|\u064E \u064A\u0652|\u064E\u0648\u06DF|\u064E\u064A\u06DF|\u064E \u0648\u06DF|\u064E \u064A\u06DF)/
 ]
 
 const extractMadAridLissukunCharacters = () => {
@@ -228,8 +233,10 @@ const extractMadAridLissukunCharacters = () => {
 }
 
 const extractMadShilahQashirahCharacters = () => [
-  '[\u064B-\u0650]\u0655\u064F', '[\u064B-\u0650] \u0655\u064F',
-  // '[\u064B-\u0650]\u0655\u0657', '[\u064B-\u0650] \u0655\u0657' kurang dammah
+  '(\\u064B|\\u064C|\\u064D|\\u064E|\\u064F|\\u0650|\\u0651\\u064B|\\u0651\\u064C|\\u0651\\u064D|\\u0651\\u064E|\\u0651\\u064F|\\u0651\\u0650)\u0647\u064F',
+  '(\\u064B|\\u064C|\\u064D|\\u064E|\\u064F|\\u0650|\\u0651\\u064B|\\u0651\\u064C|\\u0651\\u064D|\\u0651\\u064E|\\u0651\\u064F|\\u0651\\u0650) \u0647\u064F',
+  '(\\u064B|\\u064C|\\u064D|\\u064E|\\u064F|\\u0650|\\u0651\\u064B|\\u0651\\u064C|\\u0651\\u064D|\\u0651\\u064E|\\u0651\\u064F|\\u0651\\u0650)\u0647\u0657',
+  '(\\u064B|\\u064C|\\u064D|\\u064E|\\u064F|\\u0650|\\u0651\\u064B|\\u0651\\u064C|\\u0651\\u064D|\\u0651\\u064E|\\u0651\\u064F|\\u0651\\u0650) \u0647\u0657'
 ]
 
 const extractMadShilahThawilahCharacters = () => {
@@ -240,18 +247,19 @@ const extractMadShilahThawilahCharacters = () => {
 }
 
 const extractMadIwadCharacters = () => [
-  '\u064B\u0627[\u06D6-\u06DB]', '\u064B\u0627 [\u06D6-\u06DB]', '\u064B \u0627 [\u06D6-\u06DB]',
-  '\u064B\u0627\u0660', '\u064B\u0627 \u0660', '\u064B \u0627 \u0660',
-  '\u064B\u0627\u06F0', '\u064B\u0627 \u06F0', '\u064B \u0627 \u06F0',
-  '\u064B\u0627\u06E5', '\u064B\u0627 \u06E5', '\u064B \u0627 \u06E5'
+  '\\u064B\\u0627[\\u06D6-\\u06DB]', '\\u064B\\u0627 [\\u06D6-\\u06DB]', '\\u064B \\u0627 [\\u06D6-\\u06DB]',
+  '\\u064B\\u0627\\u0660', '\\u064B\\u0627 \\u0660', '\\u064B \\u0627 \\u0660',
+  '\\u064B\\u0627\\u06F0', '\\u064B\\u0627 \\u06F0', '\\u064B \\u0627 \\u06F0',
+  '\\u064B\\u0627\\u06E5', '\\u064B\\u0627 \\u06E5', '\\u064B \\u0627 \\u06E5'
 ]
 
 const extractMadBadalCharacters = () => [
-  '\u0622', '\u0627\u0653', '\u0627\u0670', 'آ',
+  '\u0627\u0670', '\u0627\u0656',
+  '\u0621\u064E\u0627', '\u0621\u064F\u0648', '\u0621\u0650\u064A',
   '\u0623\u064F\u0648', '\u0623\u064F\u0648\u0652', '\u0623\u064F\u0648\u06DF',
   '\u0623\u064F \u0648', '\u0623\u064F \u0648\u0652', '\u0623\u064F \u0648\u06DF',
-  '\u0623\u0650\u064A', '\u0623\u0650\u064A\u0652', '\u0623\u0650\u064A\u06DF',
-  '\u0623\u0650 \u064A', '\u0623\u0650 \u064A\u0652', '\u0623\u0650 \u064A\u06DF'
+  '\u0625\u0650\u064A', '\u0625\u0650\u064A\u0652', '\u0625\u0650\u064A\u06DF',
+  '\u0625\u0650 \u064A', '\u0625\u0650 \u064A\u0652', '\u0625\u0650 \u064A\u06DF'
 ]
 
 const idzharTajweed = extractIdzharCharacters()
@@ -280,11 +288,6 @@ const madIwadTajweed = extractMadIwadCharacters()
 const madBadalTajweed = extractMadBadalCharacters()
 
 const tajweedLaws = () => [
-  {
-    name: 'Idzhar',
-    color: '#6b7280', // Fix
-    rules: idzharTajweed
-  },
   {
     name: 'Ikhfa',
     color: '#00d5ef', // Fix
@@ -316,14 +319,14 @@ const tajweedLaws = () => [
     rules: gunnahTajweed
   },
   {
-    name: 'Idzhar Syafawi',
-    color: '#6b7280', // Fix
-    rules: idzharSyafawiTajweed
-  },
-  {
     name: 'Ikhfa Syafawi',
     color: '#ffd9e2', // Fix
     rules: ikhfaSyafawiTajweed
+  },
+  {
+    name: 'Idzhar Syafawi',
+    color: '#6b7280', // Fix
+    rules: idzharSyafawiTajweed
   },
   {
     name: 'Idzhar Qamariyah',
@@ -351,7 +354,7 @@ const tajweedLaws = () => [
     rules: madWajibTajweed
   },
   {
-    name: 'Mad Jaiz Munfasil',
+    name: 'Mad Jaiz Munfassil',
     color: '#00ff80', // Fix
     rules: madJaizTajweed
   },
@@ -371,19 +374,9 @@ const tajweedLaws = () => [
     rules: madShilahThawilahTajweed
   },
   {
-    name: 'Mad Badal',
-    color: '#00ff40', // Fix
-    rules: madBadalTajweed
-  },
-  {
     name: 'Mad Iwad',
     color: '#00ffbf', // Fix
     rules: madIwadTajweed
-  },
-  {
-    name: 'Mad Thabii',
-    color: '#00ff00', // Fix
-    rules: madThabiiTajweed
   },
   {
     name: 'Mad Lazim Mutsaqqal Kilmi',
@@ -396,10 +389,25 @@ const tajweedLaws = () => [
     rules: madLazimMukhaffafKilmiTajweed
   },
   {
+    name: 'Mad Badal',
+    color: '#00ff40', // Fix
+    rules: madBadalTajweed
+  },
+  {
+    name: 'Mad Thabii',
+    color: '#00ff00', // Fix
+    rules: madThabiiTajweed
+  },
+  {
     name: 'Mad Layyin',
     color: '#bfff00', // Fix
     rules: madLayyinTajweed
-  }
+  },
+  {
+    name: 'Idzhar',
+    color: '#6b7280', // Fix
+    rules: idzharTajweed
+  },
 ]
 
 const twTextSizes = () => ['0.75rem', '0.875rem', '1rem', '1.125rem', '1.25rem', '1.5rem', '1.875rem', '2.25rem', '3rem', '3.75rem', '4.5rem', '6rem', '8rem']
