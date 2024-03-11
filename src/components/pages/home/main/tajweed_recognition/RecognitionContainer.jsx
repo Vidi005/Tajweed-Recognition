@@ -18,6 +18,7 @@ class RecognitionContainer extends React.Component {
       tooltipContent: '',
       tooltipColor: '',
       coloredTajweeds: [],
+      filteredTajweeds: [],
       isCameraModeSelected: false,
       isScreenSharingModeSelected: false,
       isCameraPermissionGranted: false,
@@ -27,13 +28,10 @@ class RecognitionContainer extends React.Component {
       isDecreaseTextDisabled: false,
       isEditMode: false,
       isContentDarkMode: false,
-      // isHovered: false,
-      // hoveredTajweed: null,
       isResultClosed: true
     }
     this.tooltipRef = React.createRef()
     this.contentContainerRef = React.createRef()
-    // this.hoveredElementRef = React.createRef()
   }
 
   componentDidMount() {
@@ -88,7 +86,11 @@ class RecognitionContainer extends React.Component {
   handleTextEditor() {
     this.setState(prevState => ({ isEditMode: !prevState.isEditMode }), () => {
       scrollTo(0, 0)
-      if (!this.state.isEditMode) this.setState({ coloredTajweeds: this.colorizeChars(this.state.recognizedText) })
+      if (!this.state.isEditMode) {
+        this.setState({ coloredTajweeds: this.colorizeChars(this.state.recognizedText) }, () => {
+          this.filterColorizedTajweeds(this.state.coloredTajweeds)
+        })
+      }
     })
   }
 
@@ -161,7 +163,7 @@ class RecognitionContainer extends React.Component {
           isRecognizing: false,
           recognizedText: data.text.split('\n').join(' ').trim().replace(/\s+/g, ' '),
           coloredTajweeds: this.colorizeChars(data.text.trim()),
-          isResultClosed: false })
+          isResultClosed: false }, () => this.filterColorizedTajweeds(this.state.coloredTajweeds))
       } else {
         this.setState({ isRecognizing: false })
         Swal.fire({
@@ -188,26 +190,6 @@ class RecognitionContainer extends React.Component {
   
   colorizeChars(recognizedText) {
     let colorizedChars = recognizedText
-    // const shouldSkip = (currentRule, nextRule) => {
-    //   // Define rules that should be skipped based on the presence of another rule
-    //   const skipRules = {
-    //     'madTabiiTajweed': ['madWajibTajweed', 'madJaizTajweed', 'madAridLissukunTajweed', 'madShilahQashirahTajweed', 'madShilahThawilahTajweed', 'madIwadTajweed', 'madBadalTajweed']
-    //   }
-    //   return skipRules[currentRule] && skipRules[currentRule].includes(nextRule)
-    // }
-
-    // const applyColor = (regex, color) => {
-    //   colorizedChars = colorizedChars.replace(regex, (match) => `<span style="color: ${color}">${match}</span>`)
-    // }
-
-    // const applyColorIfNotSkipped = (currentRule, regex, color) => {
-    //   const nextRuleMatch = colorizedChars.match(/\b\w+\b/gm) // Get the next word
-    //   const nextRule = nextRuleMatch && nextRuleMatch[0]
-
-    //   if (!nextRule || !shouldSkip(currentRule, nextRule)) {
-    //     applyColor(regex, color)
-    //   }
-    // }
     const isInsideSpan = (startIdx, endIdx) => {
       const spanRegex = /<span\b[^>]*>(.*?)<\/span>/gm
       let match
@@ -218,45 +200,12 @@ class RecognitionContainer extends React.Component {
           return true
         }
       }
-
-      // const tempDiv = document.createElement('div')
-      // tempDiv.innerHTML = colorizedChars
-      // const walker = document.createTreeWalker(tempDiv, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT)
-
-      // while (walker.nextNode()) {
-      //   const node = walker.currentNode;
-      //   let nodeStart = 0;
-      //   let nodeEnd = 0;
-      //   if (node.nodeType === Node.TEXT_NODE) {
-      //     nodeStart = node.nodeValue.indexOf(node.nodeValue);
-      //     nodeEnd = nodeStart + node.nodeValue.length;
-      //   } else if (node.nodeType === Node.ELEMENT_NODE && node.nodeName.toLowerCase() === 'span') {
-      //     const spanText = node.textContent || node.innerText || '';
-      //     nodeStart = colorizedChars.indexOf(spanText);
-      //     nodeEnd = nodeStart + spanText.length;
-      //   }
-      //   if (startIdx >= nodeStart && endIdx <= nodeEnd) {
-      //     return true;
-      //   }
-      // }
-      // while (walker.nextNode()) {
-      //   const node = walker.currentNode;
-      //   const range = document.createRange();
-      //   range.selectNode(node);
-    
-      //   const nodeStart = range.startOffset;
-      //   const nodeEnd = range.endOffset;
-    
-      //   if (startIdx >= nodeStart && endIdx <= nodeEnd && node.nodeName.toLowerCase() === 'span') {
-      //     return true;
-      //   }
-      // }
       return false
     }
-    const applyColor = (regex, color) => {
+    const applyColor = (regex, id, color) => {
       colorizedChars = colorizedChars.replace(regex, (match, startIdx, endIdx) => {
-        if (!isInsideSpan(startIdx, endIdx)) {
-          return `<span style="color: ${color}; cursor: pointer;">${match}</span>`
+        if (!isInsideSpan(startIdx, endIdx) || match !== 'دنْي') {
+          return `<span class="${id}" style="color: ${color}; cursor: pointer;">${match}</span>`
         } else {
           return match
         }
@@ -266,9 +215,9 @@ class RecognitionContainer extends React.Component {
       tajweedLaw.rules.forEach(rule => {
         if (typeof rule === 'string') {
           const regex = new RegExp(`(${rule})`, 'gm')
-          applyColor(regex, tajweedLaw.color)
+          applyColor(regex, tajweedLaw.id, tajweedLaw.color)
         } else {
-          applyColor(rule, tajweedLaw.color)
+          applyColor(rule, tajweedLaw.id, tajweedLaw.color)
         }
       })
     })
@@ -310,21 +259,23 @@ class RecognitionContainer extends React.Component {
         tooltipContent: matchedTajweed.map(tajweedLaw => tajweedLaw.name).join(', '),
         tooltipColor: tooltipColor,
       })
-      const contentContainerRect = this.contentContainerRef.current.getBoundingClientRect()
-      const tooltip = this.tooltipRef.current
-      const tooltipWidth = tooltip.offsetWidth
-      const tooltipHeight = tooltip.offsetHeight
-      const containerHalfWidth = contentContainerRect.width / 2
-      const leftPosition = event.clientX
-      if (leftPosition < containerHalfWidth) {
-        tooltip.style.left = `${leftPosition}px`
-        tooltip.style.right = 'auto'
-      } else {
-        tooltip.style.left = `${leftPosition - tooltipWidth}px`
-        tooltip.style.right = 'auto'
-      }
-      tooltip.style.top = `${event.clientY - tooltipHeight - 10}px`
-      tooltip.style.backgroundColor = tooltipColor
+      setTimeout(() => {
+        const contentContainerRect = this.contentContainerRef.current.getBoundingClientRect()
+        const tooltip = this.tooltipRef.current
+        const tooltipWidth = tooltip.offsetWidth
+        const tooltipHeight = tooltip.offsetHeight
+        const containerHalfWidth = contentContainerRect.width / 2
+        const leftPosition = event.clientX
+        if (leftPosition < containerHalfWidth) {
+          tooltip.style.left = `${leftPosition}px`
+          tooltip.style.right = 'auto'
+        } else {
+          tooltip.style.left = `${leftPosition - tooltipWidth}px`
+          tooltip.style.right = 'auto'
+        }
+        tooltip.style.top = `${event.clientY - tooltipHeight - 10}px`
+        tooltip.style.backgroundColor = tooltipColor
+      }, 10)
     }
   }
 
@@ -342,6 +293,14 @@ class RecognitionContainer extends React.Component {
       tooltipContent: '',
       tooltipColor: ''
     })
+  }
+
+  filterColorizedTajweeds(coloredTajweeds) {
+    const colorizedTajweeds = tajweedLaws().filter(tajweedLaw => {
+      const styleRegex = new RegExp(`class="${tajweedLaw.id}"`)
+      return styleRegex.test(coloredTajweeds)
+    }).sort((a, b) => a.id - b.id)
+    this.setState({ filteredTajweeds: colorizedTajweeds })
   }
 
   closeResult () {
@@ -384,17 +343,9 @@ class RecognitionContainer extends React.Component {
         )}
         <ResultContainer
           props={this.props}
-          isResultClosed={this.state.isResultClosed}
-          twTextSize={this.state.twTextSize}
-          isIncreaseTextDisabled={this.state.isIncreaseTextDisabled}
-          isDecreaseTextDisabled={this.state.isDecreaseTextDisabled}
-          isEditMode={this.state.isEditMode}
-          isContentDarkMode={this.state.isContentDarkMode}
-          coloredTajweeds={this.state.coloredTajweeds}
-          recognizedText={this.state.recognizedText}
+          state={this.state}
           contentContainerRef={this.contentContainerRef}
           tooltipRef={this.tooltipRef}
-          tooltipContent={this.state.tooltipContent}
           closeResult={this.closeResult.bind(this)}
           increaseTextSize={this.increaseTextSize.bind(this)}
           decreaseTextSize={this.decreaseTextSize.bind(this)}

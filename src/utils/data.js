@@ -68,18 +68,33 @@ const extractIkhfaSyafawiCharacters = () => ['م ب', 'مْ ب', 'مب', 'مْب
 
 const extractIdghamMimiCharacters = () => ['م م', 'مْ م', 'مم', 'مْم']
 
+const extractIdghamMutamasilainCharacters = () => [
+  [...extractIdghamMimiCharacters()],
+  'تْ ت', 'تْت',
+  'دْ د', 'دْد',
+  'فْ ف', 'فْف',
+  'بْ ب', 'بْب',
+  'لْ ل', 'لْل'
+]
+
 const extractGunnahCharacters = () => ['نّ', 'نَّ', 'نِّ', 'نُّ', 'مّ', 'مَّ', 'مِّ', 'مُّ']
 
 const extractIdzharQamariyahCharacters = () => [
   'الع', 'الب', 'الج', 'الح', 'الخ', 'الع', 'الغ',
   'الْع', 'الْب', 'الْج', 'الْح', 'الْخ', 'الْع', 'الْغ',
   'الف', 'الق', 'الك', 'الم', 'الو', 'اله', 'الي',
-  'الْف', 'الْق', 'الْك', 'الْم', 'الْو', 'الْه', 'الْي'
+  'الْف', 'الْق', 'الْك', 'الْم', 'الْو', 'الْه', 'الْي',
+  'االع', 'االب', 'االج', 'االح', 'االخ', 'االع', 'االغ',
+  'االْع', 'االْب', 'االْج', 'االْح', 'االْخ', 'االْع', 'االْغ',
+  'االف', 'االق', 'االك', 'االم', 'االو', 'االه', 'االي',
+  'االْف', 'االْق', 'االْك', 'االْم', 'االْو', 'االْه', 'االْي'
 ]
 
 const extractIdghamSyamsiyahCharacters = () => [
   'الت', 'الث', 'الد', 'الذ', 'الر', 'الز', 'الس', 'الش', 'الص', 'الض', 'الط', 'الظ', 'الل', 'الن',
-  'الْت', 'الْث', 'الْد', 'الْذ', 'الْر', 'الْز', 'الْس', 'الْش', 'الْص', 'الْض', 'الْط', 'الْظ', 'الْل', 'الْن'
+  'الْت', 'الْث', 'الْد', 'الْذ', 'الْر', 'الْز', 'الْس', 'الْش', 'الْص', 'الْض', 'الْط', 'الْظ', 'الْل', 'الْن',
+  'االت', 'االث', 'االد', 'االذ', 'االر', 'االز', 'االس', 'االش', 'االص', 'االض', 'االط', 'االظ', 'االل', 'االن',
+  'االْت', 'االْث', 'االْد', 'االْذ', 'االْر', 'االْز', 'االْس', 'االْش', 'االْص', 'االْض', 'االْط', 'االْظ', 'االْل', 'االْن'
 ]
 
 const extractQalqalahSughraCharacters = () => [
@@ -107,6 +122,7 @@ const extractMadThabiiCharacters = () => [
 
 const extractMadWajibCharacters = () => {
   const dataCopy = [...extractMadThabiiCharacters()]
+  dataCopy.pop()
   const madWajibTrimmed = dataCopy.map(char => `${char}\u0621`)
   const madWajib = dataCopy.map(char => `${char} \u0621`)
   const madWajibDiacriticTrimmed = dataCopy.map(char => `${char.replace('\u0627', '\u0627\u0605').replace('\u0648', '\u0648\u0605').replace('\u064A', '\u064A\u0605')}\u0621`)
@@ -149,12 +165,13 @@ const extractMadWajibCharacters = () => {
 
 const extractMadJaizCharacters = () => {
   const dataCopy = [...extractMadThabiiCharacters()]
+  dataCopy.pop()
   const madJaizVar1 = dataCopy.map(char => `${char} \u0623`)
   const madJaizVar2 = dataCopy.map(char => `${char} \u0625`)
-  const madJaizVar3 = dataCopy.map(char => `${char} \u0627`)
+  const madJaizVar3 = dataCopy.map(char => `${char} \\u0627\\u064E|\\u0627\\u064F|\\u0627\\u0650`)
   const madJaizTrimmedVar1 = dataCopy.map(char => `${char}\u0623`)
   const madJaizTrimmedVar2 = dataCopy.map(char => `${char}\u0625`)
-  const madJaizTrimmedVar3 = dataCopy.map(char => `${char}\u0627`)
+  const madJaizTrimmedVar3 = dataCopy.map(char => `${char}\\u0627\\u064E|\\u0627\\u064F|\\u0627\\u0650`)
   const madJaizDiacriticVar1 = dataCopy.map(char => `${char.replace('\u0627', '\u0627\u0605')} \u0623`)
   const madJaizDiacriticVar2 = dataCopy.map(char => `${char.replace('\u0627', '\u0627\u0605')} \u0625`)
   const madJaizDiacriticVar3 = dataCopy.map(char => `${char.replace('\u0627', '\u0627\u0605')} \u0627`)
@@ -187,6 +204,7 @@ const extractMadJaizCharacters = () => {
 
 const extractMadLazimMutsaqqalKilmiCharacters = () => {
   const dataCopy = [...extractMadThabiiCharacters()]
+  dataCopy.pop()
   const madLazimMutsaqqalKilmi = dataCopy.map(char => new RegExp(`^${char} .*\\u0651$`))
   const madLazimMutsaqqalKilmiTrimmed = dataCopy.map(char => new RegExp(`^${char}.*\\u0651$`))
   const madLazimMutsaqqalKilmi2 = dataCopy.map(char => new RegExp(`^${char} .*\\u0605\\u0651$`))
@@ -205,6 +223,7 @@ const extractMadLazimMutsaqqalKilmiCharacters = () => {
 
 const extractMadLazimMukhaffafKilmiCharacters = () => {
   const dataCopy = [...extractMadThabiiCharacters()]
+  dataCopy.pop()
   const madLazimMukhaffafKilmi = dataCopy.map(char => new RegExp(`^${char} .*\\u0652$`))
   const madLazimMukhaffafKilmiTrimmed = dataCopy.map(char => new RegExp(`^${char}.*\\u0652$`))
   const madLazimMukhaffafKilmi2 = dataCopy.map(char => new RegExp(`^${char} .*\\u0605\\u0652$`))
@@ -227,6 +246,7 @@ const extractMadLayyinCharacters = () => [
 
 const extractMadAridLissukunCharacters = () => {
   const dataCopy = [...extractMadThabiiCharacters()]
+  dataCopy.pop()
   const madAridLissukun = dataCopy.map(char => new RegExp(`^${char} .*\\u06E5|\\u0660|\\u06F0|[\\u06D6-\\u06DB]$`))
   const madAridLissukunTrimmed = dataCopy.map(char => new RegExp(`^${char}.*\\u06E5|\\u0660|\\u06F0|[\\u06D6-\\u06DB]$`))
   return [...madAridLissukun, ...madAridLissukunTrimmed]
@@ -270,6 +290,7 @@ const ikhfaTajweed = extractIkhfaCharacters()
 const idzharSyafawiTajweed = extractIdzharSyafawiCharacters()
 const ikhfaSyafawiTajweed = extractIkhfaSyafawiCharacters()
 const idghamMimiTajweed = extractIdghamMimiCharacters()
+const idghamMutamasilainTajweed = extractIdghamMutamasilainCharacters()
 const gunnahTajweed = extractGunnahCharacters()
 const idzharQamariyahTajweed = extractIdzharQamariyahCharacters()
 const idghamSyamsiyahTajweed = extractIdghamSyamsiyahCharacters()
@@ -289,127 +310,225 @@ const madBadalTajweed = extractMadBadalCharacters()
 
 const tajweedLaws = () => [
   {
+    id: 5,
     name: 'Ikhfa',
-    color: '#00d5ef', // Fix
-    rules: ikhfaTajweed
+    color: '#00d5ef',
+    rules: ikhfaTajweed,
+    group: 'Ahkämul Al-hurüf',
+    detailPage: '/detail?tajweed='
   },
   {
+    id: 4,
     name: 'Iqlab',
-    color: '#bdb9d8', // Fix
-    rules: iqlabTajweed
+    color: '#bdb9d8',
+    rules: iqlabTajweed,
+    group: 'Ahkämul Al-hurüf',
+    detailPage: '/detail?tajweed='
   },
   {
+    id: 2,
     name: 'Idgham Bigunnah',
-    color: '#4ecab6', // Fix
-    rules: idghamBigunnahTajweed
+    color: '#4ecab6',
+    rules: idghamBigunnahTajweed,
+    group: 'Ahkämul Al-hurüf',
+    detailPage: '/detail?tajweed='
   },
   {
+    id: 3,
     name: 'Idgham Bilagunnah',
-    color: '#ff0000', // Fix
-    rules: idghamBilagunnahTajweed
+    color: '#ff0000',
+    rules: idghamBilagunnahTajweed,
+    group: 'Ahkämul Al-hurüf',
+    detailPage: '/detail?tajweed='
   },
   {
+    id: 10,
     name: 'Idgham Mutamasilain',
-    color: '#e5ea9f', // Fix
-    rules: idghamMimiTajweed
+    color: '#e5ea9f',
+    rules: idghamMutamasilainTajweed,
+    group: 'Ahkämul Al-hurüf',
+    detailPage: '/detail?tajweed='
   },
   {
+    id: 8,
+    name: 'Idgham Mimi',
+    color: '#e5ea9f',
+    rules: idghamMimiTajweed,
+    group: 'Ahkämul Al-hurüf',
+    detailPage: '/detail?tajweed='
+  },
+  {
+    id: 9,
     name: 'Gunnah',
-    color: '#ffcc8e', // Fix
-    rules: gunnahTajweed
+    color: '#ffcc8e',
+    rules: gunnahTajweed,
+    group: 'Ahkämul Al-hurüf',
+    detailPage: '/detail?tajweed='
   },
   {
+    id: 7,
     name: 'Ikhfa Syafawi',
-    color: '#ffd9e2', // Fix
-    rules: ikhfaSyafawiTajweed
+    color: '#ffd9e2',
+    rules: ikhfaSyafawiTajweed,
+    group: 'Ahkämul Al-hurüf',
+    detailPage: '/detail?tajweed='
   },
   {
+    id: 6,
     name: 'Idzhar Syafawi',
-    color: '#6b7280', // Fix
-    rules: idzharSyafawiTajweed
+    color: '#6b7280',
+    rules: idzharSyafawiTajweed,
+    group: 'Ahkämul Al-hurüf',
+    detailPage: '/detail?tajweed='
   },
   {
+    id: 13,
     name: 'Idzhar Qamariyah',
-    color: '#80ff00', // Fix
-    rules: idzharQamariyahTajweed
+    color: '#80ff00',
+    rules: idzharQamariyahTajweed,
+    group: 'Lam Ta\'rif',
+    detailPage: '/detail?tajweed='
   },
   {
+    id: 14,
     name: 'Idgham Syamsiyah',
-    color: '#0000ff', // Fix
-    rules: idghamSyamsiyahTajweed
+    color: '#0000ff',
+    rules: idghamSyamsiyahTajweed,
+    group: 'Lam Ta\'rif',
+    detailPage: '/detail?tajweed='
   },
   {
+    id: 21,
     name: 'Qalqalah Sughra',
-    color: '#ff8d83', // Fix
-    rules: qalqalahSughraTajweed
+    color: '#ff8d83',
+    rules: qalqalahSughraTajweed,
+    group: 'Ahkämul Al-hurüf',
+    detailPage: '/detail?tajweed='
   },
   {
+    id: 22,
     name: 'Qalqalah Kubra',
-    color: '#FF4500', // Fix
-    rules: qalqalahKubraTajweed
+    color: '#FF4500',
+    rules: qalqalahKubraTajweed,
+    group: 'Ahkämul Al-hurüf',
+    detailPage: '/detail?tajweed='
   },
   {
+    id: 25,
     name: 'Mad Wajib Muttasil',
-    color: '#00bfff', // Fix
-    rules: madWajibTajweed
+    color: '#00bfff',
+    rules: madWajibTajweed,
+    group: 'Ahkämul-madd',
+    detailPage: '/detail?tajweed='
   },
   {
+    id: 26,
     name: 'Mad Jaiz Munfassil',
-    color: '#00ff80', // Fix
-    rules: madJaizTajweed
+    color: '#00ff80',
+    rules: madJaizTajweed,
+    group: 'Ahkämul-madd',
+    detailPage: '/detail?tajweed='
   },
   {
+    id: 30,
     name: 'Mad Arid Lissukun',
-    color: '#ff00ff', // Fix
-    rules: madAridLissukunTajweed
+    color: '#ff00ff',
+    rules: madAridLissukunTajweed,
+    group: 'Ahkämul-madd',
+    detailPage: '/detail?tajweed='
   },
   {
+    id: 31,
     name: 'Mad Shilah Qashirah',
-    color: '#40ff00', // Fix
-    rules: madShilahQashirahTajweed
+    color: '#40ff00',
+    rules: madShilahQashirahTajweed,
+    group: 'Ahkämul-madd',
+    detailPage: '/detail?tajweed='
   },
   {
+    id: 32,
     name: 'Mad Shilah Thawilah',
-    color: '#0080ff', // Fix
-    rules: madShilahThawilahTajweed
+    color: '#0080ff',
+    rules: madShilahThawilahTajweed,
+    group: 'Ahkämul-madd',
+    detailPage: '/detail?tajweed='
   },
   {
+    id: 33,
     name: 'Mad Iwad',
-    color: '#00ffbf', // Fix
-    rules: madIwadTajweed
+    color: '#00ffbf',
+    rules: madIwadTajweed,
+    group: 'Ahkämul-madd',
+    detailPage: '/detail?tajweed='
   },
   {
+    id: 27,
     name: 'Mad Lazim Mutsaqqal Kilmi',
-    color: '#ff00bf', // Fix
-    rules: madLazimMutsaqqalKilmiTajweed
+    color: '#ff00bf',
+    rules: madLazimMutsaqqalKilmiTajweed,
+    group: 'Ahkämul-madd',
+    detailPage: '/detail?tajweed='
   },
   {
+    id: 28,
     name: 'Mad Lazim Mukhaffaf Kilmi',
-    color: '#ff0080', // Fix
-    rules: madLazimMukhaffafKilmiTajweed
+    color: '#ff0080',
+    rules: madLazimMukhaffafKilmiTajweed,
+    group: 'Ahkämul-madd',
+    detailPage: '/detail?tajweed='
   },
   {
+    id: 34,
     name: 'Mad Badal',
-    color: '#00ff40', // Fix
-    rules: madBadalTajweed
+    color: '#00ff40',
+    rules: madBadalTajweed,
+    group: 'Ahkämul-madd',
+    detailPage: '/detail?tajweed='
   },
   {
+    id: 24,
     name: 'Mad Thabii',
-    color: '#00ff00', // Fix
-    rules: madThabiiTajweed
+    color: '#00ff00',
+    rules: madThabiiTajweed,
+    group: 'Ahkämul-madd',
+    detailPage: '/detail?tajweed='
   },
   {
+    id: 29,
     name: 'Mad Layyin',
-    color: '#bfff00', // Fix
-    rules: madLayyinTajweed
+    color: '#bfff00',
+    rules: madLayyinTajweed,
+    group: 'Ahkämul-madd',
+    detailPage: '/detail?tajweed='
   },
   {
+    id: 1,
     name: 'Idzhar',
-    color: '#6b7280', // Fix
-    rules: idzharTajweed
+    color: '#6b7280',
+    rules: idzharTajweed,
+    group: 'Ahkämul Al-hurüf',
+    detailPage: '/detail?tajweed='
   },
+]
+
+const tajweedDetails = [
+  {
+    id: 1,
+    name: 'Idzhar',
+    group: '',
+    desc: '',
+    examples: [
+      'الحمد لله رب العالمين',
+    ]
+  }
+]
+
+const sources = [
+  'https://tashih.kemenag.go.id/uploads/1/2019-08/buku_pedoman_tajwid_sistem_warna.pdf',
+  'https://ia803106.us.archive.org/22/items/etaoin/Ilmu%20Tajwid%20Lengkap.pdf',
+  'https://www.gramedia.com/literasi/hukum-tajwid-dan-contohnya'
 ]
 
 const twTextSizes = () => ['0.75rem', '0.875rem', '1rem', '1.125rem', '1.25rem', '1.5rem', '1.875rem', '2.25rem', '3rem', '3.75rem', '4.5rem', '6rem', '8rem']
 
-export { isStorageExist, twTextSizes, tajweedLaws }
+export { isStorageExist, twTextSizes, tajweedLaws, tajweedDetails, sources }

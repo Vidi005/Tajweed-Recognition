@@ -3,5 +3,254 @@
     "tab_list": ["Recognize Tajweed", "Tajweed List"],
     "tab_icons": ["/images/recognition-icon.svg", "/images/list-icon.svg"],
     "tab_icons_dark": ["/images/recognition-icon-dark.svg", "/images/list-icon-dark.svg"],
-    "color_changer": ["Normal", "Inverted", "Grayscale", "Grayscale Inverted"]
+    "color_changer": ["Normal", "Inverted", "Grayscale", "Grayscale Inverted"],
+    "tajweedLaws": [
+        {
+            "id": 1,
+            "name": "Idzhar",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "When a nun sakinah or tanwin meets the letters of idzhar, it is pronounced clearly and distinctly.",
+            "detail": "",
+            "examples": [""],
+            "page": "/detail?tajweed=idzhar"
+        },
+        {
+            "id": 2,
+            "name": "Idgham Bigunnah",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "When a nun sakinah or tanwin meets the letters of idgham bigunnah, it is pronounced with a nasal sound.",
+            "detail": "Idgham means to merge, and bigunnah means nasal sound. ...",
+            "examples": [""],
+            "page": "/detail?tajweed=idgham_bigunnah"
+        },
+        {
+            "id": 3,
+            "name": "Idgham Bilagunnah",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "When a nun sakinah or tanwin meets the letters of idgham bilagunnah, it is pronounced by merging without nasal sound.",
+            "detail": "Idgham means to merge, and bilagunnah means without nasal sound. ...",
+            "examples": [""],
+            "page": "/detail?tajweed=idgham_bilagunnah"
+        },
+        {
+            "id": 4,
+            "name": "Iqlab",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "When a nun sakinah or tanwin meets the letter qalqalah, it is pronounced by replacing it with the letter mim.",
+            "detail": "Iqlab means to merge or, in simpler terms, to replace the letter with the letter mim. ...",
+            "examples": [""],
+            "page": "/detail?tajweed=iqlab"
+        },
+        {
+            "id": 5,
+            "name": "Ikhfa",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "When a nun sakinah or tanwin meets the letters of ikhfa haqiqi, it is pronounced softly.",
+            "detail": "Ikhfa means to conceal or hide, while haqiqi means real or true. ...",
+            "examples": [""],
+            "page": "/detail?tajweed=ikhfa"
+        },
+        {
+            "id": 6,
+            "name": "Idzhar Syafawi",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "When a mim sakinah meets the letters of idzhar syafawi, it must be pronounced clearly even with closed lips.",
+            "detail": "",
+            "examples": [""],
+            "page": "/detail?tajweed=idzhar_syafawi"
+        },
+        {
+            "id": 7,
+            "name": "Ikhfa Syafawi",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "When a mim sakinah meets the letters of ikhfa syafawi, it is pronounced softly by disguising the sound with a nasal tone.",
+            "detail": "",
+            "examples": [""],
+            "page": "/detail?tajweed=ikhfa_syafawi"
+        },
+        {
+            "id": 8,
+            "name": "Idgham Mimi",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "Apabila mim mati bertemu dengan huruf idgham mimi, maka dibacanya melebur menjadi satu.",
+            "detail": "Huruf idgham mimi hanya satu, yaitu huruf mim. Jadi, idgham mimi adalah pertemuan dua huruf mim. Cara melafalkannya sama seperti melafadzkan mim yang bertasydid. Sebab, mim tasydid merupakan gabungan dari mim mati dan mim hidup.\nhuruf Idgham mimi: م",
+            "examples": [
+                "وَكَمْ مِنْ قَرْيَةٍ Mim mati bertemu dengan م",
+                "كُلَّمَا أَضَاءَ لَهُمْ مَشَوْا فِيهِ Mim mati bertemu dengan م",
+                "إِلَيْكُمْ مِنْ رَبِّكُمْ Mim mati bertemu dengan م"
+            ],
+            "page": "/detail?tajweed=idgham_mimi"
+        },
+        {
+            "id": 9,
+            "name": "Gunnah",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "If there is a shaddah on the letter mim (مّ) and nun (ن), it is pronounced with a nasal sound and is called Ghunnah.",
+            "detail": "",
+            "examples": [""],
+            "page": "/detail?tajweed=gunnah"
+        },
+        {
+            "id": 10,
+            "name": "Idgham Mutamasilain",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "When a letter meets a similar letter, with the same makhraj and sifat, where the first letter is sukun (silent) and the second letter has a harakah.",
+            "detail": "",
+            "examples": [""],
+            "page": "/detail?tajweed=idgham_mutamasilain"
+        },
+        {
+            "id": 11,
+            "name": "Idgham Mutajaanisain",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "Apabila ada suatu huruf yang sukun berhadapan dengan huruf yang berharakat, kedua-duanya itu sama makhrojnya tapi lain sifatnya.",
+            "detail": "Cara menbacanya adalah dengan memasukkan atau mengidghom-kan huruf pertama pada huruf yang kedua.",
+            "examples": [""],
+            "page": "/detail?tajweed=idgham_mutajaanisain"
+        },
+        {
+            "id": 12,
+            "name": "Idgham Mutaqooribain",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "Apabila ada huruf bersukun bertemu dengan huruf yang berharokat kedua huruf itu berdekatan makhroj dan sifatnya.",
+            "detail": "Cara membacanya adalah dengan memasukkan atau mentasydid-kan huruf pertama pada huruf yang kedua.",
+            "examples": [""],
+            "page": "/detail?tajweed=idgham_mutaqooribain"
+        },
+        {
+            "id": 13,
+            "name": "Idzhar Qamariyah",
+            "group": "Lam Ta'rif",
+            "summary": "When a lam ta’rief meets the letters of idzhar qamariyah, it must be pronounced clearly.",
+            "detail": "",
+            "examples": [""],
+            "page": "/detail?tajweed=idzhar_qamariyah"
+        },
+        {
+            "id": 14,
+            "name": "Idgham Syamsiyah",
+            "group": "Lam Ta'rif",
+            "summary": "When a lam ta’rief meets the letters of qamariyah, other than idzhar qamariyah, it is called idgham.",
+            "detail": "",
+            "examples": [""],
+            "page": "/detail?tajweed=idgham_syamsiyah"
+        },
+        {
+            "id": 21,
+            "name": "Qalqalah Sughra",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "If there is a silent qalqalah letter in the middle of a sentence, it is pronounced with a bounce. It is read as qalqalah sughra.",
+            "detail": "",
+            "examples": [""],
+            "page": "/detail?tajweed=qalqalah_sughra"
+        },
+        {
+            "id": 22,
+            "name": "Qalqalah Kubra",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "If there is a silent qalqalah letter at the end of a sentence, it is pronounced with a bounce. It is read as qalqalah kubra.",
+            "detail": "",
+            "examples": [""],
+            "page": "/detail?tajweed=qalqalah_kubra"
+        },
+        {
+            "id": 24,
+            "name": "Mad Thabii",
+            "group": "Ahkämul-madd",
+            "summary": "",
+            "detail": "",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_thabii"
+        },
+        {
+            "id": 25,
+            "name": "Mad Wajib Muttasil",
+            "group": "Ahkämul-madd",
+            "summary": "If MAD THOBI'II meets a living HAMZAH (ء) within a word/sentence, it is mandatory to prolong it.",
+            "detail": "",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_wajib_muttasil"
+        },
+        {
+            "id": 26,
+            "name": "Mad Jaiz Munfassil",
+            "group": "Ahkämul-madd",
+            "summary": "The recitation rule is called MAD JAIZ MUNFASHIL when MAD THOBI'II (ء) is in a different word.",
+            "detail": "",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_jaiz_munfassil"
+        },
+        {
+            "id": 27,
+            "name": "Mad Lazim Mutsaqqal Kilmi",
+            "group": "Ahkämul-madd",
+            "summary": "If MAD THOBI'II is faced with letters with shaddah within a word.",
+            "detail": "The pronunciation should be prolonged first for 3 alif or 6 harakah before shaddah is added.",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_lazim_mutsaqqal_kilmi"
+        },
+        {
+            "id": 28,
+            "name": "Mad Lazim Mukhaffaf Kilmi",
+            "group": "Ahkämul-madd",
+            "summary": "If MAD THOBI'II meets a sukun-harokat letter not at the end of a word. (prolonged up to three alif or six harakah).",
+            "detail": "",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_lazim_mukhaffaf_kilmi"
+        },
+        {
+            "id": 29,
+            "name": "Mad Layyin",
+            "group": "Ahkämul-madd",
+            "summary": "If there is a MAD letter, whether it is WAW SUKUN or YAA' SUKUN preceded by a fathah-harokat letter.",
+            "detail": "It is pronounced softly and smoothly.",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_layyin"
+        },
+        {
+            "id": 30,
+            "name": "Mad Arid Lissukun",
+            "group": "Ahkämul-madd",
+            "summary": "If there is Mad Thobi'i or Mad Layyin followed by a waqof (stopping place).",
+            "detail": "",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_arid_lissukun"
+        },
+        {
+            "id": 31,
+            "name": "Mad Shilah Qashirah",
+            "group": "Ahkämul-madd",
+            "summary": "If the letter HAA DLOMIIR / third person pronoun () comes after a vowel-harokat letter and is not connected to a sukun or shaddah letter or the letter alif.",
+            "detail": "",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_shilah_qashirah"
+        },
+        {
+            "id": 32,
+            "name": "Mad Shilah Thawilah",
+            "group": "Ahkämul-madd",
+            "summary": "If Mad Shilah Qoshiroh meets HAMZAH (ء) preceded by a vowel-harokat letter.",
+            "detail": "",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_shilah_thawilah"
+        },
+        {
+            "id": 33,
+            "name": "Mad Iwad",
+            "group": "Ahkämul-madd",
+            "summary": "If there are two fat-ha vowels ( ) falling on waqof (pause), at the end of a sentence (except for ta' marbuthoh), or mentioned as a replacement for tanwin so that it is no longer pronounced.",
+            "detail": "",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_iwad"
+        },
+        {
+            "id": 34,
+            "name": "Mad Badal",
+            "group": "Ahkämul-madd",
+            "summary": "If HAMZAH ( ) meets MAD from a sukun-hamzah, and this hamzah is changed and replaced with ALIF ( ), WAU ( ).",
+            "detail": "It is pronounced by prolonging it for one alif or two harakah, like MAD THOBI'II.",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_badal"
+        }
+    ]    
 }

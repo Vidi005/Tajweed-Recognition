@@ -3,5 +3,325 @@
     "tab_list": ["Mengenali Tajwid", "Daftar Tajwid"],
     "tab_icons": ["/images/recognition-icon.svg", "/images/list-icon.svg"],
     "tab_icons_dark": ["/images/recognition-icon-dark.svg", "/images/list-icon-dark.svg"],
-    "color_changer": ["Normal", "Invers", "Monokrom", "Invers Monokrom"]
+    "color_changer": ["Normal", "Invers", "Monokrom", "Invers Monokrom"],
+    "tajweedLaws": [
+        {
+            "id": 1,
+            "name": "Idzhar",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "Apabila nun mati atau tanwin bertemu dengan huruf-huruf idzhar, maka cara membacanya yaitu jelas, terang.",
+            "detail": "Huruf-huruf idzhar ini dibaca jelas karena tempat keluarnya huruf-huruf tersebut adalah mulut, ada pada kerongkongan atau tenggorokan.\nHuruf-huruf idzhar: ا ع غ ح خ ها",
+            "examples": [
+                "مِنْ آَلِ فِرْعَوْنَ  Nun mati bertemu dengan أ",
+                "فَكُلُوا مِنْهَا حَيْثُ Nun mati bertemu dengan هـ",
+                "بِغَافِلٍ عَمَّا تَعْمَلُونَ Nun mati bertemu dengan ع",
+                "مِنْ غَفُورٍ رَحِيم Nun mati bertemu dengan غ",
+                "أَنَّ اللَّهَ عَزِيزٌ حَكِيمٌ Tanwin bertemu dengan ح",
+                "كُونُوا قِرَدَةً خَاسِئِينَ Tanwin bertemu dengan خ"
+            ],
+            "page": "/detail?tajweed=idzhar"
+        },
+        {
+            "id": 2,
+            "name": "Idgham Bigunnah",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "Apabila nun mati atau tanwin bertemu dengan huruf-huruf idgham bigunnah maka dibacanya dengan mendengung.",
+            "detail": "Idgham artinya memasukkan, dan bigunnah artinya mendengung. Jadi cara membacanya dengan ditasydidkan ke dalam salah satu huruf idham dengan suara yang mendengung.\nHuruf-huruf idgham bigunnah: ي ن م و",
+            "examples": [
+                "مِنْ قَبْلِ أَنْ يَتَمَاسَّا Nun mati bertemu dengan ي",
+                "إِلَّا سَاعَةً مِنْ نَهَارٍ Nun mati bertemu dengan ن",
+                "وَأَنْفِقُوا مِنْ مَا رَزَقْنَاكُمْ Nun mati bertemu dengan م",
+                "مِنْ دُونِهِ مِنْ وَالٍ Nun mati bertemu dengan و",
+                "بِبُهْتَانٍ يَفْتَرِينَهُ Tanwin bertemu dengan ي",
+                "حِطَّةٌ نَغْفِرْ لَكُمْ Tanwin bertemu dengan ن",
+                "رَقَبَةٍ مِنْ قَبْلِ Tanwin bertemu dengan م",
+                "مِنْ خَيْلٍ وَلَا رِكَابٍ Tanwin bertemu dengan و"
+            ],
+            "page": "/detail?tajweed=idgham_bigunnah"
+        },
+        {
+            "id": 3,
+            "name": "Idgham Bilagunnah",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "Apabila nun mati atau tanwin bertemu dengan huruf-huruf idgham bilagunnah maka dibacanya dengan dimasukkan namun tidak berdengung.",
+            "detail": "Idgham artinya memasukkan, dan bilagunnah artinya tidak mendengung. Jadi cara membacanya dengan ditasydidkan ke dalam salah satu huruf idham dengan suara yang tidak mendengung.\nHuruf-huruf idgham bigunnah: ل ر",
+            "examples": [
+                "فَضْلًا مِنْ رَبِّكَ Nun Mati bertemu dengan ر",
+                "قَالَ لَمْ أَكُنْ لِأَسْجُدَ Nun Mati bertemu dengan ل",
+                "لَا تَجْعَلْنَا فِتْنَةً لِلَّذِينَ Tanwin bertemu dengan ل",
+                "سَيَقُولُونَ ثَلَاثَةٌ رَابِعُهُمْ Tanwin bertemu dengan ر"
+            ],
+            "page": "/detail?tajweed=idgham_bilagunnah"
+        },
+        {
+            "id": 4,
+            "name": "Iqlab",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "Apabila nun mati atau tanwin bertemu dengan huruf iqlab maka dibacanya dengan ditukar.",
+            "detail": "Iqlab artinya meleburkan atau lebih mudahnya cara membacanya dengan menukar huruf menjadi huruf mim.\nHuruf iqlab: ب",
+            "examples": ["أَنْ تُنْبِتُوا Nun mati bertemu dengan ب", "كُلُّ حِزْبٍ بِمَا Tanwin bertemu dengan ب"],
+            "page": "/detail?tajweed=iqlab"
+        },
+        {
+            "id": 5,
+            "name": "Ikhfa",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "Apabila nun mati atau tanwin bertemu dengan huruf-huruf ikhfa haqiqi, maka dibacanya dengan samar-samar.",
+            "detail": "Ikhfa artinya menyamar atau menyembunyikan sedangkan haqiqi artinya sungguh-sungguh. adi cara membacanya harus terang dengan adanya dengung.\nHuruf-huruf Ikhfa Haqiqi: ت ث ج د ذ ز س ش ص ض ط ظ ف ق  ك",
+            "examples": [
+                "أَنْتُمْ Nun mati bertemu dengan ت ",
+                "مَنْثُورًا Nun mati bertemu dengan ث ",
+                "فَأَنْجَيْنَاه Nun mati bertemu dengan ج",
+                "عِنْدَهُ Nun mati bertemu dengan د",
+                "لِيُنْذِرَكُمْ Nun mati bertemu dengan ذ",
+                "أُنْزِلَ Nun mati bertemu dengan ز",
+                "نَنْسَخْ Nun mati bertemu dengan س",
+                "مَنْشُورً Nun mati bertemu dengan ش",
+                "رِيحًا صَرْصَرًا Tanwin bertemu dengan ص",
+                "وَكُلًّا ضَرَبْنَا Tanwin bertemu dengan ض",
+                "صَعِيدًا طَيِّبًا Tanwin bertemu dengan ط",
+                "ظِلًّا ظَلِيلً Tanwin bertemu dengan ظ",
+                "سَفَرٍ فَعِدَّةٌ Tanwin bertemu dengan ف",
+                "عَلِيمٌ قَدِيرٌ Tanwin bertemu dengan ق",
+                "وَرِزْقٌ كَرِيمٌ Tanwin bertemu dengan ك"
+            ],
+            "page": "/detail?tajweed=ikhfa"
+        },
+        {
+            "id": 6,
+            "name": "Idzhar Syafawi",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "Apabila mim mati bertemu dengan huruf-huruf idzhar syafawi, maka tetap harus dibaca jelas meski mulut tertutup.",
+            "detail": "Huruf idzhar syafawi ada banyak, kecuali mim dan ba, karena kedua huruf tersebut merupakan milik ikhfa syafawi dan idgham mimi.\nHuruf idzhar syafawi: ا ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل ن و ه ي",
+            "examples": [
+                "أَأَنْذَرْتَهُمْ أَم Mim mati bertemu dengan ا",
+                "أَنْعَمْتَ Mim mati bertemu dengan ت",
+                "ثُمَّ يُمِيتُكُمْ ثُمَّ يُحْيِيكُمْ Mim mati bertemu dengan ث",
+                "أَنَّ لَهُمْ جَنَّاتٍ Mim mati bertemu dengan ج",
+                "يَمْحَقُ اللَّهُ الرِّبَا Mim mati bertemu dengan ح"
+            ],
+            "page": "/detail?tajweed=idzhar_syafawi"
+        },
+        {
+            "id": 7,
+            "name": "Ikhfa Syafawi",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "Apabila mim mati bertemu dengan huruf ikhfa syafawi maka dibaca dengan samar. Caranya menyamarkan suara mim mati dengan diiringi dengungan.",
+            "detail": "Meskipun dengungnya tidak terlalu terdengar jelas karena huruf mim mati dan ba memiliki tempat keluar yang sama yaitu dua bibir. Huruf ikhfa syafawi hanya satu. Hurufnya sama seperti iqlab, namun cara membacanya tidak dileburkan seperti iqlab.\nHuruf Ikhfa Syafawi: ب",
+            "examples": [
+                "وَمَا هُمْ بِمُؤْمِنِينَ Mim mati bertemu dengan huruf ب",
+                "وَهُمْ بِالْآَخِرَةِ Mim mati bertemu dengan huruf ب",
+                "عَلَيْهِمْ بِعِلْمٍMim mati bertemu dengan huruf ب"
+            ],
+            "page": "/detail?tajweed=ikhfa_syafawi"
+        },
+        {
+            "id": 8,
+            "name": "Idgham Mimi",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "Apabila mim mati bertemu dengan huruf idgham mimi, maka dibacanya melebur menjadi satu.",
+            "detail": "Huruf idgham mimi hanya satu, yaitu huruf mim. Jadi, idgham mimi adalah pertemuan dua huruf mim. Cara melafalkannya sama seperti melafadzkan mim yang bertasydid. Sebab, mim tasydid merupakan gabungan dari mim mati dan mim hidup.\nhuruf Idgham mimi: م",
+            "examples": [
+                "وَكَمْ مِنْ قَرْيَةٍ Mim mati bertemu dengan م",
+                "كُلَّمَا أَضَاءَ لَهُمْ مَشَوْا فِيهِ Mim mati bertemu dengan م",
+                "إِلَيْكُمْ مِنْ رَبِّكُمْ Mim mati bertemu dengan م"
+            ],
+            "page": "/detail?tajweed=idgham_mimi"
+        },
+        {
+            "id": 9,
+            "name": "Gunnah",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "Apabila ada mim yang bertasydid (مّ) dan nun yang bertasydid (نّ), maka dibaca dengan mendengung dan disebut dengan bacaan Ghunnah.",
+            "detail": "GHUNNAH artinya : mendengung (di pangkal hidung). Jadi cara membacanya dengan mendengungkan huruf mim dan nun bertasydid di pangkal hidung selama 2 - 3 harokat.",
+            "examples": [""],
+            "page": "/detail?tajweed=gunnah"
+        },
+        {
+            "id": 10,
+            "name": "Idgham Mutamasilain",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "Apabila suatu huruf bertemu huruf sesamanya, yang sama makhroj dan sifatnya, huruf yang pertama sukun (mati) dan huruf yang kedua berharakah.",
+            "detail": "Cara membacanya adalah dengan memasukkan (mentasydid-kan) huruf sukun yang pertama pada huruf berharokat yang kedua. Dan ditekan sena ditahan tidak lebih dari satu harokat.",
+            "examples": [""],
+            "page": "/detail?tajweed=idgham_mutamasilain"
+        },
+        {
+            "id": 11,
+            "name": "Idgham Mutajaanisain",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "Apabila ada suatu huruf yang sukun berhadapan dengan huruf yang berharakat, kedua-duanya itu sama makhrojnya tapi lain sifatnya.",
+            "detail": "Cara menbacanya adalah dengan memasukkan atau mengidghom-kan huruf pertama pada huruf yang kedua.",
+            "examples": [""],
+            "page": "/detail?tajweed=idgham_mutajaanisain"
+        },
+        {
+            "id": 12,
+            "name": "Idgham Mutaqooribain",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "Apabila ada huruf bersukun bertemu dengan huruf yang berharokat kedua huruf itu berdekatan makhroj dan sifatnya.",
+            "detail": "Cara membacanya adalah dengan memasukkan atau mentasydid-kan huruf pertama pada huruf yang kedua.",
+            "examples": [""],
+            "page": "/detail?tajweed=idgham_mutaqooribain"
+        },
+        {
+            "id": 13,
+            "name": "Idzhar Qamariyah",
+            "group": "Lam Ta'rif",
+            "summary": "Apabila ada lam ta’rief bertemu dengan huruf-huruf idzhar qamariyah, maka cara membacanya harus jelas.",
+            "detail": "Qamar dalam bahasa arab memiliki arti bulan. Sedangkan lam ta’rief diumpamakan dengan bintang. Hal ini karena bintang tetap terlihat meskipun bertemu dengan bulan.\nHuruf-huruf Idzhar Qamariyah: ء ب ج ح خ ع غ ف ق ك م و ه ي",
+            "examples": [
+                "لَكُمُ الْأَرْضَ ذَلُولً Alif lam bertemu dengan ء",
+                "فَارْجِعِ الْبَصَرَ Alif lam bertemu dengan ب",
+                "أَصْحَابَ الْجَنَّةِ Alif lam bertemu dengan ج",
+                "خَلَقَ الْمَوْتَ وَالْحَيَاةَ Alif lam bertemu dengan ح",
+                "وَهُوَ اللَّطِيفُ الْخَبِيرُ Alif lam bertemu dengan خ"
+            ],
+            "page": "/detail?tajweed=idzhar_qamariyah"
+        },
+        {
+            "id": 14,
+            "name": "Idgham Syamsiyah",
+            "group": "Lam Ta'rif",
+            "summary": "Apabila ada lam ta’rief bertemu dengan huruf-huruf qamariyah lainnya, selain huruf idzhar qamariyah, maka disebut dengan idhgam.",
+            "detail": "Syamsiyah memiliki arti matahari, maka jika alif lam yang diumpakan bintang, bertemu dengan matahari, maka jadi tidak terlalu kelihatan. Karena tidak terbaca ini, maka alif lam yang bertemu dengan huruf syamsiyah, seperti ditasydidkan, atau dimasukkan ke huruf berikutnya.\nhuruf-huruf idhgam syamsiyah: ت ث د ذ ر ز س ش ص ض ط ظ ل ن ",
+            "examples": [
+                "وَأَنْزَلَ التَّوْرَاةَ Alif lam bertemu dengan ت",
+                "مِنَ الثَّمَرَاتِ Alif lam bertemu dengan ث",
+                "يَوْمِ الدِّينِ Alif lam bertemu dengan د",
+                "وَالذَّاكِرِينَ Alif lam bertemu dengan ذ",
+                "الرَّحْمَنِ Alif lam bertemu dengan ر"
+            ],
+            "page": "/detail?tajweed=idgham_syamsiyah"
+        },
+        {
+            "id": 21,
+            "name": "Qalqalah Sughra",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "Apabila ada huruf qalqalah yang mati, maka cara membacanya harus membalik. Dibaca qalqalah sughra jika huruf qalqalah terletak di pertengahan kalimat.",
+            "detail": "Qalqalah sughra dibaca lebih tipis, seperti arti sughra sendiri yang artinya kecil.\nHuruf-Huruf Qalqalah: ب ج د ط ق ",
+            "examples": [
+                "ثُمَّ لِيَقْطَعْ فَلْيَنْظُرْ Ada huruf Qaf mati di tengah kata",
+                "ثَانِيَ عِطْفِهِ  Ada huruf Tho mati di tengah kata",
+                "وَقَوْمُ إِبْرَاهِيمَ Ada huruf Ba mati di tengah kata",
+                "فَعَلَيَّ إِجْرَامِي Ada huruf Ja mati di tengah kata",
+                "يَدْعُو مِنْ دُونِ اللَّهِ  Ada huruf Da mati di tengah kata"
+            ],
+            "page": "/detail?tajweed=qalqalah_sughra"
+        },
+        {
+            "id": 22,
+            "name": "Qalqalah Kubra",
+            "group": "Ahkämul Al-hurüf",
+            "summary": "Apabila ada huruf qalqalah yang mati, maka cara membacanya harus membalik. Dibaca qalqalah kubro jika huruf qalqalah berada di akhir kalimat.",
+            "detail": "Qalqalah kubro cara membacanya dipantulkan lebih jelas dan lebih keras, seperti arti kubro yang artinya besar.\nHuruf-Huruf Qalqalah: ب ج د ط ق ",
+            "examples": [
+                "بَيْنِ الصُّلْبِ وَالتَّرَائِبِ Ada huruf Ba di akhir kalimat",
+                "وَالسَّمَاءِ ذَاتِ الْبُرُوجِ Ada huruf Ja di akhir kalimat",
+                "وَالْيَوْمِ الْمَوْعُودِ Ada huruf Da di akhir kalimat",
+                "قَائِمًا بِالْقِسْطِ Ada huruf Tho di akhir kalimat",
+                "وَالسَّمَاءِ وَالطَّارِقِ Ada huruf Qaf di akhir kalimat"
+            ],
+            "page": "/detail?tajweed=qalqalah_kubra"
+        },
+        {
+            "id": 24,
+            "name": "Mad Thabii",
+            "group": "Ahkämul-madd",
+            "summary": "Hukum bacaan disebut MAD THOBI'I yakni apabila huruf yang dipanjangkan bunyi suaranya berupa huruf berharokat dlommah (ُ) dan sesudahnya terdapat huruf WAU SUKUN (ﻭْ), Huruf berharokat kasroh dan sesudahnya terdapat huruf YAA' SUKUN (ﻱْ), huruf berharokat fathah (َ) dan sesudahnya terdapat huruf ALIF (ا)",
+            "detail": "",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_thabii"
+        },
+        {
+            "id": 25,
+            "name": "Mad Wajib Muttasil",
+            "group": "Ahkämul-madd",
+            "summary": "Apabila ada MAD THOBI'II bertemu dengan HAMZAH (ء) berharokat hidup di dalam satu kata/kalimat.",
+            "detail": "Cara membacanya wajib dipanjangkan sampai dua setengah ALIF atau lima harokat atau dua setengah kali panjang MAD THOBI'II.",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_wajib_muttasil"
+        },
+        {
+            "id": 26,
+            "name": "Mad Jaiz Munfassil",
+            "group": "Ahkämul-madd",
+            "summary": "Hukum bacaan disebut MAD JAIZ MUNFASHILyalmi apabila MAD THOBI'II (ء) di lain perkataan.",
+            "detail": "Cara membacanya lebih baik dipanjangkan seperti panjangnya MAD WAJIB MUTTASHIL, seperti panjang MAD THOBI'II.",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_jaiz_munfassil"
+        },
+        {
+            "id": 27,
+            "name": "Mad Lazim Mutsaqqal Kilmi",
+            "group": "Ahkämul-madd",
+            "summary": "Apabila MAD THOBI'II berhadapan dengan huruf yang ber-tasydid di dalam satu perkataan.",
+            "detail": "Cara membacannya harus dipanjangkan lebih dahulu sepanjang 3 alif atau 6 harokat baru ditasydidkan.",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_lazim_mutsaqqal_kilmi"
+        },
+        {
+            "id": 28,
+            "name": "Mad Lazim Mukhaffaf Kilmi",
+            "group": "Ahkämul-madd",
+            "summary": "Apabila MAD THOBI'II bertemu dengan huruf yang berharokat SUKUN tidak di akhir perkataan. (dipanjangkan sampai tiga alif atau enam harokat).",
+            "detail": "Cara membacanya sepetti MAD LAZIM MUTSAQQOL KILMI (dipanjangkan sampai tiga alif atau enam harokat).",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_lazim_mukhaffaf_kilmi"
+        },
+        {
+            "id": 29,
+            "name": "Mad Layyin",
+            "group": "Ahkämul-madd",
+            "summary": "Apabila ada huruf MAD, baik yang berupa WAU SUKUN atau YAA'SUKUN didahului oleh huruf yang berharokat FATHAH.",
+            "detail": "Cara membacanya dengan lunak dan lemas.",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_layyin"
+        },
+        {
+            "id": 30,
+            "name": "Mad Arid Lissukun",
+            "group": "Ahkämul-madd",
+            "summary": "Apabila ada Mad Thobi'i atau Mad Layyin dan sesudahnya ada waqof (tempat berhenti).",
+            "detail": "Cara membacanya ada 3 macam :\na. Yang lebih utama, yakni dibaca panjang, sama dengan MAD WAJIB MUTASHIL harokat).\nb. Yang pertengahan (sedang), yakni dibaca dua ALIF atau empat harokat (dua kali MAD THOBI'II).\nc.Yang pendek, yakni boleh hanya dibaca seperti MAD THOBI 'II biasa (dua harokat).",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_arid_lissukun"
+        },
+        {
+            "id": 31,
+            "name": "Mad Shilah Qashirah",
+            "group": "Ahkämul-madd",
+            "summary": "Apabila ada huruf HAA DLOMIIR / kata ganti orang (benda) ketiga yang berupa (ه) berada sesudah huruf hidup (berharokat) dan sesudahnya tidak bertemu / dihubungkan dengan huruf bersukun atau huruf bertasydid dan atau huruf alif.",
+            "detail": "Cara membacanya dipanjangkan sampai satu ALIF atau dua harokat atau seperti panjang Mad Thobi 'ii.",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_shilah_qashirah"
+        },
+        {
+            "id": 32,
+            "name": "Mad Shilah Thawilah",
+            "group": "Ahkämul-madd",
+            "summary": "Apabila Mad Shilah Qoshiroh bertemu dengan HAMZAH (ء) didahului oleh huruf yang berharokat hidup.",
+            "detail": "Cara membacanya seperti bacaan MAD JAIZ MUNFASHIL, artinya boleh dipanjangkan sampai dua setengah Alif atau satu AIif seperti Mad Thobi 'ii.",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_shilah_thawilah"
+        },
+        {
+            "id": 33,
+            "name": "Mad Iwad",
+            "group": "Ahkämul-madd",
+            "summary": "Apabila ada FAT-HATAIN (ً) yang jatuh pada waqof (pemberhentian), pada akhir kalimat (selain ta' marbuthoh) atau disebut MAD pengganti TANWIN sehingga tidak berbunyi lagi.",
+            "detail": "Cara membacanya dipanjangkan satuAIif seperti Mad Thobi'ii.",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_iwad"
+        },
+        {
+            "id": 34,
+            "name": "Mad Badal",
+            "group": "Ahkämul-madd",
+            "summary": "Apabila ada HAMZAH ( )bertemu dengan MAD yang berasal dari HAMZAH SUKUN,kemudian hamzah ini diubah dan diganti dengan ALIF( ), WAU ( )",
+            "detail": "Cara membæanya harus dipanjangkan satu alif atau dua harokat seperti MAD THOBI'II.",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_badal"
+        }
+    ]
 }
