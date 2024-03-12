@@ -27,7 +27,7 @@ class HomePage extends React.Component {
   }
 
   checkLocalStorage () {
-    isStorageExist('Your browser does not support Local Storage/Cookies!\nPlease enable cookies in your browser settings or disable incognito mode.\nThank you.')
+    isStorageExist(this.props.t('browser_warning'))
     if (isStorageExist('')) {
       this.checkDisplayMode()
       this.checkLanguageData()
@@ -43,7 +43,7 @@ class HomePage extends React.Component {
       }
     } catch (error) {
       localStorage.removeItem(this.state.DARK_MODE_STORAGE_KEY)
-      alert(`Error: ${error.message}\nPlease reload the page.`)
+      alert(`${this.props.t('error_alert')}: ${error.message}\n${this.props.t('error_solution')}.`)
     }
   }
 
@@ -56,7 +56,7 @@ class HomePage extends React.Component {
       } else this.changeLanguage(this.state.selectedLanguage)
     } catch (error) {
       localStorage.removeItem(this.state.LANGUAGE_STORAGE_KEY)
-      alert(`Error: ${error.message}\nPlease reload the page.`)
+      alert(`${this.props.t('error_alert')}: ${error.message}\n${this.props.t('error_solution')}.`)
     }
   }
 
@@ -75,13 +75,13 @@ class HomePage extends React.Component {
   }
 
   saveDisplayMode (selectedDisplayMode) {
-    if (isStorageExist('Your browser does not support Local Storage/Cookies!\nPlease enable cookies in your browser settings or disable incognito mode.\nThank you.')) {
+    if (isStorageExist(this.props.t('browser_warning'))) {
       localStorage.setItem(this.state.DARK_MODE_STORAGE_KEY, JSON.stringify(selectedDisplayMode))
     }
   }
 
   saveLanguageData (selectedLanguage) {
-    if (isStorageExist('Your browser does not support Local Storage/Cookies!\nPlease enable cookies in your browser settings or disable incognito mode.\nThank you.')) {
+    if (isStorageExist(this.props.t('browser_warning'))) {
       localStorage.setItem(this.state.LANGUAGE_STORAGE_KEY, JSON.stringify(selectedLanguage))
     }
   }

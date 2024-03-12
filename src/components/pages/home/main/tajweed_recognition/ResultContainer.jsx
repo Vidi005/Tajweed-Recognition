@@ -5,7 +5,7 @@ import { Transition } from "@headlessui/react"
 import MenuBarContainer from "./MenuBarContainer"
 import SliderContainer from "./SliderContainer"
 
-const ResultContainer = ({ props, state, increaseTextSize, contentContainerRef, tooltipRef, decreaseTextSize, handleTextEditor, onContentChangeHandler, setContentDisplayMode, showTooltip, hideTooltip, closeResult }) => (
+const ResultContainer = ({ props, state, increaseTextSize, contentContainerRef, tooltipRef, decreaseTextSize, handleTextEditor, onContentChangeHandler, setContentDisplayMode, showTooltip, hideTooltip, carouselItemsRefs, calculateLines, closeResult }) => (
   !state.isResultClosed && (
     <Transition
       appear
@@ -20,7 +20,7 @@ const ResultContainer = ({ props, state, increaseTextSize, contentContainerRef, 
     >
       <div className="result-container fixed inset-0 flex flex-col bg-green-100 dark:bg-black">
         <MenuBarContainer props={props} isEditMode={state.isEditMode} closeResult={closeResult}/>
-        <div className={`result-container grow flex flex-col m-2 px-2 ${state.isContentDarkMode ? "bg-gray-800" : "bg-green-100"} rounded-md shadow-md dark:shadow-white/50 duration-200`}>
+        <div className={`content-container grow flex flex-col m-2 px-2 ${state.isContentDarkMode ? "bg-gray-800" : "bg-green-100"} rounded-md shadow-md dark:shadow-white/50 duration-200`}>
           <div className={`content-menu flex items-center justify-end border-b ${state.isContentDarkMode ? "border-b-white" : "border-b-black"}`}>
             <button className={`border ${state.isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 my-2 p-1 rounded duration-200 overflow-hidden`} onClick={increaseTextSize} disabled={state.isIncreaseTextDisabled}>
               <img className={`${state.isContentDarkMode ? "invert-0" : "invert"} h-5 duration-200`} src="images/text-increase-icon.svg" alt="Increase" />
@@ -59,7 +59,26 @@ const ResultContainer = ({ props, state, increaseTextSize, contentContainerRef, 
               )
           }
         </div>
-        <SliderContainer colorizedTajweeds={state.filteredTajweeds}/>
+        {state.isCarouselItemHovered && (
+          <svg className="absolute w-full h-full top-0 left-0 duration-300">
+            {state.lines.map((line, index) => (
+              <line
+                key={index}
+                x1={line.x1}
+                y1={line.y1}
+                x2={line.x2}
+                y2={line.y2}
+                stroke={`${state.isContentDarkMode ? "white" : "#14532d"}`}
+                strokeWidth="2"
+              />
+            ))}
+          </svg>
+        )}
+        <SliderContainer
+          colorizedTajweeds={state.filteredTajweeds}
+          carouselItemsRefs={carouselItemsRefs}
+          calculateLines={calculateLines}
+        />
       </div>
     </Transition>
   )

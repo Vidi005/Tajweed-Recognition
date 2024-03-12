@@ -20,6 +20,7 @@ class RecognitionContainer extends React.Component {
       tooltipColor: '',
       coloredTajweeds: [],
       filteredTajweeds: [],
+      lines: [],
       isCameraModeSelected: false,
       isScreenSharingModeSelected: false,
       isCameraPermissionGranted: false,
@@ -29,10 +30,15 @@ class RecognitionContainer extends React.Component {
       isDecreaseTextDisabled: false,
       isEditMode: false,
       isContentDarkMode: false,
-      isResultClosed: true
+      isResultClosed: true,
+      isCarouselItemHovered: false
     }
     this.tooltipRef = React.createRef()
     this.contentContainerRef = React.createRef()
+    this.carouselItemsRefs = {}
+    tajweedLaws().forEach(tajweedLaw => {
+      this.carouselItemsRefs[`tajweed-${tajweedLaw.id}`] = React.createRef()
+    })
   }
 
   componentDidMount() {
@@ -216,38 +222,14 @@ class RecognitionContainer extends React.Component {
       tajweedLaw.rules.forEach(rule => {
         if (typeof rule === 'string') {
           const regex = new RegExp(`(${rule})`, 'gm')
-          applyColor(regex, tajweedLaw.id, tajweedLaw.color)
+          applyColor(regex, `tajweed-${tajweedLaw.id}`, tajweedLaw.color)
         } else {
-          applyColor(rule, tajweedLaw.id, tajweedLaw.color)
+          applyColor(rule, `tajweed-${tajweedLaw.id}`, tajweedLaw.color)
         }
       })
     })
     return colorizedChars
   }
-
-  // shouldColorize(chars) {
-  //   tajweedLaws().map((tajweedLaw, index) => {
-  //     if (typeof tajweedLaw.rules[index] === 'string' && tajweedLaw.rules.some(substr => chars.includes(substr))) {
-  //       return tajweedLaw.color
-  //     } else if (tajweedLaw.rules[index] instanceof RegExp) {
-  //       for (const pattern of tajweedLaw.rules) {
-  //         if (new RegExp(pattern).test(chars)) {
-  //           return tajweedLaw.color
-  //         }
-  //       }
-  //     }
-  //   })
-  //   return null
-  // }
-
-  // renderColoredChars() {
-  //   const characters = this.state.recognizedText.split('')
-  //   const colorizedChars = characters.map((char, index) => {
-  //     const charsColor = this.shouldColorize(char)
-  //     return (<span key={index} style={{ color: charsColor ? charsColor : '' }}>{char}</span>)
-  //   })
-  //   this.setState({ coloredTajweeds: colorizedChars })
-  // }
 
   showTooltip(event) {
     const matchedTajweed = tajweedLaws().filter(tajweedLaw => {
@@ -298,10 +280,25 @@ class RecognitionContainer extends React.Component {
 
   filterColorizedTajweeds(coloredTajweeds) {
     const colorizedTajweeds = tajweedLaws().filter(tajweedLaw => {
-      const styleRegex = new RegExp(`class="${tajweedLaw.id}"`)
+      const styleRegex = new RegExp(`class="tajweed-${tajweedLaw.id}"`)
       return styleRegex.test(coloredTajweeds)
     }).sort((a, b) => a.id - b.id)
     this.setState({ filteredTajweeds: colorizedTajweeds })
+  }
+
+  calculateLines(classNames, isHovered) {
+    const elements = document.querySelectorAll(`.${classNames}`)
+    const lines = []
+    elements.forEach(element => {
+      const rect1 = element.getBoundingClientRect()
+      const rect2 = this.carouselItemsRefs[classNames].current.getBoundingClientRect()
+      const x1 = rect1.left + rect1.width / 2
+      const x2 = rect2.left + rect2.width / 2
+      const y1 = rect1.top + rect1.height / 2
+      const y2 = rect2.top + rect2.height / 2
+      lines.push({ x1, x2, y1, y2 })
+    })
+    this.setState({ isCarouselItemHovered: isHovered, lines: lines })
   }
 
   closeResult () {
@@ -347,6 +344,7 @@ class RecognitionContainer extends React.Component {
           state={this.state}
           contentContainerRef={this.contentContainerRef}
           tooltipRef={this.tooltipRef}
+          carouselItemsRefs={this.carouselItemsRefs}
           closeResult={this.closeResult.bind(this)}
           increaseTextSize={this.increaseTextSize.bind(this)}
           decreaseTextSize={this.decreaseTextSize.bind(this)}
@@ -355,6 +353,7 @@ class RecognitionContainer extends React.Component {
           setContentDisplayMode={this.setContentDisplayMode.bind(this)}
           showTooltip={this.showTooltip.bind(this)}
           hideTooltip={this.hideTooltip.bind(this)}
+          calculateLines={this.calculateLines.bind(this)}
         />
       </React.Fragment>
     )
