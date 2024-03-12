@@ -77,6 +77,12 @@ const extractIdghamMutamasilainCharacters = () => [
   'لْ ل', 'لْل'
 ]
 
+const extractIdghamMutajaanisainCharacters = () => [
+  'ﺕْط', 'ﺕْ ط', 'ﺕْد', 'ﺕْ د', 'دْﺕ', 'دْ ﺕ', 'ذْﻅ', 'ذْ ﻅ', 'طْﺕ', 'طْ ﺕ', 'لْر', 'لْ ر'
+]
+
+const extractIdghamMutaqooribainCharacters = () => ['بْم', 'بْ م', 'ﺕْﺙ', 'ﺕْ ﺙ', 'ﺙْذ', 'ﺙْ ذ', 'ﻕْك', 'ﻕْ ك']
+
 const extractGunnahCharacters = () => ['نّ', 'نَّ', 'نِّ', 'نُّ', 'مّ', 'مَّ', 'مِّ', 'مُّ']
 
 const extractIdzharQamariyahCharacters = () => [
@@ -291,6 +297,8 @@ const idzharSyafawiTajweed = extractIdzharSyafawiCharacters()
 const ikhfaSyafawiTajweed = extractIkhfaSyafawiCharacters()
 const idghamMimiTajweed = extractIdghamMimiCharacters()
 const idghamMutamasilainTajweed = extractIdghamMutamasilainCharacters()
+const idghamMutajaanisainTajweed = extractIdghamMutajaanisainCharacters()
+const idghamMutaqooribainTajweed = extractIdghamMutaqooribainCharacters()
 const gunnahTajweed = extractGunnahCharacters()
 const idzharQamariyahTajweed = extractIdzharQamariyahCharacters()
 const idghamSyamsiyahTajweed = extractIdghamSyamsiyahCharacters()
@@ -344,8 +352,24 @@ const tajweedLaws = () => [
   {
     id: 10,
     name: 'Idgham Mutamasilain',
-    color: '#e5ea9f',
+    color: '#ff0040',
     rules: idghamMutamasilainTajweed,
+    group: 'Ahkämul Al-hurüf',
+    detailPage: '/detail?tajweed='
+  },
+  {
+    id: 11,
+    name: 'Idgham Mutajaanisain',
+    color: '#ff8000',
+    rules: idghamMutajaanisainTajweed,
+    group: 'Ahkämul Al-hurüf',
+    detailPage: '/detail?tajweed='
+  },
+  {
+    id: 12,
+    name: 'Idgham Mutaqooribain',
+    color: '#ffbf00',
+    rules: idghamMutaqooribainTajweed,
     group: 'Ahkämul Al-hurüf',
     detailPage: '/detail?tajweed='
   },
@@ -511,18 +535,6 @@ const tajweedLaws = () => [
   },
 ]
 
-const tajweedDetails = [
-  {
-    id: 1,
-    name: 'Idzhar',
-    group: '',
-    desc: '',
-    examples: [
-      'الحمد لله رب العالمين',
-    ]
-  }
-]
-
 const sources = [
   'https://tashih.kemenag.go.id/uploads/1/2019-08/buku_pedoman_tajwid_sistem_warna.pdf',
   'https://ia803106.us.archive.org/22/items/etaoin/Ilmu%20Tajwid%20Lengkap.pdf',
@@ -531,4 +543,4 @@ const sources = [
 
 const twTextSizes = () => ['0.75rem', '0.875rem', '1rem', '1.125rem', '1.25rem', '1.5rem', '1.875rem', '2.25rem', '3rem', '3.75rem', '4.5rem', '6rem', '8rem']
 
-export { isStorageExist, twTextSizes, tajweedLaws, tajweedDetails, sources }
+export { isStorageExist, twTextSizes, tajweedLaws, sources }

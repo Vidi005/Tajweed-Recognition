@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      'lpmq-isep-misbah': ['LPMQ-IsepMisbah']
+      'lpmq-isep-misbah': ['LPMQ-IsepMisbah'],
+      'ramadhan-start': ['Awal-Ramadhan']
     }
   },
   plugins: [],

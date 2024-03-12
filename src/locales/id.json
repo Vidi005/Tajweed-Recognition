@@ -3,7 +3,21 @@
     "tab_list": ["Mengenali Tajwid", "Daftar Tajwid"],
     "tab_icons": ["/images/recognition-icon.svg", "/images/list-icon.svg"],
     "tab_icons_dark": ["/images/recognition-icon-dark.svg", "/images/list-icon-dark.svg"],
-    "color_changer": ["Normal", "Invers", "Monokrom", "Invers Monokrom"],
+    "browser_warning": "Browser Anda tidak mendukung Local Storage/Cookies!\nSilakan aktifkan cookies di browser Anda atau matikan mode incognito.\nTerima kasih.",
+    "error_alert": "Kesalahan",
+    "error_solution": "Silakan muat ulang halaman.",
+    "drop_image": "Seret gambar ke sini",
+    "invalid_file": ["Tipe File Tidak Didukung!", "Silakan pilih file gambar."],
+    "file_size_limit": ["Ukuran File Melebihi Batas!", "Silakan pilih file gambar kurang dari 5MB."],
+    "empty_arabic_text": ["Tidak ada teks Arab ditemukan!", "Silakan coba dengan teks yang terdapat huruf Arab."],
+    "recognition_failed": "Gagal Mengenali Teks!",
+    "unsaved_warning": "Apakah Anda yakin ingin menutup hasil ini?",
+    "capture_image": "Ambil Gambar",
+    "select_image": "Pilih Gambar",
+    "screen_capture": "Tangkapan Layar",
+    "manual_input": "Input Manual",
+    "recognizing": "Memproses...",
+    "generate": "Generate",
     "tajweedLaws": [
         {
             "id": 1,
@@ -44,7 +58,7 @@
             "name": "Idgham Bilagunnah",
             "group": "Ahkämul Al-hurüf",
             "summary": "Apabila nun mati atau tanwin bertemu dengan huruf-huruf idgham bilagunnah maka dibacanya dengan dimasukkan namun tidak berdengung.",
-            "detail": "Idgham artinya memasukkan, dan bilagunnah artinya tidak mendengung. Jadi cara membacanya dengan ditasydidkan ke dalam salah satu huruf idham dengan suara yang tidak mendengung.\nHuruf-huruf idgham bigunnah: ل ر",
+            "detail": "Idgham artinya memasukkan, dan bilagunnah artinya tidak mendengung. Jadi cara membacanya dengan ditasydidkan ke dalam salah satu huruf idham dengan suara yang tidak mendengung.\nHuruf-huruf idgham bilagunnah: ل ر",
             "examples": [
                 "فَضْلًا مِنْ رَبِّكَ Nun Mati bertemu dengan ر",
                 "قَالَ لَمْ أَكُنْ لِأَسْجُدَ Nun Mati bertemu dengan ل",
@@ -67,7 +81,7 @@
             "name": "Ikhfa",
             "group": "Ahkämul Al-hurüf",
             "summary": "Apabila nun mati atau tanwin bertemu dengan huruf-huruf ikhfa haqiqi, maka dibacanya dengan samar-samar.",
-            "detail": "Ikhfa artinya menyamar atau menyembunyikan sedangkan haqiqi artinya sungguh-sungguh. adi cara membacanya harus terang dengan adanya dengung.\nHuruf-huruf Ikhfa Haqiqi: ت ث ج د ذ ز س ش ص ض ط ظ ف ق  ك",
+            "detail": "Ikhfa artinya menyamar atau menyembunyikan sedangkan haqiqi artinya sungguh-sungguh. Jadi cara membacanya harus terang dengan adanya dengung.\nHuruf-huruf Ikhfa Haqiqi: ت ث ج د ذ ز س ش ص ض ط ظ ف ق ك",
             "examples": [
                 "أَنْتُمْ Nun mati bertemu dengan ت ",
                 "مَنْثُورًا Nun mati bertemu dengan ث ",
@@ -184,7 +198,7 @@
             "name": "Idgham Syamsiyah",
             "group": "Lam Ta'rif",
             "summary": "Apabila ada lam ta’rief bertemu dengan huruf-huruf qamariyah lainnya, selain huruf idzhar qamariyah, maka disebut dengan idhgam.",
-            "detail": "Syamsiyah memiliki arti matahari, maka jika alif lam yang diumpakan bintang, bertemu dengan matahari, maka jadi tidak terlalu kelihatan. Karena tidak terbaca ini, maka alif lam yang bertemu dengan huruf syamsiyah, seperti ditasydidkan, atau dimasukkan ke huruf berikutnya.\nhuruf-huruf idhgam syamsiyah: ت ث د ذ ر ز س ش ص ض ط ظ ل ن ",
+            "detail": "Syamsiyah memiliki arti matahari, maka jika alif lam yang diumpakan bintang, bertemu dengan matahari, maka jadi tidak terlalu kelihatan. Karena tidak terbaca ini, maka alif lam yang bertemu dengan huruf syamsiyah, seperti ditasydidkan, atau dimasukkan ke huruf berikutnya.\nhuruf-huruf idhgam syamsiyah: ت ث د ذ ر ز س ش ص ض ط ظ ل ن",
             "examples": [
                 "وَأَنْزَلَ التَّوْرَاةَ Alif lam bertemu dengan ت",
                 "مِنَ الثَّمَرَاتِ Alif lam bertemu dengan ث",
@@ -199,7 +213,7 @@
             "name": "Qalqalah Sughra",
             "group": "Ahkämul Al-hurüf",
             "summary": "Apabila ada huruf qalqalah yang mati, maka cara membacanya harus membalik. Dibaca qalqalah sughra jika huruf qalqalah terletak di pertengahan kalimat.",
-            "detail": "Qalqalah sughra dibaca lebih tipis, seperti arti sughra sendiri yang artinya kecil.\nHuruf-Huruf Qalqalah: ب ج د ط ق ",
+            "detail": "Qalqalah sughra dibaca lebih tipis, seperti arti sughra sendiri yang artinya kecil.\nHuruf-Huruf Qalqalah: ب ج د ط ق",
             "examples": [
                 "ثُمَّ لِيَقْطَعْ فَلْيَنْظُرْ Ada huruf Qaf mati di tengah kata",
                 "ثَانِيَ عِطْفِهِ  Ada huruf Tho mati di tengah kata",
@@ -214,7 +228,7 @@
             "name": "Qalqalah Kubra",
             "group": "Ahkämul Al-hurüf",
             "summary": "Apabila ada huruf qalqalah yang mati, maka cara membacanya harus membalik. Dibaca qalqalah kubro jika huruf qalqalah berada di akhir kalimat.",
-            "detail": "Qalqalah kubro cara membacanya dipantulkan lebih jelas dan lebih keras, seperti arti kubro yang artinya besar.\nHuruf-Huruf Qalqalah: ب ج د ط ق ",
+            "detail": "Qalqalah kubro cara membacanya dipantulkan lebih jelas dan lebih keras, seperti arti kubro yang artinya besar.\nHuruf-Huruf Qalqalah: ب ج د ط ق",
             "examples": [
                 "بَيْنِ الصُّلْبِ وَالتَّرَائِبِ Ada huruf Ba di akhir kalimat",
                 "وَالسَّمَاءِ ذَاتِ الْبُرُوجِ Ada huruf Ja di akhir kalimat",
@@ -246,7 +260,7 @@
             "id": 26,
             "name": "Mad Jaiz Munfassil",
             "group": "Ahkämul-madd",
-            "summary": "Hukum bacaan disebut MAD JAIZ MUNFASHILyalmi apabila MAD THOBI'II (ء) di lain perkataan.",
+            "summary": "Hukum bacaan disebut MAD JAIZ MUNFASHIL yakni apabila MAD THOBI'II (ء) di lain perkataan.",
             "detail": "Cara membacanya lebih baik dipanjangkan seperti panjangnya MAD WAJIB MUTTASHIL, seperti panjang MAD THOBI'II.",
             "examples": [""],
             "page": "/detail?tajweed=mad_jaiz_munfassil"
@@ -310,7 +324,7 @@
             "name": "Mad Iwad",
             "group": "Ahkämul-madd",
             "summary": "Apabila ada FAT-HATAIN (ً) yang jatuh pada waqof (pemberhentian), pada akhir kalimat (selain ta' marbuthoh) atau disebut MAD pengganti TANWIN sehingga tidak berbunyi lagi.",
-            "detail": "Cara membacanya dipanjangkan satuAIif seperti Mad Thobi'ii.",
+            "detail": "Cara membacanya dipanjangkan satu AIif seperti Mad Thobi'ii.",
             "examples": [""],
             "page": "/detail?tajweed=mad_iwad"
         },

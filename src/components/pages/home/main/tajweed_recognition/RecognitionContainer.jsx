@@ -4,6 +4,7 @@ import { isStorageExist, tajweedLaws, twTextSizes } from "../../../../../utils/d
 import Tesseract from "tesseract.js"
 import ResultContainer from "./ResultContainer"
 import DropZoneContainer from "./import_mode/DropZoneContainer"
+import { withTranslation } from "react-i18next"
 
 class RecognitionContainer extends React.Component {
   constructor(props) {
@@ -50,7 +51,7 @@ class RecognitionContainer extends React.Component {
   }
 
   checkLocalStorage() {
-    isStorageExist('Your browser does not support Local Storage/Cookies!\nPlease enable cookies in your browser settings or disable incognito mode.\nThank you.')
+    isStorageExist(this.props.t('browser_warning'))
     if (isStorageExist('')) {
       this.checkContentDisplayMode()
     }
@@ -65,7 +66,7 @@ class RecognitionContainer extends React.Component {
       }
     } catch (error) {
       localStorage.removeItem(this.state.CONTENT_DARK_STORAGE_KEY)
-      alert(`Error: ${error.message}\nPlease reload the page.`)
+      alert(`${this.props.t('error_alert')}: ${error.message}\n${this.props.t('error_solution')}.`)
     }
   }
 
@@ -108,7 +109,7 @@ class RecognitionContainer extends React.Component {
   }
 
   saveContentDisplayMode(selectedDisplayMode) {
-    if (isStorageExist('Your browser does not support Local Storage/Cookies!\nPlease enable cookies in your browser settings or disable incognito mode.\nThank you.')) {
+    if (isStorageExist(this.props.t('browser_warning'))) {
       localStorage.setItem(this.state.CONTENT_DARK_STORAGE_KEY, JSON.stringify(selectedDisplayMode))
     }
   }
@@ -127,8 +128,8 @@ class RecognitionContainer extends React.Component {
         }, () => {
           Swal.fire({
             icon: 'error',
-            title: 'Unsupported File Type!',
-            text: 'Please select an image file.'
+            title: this.props.t('invalid_file.0'),
+            text: this.props.t('invalid_file.1')
           })
         })
         return
@@ -139,8 +140,8 @@ class RecognitionContainer extends React.Component {
           this.setState({ isRecognizing: false }, () => {
             Swal.fire({
               icon: 'error',
-              title: 'File Size Exceeded!',
-              text: 'Please select an image file less than 5MB.'
+              title: this.props.t('file_size_limit.0'),
+              text: this.props.t('file_size_limit.1')
             })
           })
           return
@@ -167,8 +168,8 @@ class RecognitionContainer extends React.Component {
       } else {
         this.setState({ isRecognizing: false })
         Swal.fire({
-          title: 'There was no Arabic text found!',
-          text: 'Please try other contained Arabic Characters image.',
+          title: this.props.t('empty_arabic_text.0'),
+          text: this.props.t('empty_arabic_text.1'),
           icon: 'error',
           confirmButtonColor: 'green'
         })
@@ -177,7 +178,7 @@ class RecognitionContainer extends React.Component {
       this.setState({ isRecognizing: false })
       Swal.fire({
         icon: 'error',
-        title: 'Failed to Recognize Text!',
+        title: this.props.t('recognition_failed'),
         text: error.message
       })
     }
@@ -185,7 +186,7 @@ class RecognitionContainer extends React.Component {
 
   onUnloadPage (event) {
     event.preventDefault()
-    event.returnValue = 'Are you sure want to close this result?'
+    event.returnValue = this.props.t('unsaved_warning')
   }
   
   colorizeChars(recognizedText) {
@@ -310,26 +311,26 @@ class RecognitionContainer extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <DropZoneContainer pickImage={this.pickImage.bind(this)}/>
+        <DropZoneContainer props={this.props} pickImage={this.pickImage.bind(this)}/>
         <h2>Recognize Tajweed</h2>
         <p className="relative text-justify md:mx-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo quod, dolore enim velit repellendus eius distinctio repellat, dicta ducimus blanditiis beatae deserunt consequuntur aspernatur magnam aperiam fuga temporibus rem libero!</p>
         <div className="btn-container relative flex flex-wrap items-center justify-center">
           <button className="btn-capture grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 duration-200">
             <img className="h-8 md:h-12 mr-2" src="images/camera-icon.svg" alt="Capture Image" />
-            <h5 className="md:text-lg whitespace-nowrap">Capture Image</h5>
+            <h5 className="md:text-lg whitespace-nowrap">{this.props.t('capture_image')}</h5>
           </button>
           <label htmlFor="image-picker" className="btn-import grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 cursor-pointer duration-200">
             <input type="file" id="image-picker" className="hidden" accept="image/*" onChange={e => this.pickImage(e.target.files)} />
             <img className="h-8 md:h-12 mr-2" src="images/import-icon.svg" alt="Select an Image" />
-            <h5 className="md:text-lg flex-nowrap">Select Image</h5>
+            <h5 className="md:text-lg flex-nowrap">{this.props.t('select_image')}</h5>
           </label>
           <button className="btn-capture grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 duration-200">
             <img className="h-8 md:h-12 mr-2" src="images/share-screen-icon.svg" alt="Screen Capture" />
-            <h5 className="md:text-lg whitespace-nowrap">Screen Capture</h5>
+            <h5 className="md:text-lg whitespace-nowrap">{this.props.t('screen_capture')}</h5>
           </button>
           <button className="btn-manual-input grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 duration-200">
             <img className="h-8 md:h-12 mr-2" src="images/input-text-icon.svg" alt="Manual Input" />
-            <h5 className="md:text-lg whitespace-nowrap">Input Manually</h5>
+            <h5 className="md:text-lg whitespace-nowrap">{this.props.t('manual_input')}</h5>
           </button>
         </div>
         <h5>Tajweed Recognition @ 2024</h5>
@@ -337,7 +338,7 @@ class RecognitionContainer extends React.Component {
           <div className="fixed inset-0 w-screen h-full flex items-center justify-center bg-black/50 backdrop-blur-sm duration-200 animate__animated animate__fadeIn">
             <div className="flex items-center justify-center space-x-2">
               <span className="w-8 h-8 aspect-square border-t-2 border-r-2 border-t-white border-r-white rounded-full bg-transparent animate-spin"></span>
-              <span className="text-white text-xl">Recognizing...</span>
+              <span className="text-white text-xl">{this.props.t('recognizing')}</span>
             </div>
           </div>
         )}
@@ -360,4 +361,4 @@ class RecognitionContainer extends React.Component {
   }
 }
 
-export default RecognitionContainer
+export default withTranslation()(RecognitionContainer)

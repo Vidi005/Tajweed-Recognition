@@ -3,15 +3,36 @@
     "tab_list": ["Recognize Tajweed", "Tajweed List"],
     "tab_icons": ["/images/recognition-icon.svg", "/images/list-icon.svg"],
     "tab_icons_dark": ["/images/recognition-icon-dark.svg", "/images/list-icon-dark.svg"],
-    "color_changer": ["Normal", "Inverted", "Grayscale", "Grayscale Inverted"],
+    "browser_warning": "Your browser does not support Local Storage/Cookies!\nPlease enable cookies in your browser settings or disable incognito mode.\nThank you.",
+    "error_alert": "Error",
+    "error_solution": "Please reload the page.",
+    "drop_image": "Drop an image here",
+    "invalid_file": ["Unsupported File Type!", "Please select an image file."],
+    "file_size_limit": ["File Size Exceeds!", "Please select an image less than 5MB."],
+    "empty_arabic_text": ["There was no Arabic text found!.", "Please try other contained Arabic Characters image."],
+    "recognition_failed": "Failed to Recognize Text!",
+    "unsaved_warning": "Are you sure want to close this result?",
+    "capture_image": "Capture Image",
+    "select_image": "Select Image",
+    "screen_capture": "Screen Capture",
+    "manual_input": "Input Manually",
+    "recognizing": "Recognizing...",
+    "generate": "Generate",
     "tajweedLaws": [
         {
             "id": 1,
             "name": "Idzhar",
             "group": "Ahkämul Al-hurüf",
             "summary": "When a nun sakinah or tanwin meets the letters of idzhar, it is pronounced clearly and distinctly.",
-            "detail": "",
-            "examples": [""],
+            "detail": "The letters of idzhar are pronounced clearly because their point of articulation is the mouth and they are in the throat.\nLetters of idzhar: ا ع غ ح خ ها",
+            "examples": [
+                "مِنْ آَلِ فِرْعَوْنَ  Nun sakinah meets أ",
+                "فَكُلُوا مِنْهَا حَيْثُ Nun sakinah meets هـ",
+                "بِغَافِلٍ عَمَّا تَعْمَلُونَ Nun sakinah meets ع",
+                "مِنْ غَفُورٍ رَحِيم Nun sakinah meets غ",
+                "أَنَّ اللَّهَ عَزِيزٌ حَكِيمٌ Tanwin meets ح",
+                "كُونُوا قِرَدَةً خَاسِئِينَ Tanwin meets خ"
+            ],
             "page": "/detail?tajweed=idzhar"
         },
         {
@@ -19,8 +40,17 @@
             "name": "Idgham Bigunnah",
             "group": "Ahkämul Al-hurüf",
             "summary": "When a nun sakinah or tanwin meets the letters of idgham bigunnah, it is pronounced with a nasal sound.",
-            "detail": "Idgham means to merge, and bigunnah means nasal sound. ...",
-            "examples": [""],
+            "detail": "Idgham means to merge, and bigunnah means nasal sound. So the letters of idgham bigunnah are pronounced with a nasal sound.\nLetters of idgham bigunnah: ي ن م و",
+            "examples": [
+                "مِنْ قَبْلِ أَنْ يَتَمَاسَّا Nun sakinah meets ي",
+                "إِلَّا سَاعَةً مِنْ نَهَارٍ Nun sakinah meets ن",
+                "وَأَنْفِقُوا مِنْ مَا رَزَقْنَاكُمْ Nun sakinah meets م",
+                "مِنْ دُونِهِ مِنْ وَالٍ Nun sakinah meets و",
+                "بِبُهْتَانٍ يَفْتَرِينَهُ Tanwin meets ي",
+                "حِطَّةٌ نَغْفِرْ لَكُمْ Tanwin meets ن",
+                "رَقَبَةٍ مِنْ قَبْلِ Tanwin meets م",
+                "مِنْ خَيْلٍ وَلَا رِكَابٍ Tanwin meets و"
+            ],
             "page": "/detail?tajweed=idgham_bigunnah"
         },
         {
@@ -28,8 +58,13 @@
             "name": "Idgham Bilagunnah",
             "group": "Ahkämul Al-hurüf",
             "summary": "When a nun sakinah or tanwin meets the letters of idgham bilagunnah, it is pronounced by merging without nasal sound.",
-            "detail": "Idgham means to merge, and bilagunnah means without nasal sound. ...",
-            "examples": [""],
+            "detail": "Idgham means to merge, and bilagunnah means without nasal sound. So the letters of idgham bilagunnah are pronounced by merging without a nasal sound.\nLetters of idgham bilagunnah: ل ر",
+            "examples": [
+                "فَضْلًا مِنْ رَبِّكَ Nun sakinah meets ر",
+                "قَالَ لَمْ أَكُنْ لِأَسْجُدَ Nun sakinah meets ل",
+                "لَا تَجْعَلْنَا فِتْنَةً لِلَّذِينَ Tanwin meets ل",
+                "سَيَقُولُونَ ثَلَاثَةٌ رَابِعُهُمْ Tanwin meets ر"
+            ],
             "page": "/detail?tajweed=idgham_bilagunnah"
         },
         {
@@ -37,8 +72,8 @@
             "name": "Iqlab",
             "group": "Ahkämul Al-hurüf",
             "summary": "When a nun sakinah or tanwin meets the letter qalqalah, it is pronounced by replacing it with the letter mim.",
-            "detail": "Iqlab means to merge or, in simpler terms, to replace the letter with the letter mim. ...",
-            "examples": [""],
+            "detail": "Iqlab means to merge or, in simpler terms, to replace the letter with the letter mim. Iqlab letter: ب",
+            "examples": ["أَنْ تُنْبِتُوا Nun sakinah meets ب", "كُلُّ حِزْبٍ بِمَا Tanwin meets ب"],
             "page": "/detail?tajweed=iqlab"
         },
         {
@@ -46,8 +81,24 @@
             "name": "Ikhfa",
             "group": "Ahkämul Al-hurüf",
             "summary": "When a nun sakinah or tanwin meets the letters of ikhfa haqiqi, it is pronounced softly.",
-            "detail": "Ikhfa means to conceal or hide, while haqiqi means real or true. ...",
-            "examples": [""],
+            "detail": "Ikhfa means to conceal or hide, while haqiqi means real or true. So the letters of ikhfa haqiqi are pronounced softly.\nLetters of ikhfa haqiqi: ت ث ج د ذ ز س ش ص ض ط ظ ف ق ك",
+            "examples": [
+                "أَنْتُمْ Nun sakinah meets ت ",
+                "مَنْثُورًا Nun sakinah meets ث ",
+                "فَأَنْجَيْنَاه Nun sakinah meets ج",
+                "عِنْدَهُ Nun sakinah meets د",
+                "لِيُنْذِرَكُمْ Nun sakinah meets ذ",
+                "أُنْزِلَ Nun sakinah meets ز",
+                "نَنْسَخْ Nun sakinah meets س",
+                "مَنْشُورً Nun sakinah meets ش",
+                "رِيحًا صَرْصَرًا Tanwin meets ص",
+                "وَكُلًّا ضَرَبْنَا Tanwin meets ض",
+                "صَعِيدًا طَيِّبًا Tanwin meets ط",
+                "ظِلًّا ظَلِيلً Tanwin meets ظ",
+                "سَفَرٍ فَعِدَّةٌ Tanwin meets ف",
+                "عَلِيمٌ قَدِيرٌ Tanwin meets ق",
+                "وَرِزْقٌ كَرِيمٌ Tanwin meets ك"
+            ],
             "page": "/detail?tajweed=ikhfa"
         },
         {
@@ -55,8 +106,14 @@
             "name": "Idzhar Syafawi",
             "group": "Ahkämul Al-hurüf",
             "summary": "When a mim sakinah meets the letters of idzhar syafawi, it must be pronounced clearly even with closed lips.",
-            "detail": "",
-            "examples": [""],
+            "detail": "The letters of idzhar syafawi are so many, except for mim and ba, because the two letters are owned by ikhfa syafawi and idgham mimi.\nLetters of idzhar syafawi: ا ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل ن و ه ي",
+            "examples": [
+                "أَأَنْذَرْتَهُمْ أَم Mim sakinah meets ا",
+                "أَنْعَمْتَ Mim sakinah meets ت",
+                "ثُمَّ يُمِيتُكُمْ ثُمَّ يُحْيِيكُمْ Mim sakinah meets ث",
+                "أَنَّ لَهُمْ جَنَّاتٍ Mim sakinah meets ج",
+                "يَمْحَقُ اللَّهُ الرِّبَا Mim sakinah meets ح"
+            ],
             "page": "/detail?tajweed=idzhar_syafawi"
         },
         {
@@ -64,20 +121,24 @@
             "name": "Ikhfa Syafawi",
             "group": "Ahkämul Al-hurüf",
             "summary": "When a mim sakinah meets the letters of ikhfa syafawi, it is pronounced softly by disguising the sound with a nasal tone.",
-            "detail": "",
-            "examples": [""],
+            "detail": "Although the nasal sound isn't very clear because the letters Mim Sakinah and Ba have the same exit point, namely two lips. There is only one letter for Ikhfa Syafawi. The letters are the same as iqlab, but the way to read them is not merged like iqlab.\nIkhfa Syafawi letters: ب",
+            "examples": [
+                "وَمَا هُمْ بِمُؤْمِنِينَ Mim sakinah meets the letter of ب",
+                "وَهُمْ بِالْآَخِرَةِ Mim sakinah meets the letter of ب",
+                "عَلَيْهِمْ بِعِلْمٍMim sakinah meets the letter of ب"
+            ],
             "page": "/detail?tajweed=ikhfa_syafawi"
         },
         {
             "id": 8,
             "name": "Idgham Mimi",
             "group": "Ahkämul Al-hurüf",
-            "summary": "Apabila mim mati bertemu dengan huruf idgham mimi, maka dibacanya melebur menjadi satu.",
-            "detail": "Huruf idgham mimi hanya satu, yaitu huruf mim. Jadi, idgham mimi adalah pertemuan dua huruf mim. Cara melafalkannya sama seperti melafadzkan mim yang bertasydid. Sebab, mim tasydid merupakan gabungan dari mim mati dan mim hidup.\nhuruf Idgham mimi: م",
+            "summary": "When mim sakinah meets the letters of idgham mimi, it is pronounced in the same way as mim tasydid.",
+            "detail": "The letter of Idgham Mimi is only one. The letter is mim. So, Idgham Mimi is the meeting of two mim letters. The way to pronounce it is the same as pronouncing the mim with tasydid. Because, mim tasydid is a combination of mim sakinah and mim with harakah.\nIdgham Mimi letters: م",
             "examples": [
-                "وَكَمْ مِنْ قَرْيَةٍ Mim mati bertemu dengan م",
-                "كُلَّمَا أَضَاءَ لَهُمْ مَشَوْا فِيهِ Mim mati bertemu dengan م",
-                "إِلَيْكُمْ مِنْ رَبِّكُمْ Mim mati bertemu dengan م"
+                "وَكَمْ مِنْ قَرْيَةٍ Mim sakinah meets م",
+                "كُلَّمَا أَضَاءَ لَهُمْ مَشَوْا فِيهِ Mim sakinah meets م",
+                "إِلَيْكُمْ مِنْ رَبِّكُمْ Mim sakinah meets م"
             ],
             "page": "/detail?tajweed=idgham_mimi"
         },
@@ -86,7 +147,7 @@
             "name": "Gunnah",
             "group": "Ahkämul Al-hurüf",
             "summary": "If there is a shaddah on the letter mim (مّ) and nun (ن), it is pronounced with a nasal sound and is called Ghunnah.",
-            "detail": "",
+            "detail": "Ghunnah means: nasaling (at the bridge of the nose). So the way to read it is by humming the letters mim and nun taysdid on the bridge of the nose for 2 - 3 harakah.",
             "examples": [""],
             "page": "/detail?tajweed=gunnah"
         },
@@ -95,7 +156,7 @@
             "name": "Idgham Mutamasilain",
             "group": "Ahkämul Al-hurüf",
             "summary": "When a letter meets a similar letter, with the same makhraj and sifat, where the first letter is sukun (silent) and the second letter has a harakah.",
-            "detail": "",
+            "detail": "The way to read it is by inserting the first sukun letter into the second harokah letter. And being pressured, he was detained for no more than one harokah",
             "examples": [""],
             "page": "/detail?tajweed=idgham_mutamasilain"
         },
@@ -103,8 +164,8 @@
             "id": 11,
             "name": "Idgham Mutajaanisain",
             "group": "Ahkämul Al-hurüf",
-            "summary": "Apabila ada suatu huruf yang sukun berhadapan dengan huruf yang berharakat, kedua-duanya itu sama makhrojnya tapi lain sifatnya.",
-            "detail": "Cara menbacanya adalah dengan memasukkan atau mengidghom-kan huruf pertama pada huruf yang kedua.",
+            "summary": "If there is a letter with the meaning of sukun opposite a letter with the meaning of harakah, both have the same makhroj but have different characteristics.",
+            "detail": "The way to read it is by inserting or idghom the first letter in the second letter.",
             "examples": [""],
             "page": "/detail?tajweed=idgham_mutajaanisain"
         },
@@ -112,8 +173,8 @@
             "id": 12,
             "name": "Idgham Mutaqooribain",
             "group": "Ahkämul Al-hurüf",
-            "summary": "Apabila ada huruf bersukun bertemu dengan huruf yang berharokat kedua huruf itu berdekatan makhroj dan sifatnya.",
-            "detail": "Cara membacanya adalah dengan memasukkan atau mentasydid-kan huruf pertama pada huruf yang kedua.",
+            "summary": "If a letter with a sukun meets a letter with a harakah, the two letters are close to each other, makhroj and its properties.",
+            "detail": "The way to read it is by inserting or adding the first letter to the second letter.",
             "examples": [""],
             "page": "/detail?tajweed=idgham_mutaqooribain"
         },
@@ -122,8 +183,14 @@
             "name": "Idzhar Qamariyah",
             "group": "Lam Ta'rif",
             "summary": "When a lam ta’rief meets the letters of idzhar qamariyah, it must be pronounced clearly.",
-            "detail": "",
-            "examples": [""],
+            "detail": "Qamar in Arabic means moon. Meanwhile, lam ta'rief is likened to a star. This is because the stars remain visible even though they meet the moon. Idzhar Qamariyah's letters: ء ب ج ح خ ع غ ف ق ك م و ه ي",
+            "examples": [
+                "لَكُمُ الْأَرْضَ ذَلُولً Alif lam meets ء",
+                "فَارْجِعِ الْبَصَرَ Alif lam meets ب",
+                "أَصْحَابَ الْجَنَّةِ Alif lam meets ج",
+                "خَلَقَ الْمَوْتَ وَالْحَيَاةَ Alif lam meets ح",
+                "وَهُوَ اللَّطِيفُ الْخَبِيرُ Alif lam meets خ"
+            ],
             "page": "/detail?tajweed=idzhar_qamariyah"
         },
         {
@@ -131,8 +198,14 @@
             "name": "Idgham Syamsiyah",
             "group": "Lam Ta'rif",
             "summary": "When a lam ta’rief meets the letters of qamariyah, other than idzhar qamariyah, it is called idgham.",
-            "detail": "",
-            "examples": [""],
+            "detail": "Syamsiyah means sun, so if Alif Lam, which is likened to a star, meets the sun, it becomes less visible. Because this is not readable, the alif lam which meets the syamsiyah letters, seems to be tasydid, or inserted into the next letter.\nsyamsiyah idhgam letters: ت ث د ذ ر ز س ش ص ض ط ظ ل ن",
+            "examples": [
+                "وَأَنْزَلَ التَّوْرَاةَ Alif lam meets ت",
+                "مِنَ الثَّمَرَاتِ Alif lam meets ث",
+                "يَوْمِ الدِّينِ Alif lam meets د",
+                "وَالذَّاكِرِينَ Alif lam meets ذ",
+                "الرَّحْمَنِ Alif lam meets ر"
+            ],
             "page": "/detail?tajweed=idgham_syamsiyah"
         },
         {
@@ -140,24 +213,36 @@
             "name": "Qalqalah Sughra",
             "group": "Ahkämul Al-hurüf",
             "summary": "If there is a silent qalqalah letter in the middle of a sentence, it is pronounced with a bounce. It is read as qalqalah sughra.",
-            "detail": "",
-            "examples": [""],
+            "detail": "Qalqalah sughra is read thinner, like the meaning of sughra itself which means small.\nQalqalah letters: ب ج د ط ق",
+            "examples": [
+                "ثُمَّ لِيَقْطَعْ فَلْيَنْظُرْ There is a Qaf sakinah letter in the middle of the word",
+                "ثَانِيَ عِطْفِهِ  There is a Tho sakinah letter in the middle of the word",
+                "وَقَوْمُ إِبْرَاهِيمَ There is a Ba sakinah letter in the middle of the word",
+                "فَعَلَيَّ إِجْرَامِي There is a Ja sakinah letter in the middle of the word",
+                "يَدْعُو مِنْ دُونِ اللَّهِ  There is a Da sakinah letter in the meiddle of the word"
+            ],
             "page": "/detail?tajweed=qalqalah_sughra"
         },
         {
             "id": 22,
             "name": "Qalqalah Kubra",
             "group": "Ahkämul Al-hurüf",
-            "summary": "If there is a silent qalqalah letter at the end of a sentence, it is pronounced with a bounce. It is read as qalqalah kubra.",
-            "detail": "",
-            "examples": [""],
+            "summary": "If there is a silent qalqalah letter at the end of a sentence, it is pronounced with a bounce. It is read as qalqalah kubro.",
+            "detail": "Qalqalah kubro, how to read it, is reflected more clearly and louder, like the meaning of kubro which means big.\nQalqalah letters: ب ج د ط ق",
+            "examples": [
+                "بَيْنِ الصُّلْبِ وَالتَّرَائِبِ There is a Ba letter in the end of the sentence",
+                "وَالسَّمَاءِ ذَاتِ الْبُرُوجِ There is a Ja letter in the end of the sentence",
+                "وَالْيَوْمِ الْمَوْعُودِ There is a Da letter in the end of the sentence",
+                "قَائِمًا بِالْقِسْطِ There is a Tho letter in the end of the sentence",
+                "وَالسَّمَاءِ وَالطَّارِقِ There is a Qaf letter in the end of the sentence"
+            ],
             "page": "/detail?tajweed=qalqalah_kubra"
         },
         {
             "id": 24,
             "name": "Mad Thabii",
             "group": "Ahkämul-madd",
-            "summary": "",
+            "summary": "The law of reading is called MAD THOBI'I, that is, if the letter whose sound is extended is a letter with the harokat dlommah (ُ) and after it there is the letter WAU SUKUN (ﻭْ), a letter with the harokat kasroh and after that there is the letter YAA' SUKUN (ﻱْ), a letter with the harokat fathah (َ ) and after that there is the letter ALIF (ا)",
             "detail": "",
             "examples": [""],
             "page": "/detail?tajweed=mad_thabii"
@@ -167,7 +252,7 @@
             "name": "Mad Wajib Muttasil",
             "group": "Ahkämul-madd",
             "summary": "If MAD THOBI'II meets a living HAMZAH (ء) within a word/sentence, it is mandatory to prolong it.",
-            "detail": "",
+            "detail": "The way to read it must be extended to two and a half ALIF or five harokat or two and a half times the length of MAD THOBI'II.",
             "examples": [""],
             "page": "/detail?tajweed=mad_wajib_muttasil"
         },
@@ -176,7 +261,7 @@
             "name": "Mad Jaiz Munfassil",
             "group": "Ahkämul-madd",
             "summary": "The recitation rule is called MAD JAIZ MUNFASHIL when MAD THOBI'II (ء) is in a different word.",
-            "detail": "",
+            "detail": "The way to read it is better to extend it like the length of MAD Wajib Muttashil, like the length of MAD THOBI'II.",
             "examples": [""],
             "page": "/detail?tajweed=mad_jaiz_munfassil"
         },
@@ -194,7 +279,7 @@
             "name": "Mad Lazim Mukhaffaf Kilmi",
             "group": "Ahkämul-madd",
             "summary": "If MAD THOBI'II meets a sukun-harokat letter not at the end of a word. (prolonged up to three alif or six harakah).",
-            "detail": "",
+            "detail": "The way to read it is like MAD LAZIM MUTSAQQAL KILMI (extended to three alif or six harakah).",
             "examples": [""],
             "page": "/detail?tajweed=mad_lazim_mukhaffaf_kilmi"
         },
@@ -212,7 +297,7 @@
             "name": "Mad Arid Lissukun",
             "group": "Ahkämul-madd",
             "summary": "If there is Mad Thobi'i or Mad Layyin followed by a waqof (stopping place).",
-            "detail": "",
+            "detail": "There are 3 ways to read it:\na. What is more important is that it is read long, the same as MAD WAJIB MUTASHIL harokat).\nb. The middle (medium) one can only be read as two ALIF or four harokats (twice MAD THOBI'II).",
             "examples": [""],
             "page": "/detail?tajweed=mad_arid_lissukun"
         },
@@ -221,7 +306,7 @@
             "name": "Mad Shilah Qashirah",
             "group": "Ahkämul-madd",
             "summary": "If the letter HAA DLOMIIR / third person pronoun () comes after a vowel-harokat letter and is not connected to a sukun or shaddah letter or the letter alif.",
-            "detail": "",
+            "detail": "The way to read it is extended to one ALIF or two harokat or like the length of Mad Thobi 'ii.",
             "examples": [""],
             "page": "/detail?tajweed=mad_shilah_qashirah"
         },
@@ -230,7 +315,7 @@
             "name": "Mad Shilah Thawilah",
             "group": "Ahkämul-madd",
             "summary": "If Mad Shilah Qoshiroh meets HAMZAH (ء) preceded by a vowel-harokat letter.",
-            "detail": "",
+            "detail": "The way to read it is like reading MAD JAIZ MUNFASHIL, meaning it can be extended to two and a half Alifs or one AIif like Mad Thobi 'ii.",
             "examples": [""],
             "page": "/detail?tajweed=mad_shilah_thawilah"
         },
@@ -239,7 +324,7 @@
             "name": "Mad Iwad",
             "group": "Ahkämul-madd",
             "summary": "If there are two fat-ha vowels ( ) falling on waqof (pause), at the end of a sentence (except for ta' marbuthoh), or mentioned as a replacement for tanwin so that it is no longer pronounced.",
-            "detail": "",
+            "detail": "The way to read it is extended one AIif like Mad Thobi'ii.",
             "examples": [""],
             "page": "/detail?tajweed=mad_iwad"
         },

@@ -90,19 +90,19 @@ class HomePage extends React.Component {
     return (
       <div className="home-page h-screen w-full flex flex-col bg-green-100 dark:bg-black animate__animated animate__fadeIn">
         <Helmet>
-          <title>Tajweed Recognition</title>
+          <title className="font-ramadhan-start">{this.props.t('app_name')}</title>
           <meta name="description" content="Recognize Tajweed" />
           <meta name="keywords" content="Recognize Tajweed" />
           <link rel="canonical" href="https://tajweed-recognition.vercel.app" />
         </Helmet>
         <HeaderContainer
-          headerTitle={"Recognize Tajweed"}
+          headerTitle={this.props.t('app_name')}
           changeLanguage={this.changeLanguage.bind(this)}
           setDisplayMode={this.setDisplayMode.bind(this)}
           isDarkMode={this.state.isDarkMode}
         />
         <Tab.Group as={"section"} className={"app__tab-group grow flex flex-col bg-green-100 dark:bg-black duration-200"}>
-          <MainContainer/>
+          <MainContainer props={this.props}/>
           <BottomBarContainer props={this.props}/>
         </Tab.Group>
       </div>

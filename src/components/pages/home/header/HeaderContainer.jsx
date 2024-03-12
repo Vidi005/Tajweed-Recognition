@@ -4,7 +4,7 @@ import React, { Fragment } from "react"
 const HeaderContainer = ({ headerTitle, changeLanguage, setDisplayMode, isDarkMode }) => (
   <header className="app-header relative flex flex-nowrap items-center justify-between bg-green-800 w-full p-1 shadow-xl">
     <section className="header-title grow flex items-center p-1">
-      <h3 className="grow font-serif text-white">{headerTitle}</h3>
+      <h2 className="grow font-ramadhan-start text-white">{headerTitle}</h2>
     </section>
     <section className="w-fit flex items-center pl-1">
       <Switch
