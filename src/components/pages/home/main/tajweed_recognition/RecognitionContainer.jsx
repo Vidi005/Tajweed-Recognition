@@ -18,6 +18,7 @@ class RecognitionContainer extends React.Component {
       twTextSize: '1.5rem',
       tooltipContent: '',
       tooltipColor: '',
+      linesColor: '',
       coloredTajweeds: [],
       filteredTajweeds: [],
       lines: [],
@@ -286,19 +287,20 @@ class RecognitionContainer extends React.Component {
     this.setState({ filteredTajweeds: colorizedTajweeds })
   }
 
-  calculateLines(classNames, isHovered) {
+  calculateLines(classNames, isHovered, dataIdx, color) {
     const elements = document.querySelectorAll(`.${classNames}`)
     const lines = []
     elements.forEach(element => {
       const rect1 = element.getBoundingClientRect()
-      const rect2 = this.carouselItemsRefs[classNames].current.getBoundingClientRect()
+      const activeSlides = document.querySelectorAll('.slick-active')
+      const rect2 = activeSlides[dataIdx > activeSlides.length ? dataIdx % activeSlides.length : dataIdx].getBoundingClientRect()
       const x1 = rect1.left + rect1.width / 2
       const x2 = rect2.left + rect2.width / 2
       const y1 = rect1.top + rect1.height / 2
       const y2 = rect2.top + rect2.height / 2
       lines.push({ x1, x2, y1, y2 })
     })
-    this.setState({ isCarouselItemHovered: isHovered, lines: lines })
+    this.setState({ isCarouselItemHovered: isHovered, lines: lines, linesColor: color })
   }
 
   closeResult () {

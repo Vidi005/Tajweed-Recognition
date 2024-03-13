@@ -5,7 +5,7 @@ import { Transition } from "@headlessui/react"
 import MenuBarContainer from "./MenuBarContainer"
 import SliderContainer from "./SliderContainer"
 
-const ResultContainer = ({ props, state, increaseTextSize, contentContainerRef, tooltipRef, decreaseTextSize, handleTextEditor, onContentChangeHandler, setContentDisplayMode, showTooltip, hideTooltip, carouselItemsRefs, calculateLines, closeResult }) => (
+const ResultContainer = ({ props, state, increaseTextSize, contentContainerRef, tooltipRef, decreaseTextSize, handleTextEditor, onContentChangeHandler, setContentDisplayMode, showTooltip, hideTooltip, carouselItemsRefs, calculateLines, handleBeforeChange, closeResult }) => (
   !state.isResultClosed && (
     <Transition
       appear
@@ -60,23 +60,38 @@ const ResultContainer = ({ props, state, increaseTextSize, contentContainerRef, 
           }
         </div>
         {state.isCarouselItemHovered && (
-          <svg className="absolute w-full h-full top-0 left-0 duration-300">
-            {state.lines.map((line, index) => (
-              <line
-                key={index}
-                x1={line.x1}
-                y1={line.y1}
-                x2={line.x2}
-                y2={line.y2}
-                stroke={`${state.isContentDarkMode ? "white" : "#14532d"}`}
-                strokeWidth="2"
-              />
-            ))}
-          </svg>
+          <Transition
+            appear
+            show={state.isCarouselItemHovered}
+            as={Fragment}
+            enter="ease-out duration-500"
+            enterFrom="translate-y-full"
+            enterTo="translate-y-0"
+            leave="ease-in duration-500"
+            leaveFrom="opacity-100 translate-y-0"
+            leaveTo="opacity-0 translate-y-full"
+          >
+            <svg className="absolute w-full h-full top-0 left-0 duration-300">
+              {state.lines.map((line, index) => (
+                <React.Fragment key={index}>
+                  <span className={`absolute h-3 w-3 animate-ping rounded-full opacity-75`} style={{ top: `${line.y1}`, left: `${line.x1}`, backgroundColor: `${state.linesColor}BF` }}></span>
+                  <line
+                    x1={line.x1}
+                    y1={line.y1}
+                    x2={line.x2}
+                    y2={line.y2}
+                    stroke={`${state.linesColor}BF`}
+                    strokeWidth="2"
+                  />
+                </React.Fragment>
+              ))}
+            </svg>
+          </Transition>
         )}
         <SliderContainer
           colorizedTajweeds={state.filteredTajweeds}
           carouselItemsRefs={carouselItemsRefs}
+          handleBeforeChange={handleBeforeChange}
           calculateLines={calculateLines}
         />
       </div>

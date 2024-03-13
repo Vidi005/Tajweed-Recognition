@@ -38,10 +38,10 @@ const SliderContainer = ({ colorizedTajweeds, carouselItemsRefs, calculateLines 
     ]
   }
   return (
-    <footer className="footer-slider-container mx-6 bg-green-50 dark:bg-gray-700 text-center align-middle text-green-900 dark:text-white shadow-lg">
+    <footer className="footer-slider-container relative mx-6 bg-green-50 dark:bg-gray-700 text-center align-middle text-green-900 dark:text-white shadow-lg">
       <Slider arrows {...settings}>
         {colorizedTajweeds?.map((tajweed, i) => (
-          <span key={i} ref={carouselItemsRefs[`tajweed-${tajweed.id}`]} className={`border-t-4 border-b-2 border-x border-y-[${tajweed.color}] border-x-green-900 hover:bg-green-300 dark:hover:bg-gray-500 dark:border-x-white lg:text-lg sm:text-base text-sm p-2 cursor-pointer duration-200`} onMouseEnter={() => calculateLines(`tajweed-${tajweed.id}`, true)} onMouseLeave={() => calculateLines(`tajweed-${tajweed.id}`, false)}>{tajweed.name}</span>
+          <span data-index={i} key={i} ref={carouselItemsRefs[`tajweed-${tajweed.id}`]} className={`border-t-4 border-b-2 border-x border-y-[${tajweed.color}] border-x-green-900 hover:bg-green-300 dark:hover:bg-gray-500 dark:border-x-white lg:text-lg sm:text-base text-sm p-2 cursor-pointer duration-200`} onMouseEnter={() => calculateLines(`tajweed-${tajweed.id}`, true, i, tajweed.color)} onMouseLeave={() => calculateLines(`tajweed-${tajweed.id}`, false, i, tajweed.color)}>{tajweed.name}</span>
         ))}
       </Slider>
     </footer>
