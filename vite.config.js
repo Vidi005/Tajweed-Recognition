@@ -15,8 +15,8 @@ export default defineConfig({
       manifest: {
         name: 'Tajweed Recognition',
         short_name: 'Tajweed Recognition',
-        description: 'Identifying Product Names and Vendors using Text Recognition and Barcode Scanner',
-        theme_color: '#14532d',
+        description: 'Recognizing Arabic Characters from an image and generating Tajweed Colors from recognized text',
+        theme_color: '#166534',
         orientation: 'portrait',
         icons: [
           {
