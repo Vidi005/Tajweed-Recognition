@@ -1,6 +1,7 @@
 {
     "app_name": "Tajweed Recognition",
     "tab_list": ["Mengenali Tajwid", "Daftar Tajwid"],
+    "app_description": "Selamat datang di Tajweed Recognition - Aplikasi inovatif yang menggunakan teknologi OCR untuk membedakan hukum dan aturan tajwid dalam teks Arab pada gambar, dilengkapi dengan penekanan warna pada tajwid dan penjelasan interaktif untuk memudahkan pembelajaran.",
     "tab_icons": ["/images/recognition-icon.svg", "/images/list-icon.svg"],
     "tab_icons_dark": ["/images/recognition-icon-dark.svg", "/images/list-icon-dark.svg"],
     "browser_warning": "Browser Anda tidak mendukung Local Storage/Cookies!\nSilakan aktifkan cookies di browser Anda atau matikan mode incognito.\nTerima kasih.",
@@ -18,7 +19,8 @@
     "manual_input": "Input Manual",
     "recognizing": "Memproses...",
     "generate": "Generate",
-    "tajweedLaws": [
+    "detail_tajweed": "Lihat Detil",
+    "tajweed_laws": [
         {
             "id": 1,
             "name": "Idzhar",

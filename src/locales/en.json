@@ -1,6 +1,7 @@
 {
     "app_name": "Tajweed Recognition",
     "tab_list": ["Recognize Tajweed", "Tajweed List"],
+    "app_description": "Welcome to Tajweed Recognition - An innovative application utilizing OCR technology to distinguish various rules of Tajweed within Arabic text on images, accompanied by color highlighting of Tajweed and interactive explanations for easier learning.",
     "tab_icons": ["/images/recognition-icon.svg", "/images/list-icon.svg"],
     "tab_icons_dark": ["/images/recognition-icon-dark.svg", "/images/list-icon-dark.svg"],
     "browser_warning": "Your browser does not support Local Storage/Cookies!\nPlease enable cookies in your browser settings or disable incognito mode.\nThank you.",
@@ -18,7 +19,8 @@
     "manual_input": "Input Manually",
     "recognizing": "Recognizing...",
     "generate": "Generate",
-    "tajweedLaws": [
+    "detail_tajweed": "More Detail",
+    "tajweed_laws": [
         {
             "id": 1,
             "name": "Idzhar",

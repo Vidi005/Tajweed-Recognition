@@ -5,6 +5,8 @@ import Tesseract from "tesseract.js"
 import ResultContainer from "./ResultContainer"
 import DropZoneContainer from "./import_mode/DropZoneContainer"
 import { withTranslation } from "react-i18next"
+import en from "../../../../../locales/en.json"
+import TajweedPreview from "./pop_up/TajweedPreview"
 
 class RecognitionContainer extends React.Component {
   constructor(props) {
@@ -19,6 +21,7 @@ class RecognitionContainer extends React.Component {
       tooltipContent: '',
       tooltipColor: '',
       linesColor: '',
+      selectedTajweed: {},
       coloredTajweeds: [],
       filteredTajweeds: [],
       lines: [],
@@ -32,7 +35,8 @@ class RecognitionContainer extends React.Component {
       isEditMode: false,
       isContentDarkMode: false,
       isResultClosed: true,
-      isCarouselItemHovered: false
+      isCarouselItemHovered: false,
+      isModalOpened: false
     }
     this.tooltipRef = React.createRef()
     this.contentContainerRef = React.createRef()
@@ -279,6 +283,28 @@ class RecognitionContainer extends React.Component {
     })
   }
 
+  checkParamEvent(idParam) {
+    if (typeof idParam !== 'number') {
+      const event = idParam
+      const matchedTajweed = tajweedLaws().filter(tajweedLaw => {
+        const regex = this.buildRegExp(tajweedLaw.rules)
+        return regex.test(event.target.innerHTML)
+      })
+      if (matchedTajweed.length === 1) {
+        return matchedTajweed
+      }
+    } else {
+      const tajweedId = idParam
+      return tajweedLaws().filter(tajweedLaw => tajweedLaw.id === tajweedId)
+    }
+  }
+
+  showSummaryModal(idParam) {
+    const tajweedName = this.checkParamEvent(idParam)[0].name
+    const summary = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === this.checkParamEvent(idParam)[0].id)}.summary`)
+    this.setState({ isModalOpened: true, selectedTajweed: { tajweedName, summary } })
+  }
+
   filterColorizedTajweeds(coloredTajweeds) {
     const colorizedTajweeds = tajweedLaws().filter(tajweedLaw => {
       const styleRegex = new RegExp(`class="tajweed-${tajweedLaw.id}"`)
@@ -296,11 +322,15 @@ class RecognitionContainer extends React.Component {
       const rect2 = activeSlides[dataIdx > activeSlides.length ? dataIdx % activeSlides.length : dataIdx].getBoundingClientRect()
       const x1 = rect1.left + rect1.width / 2
       const x2 = rect2.left + rect2.width / 2
-      const y1 = rect1.top + rect1.height / 2
-      const y2 = rect2.top + rect2.height / 2
+      const y1 = rect1.bottom - rect1.height / 4
+      const y2 = rect2.top
       lines.push({ x1, x2, y1, y2 })
     })
     this.setState({ isCarouselItemHovered: isHovered, lines: lines, linesColor: color })
+  }
+
+  onCloseSummaryModal() {
+    this.setState({ isModalOpened: false })
   }
 
   closeResult () {
@@ -312,7 +342,7 @@ class RecognitionContainer extends React.Component {
       <React.Fragment>
         <DropZoneContainer props={this.props} pickImage={this.pickImage.bind(this)}/>
         <h2>Recognize Tajweed</h2>
-        <p className="relative text-justify md:mx-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo quod, dolore enim velit repellendus eius distinctio repellat, dicta ducimus blanditiis beatae deserunt consequuntur aspernatur magnam aperiam fuga temporibus rem libero!</p>
+        <p className="relative text-justify lg:text-lg lg:text-center md:mx-8 lg:mx-16">{this.props.t('app_description')}</p>
         <div className="btn-container relative flex flex-wrap items-center justify-center">
           <button className="btn-capture grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 duration-200">
             <img className="h-8 md:h-12 mr-2" src="images/camera-icon.svg" alt="Capture Image" />
@@ -332,7 +362,7 @@ class RecognitionContainer extends React.Component {
             <h5 className="md:text-lg whitespace-nowrap">{this.props.t('manual_input')}</h5>
           </button>
         </div>
-        <h5>Tajweed Recognition @ 2024</h5>
+        <h5>Tajweed Recognition @ {new Date().getFullYear()}</h5>
         {this.state.isRecognizing && (
           <div className="fixed inset-0 w-screen h-full flex items-center justify-center bg-black/50 backdrop-blur-sm duration-200 animate__animated animate__fadeIn">
             <div className="flex items-center justify-center space-x-2">
@@ -354,8 +384,15 @@ class RecognitionContainer extends React.Component {
           onContentChangeHandler={this.onContentChangeEventHandler.bind(this)}
           setContentDisplayMode={this.setContentDisplayMode.bind(this)}
           showTooltip={this.showTooltip.bind(this)}
+          showSummaryModal={this.showSummaryModal.bind(this)}
           hideTooltip={this.hideTooltip.bind(this)}
           calculateLines={this.calculateLines.bind(this)}
+        />
+        <TajweedPreview
+          props={this.props}
+          isModalOpened={this.state.isModalOpened}
+          selectedTajweed={this.state.selectedTajweed}
+          onCloseSummaryModal={this.onCloseSummaryModal.bind(this)}
         />
       </React.Fragment>
     )

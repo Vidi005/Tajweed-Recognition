@@ -5,7 +5,7 @@ import { Transition } from "@headlessui/react"
 import MenuBarContainer from "./MenuBarContainer"
 import SliderContainer from "./SliderContainer"
 
-const ResultContainer = ({ props, state, increaseTextSize, contentContainerRef, tooltipRef, decreaseTextSize, handleTextEditor, onContentChangeHandler, setContentDisplayMode, showTooltip, hideTooltip, carouselItemsRefs, calculateLines, handleBeforeChange, closeResult }) => (
+const ResultContainer = ({ props, state, increaseTextSize, contentContainerRef, tooltipRef, decreaseTextSize, handleTextEditor, onContentChangeHandler, setContentDisplayMode, showTooltip, showSummaryModal, hideTooltip, carouselItemsRefs, calculateLines, handleBeforeChange, closeResult }) => (
   !state.isResultClosed && (
     <Transition
       appear
@@ -20,7 +20,7 @@ const ResultContainer = ({ props, state, increaseTextSize, contentContainerRef, 
     >
       <div className="result-container fixed inset-0 flex flex-col bg-green-100 dark:bg-black">
         <MenuBarContainer props={props} isEditMode={state.isEditMode} closeResult={closeResult}/>
-        <div className={`content-container grow flex flex-col m-2 px-2 ${state.isContentDarkMode ? "bg-gray-800" : "bg-green-100"} rounded-md shadow-md dark:shadow-white/50 duration-200`}>
+        <div className={`content-container grow flex flex-col m-2 px-2 ${state.isContentDarkMode ? "bg-gray-800" : "bg-green-700/25"} rounded-md shadow-md dark:shadow-white/50 duration-200`}>
           <div className={`content-menu flex items-center justify-end border-b ${state.isContentDarkMode ? "border-b-white" : "border-b-black"}`}>
             <button className={`border ${state.isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 my-2 p-1 rounded duration-200 overflow-hidden`} onClick={increaseTextSize} disabled={state.isIncreaseTextDisabled}>
               <img className={`${state.isContentDarkMode ? "invert-0" : "invert"} h-5 duration-200`} src="images/text-increase-icon.svg" alt="Increase" />
@@ -46,7 +46,7 @@ const ResultContainer = ({ props, state, increaseTextSize, contentContainerRef, 
               )
             : (
               <div ref={contentContainerRef} className={`flex-auto h-0 w-full my-2 p-2 font-lpmq-isep-misbah ${state.isContentDarkMode ? "text-white bg-black" : "text-black bg-white"} overflow-y-auto rounded-md`} onMouseOut={hideTooltip}>
-                <p dangerouslySetInnerHTML={{ __html: state.coloredTajweeds }} dir="rtl" className="duration-200" style={{ fontSize: `${state.twTextSize}` }} onMouseMove={e => showTooltip(e)}></p>
+                <p dangerouslySetInnerHTML={{ __html: state.coloredTajweeds }} dir="rtl" className="duration-200" style={{ fontSize: `${state.twTextSize}` }} onMouseMove={e => showTooltip(e)} onClick={e => showSummaryModal(e)}></p>
                 {state.tooltipContent && (
                   <span
                     ref={tooltipRef}
@@ -74,7 +74,17 @@ const ResultContainer = ({ props, state, increaseTextSize, contentContainerRef, 
             <svg className="absolute w-full h-full top-0 left-0 duration-300">
               {state.lines.map((line, index) => (
                 <React.Fragment key={index}>
-                  <span className={`absolute h-3 w-3 animate-ping rounded-full opacity-75`} style={{ top: `${line.y1}`, left: `${line.x1}`, backgroundColor: `${state.linesColor}BF` }}></span>
+                  <g className="absolute" style={{ transform: `translate(${line.x1}px, ${line.y1}px)` }}>
+                    <circle
+                      className="animate-ping"
+                      cx={"0"}
+                      cy={"0"}
+                      r={"5"}
+                      fill={state.linesColor}
+                      opacity={"0.75"}
+                    />
+                    <circle className="relative" cx="0" cy="0" r="3" fill={`${state.linesColor}BF`}/>
+                  </g>
                   <line
                     x1={line.x1}
                     y1={line.y1}
@@ -93,6 +103,7 @@ const ResultContainer = ({ props, state, increaseTextSize, contentContainerRef, 
           carouselItemsRefs={carouselItemsRefs}
           handleBeforeChange={handleBeforeChange}
           calculateLines={calculateLines}
+          showSummaryModal={showSummaryModal}
         />
       </div>
     </Transition>
