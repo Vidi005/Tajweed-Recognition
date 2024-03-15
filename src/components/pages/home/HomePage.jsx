@@ -91,8 +91,9 @@ class HomePage extends React.Component {
       <div className="home-page h-screen w-full flex flex-col bg-green-100 dark:bg-black animate__animated animate__fadeIn">
         <Helmet>
           <title className="font-ramadhan-start">{this.props.t('app_name')}</title>
-          <meta name="description" content="Recognize Tajweed" />
+          <meta name="description" content={this.props.t('app_description')} />
           <meta name="keywords" content="Recognize Tajweed" />
+          <meta name="google-site-verification" content="ThFmvf3VSJhWEhuU_8zz0txPahlU9ErT4z4ixbyUJn8" />
           <link rel="canonical" href="https://tajweed-recognition.vercel.app" />
         </Helmet>
         <HeaderContainer

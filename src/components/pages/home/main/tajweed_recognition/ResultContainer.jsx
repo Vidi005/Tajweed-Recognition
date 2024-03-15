@@ -4,6 +4,7 @@ import { withTranslation } from "react-i18next"
 import { Transition } from "@headlessui/react"
 import MenuBarContainer from "./MenuBarContainer"
 import SliderContainer from "./SliderContainer"
+import TajweedGuidelines from "./TajweedGuidelines"
 
 const ResultContainer = ({ props, state, increaseTextSize, contentContainerRef, tooltipRef, decreaseTextSize, handleTextEditor, onContentChangeHandler, setContentDisplayMode, showTooltip, showSummaryModal, hideTooltip, carouselItemsRefs, calculateLines, handleBeforeChange, closeResult }) => (
   !state.isResultClosed && (
@@ -59,45 +60,11 @@ const ResultContainer = ({ props, state, increaseTextSize, contentContainerRef, 
               )
           }
         </div>
-        {state.isCarouselItemHovered && (
-          <Transition
-            appear
-            show={state.isCarouselItemHovered}
-            as={Fragment}
-            enter="ease-out duration-500"
-            enterFrom="translate-y-full"
-            enterTo="translate-y-0"
-            leave="ease-in duration-500"
-            leaveFrom="opacity-100 translate-y-0"
-            leaveTo="opacity-0 translate-y-full"
-          >
-            <svg className="absolute w-full h-full top-0 left-0 duration-300">
-              {state.lines.map((line, index) => (
-                <React.Fragment key={index}>
-                  <g className="absolute" style={{ transform: `translate(${line.x1}px, ${line.y1}px)` }}>
-                    <circle
-                      className="animate-ping"
-                      cx={"0"}
-                      cy={"0"}
-                      r={"5"}
-                      fill={state.linesColor}
-                      opacity={"0.75"}
-                    />
-                    <circle className="relative" cx="0" cy="0" r="3" fill={`${state.linesColor}BF`}/>
-                  </g>
-                  <line
-                    x1={line.x1}
-                    y1={line.y1}
-                    x2={line.x2}
-                    y2={line.y2}
-                    stroke={`${state.linesColor}BF`}
-                    strokeWidth="2"
-                  />
-                </React.Fragment>
-              ))}
-            </svg>
-          </Transition>
-        )}
+        <TajweedGuidelines
+          isCarouselItemHovered={state.isCarouselItemHovered}
+          lines={state.lines}
+          linesColor={state.linesColor}
+        />
         <SliderContainer
           colorizedTajweeds={state.filteredTajweeds}
           carouselItemsRefs={carouselItemsRefs}
