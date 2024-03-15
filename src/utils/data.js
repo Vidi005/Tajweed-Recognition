@@ -173,7 +173,7 @@ const extractMadWajibCharacters = () => {
 
 const extractMadJaizCharacters = () => {
   const dataCopy = [...extractMadThabiiCharacters()]
-  dataCopy.pop()
+  dataCopy.splice(-5)
   const madJaizVar1 = dataCopy.map(char => `${char} \u0623`)
   const madJaizVar2 = dataCopy.map(char => `${char} \u0625`)
   const madJaizVar3 = dataCopy.map(char => `${char} \\u0627\\u064E|\\u0627\\u064F|\\u0627\\u0650`)

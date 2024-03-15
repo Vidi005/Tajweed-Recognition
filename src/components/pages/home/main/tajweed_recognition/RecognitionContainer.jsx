@@ -162,6 +162,10 @@ class RecognitionContainer extends React.Component {
     })
   }
 
+  editTextInput() {
+    this.setState({ isResultClosed: false, isEditMode: true })
+  }
+
   async recognizeImage(file) {
     try {
       const { data } = await Tesseract.recognize(file, 'ara', {
@@ -216,10 +220,10 @@ class RecognitionContainer extends React.Component {
     }
     const applyColor = (regex, id, color) => {
       colorizedChars = colorizedChars.replace(regex, (match, startIdx, endIdx) => {
-        if (!isInsideSpan(startIdx, endIdx) || match !== 'دنْي') {
-          return `<span class="${id}" style="color: ${color}; cursor: pointer;">${match}</span>`
+        if (!isInsideSpan(startIdx, endIdx) || !(id === 2 && match.includes('دنْي')) || !(id === 24 && match.includes(['اَ', 'اِ', 'اُ']))) {
+          return `<span class="tajweed-${id}" style="color: ${color}; cursor: pointer;">${match}</span>`
         } else {
-          return match
+          return `<span>${match}</span>`
         }
       })
     }
@@ -227,9 +231,9 @@ class RecognitionContainer extends React.Component {
       tajweedLaw.rules.forEach(rule => {
         if (typeof rule === 'string') {
           const regex = new RegExp(`(${rule})`, 'gm')
-          applyColor(regex, `tajweed-${tajweedLaw.id}`, tajweedLaw.color)
+          applyColor(regex, tajweedLaw.id, tajweedLaw.color)
         } else {
-          applyColor(rule, `tajweed-${tajweedLaw.id}`, tajweedLaw.color)
+          applyColor(rule, tajweedLaw.id, tajweedLaw.color)
         }
       })
     })
@@ -357,7 +361,7 @@ class RecognitionContainer extends React.Component {
             <img className="h-8 md:h-12 mr-2" src="images/share-screen-icon.svg" alt="Screen Capture" />
             <h5 className="md:text-lg whitespace-nowrap">{this.props.t('screen_capture')}</h5>
           </button>
-          <button className="btn-manual-input grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 duration-200">
+          <button className="btn-manual-input grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 duration-200" onClick={this.editTextInput.bind(this)}>
             <img className="h-8 md:h-12 mr-2" src="images/input-text-icon.svg" alt="Manual Input" />
             <h5 className="md:text-lg whitespace-nowrap">{this.props.t('manual_input')}</h5>
           </button>
