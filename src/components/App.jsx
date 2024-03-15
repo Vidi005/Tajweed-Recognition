@@ -9,7 +9,10 @@ import DetailTajweedPage from './pages/detail/DetailTajweedPage'
 const App = () => (
   <React.Fragment>
     <Helmet>
-      <title>Tajweed Recognition</title>
+      <title className="font-ramadhan-start">{i18n.t('app_name')}</title>
+      <meta name="description" content={i18n.t('app_description')} />
+      <meta name="google-site-verification" content="ThFmvf3VSJhWEhuU_8zz0txPahlU9ErT4z4ixbyUJn8" />
+      <link rel="canonical" href="https://tajweed-recognition.vercel.app" />
     </Helmet>
     <Routes>
       <Route path='/' element={<HomePage/>}/>
