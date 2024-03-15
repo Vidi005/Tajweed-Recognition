@@ -2,7 +2,7 @@
     "rewrites": [
         {
             "source": "/sitemap.xml",
-            "destination": "/public/sitemap.xml"
+            "destination": "/sitemap.xml"
         }
     ]
 }
