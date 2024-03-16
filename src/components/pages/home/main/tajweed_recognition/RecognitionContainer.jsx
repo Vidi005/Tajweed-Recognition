@@ -177,6 +177,7 @@ class RecognitionContainer extends React.Component {
       if (data && data.text.length > 0) {
         this.setState({
           isRecognizing: false,
+          isEditMode: false,
           recognizedText: data.text.split('\n').join(' ').trim().replace(/\s+/g, ' '),
           coloredTajweeds: this.colorizeChars(data.text.trim()),
           isResultClosed: false }, () => this.filterColorizedTajweeds(this.state.coloredTajweeds))
