@@ -220,11 +220,12 @@ class RecognitionContainer extends React.Component {
     }
     const applyColor = (regex, id, color) => {
       colorizedChars = colorizedChars.replace(regex, (match, startIdx, endIdx) => {
-        if (!isInsideSpan(startIdx, endIdx) || !(id === 2 && match.includes('دنْي')) || !(id === 24 && match.includes(['اَ', 'اِ', 'اُ']))) {
-          return `<span class="tajweed-${id}" style="color: ${color}; cursor: pointer;">${match}</span>`
-        } else {
-          return `<span>${match}</span>`
-        }
+        // if (!isInsideSpan(startIdx, endIdx)) {
+        //   return `<span class="tajweed-${id}" style="color: ${color}; cursor: pointer;">${match}</span>`
+        // } else {
+        //   return match
+        // }
+        return `<span class="tajweed-${id}" style="color: ${color}; cursor: pointer;">${match}</span>`
       })
     }
     tajweedLaws().forEach(tajweedLaw => {

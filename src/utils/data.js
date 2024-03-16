@@ -122,33 +122,63 @@ const extractQalqalahKubraCharacters = () => [
 ]
 
 const extractMadThabiiCharacters = () => [
-  '\u064E\u0627', '\u064E \u0627',
-  '\u064F\u0648\u0652', '\u064F \u0648\u0652', '\u064F\u0648\u06DF', '\u064F \u0648\u06DF',
-  '\u0650\u064A\u0652', '\u0650 \u064A\u0652', '\u0650\u064A\u06DF', '\u0650 \u064A\u06DF',
-  '\u0656', '\u0670', '\u0657', 'لاَ', 'لله'
+  /\u064E\u0627(?![\u064B-\u065F])(?![\u0621-\u0627])/gm, /\u064E \u0627(?![\u064B-\u065F]) (?![\u0621-\u0627])/gm,
+  /\u064F\u0648\u0652(?![\u0621-\u0627])/gm, /\u064F \u0648\u0652 (?![\u0621-\u0627])/gm, /\u064F\u0648\u06DF/gm, /\u064F \u0648\u06DF/gm,
+  /\u064F\u0648(?![\u064B-\u065F])(?![\u0621-\u0627])/gm, /\u064F \u0648(?![\u064B-\u065F]) (?![\u0621-\u0627])/gm, /\u064F\u0648(?![\u064B-\u065F])(?![\u0621-\u0627])/gm, /\u064F \u0648(?![\u064B-\u065F]) (?![\u0621-\u0627])/gm,
+  /\u0650\u064A\u0652(?![\u0621-\u0627])/gm, /\u0650 \u064A\u0652 (?![\u0621-\u0627])/gm, /\u0650\u064A\u06DF/gm, /\u0650 \u064A\u06DF/gm,
+  /\u0650\u064A(?![\u064B-\u065F])(?![\u0621-\u0627])/gm, /\u0650 \u064A(?![\u064B-\u065F]) (?![\u0621-\u0627])/gm, /\u0650\u064A(?![\u064B-\u065F])(?![\u0621-\u0627])/gm, /\u0650 \u064A(?![\u064B-\u065F]) (?![\u0621-\u0627])/gm,
+  /\u0656(?![\u0621-\u0627])/gm, /\u0670(?![\u0621-\u0627])/gm, /\u0657(?![\u0621-\u0627])/gm,
+  /(?![\u0625\u0627\u0647])\u0656(?![\u0653\u06E4])/gm, /(?![\u0623\u0627\u0647])\u0670(?![\u0653\u06E4])/gm, /(?![\u0623\u0627\u0647])\u0657(?![\u0653\u06E4])/gm,
+  /لاَ(?![\u0653\u06E4])/gm, /لله/gm
+]
+
+const madThabiiChars = [
+  /\u064E\u0627(?![\u064B-\u065F])/gm, /\u064E \u0627(?![\u064B-\u065F]) /gm,
+/\u064F\u0648\u0652/gm, /\u064F \u0648\u0652 /gm, /\u064F\u0648\u06DF/gm, /\u064F \u0648\u06DF/gm,
+/\u064F\u0648(?![\u064B-\u065F])/gm, /\u064F \u0648(?![\u064B-\u065F]) /gm, /\u064F\u0648(?![\u064B-\u065F])/gm, /\u064F \u0648(?![\u064B-\u065F]) /gm,
+/\u0650\u064A\u0652/gm, /\u0650 \u064A\u0652 /gm, /\u0650\u064A\u06DF/gm, /\u0650 \u064A\u06DF/gm,
+/\u0650\u064A(?![\u064B-\u065F])/gm, /\u0650 \u064A(?![\u064B-\u065F]) /gm, /\u0650\u064A(?![\u064B-\u065F])/gm, /\u0650 \u064A(?![\u064B-\u065F]) /gm,
+/\u0656/gm, /\u0670/gm, /\u0657/gm,
+/\u0656/gm, /\u0670/gm, /\u0657/gm,
+/لاَ/gm
 ]
 
 const extractMadWajibCharacters = () => {
-  const dataCopy = [...extractMadThabiiCharacters()]
-  dataCopy.pop()
-  const madWajibTrimmed = dataCopy.map(char => `${char}\u0621`)
-  const madWajib = dataCopy.map(char => `${char} \u0621`)
-  const madWajibDiacriticTrimmed = dataCopy.map(char => `${char.replace('\u0627', '\u0627\u0605').replace('\u0648', '\u0648\u0605').replace('\u064A', '\u064A\u0605')}\u0621`)
-  const madWajibDiacritic = dataCopy.map(char => `${char.replace('\u0627', '\u0627\u0605').replace('\u0648', '\u0648\u0605').replace('\u064A', '\u064A\u0605')} \u0621`)
-  const madWajibDiacritic2Trimmed = dataCopy.map(char => `${char.replace('\u0627', '\u0627\u0653').replace('\u0648', '\u0648\u0653').replace('\u064A', '\u064A\u0653')}\u0621`)
-  const madWajibDiacritic2 = dataCopy.map(char => `${char.replace('\u0627', '\u0627\u0653').replace('\u0648', '\u0648\u0653').replace('\u064A', '\u064A\u0653')} \u0621`)
-  const madWajibDiacritic3Trimmed = dataCopy.map(char => `${char.replace('\u0627', '\u0627\u0622').replace('\u0648', '\u0648\u0622').replace('\u064A', '\u064A\u0622')}\u0621`)
-  const madWajibDiacritic3 = dataCopy.map(char => `${char.replace('\u0627', '\u0627\u0622').replace('\u0648', '\u0648\u0622').replace('\u064A', '\u064A\u0622')} \u0621`)
-  const madWajibDiacritic4Trimmed = dataCopy.map(char => `${char.replace('\u0648\u0652', '\u0648\u0652\u0605').replace('\u0648\u0652', '\u0648\u0652\u0653').replace('\u0648\u0652', '\u0648\u0652\u0622')}\u0621`)
-  const madWajibDiacritic4 = dataCopy.map(char => `${char.replace('\u0648\u0652', '\u0648\u0652\u0605').replace('\u0648\u0652', '\u0648\u0652\u0653').replace('\u0648\u0652', '\u0648\u0652\u0622')} \u0621`)
-  const madWajibDiacritic5Trimmed = dataCopy.map(char => `${char.replace('\u0648\u06DF', '\u0648\u06DF\u0605').replace('\u0648\u06DF', '\u0648\u06DF\u0653').replace('\u0648\u06DF', '\u0648\u06DF\u0622')}\u0621`)
-  const madWajibDiacritic5 = dataCopy.map(char => `${char.replace('\u0648\u06DF', '\u0648\u06DF\u0605').replace('\u0648\u06DF', '\u0648\u06DF\u0653').replace('\u0648\u06DF', '\u0648\u06DF\u0622')} \u0621`)
-  const madWajibDiacritic6Trimmed = dataCopy.map(char => `${char.replace('\u064A\u0652', '\u064A\u0652\u0605').replace('\u064A\u0652', '\u064A\u0652\u0653').replace('\u064A\u0652', '\u064A\u0652\u0622')}\u0621`)
-  const madWajibDiacritic6 = dataCopy.map(char => `${char.replace('\u064A\u0652', '\u064A\u0652\u0605').replace('\u064A\u0652', '\u064A\u0652\u0653').replace('\u064A\u0652', '\u064A\u0652\u0622')} \u0621`)
-  const madWajibDiacritic7Trimmed = dataCopy.map(char => `${char.replace('\u064A\u06DF', '\u064A\u06DF\u0605').replace('\u064A\u06DF', '\u064A\u06DF\u0653').replace('\u064A\u06DF', '\u064A\u06DF\u0622')}\u0621`)
-  const madWajibDiacritic7 = dataCopy.map(char => `${char.replace('\u064A\u06DF', '\u064A\u06DF\u0605').replace('\u064A\u06DF', '\u064A\u06DF\u0653').replace('\u064A\u06DF', '\u064A\u06DF\u0622')} \u0621`)
-  const alif = ['\u0622\u0621', '\u0622 \u0621']
-  const lam = ['\u0644\u0622\u0621', '\u0644\u0622 \u0621', 'لآَء', 'لآَء', 'لآَء', 'لآَ ء', 'لآَ ء', 'لآَ ء']
+  const madWajibTrimmed = madThabiiChars.map(regex => new RegExp(`${regex.source}\u0621`, 'gm'))
+  const madWajib = madThabiiChars.map(regex => new RegExp(`${regex.source} \u0621`, 'gm'))
+  const madWajibDiacriticTrimmed = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0627', '\u0627\u0605').replace('\u0648', '\u0648\u0605').replace('\u064A', '\u064A\u0605')}\u0621`, 'gm'))
+  const madWajibDiacritic = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0627', '\u0627\u0605').replace('\u0648', '\u0648\u0605').replace('\u064A', '\u064A\u0605')} \u0621`, 'gm'))
+  const madWajibDiacritic2Trimmed = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0627', '\u0627\u0653').replace('\u0648', '\u0648\u0653').replace('\u064A', '\u064A\u0653')}\u0621`, 'gm'))
+  const madWajibDiacritic2 = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0627', '\u0627\u0653').replace('\u0648', '\u0648\u0653').replace('\u064A', '\u064A\u0653')} \u0621`, 'gm'))
+  const madWajibDiacritic3Trimmed = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0627', '\u0627\u0622').replace('\u0648', '\u0648\u0622').replace('\u064A', '\u064A\u0622')}\u0621`, 'gm'))
+  const madWajibDiacritic3 = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0627', '\u0627\u0622').replace('\u0648', '\u0648\u0622').replace('\u064A', '\u064A\u0622')} \u0621`, 'gm'))
+  const madWajibDiacritic4Trimmed = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0648\u0652', '\u0648\u0652\u0605').replace('\u0648\u0652', '\u0648\u0652\u0653').replace('\u0648\u0652', '\u0648\u0652\u0622')}\u0621`, 'gm'))
+  const madWajibDiacritic4 = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0648\u0652', '\u0648\u0652\u0605').replace('\u0648\u0652', '\u0648\u0652\u0653').replace('\u0648\u0652', '\u0648\u0652\u0622')} \u0621`, 'gm'))
+  const madWajibDiacritic5Trimmed = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0648\u06DF', '\u0648\u06DF\u0605').replace('\u0648\u06DF', '\u0648\u06DF\u0653').replace('\u0648\u06DF', '\u0648\u06DF\u0622')}\u0621`, 'gm'))
+  const madWajibDiacritic5 = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0648\u06DF', '\u0648\u06DF\u0605').replace('\u0648\u06DF', '\u0648\u06DF\u0653').replace('\u0648\u06DF', '\u0648\u06DF\u0622')} \u0621`, 'gm'))
+  const madWajibDiacritic6Trimmed = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u064A\u0652', '\u064A\u0652\u0605').replace('\u064A\u0652', '\u064A\u0652\u0653').replace('\u064A\u0652', '\u064A\u0652\u0622')}\u0621`, 'gm'))
+  const madWajibDiacritic6 = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u064A\u0652', '\u064A\u0652\u0605').replace('\u064A\u0652', '\u064A\u0652\u0653').replace('\u064A\u0652', '\u064A\u0652\u0622')} \u0621`, 'gm'))
+  const madWajibDiacritic7Trimmed = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u064A\u06DF', '\u064A\u06DF\u0605').replace('\u064A\u06DF', '\u064A\u06DF\u0653').replace('\u064A\u06DF', '\u064A\u06DF\u0622')}\u0621`, 'gm'))
+  const madWajibDiacritic7 = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u064A\u06DF', '\u064A\u06DF\u0605').replace('\u064A\u06DF', '\u064A\u06DF\u0653').replace('\u064A\u06DF', '\u064A\u06DF\u0622')} \u0621`, 'gm'))
+  const madWajibDiacritic8Trimmed = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0627', '\u0627\u06E4').replace('\u0648', '\u0648\u06E4').replace('\u064A', '\u064A\u06E4')}\u0621`, 'gm'))
+  const madWajibDiacritic8 = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0627', '\u0627\u06E4').replace('\u0648', '\u0648\u06E4').replace('\u064A', '\u064A\u06E4')} \u0621`, 'gm'))
+  const madWajibDiacritic9Trimmed = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0627', '\u0627\u0622').replace('\u0648', '\u0648\u0622').replace('\u064A', '\u064A\u0622')}\u0621`, 'gm'))
+  const madWajibDiacritic9 = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0627', '\u0627\u0622').replace('\u0648', '\u0648\u0622').replace('\u064A', '\u064A\u0622')} \u0621`, 'gm'))
+  const madWajibDiacritic10Trimmed = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0648\u0652', '\u0648\u0652\u0605').replace('\u0648\u0652', '\u0648\u0652\u06E4').replace('\u0648\u0652', '\u0648\u0652\u0622')}\u0621`, 'gm'))
+  const madWajibDiacritic10 = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0648\u0652', '\u0648\u0652\u0605').replace('\u0648\u0652', '\u0648\u0652\u06E4').replace('\u0648\u0652', '\u0648\u0652\u0622')} \u0621`, 'gm'))
+  const madWajibDiacritic11Trimmed = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0648\u06DF', '\u0648\u06DF\u0605').replace('\u0648\u06DF', '\u0648\u06DF\u06E4').replace('\u0648\u06DF', '\u0648\u06DF\u0622')}\u0621`, 'gm'))
+  const madWajibDiacritic11 = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0648\u06DF', '\u0648\u06DF\u0605').replace('\u0648\u06DF', '\u0648\u06DF\u06E4').replace('\u0648\u06DF', '\u0648\u06DF\u0622')} \u0621`, 'gm'))
+  const madWajibDiacritic12Trimmed = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u064A\u0652', '\u064A\u0652\u0605').replace('\u064A\u0652', '\u064A\u0652\u06E4').replace('\u064A\u0652', '\u064A\u0652\u0622')}\u0621`, 'gm'))
+  const madWajibDiacritic12 = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u064A\u0652', '\u064A\u0652\u0605').replace('\u064A\u0652', '\u064A\u0652\u06E4').replace('\u064A\u0652', '\u064A\u0652\u0622')} \u0621`, 'gm'))
+  const madWajibDiacritic13Trimmed = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u064A\u06DF', '\u064A\u06DF\u0605').replace('\u064A\u06DF', '\u064A\u06DF\u06E4').replace('\u064A\u06DF', '\u064A\u06DF\u0622')}\u0621`, 'gm'))
+  const madWajibDiacritic13 = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u064A\u06DF', '\u064A\u06DF\u0605').replace('\u064A\u06DF', '\u064A\u06DF\u06E4').replace('\u064A\u06DF', '\u064A\u06DF\u0622')} \u0621`, 'gm'))
+  const hamzahDiacritics = [
+    /\u0670\u0653\u0649\u0655/gm, /\u0670\u06E4\u0649\u0655/gm, /\u0670\u0653\u0648\u0654/gm, /\u0670\u06E4\u0648\u0654/gm, /\u0670\u0653\u0624/gm, /\u0670\u06E4\u0624/gm,
+    /\u0656\u0653\u0649\u0655/gm, /\u0656\u06E4\u0649\u0655/gm, /\u0656\u0653\u0648\u0654/gm, /\u0656\u06E4\u0648\u0654/gm, /\u0656\u0653\u0624/gm, /\u0656\u06E4\u0624/gm,
+    /\u0657\u0653\u0649\u0655/gm, /\u0657\u06E4\u0649\u0655/gm, /\u0657\u0653\u0648\u0654/gm, /\u0657\u06E4\u0648\u0654/gm, /\u0657\u0653\u0624/gm, /\u0657\u06E4\u0624/gm
+  ]
+  const alif = [/\u0622\u0621/gm, /\u0622 \u0621/gm]
+  const lam = [/\u0644\u0622\u0621/gm, /\u0644\u0622 \u0621/gm, /لآَء/gm, /لآَء/gm, /لآَء/gm, /لآَ ء/gm, /لآَ ء/gm, /لآَ ء/gm]
   return [
     ...madWajibTrimmed,
     ...madWajib,
@@ -166,31 +196,42 @@ const extractMadWajibCharacters = () => {
     ...madWajibDiacritic6,
     ...madWajibDiacritic7Trimmed,
     ...madWajibDiacritic7,
+    ...madWajibDiacritic8Trimmed,
+    ...madWajibDiacritic8,
+    ...madWajibDiacritic9Trimmed,
+    ...madWajibDiacritic9,
+    ...madWajibDiacritic10Trimmed,
+    ...madWajibDiacritic10,
+    ...madWajibDiacritic11Trimmed,
+    ...madWajibDiacritic11,
+    ...madWajibDiacritic12Trimmed,
+    ...madWajibDiacritic12,
+    ...madWajibDiacritic13Trimmed,
+    ...madWajibDiacritic13,
+    ...hamzahDiacritics,
     ...alif,
     ...lam
   ]
 }
 
 const extractMadJaizCharacters = () => {
-  const dataCopy = [...extractMadThabiiCharacters()]
-  dataCopy.splice(-5)
-  const madJaizVar1 = dataCopy.map(char => `${char} \u0623`)
-  const madJaizVar2 = dataCopy.map(char => `${char} \u0625`)
-  const madJaizVar3 = dataCopy.map(char => `${char} \\u0627\\u064E|\\u0627\\u064F|\\u0627\\u0650`)
-  const madJaizTrimmedVar1 = dataCopy.map(char => `${char}\u0623`)
-  const madJaizTrimmedVar2 = dataCopy.map(char => `${char}\u0625`)
-  const madJaizTrimmedVar3 = dataCopy.map(char => `${char}\\u0627\\u064E|\\u0627\\u064F|\\u0627\\u0650`)
-  const madJaizDiacriticVar1 = dataCopy.map(char => `${char.replace('\u0627', '\u0627\u0605')} \u0623`)
-  const madJaizDiacriticVar2 = dataCopy.map(char => `${char.replace('\u0627', '\u0627\u0605')} \u0625`)
-  const madJaizDiacriticVar3 = dataCopy.map(char => `${char.replace('\u0627', '\u0627\u0605')} \u0627`)
-  const madJaizDiacriticTrimmedVar1 = dataCopy.map(char => `${char.replace('\u0627', '\u0627\u0605')}\u0623`)
-  const madJaizDiacriticTrimmedVar2 = dataCopy.map(char => `${char.replace('\u0627', '\u0627\u0605')}\u0625`)
-  const madJaizDiacriticTrimmedVar3 = dataCopy.map(char => `${char.replace('\u0627', '\u0627\u0605')}\u0627`)
-  const alif = ['\u0622\u0623', '\u0622 \u0623', '\u0622\u0625', '\u0622 \u0625', '\u0622\u0627', '\u0622 \u0627']
+  const madJaizVar1 = madThabiiChars.map(regex => new RegExp(`${regex.source} \u0623`, 'gm'))
+  const madJaizVar2 = madThabiiChars.map(regex => new RegExp(`${regex.source} \u0625`, 'gm'))
+  const madJaizVar3 = madThabiiChars.map(regex => new RegExp(regex.source + ' \\u0627\\u064E|\\u0627\\u064F|\\u0627\\u0650', 'gm'))
+  const madJaizTrimmedVar1 = madThabiiChars.map(regex => new RegExp(`${regex.source}\u0623`, 'gm'))
+  const madJaizTrimmedVar2 = madThabiiChars.map(regex => new RegExp(`${regex.source}\u0625`, 'gm'))
+  const madJaizTrimmedVar3 = madThabiiChars.map(regex => new RegExp(regex.source + '\\u0627\\u064E|\\u0627\\u064F|\\u0627\\u0650', 'gm'))
+  const madJaizDiacriticVar1 = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0627', '\u0627\u0605')} \u0623`, 'gm'))
+  const madJaizDiacriticVar2 = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0627', '\u0627\u0605')} \u0625`, 'gm'))
+  const madJaizDiacriticVar3 = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0627', '\u0627\u0605')} \u0627`, 'gm'))
+  const madJaizDiacriticTrimmedVar1 = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0627', '\u0627\u0605')}\u0623`, 'gm'))
+  const madJaizDiacriticTrimmedVar2 = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0627', '\u0627\u0605')}\u0625`, 'gm'))
+  const madJaizDiacriticTrimmedVar3 = madThabiiChars.map(regex => new RegExp(`${regex.source.replace('\u0627', '\u0627\u0605')}\u0627`, 'gm'))
+  const alif = [/\u0622\u0623/gm, /\u0622 \u0623/gm, /\u0622\u0625/gm, /\u0622 \u0625/gm, /\u0622\u0627/gm, /\u0622 \u0627/gm]
   const lam = [
-    '\u0644\u0622\u0623', '\u0644\u0622\u0625', '\u0644\u0622\u0627',
-    '\u0644\u0622 \u0623', '\u0644\u0622 \u0625', '\u0644\u0622 \u0627',
-    'لآَأ', 'لآَﺇ', 'لآَا', 'لآَ أ', 'لآَ ﺇ', 'لآَ ا'
+    /\u0644\u0622\u0623/gm, /\u0644\u0622\u0625/gm, /\u0644\u0622\u0627/gm,
+    /\u0644\u0622 \u0623/gm, /\u0644\u0622 \u0625/gm, /\u0644\u0622 \u0627/gm,
+    /لآَأ/gm, /لآَﺇ/gm, /لآَا/gm, /لآَ أ/gm, /لآَ ﺇ/gm, /لآَ ا/gm
   ]
   return [
     ...madJaizVar1,
@@ -211,33 +252,33 @@ const extractMadJaizCharacters = () => {
 }
 
 const extractMadLazimMutsaqqalKilmiCharacters = () => {
-  const dataCopy = [...extractMadThabiiCharacters()]
-  dataCopy.pop()
-  const madLazimMutsaqqalKilmi = dataCopy.map(char => new RegExp(`^${char} .*\\u0651$`))
-  const madLazimMutsaqqalKilmiTrimmed = dataCopy.map(char => new RegExp(`^${char}.*\\u0651$`))
-  const madLazimMutsaqqalKilmi2 = dataCopy.map(char => new RegExp(`^${char} .*\\u0605\\u0651$`))
-  const madLazimMutsaqqalKilmiTrimmed2 = dataCopy.map(char => new RegExp(`^${char}.*\\u0605\\u0651$`))
-  const madLazimMutsaqqalKilmi3 = dataCopy.map(char => new RegExp(`^${char} .*\\u0653\\u0651$`))
-  const madLazimMutsaqqalKilmiTrimmed3 = dataCopy.map(char => new RegExp(`^${char}.*\\u0653\\u0651$`))
+  const madLazimMutsaqqalKilmi = madThabiiChars.map(regex => new RegExp(`^${regex.source} .*\\u0651$`, 'gm'))
+  const madLazimMutsaqqalKilmiTrimmed = madThabiiChars.map(regex => new RegExp(`^${regex.source}.*\\u0651$`, 'gm'))
+  const madLazimMutsaqqalKilmi2 = madThabiiChars.map(regex => new RegExp(`^${regex.source} .*\\u0605\\u0651$`, 'gm'))
+  const madLazimMutsaqqalKilmiTrimmed2 = madThabiiChars.map(regex => new RegExp(`^${regex.source}.*\\u0605\\u0651$`, 'gm'))
+  const madLazimMutsaqqalKilmi3 = madThabiiChars.map(regex => new RegExp(`^${regex.source} .*\\u0653\\u0651$`, 'gm'))
+  const madLazimMutsaqqalKilmiTrimmed3 = madThabiiChars.map(regex => new RegExp(`^${regex.source}.*\\u0653\\u0651$`, 'gm'))
+  const madLazimMutsaqqalKilmi4 = madThabiiChars.map(regex => new RegExp(`^${regex.source} .*\\u06E4\\u0651$`, 'gm'))
+  const madLazimMutsaqqalKilmiTrimmed4 = madThabiiChars.map(regex => new RegExp(`^${regex.source}.*\\u06E4\\u0651$`, 'gm'))
   return [
     ...madLazimMutsaqqalKilmi,
     ...madLazimMutsaqqalKilmiTrimmed,
     ...madLazimMutsaqqalKilmi2,
     ...madLazimMutsaqqalKilmiTrimmed2,
     ...madLazimMutsaqqalKilmi3,
-    ...madLazimMutsaqqalKilmiTrimmed3
+    ...madLazimMutsaqqalKilmiTrimmed3,
+    ...madLazimMutsaqqalKilmi4,
+    ...madLazimMutsaqqalKilmiTrimmed4
   ]
 }
 
 const extractMadLazimMukhaffafKilmiCharacters = () => {
-  const dataCopy = [...extractMadThabiiCharacters()]
-  dataCopy.pop()
-  const madLazimMukhaffafKilmi = dataCopy.map(char => new RegExp(`^${char} .*\\u0652$`))
-  const madLazimMukhaffafKilmiTrimmed = dataCopy.map(char => new RegExp(`^${char}.*\\u0652$`))
-  const madLazimMukhaffafKilmi2 = dataCopy.map(char => new RegExp(`^${char} .*\\u0605\\u0652$`))
-  const madLazimMukhaffafKilmiTrimmed2 = dataCopy.map(char => new RegExp(`^${char}.*\\u0605\\u0652$`))
-  const madLazimMukhaffafKilmi3 = dataCopy.map(char => new RegExp(`^${char} .*\\u0653\\u0652$`))
-  const madLazimMukhaffafKilmiTrimmed3 = dataCopy.map(char => new RegExp(`^${char}.*\\u0653\\u0652$`))
+  const madLazimMukhaffafKilmi = madThabiiChars.map(regex => new RegExp(`^${regex.source} .*\\u0652$`, 'gm'))
+  const madLazimMukhaffafKilmiTrimmed = madThabiiChars.map(regex => new RegExp(`^${regex.source}.*\\u0652$`, 'gm'))
+  const madLazimMukhaffafKilmi2 = madThabiiChars.map(regex => new RegExp(`^${regex.source} .*\\u0605\\u0652$`, 'gm'))
+  const madLazimMukhaffafKilmiTrimmed2 = madThabiiChars.map(regex => new RegExp(`^${regex.source}.*\\u0605\\u0652$`, 'gm'))
+  const madLazimMukhaffafKilmi3 = madThabiiChars.map(regex => new RegExp(`^${regex.source} .*\\u0653\\u0652$`, 'gm'))
+  const madLazimMukhaffafKilmiTrimmed3 = madThabiiChars.map(regex => new RegExp(`^${regex.source}.*\\u0653\\u0652$`, 'gm'))
   return [
     ...madLazimMukhaffafKilmi,
     ...madLazimMukhaffafKilmiTrimmed,
@@ -249,14 +290,15 @@ const extractMadLazimMukhaffafKilmiCharacters = () => {
 }
 
 const extractMadLayyinCharacters = () => [
-  /(?:\u064E\u0648\u0652|\u064E\u064A\u0652|\u064E \u0648\u0652|\u064E \u064A\u0652|\u064E\u0648\u06DF|\u064E\u064A\u06DF|\u064E \u0648\u06DF|\u064E \u064A\u06DF)/
+  /(?:\u064E\u0648\u0652|\u064E\u064A\u0652|\u064E \u0648\u0652|\u064E \u064A\u0652|\u064E\u0648\u06DF|\u064E\u064A\u06DF|\u064E \u0648\u06DF|\u064E \u064A\u06DF)/gm,
+  /(?:\u064E\u0648(?![\u064B-\u065F])|\u064E\u064A(?![\u064B-\u065F])|\u064E \u0648(?![\u064B-\u065F])|\u064E \u064A(?![\u064B-\u065F])|\u064E\u0648(?![\u064B-\u065F])|\u064E\u064A(?![\u064B-\u065F])|\u064E \u0648(?![\u064B-\u065F])|\u064E \u064A(?![\u064B-\u065F]))/gm
 ]
 
 const extractMadAridLissukunCharacters = () => {
   const dataCopy = [...extractMadThabiiCharacters()]
-  dataCopy.pop()
-  const madAridLissukun = dataCopy.map(char => new RegExp(`^${char} .*\\u06E5|\\u0660|\\u06F0|[\\u06D6-\\u06DB]$`))
-  const madAridLissukunTrimmed = dataCopy.map(char => new RegExp(`^${char}.*\\u06E5|\\u0660|\\u06F0|[\\u06D6-\\u06DB]$`))
+  dataCopy.splice(-2)
+  const madAridLissukun = dataCopy.map(regex => new RegExp(`^${regex.source} .*\\u06E5|\\u0660|\\u06F0|[\\u06D6-\\u06DB]$`, 'gm'))
+  const madAridLissukunTrimmed = dataCopy.map(regex => new RegExp(`^${regex.source}.*\\u06E5|\\u0660|\\u06F0|[\\u06D6-\\u06DB]$`, 'gm'))
   return [...madAridLissukun, ...madAridLissukunTrimmed]
 }
 
@@ -278,7 +320,8 @@ const extractMadIwadCharacters = () => [
   '\\u064B\\u0627[\\u06D6-\\u06DB]', '\\u064B\\u0627 [\\u06D6-\\u06DB]', '\\u064B \\u0627 [\\u06D6-\\u06DB]',
   '\\u064B\\u0627\\u0660', '\\u064B\\u0627 \\u0660', '\\u064B \\u0627 \\u0660',
   '\\u064B\\u0627\\u06F0', '\\u064B\\u0627 \\u06F0', '\\u064B \\u0627 \\u06F0',
-  '\\u064B\\u0627\\u06E5', '\\u064B\\u0627 \\u06E5', '\\u064B \\u0627 \\u06E5'
+  '\\u064B\\u0627\\u06E5', '\\u064B\\u0627 \\u06E5', '\\u064B \\u0627 \\u06E5',
+  'لًا[\\u06D6-\\u06DB]', 'لًا\u0660', 'لًا\u06F0', 'لًا\u06E5'
 ]
 
 const extractMadBadalCharacters = () => [
