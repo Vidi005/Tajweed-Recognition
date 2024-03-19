@@ -212,10 +212,14 @@ const extractIdzharQamariyahCharacters = () => [
 ]
 
 const extractIdghamSyamsiyahCharacters = () => [
-  'الت', 'الث', 'الد', 'الذ', 'الر', 'الز', 'الس', 'الش', 'الص', 'الض', 'الط', 'الظ', 'الل', 'الن',
-  'الْت', 'الْث', 'الْد', 'الْذ', 'الْر', 'الْز', 'الْس', 'الْش', 'الْص', 'الْض', 'الْط', 'الْظ', 'الْل', 'الْن',
-  'االت', 'االث', 'االد', 'االذ', 'االر', 'االز', 'االس', 'االش', 'االص', 'االض', 'االط', 'االظ', 'االل', 'االن',
-  'االْت', 'االْث', 'االْد', 'االْذ', 'االْر', 'االْز', 'االْس', 'االْش', 'االْص', 'االْض', 'االْط', 'االْظ', 'االْل', 'االْن'
+  /الت/gm, /الث/gm, /الد/gm, /الذ/gm, /الر/gm, /الز/gm, /الس/gm, /الش/gm, /الص/gm, /الض/gm, /الط/gm, /الظ/gm,
+  /\u0627\u0644\u0644(?:[\u064B-\u065F])(?:[\u064B-\u065F])(?![ه٥])/gm,
+  /الن/gm,
+  /الْت/gm, /الْث/gm, /الْد/gm, /الْذ/gm, /الْر/gm, /الْز/gm, /الْس/gm, /الْش/gm, /الْص/gm, /الْض/gm, /الْط/gm, /الْظ/gm, /الْل/gm, /الْن/gm,
+  /االت/gm, /االث/gm, /االد/gm, /االذ/gm, /االر/gm, /االز/gm, /االس/gm, /االش/gm, /االص/gm, /االض/gm, /االط/gm, /االظ/gm,
+  /\u0627\u0627\u0644\u0644(?:[\u064B-\u065F])(?:[\u064B-\u065F])(?![ه٥])/gm,
+  /االن/gm,
+  /االْت/gm, /االْث/gm, /االْد/gm, /االْذ/gm, /االْر/gm, /االْز/gm, /االْس/gm, /االْش/gm, /االْص/gm, /االْض/gm, /االْط/gm, /االْظ/gm, /االْل/gm, /االْن/
 ]
 
 const extractQalqalahSughraCharacters = () => [
@@ -232,33 +236,70 @@ const extractQalqalahSughraCharacters = () => [
 ]
 
 const extractQalqalahKubraCharacters = () => [
-  '\u0628\u0651[\u064E-\u0650][\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u062C\u0651[\u064E-\u0650][\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u062F\u0651[\u064E-\u0650][\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u0637\u0651[\u064E-\u0650][\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u0642\u0651[\u064E-\u0650][\u06D6-\u06DB]|\u0660|\u06F0|\u06E5',
-  '\u0628\u0651[\u064E-\u0650] [\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u062C\u0651[\u064E-\u0650] [\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u062F\u0651[\u064E-\u0650] [\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u0637\u0651[\u064E-\u0650] [\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u0642\u0651[\u064E-\u0650] [\u06D6-\u06DB]|\u0660|\u06F0|\u06E5',
-  '\u0628\u06DF[\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u062C\u06DF[\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u062F\u06DF[\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u0637\u06DF[\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u0642\u06DF[\u06D6-\u06DB]|\u0660|\u06F0|\u06E5',
-  '\u0628\u06DF [\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u062C\u06DF [\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u062F\u06DF [\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u0637\u06DF [\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u0642\u06DF [\u06D6-\u06DB]|\u0660|\u06F0|\u06E5',
-  '\u0628\u06DF[\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u062C\u06DF[\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u062F\u06DF[\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u0637\u06DF[\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u0642\u06DF[\u06D6-\u06DB]|\u0660|\u06F0|\u06E5',
-  '\u0628\u06DF [\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u062C\u06DF [\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u062F\u06DF [\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u0637\u06DF [\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u0642\u06DF [\u06D6-\u06DB]|\u0660|\u06F0|\u06E5',
-  '\u0628[\u064E-\u0650][\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u062C[\u064E-\u0650][\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u062F[\u064E-\u0650][\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u0637[\u064E-\u0650][\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u0642[\u064E-\u0650][\u06D6-\u06DB]|\u0660|\u06F0|\u06E5',
-  '\u0628[\u064E-\u0650] [\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u062C[\u064E-\u0650] [\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u062F[\u064E-\u0650] [\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u0637[\u064E-\u0650] [\u06D6-\u06DB]|\u0660|\u06F0|\u06E5', '\u0642[\u064E-\u0650] [\u06D6-\u06DB]|\u0660|\u06F0|\u06E5'
+  // Ba
+  /\u0628(?:[\u064B-\u065F]) (?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u0628(?:[\u064B-\u065F]) (?:[\u06D6-\u06DB])/gm,
+  /\u0628(?:[\u064B-\u065F])(?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u0628(?:[\u064B-\u065F])(?:[\u06D6-\u06DB])/gm,
+  /\u0628(?:[\u064B-\u065F])(?:[\u064B-\u065F]) (?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u0628(?:[\u064B-\u065F])(?:[\u064B-\u065F]) (?:[\u06D6-\u06DB])/gm,
+  /\u0628(?:[\u064B-\u065F])(?:[\u064B-\u065F])(?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u0628(?:[\u064B-\u065F])(?:[\u064B-\u065F])(?:[\u06D6-\u06DB])/gm,
+  // Ja
+  /\u062C(?:[\u064B-\u065F]) (?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u062C(?:[\u064B-\u065F]) (?:[\u06D6-\u06DB])/gm,
+  /\u062C(?:[\u064B-\u065F])(?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u062C(?:[\u064B-\u065F])(?:[\u06D6-\u06DB])/gm,
+  /\u062C(?:[\u064B-\u065F])(?:[\u064B-\u065F]) (?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u062C(?:[\u064B-\u065F])(?:[\u064B-\u065F]) (?:[\u06D6-\u06DB])/gm,
+  /\u062C(?:[\u064B-\u065F])(?:[\u064B-\u065F])(?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u062C(?:[\u064B-\u065F])(?:[\u064B-\u065F])(?:[\u06D6-\u06DB])/gm,
+  // Dal
+  /\u062F(?:[\u064B-\u065F]) (?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u062F(?:[\u064B-\u065F]) (?:[\u06D6-\u06DB])/gm,
+  /\u062F(?:[\u064B-\u065F])(?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u062F(?:[\u064B-\u065F])(?:[\u06D6-\u06DB])/gm,
+  /\u062F(?:[\u064B-\u065F])(?:[\u064B-\u065F]) (?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u062F(?:[\u064B-\u065F])(?:[\u064B-\u065F]) (?:[\u06D6-\u06DB])/gm,
+  /\u062F(?:[\u064B-\u065F])(?:[\u064B-\u065F])(?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u062F(?:[\u064B-\u065F])(?:[\u064B-\u065F])(?:[\u06D6-\u06DB])/gm,
+  // Tho
+  /\u0637(?:[\u064B-\u065F]) (?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u0637(?:[\u064B-\u065F]) (?:[\u06D6-\u06DB])/gm,
+  /\u0637(?:[\u064B-\u065F])(?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u0637(?:[\u064B-\u065F])(?:[\u06D6-\u06DB])/gm,
+  /\u0637(?:[\u064B-\u065F])(?:[\u064B-\u065F]) (?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u0637(?:[\u064B-\u065F])(?:[\u064B-\u065F]) (?:[\u06D6-\u06DB])/gm,
+  /\u0637(?:[\u064B-\u065F])(?:[\u064B-\u065F])(?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u0637(?:[\u064B-\u065F])(?:[\u064B-\u065F])(?:[\u06D6-\u06DB])/gm,
+  // Tho
+  /\u0642(?:[\u064B-\u065F]) (?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u0642(?:[\u064B-\u065F]) (?:[\u06D6-\u06DB])/gm,
+  /\u0642(?:[\u064B-\u065F])(?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u0642(?:[\u064B-\u065F])(?:[\u06D6-\u06DB])/gm,
+  /\u0642(?:[\u064B-\u065F])(?:[\u064B-\u065F]) (?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u0642(?:[\u064B-\u065F])(?:[\u064B-\u065F]) (?:[\u06D6-\u06DB])/gm,
+  /\u0642(?:[\u064B-\u065F])(?:[\u064B-\u065F])(?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u0642(?:[\u064B-\u065F])(?:[\u064B-\u065F])(?:[\u06D6-\u06DB])/gm
 ]
 
 const extractMadThabiiCharacters = () => [
   // Alif
-  /\u064E\u0627(?![\u0621-\u0627])/gm, /\u064E\u0627 (?![\u0621-\u0627])/gm, /\u064E \u0627 (?![\u0621-\u0627])/gm,
-  /\u064E\u0627(?![\u064B-\u065F])(?![\u0621-\u0627])/gm, /\u064E \u0627(?![\u064B-\u065F]) (?![\u0621-\u0627])/gm,
-  /\u064E\u0627(?![\u064B-\u065F])\u0627(?:[\u064B-\u065F])/gm, /\u064E \u0627(?![\u064B-\u065F]) \u0627(?:[\u064B-\u065F])/gm,
+  /\u064E\u0627(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /\u064E\u0627 (?![\u0621-\u0627])/gm, /\u064E \u0627 (?![\u0621-\u0627])/gm,
+  /\u064E\u0627(?![\u064B-\u065F]|\u0605|\u0653|\u06E4)(?![\u0621-\u0627])/gm, /\u064E \u0627(?![\u0621-\u0627]|\u0605|\u0653|\u06E4) (?![\u0621-\u0627])/gm,
+  /\u064E\u0627(?![\u064B-\u065F]|\u0605|\u0653|\u06E4)\u0627(?:[\u064B-\u065F])/gm, /\u064E \u0627(?![\u0621-\u0627]|\u0605|\u0653|\u06E4) \u0627(?:[\u064B-\u065F])/gm,
   // Wau
-  /(?![\u0621-\u0627])\u064F\u0648\u0652(?![\u0621-\u0627])/gm, /(?![\u0621-\u0627])\u064F \u0648\u0652 (?![\u0621-\u0627])/gm, /(?![\u0621-\u0627])\u064F\u0648\u06DF/gm, /(?![\u0621-\u0627])\u064F \u0648\u06DF/gm,
+  /(?![\u0621-\u0627])\u064F\u0648\u0652(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u064F \u0648\u0652 (?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u064F\u0648\u06DF(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u064F \u0648\u06DF(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm,
   // /(?![\u0621-\u0627])\u064F\u0648(?![\u064B-\u065F])/gm, /(?![\u0621-\u0627])\u064F \u0648(?![\u064B-\u065F])/gm,
-  /(?![\u0621-\u0627])\u064F\u0648(?![\u064B-\u065F])(?![\u0621-\u0627])/gm, /(?![\u0621-\u0627])\u064F \u0648(?![\u064B-\u065F]) (?![\u0621-\u0627])/gm, /(?![\u0621-\u0627])\u064F\u0648(?![\u064B-\u065F])(?![\u0621-\u0627])/gm, /(?![\u0621-\u0627])\u064F \u0648(?![\u064B-\u065F]) (?![\u0621-\u0627])/gm,
+  /(?![\u0621-\u0627])\u064F\u0648(?![\u064B-\u065F])(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u064F \u0648(?![\u064B-\u065F]) (?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u064F\u0648(?![\u064B-\u065F])(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u064F \u0648(?![\u064B-\u065F]) (?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm,
   // Ya
-  /(?![\u0621-\u0627])\u0650\u064A\u0652(?![\u0621-\u0627])/gm, /(?![\u0621-\u0627])\u0650 \u064A\u0652 (?![\u0621-\u0627])/gm, /(?![\u0621-\u0627])\u0650\u064A\u06DF/gm, /(?![\u0621-\u0627])\u0650 \u064A\u06DF/gm,
+  /(?![\u0621-\u0627])\u0650\u064A\u0652(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u0650 \u064A\u0652 (?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u0650\u064A\u06DF(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u0650 \u064A\u06DF(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm,
   // /(?![\u0621-\u0627])\u064F\u0650(?![\u064B-\u065F])/gm, /(?![\u0621-\u0627])\u064F \u0650(?![\u064B-\u065F])/gm,
-  /(?![\u0621-\u0627])\u0650\u064A(?![\u064B-\u065F])(?![\u0621-\u0627])/gm, /(?![\u0621-\u0627])\u0650 \u064A(?![\u064B-\u065F]) (?![\u0621-\u0627])/gm, /(?![\u0621-\u0627])\u0650\u064A(?![\u064B-\u065F])(?![\u0621-\u0627])/gm, /(?![\u0621-\u0627])\u0650 \u064A(?![\u064B-\u065F]) (?![\u0621-\u0627])/gm,
+  /(?![\u0621-\u0627])\u0650\u064A(?![\u064B-\u065F])(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u0650 \u064A(?![\u064B-\u065F]) (?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u0650\u064A(?![\u064B-\u065F])(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u0650 \u064A(?![\u064B-\u065F]) (?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm,
   // Mad harakah
-  /(?:[\u0628-\u0646])\u0656(?![\u0621-\u0627])/gm, /(?:[\u0628-\u0646])\u0670(?![\u0621-\u0627])/gm, /(?:[\u0628-\u0646])\u0657(?![\u0621-\u0627])/gm,
-  /(?:[\u0628-\u0646])(?:[\u064B-\u065F])\u0656(?![\u0621-\u0627])/gm, /(?:[\u0628-\u0646])(?:[\u064B-\u065F])\u0670(?![\u0621-\u0627])/gm, /(?:[\u0628-\u0646])(?:[\u064B-\u065F])\u0657(?![\u0621-\u0627])/gm,
-  /(?:[\u064B-\u065F])(?:[\u0628-\u0646])\u0656(?![\u0621-\u0627])/gm, /(?:[\u064B-\u065F])(?:[\u0628-\u0646])\u0670(?![\u0621-\u0627])/gm, /(?:[\u064B-\u065F])(?:[\u0628-\u0646])\u0657(?![\u0621-\u0627])/gm,
+  /(?:[\u0628-\u0646])\u0656(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?:[\u0628-\u0646])\u0670(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?:[\u0628-\u0646])\u0657(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm,
+  /(?:[\u0628-\u0646])(?:[\u064B-\u065F])\u0656(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?:[\u0628-\u0646])(?:[\u064B-\u065F])\u0670(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?:[\u0628-\u0646])(?:[\u064B-\u065F])\u0657(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm,
+  /(?:[\u064B-\u065F])(?:[\u0628-\u0646])\u0656(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?:[\u064B-\u065F])(?:[\u0628-\u0646])\u0670(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?:[\u064B-\u065F])(?:[\u0628-\u0646])\u0657(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm,
   // Lam
   // /لاَ(?![\u0653\u06E4])/gm
 ]
@@ -282,7 +323,7 @@ const extractMadWajibCharacters = () => {
   const madWajibTrimmed = madThabiiChars.map(regex => new RegExp(regex.source + /\u0621(?:[\u064B-\u065F])/gm.source, 'gm'))
   const madWajib = madThabiiChars.map(regex => new RegExp(regex.source + /\s\u0621(?:[\u064B-\u065F])/gm.source, 'gm'))
   const madWajibDiacriticTrimmed = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)\u0621(?:[\u064B-\u065F])/gm.source, 'gm'))
-  const madWajibDiacritic = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)\s\u0621(?:[\u064B-\u065F])/gm.source, 'gm'))
+  const madWajibDiacritic = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4) \u0621(?:[\u064B-\u065F])/gm.source, 'gm'))
   const madWajibDiacritic2Trimmed = madThabiiChars.map(regex => new RegExp(regex.source.replace('\u0627', '\u0622') + /\u0621(?:[\u064B-\u065F])/gm.source, 'gm'))
   const madWajibDiacritic2 = madThabiiChars.map(regex => new RegExp(regex.source.replace('\u0627', '\u0622') + /\s\u0621(?:[\u064B-\u065F])/gm.source, 'gm'))
   const hamzahDiacritics = madThabiiChars.map(regex => new RegExp(regex.source + /\u0653\u0649\u0655/gm.source, 'gm'))
@@ -291,7 +332,7 @@ const extractMadWajibCharacters = () => {
   const hamzahDiacritics4 = madThabiiChars.map(regex => new RegExp(regex.source + /\u06E4\u0648\u0654/gm.source, 'gm'))
   const hamzahDiacritics5 = madThabiiChars.map(regex => new RegExp(regex.source + /\u0653\u0624/gm.source, 'gm'))
   const hamzahDiacritics6 = madThabiiChars.map(regex => new RegExp(regex.source + /\u06E4\u0624/gm.source, 'gm'))
-  const alif = [/\u0622\u0621/gm, /\u0622 \u0621/gm]
+  const alif = [/\u0622\u0621/gm, /\u0622 \u0621/gm, /\u0627(?:\u0605|\u0653|\u06E4)\u0621/gm, /\u0627(?:\u0605|\u0653|\u06E4) \u0621/gm]
   const lam = [/\u0644\u0622\u0621/gm, /\u0644\u0622 \u0621/gm, /لآَء/gm, /لآَء/gm, /لآَء/gm, /لآَ ء/gm, /لآَ ء/gm, /لآَ ء/gm]
   return [
     ...madWajibTrimmed,
@@ -313,9 +354,12 @@ const extractMadWajibCharacters = () => {
 
 const extractMadJaizCharacters = () => {
   const madJaizVar1 = madThabiiChars.map(regex => new RegExp(regex.source + /\s(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F])/gm.source, 'gm'))
-  const madJaizVar2 = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)\s(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F])/gm.source, 'gm'))
-  const madJaizVar3 = madThabiiChars.map(regex => new RegExp(regex.source.replace('\u0627', '\u0622') + /\s(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F])/gm.source, 'gm'))
-  const alif = [/\u0622(?:\u0623|\u0625|\u0627)/gm, /\u0622 (?:\u0623|\u0625|\u0627)/gm]
+  const madJaizVar2 = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F])/gm.source, 'gm'))
+  const madJaizVar3 = madThabiiChars.map(regex => new RegExp(regex.source.includes('\u0627') ? regex.source.replace('\u0627', '\u0622') + /\s(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F])/gm.source : null, 'gm'))
+  const alif = [
+    /\u0622(?:\u0623|\u0625|\u0627)/gm, /\u0622 (?:\u0623|\u0625|\u0627)/gm,
+    /\u0627(?:\u0605|\u0653|\u06E4)(?:\u0623|\u0625|\u0627)/gm, /\u0627(?:\u0605|\u0653|\u06E4) (?:\u0623|\u0625|\u0627)/gm
+  ]
   const lam = [
     /\u0644\u0622\u0623/gm, /\u0644\u0622\u0625/gm, /\u0644\u0622\u0627/gm,
     /\u0644\u0622 \u0623/gm, /\u0644\u0622 \u0625/gm, /\u0644\u0622 \u0627/gm,
@@ -331,14 +375,18 @@ const extractMadJaizCharacters = () => {
 }
 
 const extractMadLazimMutsaqqalKilmiCharacters = () => {
-  const madLazimMutsaqqalKilmi = madThabiiChars.map(regex => new RegExp(`^${regex.source} .*\\u0651$`, 'gm'))
-  const madLazimMutsaqqalKilmiTrimmed = madThabiiChars.map(regex => new RegExp(`^${regex.source}.*\\u0651$`, 'gm'))
-  const madLazimMutsaqqalKilmi2 = madThabiiChars.map(regex => new RegExp(`^${regex.source} .*\\u0605\\u0651$`, 'gm'))
-  const madLazimMutsaqqalKilmiTrimmed2 = madThabiiChars.map(regex => new RegExp(`^${regex.source}.*\\u0605\\u0651$`, 'gm'))
-  const madLazimMutsaqqalKilmi3 = madThabiiChars.map(regex => new RegExp(`^${regex.source} .*\\u0653\\u0651$`, 'gm'))
-  const madLazimMutsaqqalKilmiTrimmed3 = madThabiiChars.map(regex => new RegExp(`^${regex.source}.*\\u0653\\u0651$`, 'gm'))
-  const madLazimMutsaqqalKilmi4 = madThabiiChars.map(regex => new RegExp(`^${regex.source} .*\\u06E4\\u0651$`, 'gm'))
-  const madLazimMutsaqqalKilmiTrimmed4 = madThabiiChars.map(regex => new RegExp(`^${regex.source}.*\\u06E4\\u0651$`, 'gm'))
+  const madLazimMutsaqqalKilmi = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4) (?:[\u0628-\u064A])\u0651/gm.source, 'gm'))
+  const madLazimMutsaqqalKilmiTrimmed = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)(?:[\u0628-\u064A])\u0651/gm.source, 'gm'))
+  const madLazimMutsaqqalKilmi2 = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4) (?:[\u0628-\u064A])(?:[\u064B-\u065F])\u0651/gm.source, 'gm'))
+  const madLazimMutsaqqalKilmiTrimmed2 = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)(?:[\u0628-\u064A])(?:[\u064B-\u065F])\u0651/gm.source, 'gm'))
+  const madLazimMutsaqqalKilmi3 = madThabiiChars.map(regex => new RegExp(regex.source.includes('\u0627') ? regex.source.replace('\u0627', '\u0622') + /\s(?:[\u0628-\u064A])\u0651/gm.source : null, 'gm'))
+  const madLazimMutsaqqalKilmiTrimmed3 = madThabiiChars.map(regex => new RegExp(regex.source.includes('\u0627') ? regex.source.replace('\u0627', '\u0622') + /(?:[\u0628-\u064A])\u0651/gm.source : null, 'gm'))
+  const madLazimMutsaqqalKilmi4 = madThabiiChars.map(regex => new RegExp(regex.source.includes('\u0627') ? regex.source.replace('\u0627', '\u0622') + /\s(?:[\u0628-\u064A])(?:[\u064B-\u065F])\u0651/gm.source : null, 'gm'))
+  const madLazimMutsaqqalKilmiTrimmed4 = madThabiiChars.map(regex => new RegExp(regex.source.includes('\u0627') ? regex.source.replace('\u0627', '\u0622') + /(?:[\u0628-\u064A])(?:[\u064B-\u065F])\u0651/gm.source : null, 'gm'))
+  const alif = [
+    /\u0622(?:[\u0628-\u064A])\u0651/gm, /\u0622 (?:[\u0628-\u064A])\u0651/gm,
+    /\u0622(?:[\u0628-\u064A])(?:[\u064B-\u065F])\u0651/gm, /\u0622 (?:[\u0628-\u064A])(?:[\u064B-\u065F])\u0651/gm
+  ]
   return [
     ...madLazimMutsaqqalKilmi,
     ...madLazimMutsaqqalKilmiTrimmed,
@@ -347,24 +395,23 @@ const extractMadLazimMutsaqqalKilmiCharacters = () => {
     ...madLazimMutsaqqalKilmi3,
     ...madLazimMutsaqqalKilmiTrimmed3,
     ...madLazimMutsaqqalKilmi4,
-    ...madLazimMutsaqqalKilmiTrimmed4
+    ...madLazimMutsaqqalKilmiTrimmed4,
+    ...alif
   ]
 }
 
 const extractMadLazimMukhaffafKilmiCharacters = () => {
-  const madLazimMukhaffafKilmi = madThabiiChars.map(regex => new RegExp(`^${regex.source} .*\\u0652$`, 'gm'))
-  const madLazimMukhaffafKilmiTrimmed = madThabiiChars.map(regex => new RegExp(`^${regex.source}.*\\u0652$`, 'gm'))
-  const madLazimMukhaffafKilmi2 = madThabiiChars.map(regex => new RegExp(`^${regex.source} .*\\u0605\\u0652$`, 'gm'))
-  const madLazimMukhaffafKilmiTrimmed2 = madThabiiChars.map(regex => new RegExp(`^${regex.source}.*\\u0605\\u0652$`, 'gm'))
-  const madLazimMukhaffafKilmi3 = madThabiiChars.map(regex => new RegExp(`^${regex.source} .*\\u0653\\u0652$`, 'gm'))
-  const madLazimMukhaffafKilmiTrimmed3 = madThabiiChars.map(regex => new RegExp(`^${regex.source}.*\\u0653\\u0652$`, 'gm'))
+  const madLazimMukhaffafKilmi = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4) (?:[\u0628-\u064A])\u0652/gm.source, 'gm'))
+  const madLazimMukhaffafKilmiTrimmed = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)(?:[\u0628-\u064A])\u0652/gm.source, 'gm'))
+  const madLazimMukhaffafKilmi2 = madThabiiChars.map(regex => new RegExp(regex.source.endsWith('\u0627') ? regex.source.replace('\u0627', '\u0622') + /\s(?:[\u0628-\u064A])\u0652/gm.source : null, 'gm'))
+  const madLazimMukhaffafKilmiTrimmed2 = madThabiiChars.map(regex => new RegExp(regex.source.endsWith('\u0627') ? regex.source.replace('\u0627', '\u0622') + /(?:[\u0628-\u064A])\u0652/gm.source : null, 'gm'))
+  const alif = [/\u0622(?:[\u0628-\u064A])\u0652/gm, /\u0622 (?:[\u0628-\u064A])\u0652/gm]
   return [
     ...madLazimMukhaffafKilmi,
     ...madLazimMukhaffafKilmiTrimmed,
     ...madLazimMukhaffafKilmi2,
     ...madLazimMukhaffafKilmiTrimmed2,
-    ...madLazimMukhaffafKilmi3,
-    ...madLazimMukhaffafKilmiTrimmed3
+    ...alif
   ]
 }
 
@@ -375,41 +422,63 @@ const extractMadLayyinCharacters = () => [
 
 const extractMadAridLissukunCharacters = () => {
   const dataCopy = [...extractMadThabiiCharacters()]
-  dataCopy.pop()
-  const madAridLissukun = dataCopy.map(regex => new RegExp(`^${regex.source} .*\\u06E5|\\u0660|\\u06F0|[\\u06D6-\\u06DB]$`, 'gm'))
-  const madAridLissukunTrimmed = dataCopy.map(regex => new RegExp(`^${regex.source}.*\\u06E5|\\u0660|\\u06F0|[\\u06D6-\\u06DB]$`, 'gm'))
-  return [...madAridLissukun, ...madAridLissukunTrimmed]
+  dataCopy.splice(7, 9)
+  const madAridLissukun = dataCopy.map(regex => new RegExp(regex.source + /(?:[\u0628-\u064A])(?:[\u064B-\u065F]) (?:\u06E5|\u0660|\u06F0|\u06DE)/gm.source, 'gm'))
+  const madAridLissukunTrimmed = dataCopy.map(regex => new RegExp(regex.source + /(?:[\u0628-\u064A])(?:[\u064B-\u065F])(?:\u06E5|\u0660|\u06F0|\u06DE)/gm.source, 'gm'))
+  const madAridLissukun2 = dataCopy.map(regex => new RegExp(regex.source + /(?:[\u0628-\u064A])(?:[\u064B-\u065F]) (?:[\u06D6-\u06DB])/gm.source, 'gm'))
+  const madAridLissukun2Trimmed = dataCopy.map(regex => new RegExp(regex.source + /(?:[\u0628-\u064A])(?:[\u064B-\u065F])(?:[\u06D6-\u06DB])/gm.source, 'gm'))
+  return [
+    ...madAridLissukun,
+    ...madAridLissukunTrimmed,
+    ...madAridLissukun2,
+    ...madAridLissukun2Trimmed
+  ]
 }
 
-const extractMadShilahQashirahCharacters = () => [
-  '(\\u064B|\\u064C|\\u064D|\\u064E|\\u064F|\\u0650|\\u0651\\u064B|\\u0651\\u064C|\\u0651\\u064D|\\u0651\\u064E|\\u0651\\u064F|\\u0651\\u0650)\u0647\u0656',
-  '(\\u064B|\\u064C|\\u064D|\\u064E|\\u064F|\\u0650|\\u0651\\u064B|\\u0651\\u064C|\\u0651\\u064D|\\u0651\\u064E|\\u0651\\u064F|\\u0651\\u0650) \u0647\u0656',
-  '(\\u064B|\\u064C|\\u064D|\\u064E|\\u064F|\\u0650|\\u0651\\u064B|\\u0651\\u064C|\\u0651\\u064D|\\u0651\\u064E|\\u0651\\u064F|\\u0651\\u0650)\u0647\u0657',
-  '(\\u064B|\\u064C|\\u064D|\\u064E|\\u064F|\\u0650|\\u0651\\u064B|\\u0651\\u064C|\\u0651\\u064D|\\u0651\\u064E|\\u0651\\u064F|\\u0651\\u0650) \u0647\u0657'
-]
+const extractMadShilahQashirahCharacters = () => [/\u0647(?:\u0656|\u0657)/gm, / \u0647(?:\u0656|\u0657)/gm]
 
 const extractMadShilahThawilahCharacters = () => {
   const dataCopy = [...extractMadShilahQashirahCharacters()]
-  const madShilahThawilah = dataCopy.map(char => `${char} (\\u0621|\\u0623|\\u0625)`)
-  const madShilahThawilahTrimmed = dataCopy.map(char => `${char}(\\u0621|\\u0623|\\u0625)`)
-  return [...madShilahThawilah, ...madShilahThawilahTrimmed]
+  const madShilahThawilah = dataCopy.map(regex => new RegExp(regex.source + /\s(?:[\u0621-\u0627])(?:[\u064B-\u065F])/gm.source, 'gm'))
+  const madShilahThawilahTrimmed = dataCopy.map(regex => new RegExp(regex.source + /(?:[\u0621-\u0627])(?:[\u064B-\u065F])/gm.source, 'gm'))
+  const madShilahThawilah2 = dataCopy.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4) (?:[\u0621-\u0627])(?:[\u064B-\u065F])/gm.source, 'gm'))
+  const madShilahThawilah2Trimmed = dataCopy.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)(?:[\u0621-\u0627])(?:[\u064B-\u065F])/gm.source, 'gm'))
+  return [
+    ...madShilahThawilah,
+    ...madShilahThawilahTrimmed,
+    ...madShilahThawilah2,
+    ...madShilahThawilah2Trimmed
+  ]
 }
 
 const extractMadIwadCharacters = () => [
-  '\\u064B\\u0627[\\u06D6-\\u06DB]', '\\u064B\\u0627 [\\u06D6-\\u06DB]', '\\u064B \\u0627 [\\u06D6-\\u06DB]',
-  '\\u064B\\u0627\\u0660', '\\u064B\\u0627 \\u0660', '\\u064B \\u0627 \\u0660',
-  '\\u064B\\u0627\\u06F0', '\\u064B\\u0627 \\u06F0', '\\u064B \\u0627 \\u06F0',
-  '\\u064B\\u0627\\u06E5', '\\u064B\\u0627 \\u06E5', '\\u064B \\u0627 \\u06E5',
-  'لًا[\\u06D6-\\u06DB]', 'لًا\u0660', 'لًا\u06F0', 'لًا\u06E5'
+  /\u064B (?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u064B (?:[\u06D6-\u06DB])/gm,
+  /\u064B(?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u064B(?:[\u06D6-\u06DB])/gm,
+  /\u064B\u0627 (?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u064B\u0627 (?:[\u06D6-\u06DB])/gm,
+  /\u064B\u0627(?:\u06E5|\u0660|\u06F0|\u06DE)/gm,
+  /\u064B\u0627(?:[\u06D6-\u06DB])/gm
 ]
 
 const extractMadBadalCharacters = () => [
-  '\u0627\u0670', '\u0627\u0656',
-  '\u0621\u064E\u0627', '\u0621\u064F\u0648', '\u0621\u0650\u064A',
-  '\u0623\u064F\u0648', '\u0623\u064F\u0648\u0652', '\u0623\u064F\u0648\u06DF',
-  '\u0623\u064F \u0648', '\u0623\u064F \u0648\u0652', '\u0623\u064F \u0648\u06DF',
-  '\u0625\u0650\u064A', '\u0625\u0650\u064A\u0652', '\u0625\u0650\u064A\u06DF',
-  '\u0625\u0650 \u064A', '\u0625\u0650 \u064A\u0652', '\u0625\u0650 \u064A\u06DF'
+  // Alif
+  /(?:\u0627|[\u0623-\u0627])(?:\u0670|\u0656)/gm,
+  /(?:\u0627|[\u0623-\u0627])\u064E(?:\u0621|\u0623|\u0625|\u0627)\u0652/gm,
+  /(?:\u0627|[\u0623-\u0627])\u064E(?:\u0621|\u0623|\u0625|\u0627)(?![\u064B-\u065F])/gm,
+  /(?:\u0627|[\u0623-\u0627])\u064E (?:\u0621|\u0623|\u0625|\u0627)\u0652/gm,
+  /(?:\u0627|[\u0623-\u0627])\u064E (?:\u0621|\u0623|\u0625|\u0627)(?![\u064B-\u065F])/gm, /آ/gm,
+  // Wau
+  /(?:\u0627|[\u0623-\u0627])\u064F(?:\u0624|\u0648|\u0648\u0654)\u0652/gm,
+  /(?:\u0627|[\u0623-\u0627])\u064F (?:\u0624|\u0648|\u0648\u0654)\u0652/gm,
+  /(?:\u0627|[\u0623-\u0627])\u064F(?:\u0624|\u0648|\u0648\u0654)(?![\u064B-\u065F])/gm,
+  /(?:\u0627|[\u0623-\u0627])\u064F (?:\u0624|\u0648|\u0648\u0654)(?![\u064B-\u065F])/gm,
+  // Yaa
+  /(?:\u0627|[\u0623-\u0627])\u0650(?:\u0626\u0649|\u064A|\u0649\u0654|\u0649\u0655)\u0652/gm,
+  /(?:\u0627|[\u0623-\u0627])\u0650 (?:\u0626\u0649|\u064A|\u0649\u0654|\u0649\u0655)\u0652/gm,
+  /(?:\u0627|[\u0623-\u0627])\u0650(?:\u0626\u0649|\u064A|\u0649\u0654|\u0649\u0655)(?![\u064B-\u065F])/gm,
+  /(?:\u0627|[\u0623-\u0627])\u0650 (?:\u0626\u0649|\u064A|\u0649\u0654|\u0649\u0655)(?![\u064B-\u065F])/gm
 ]
 
 const idzharTajweed = extractIdzharCharacters()
