@@ -222,6 +222,20 @@ const extractIdghamSyamsiyahCharacters = () => [
   /االْت/gm, /االْث/gm, /االْد/gm, /االْذ/gm, /االْر/gm, /االْز/gm, /االْس/gm, /االْش/gm, /االْص/gm, /االْض/gm, /االْط/gm, /االْظ/gm, /االْل/gm, /االْن/
 ]
 
+const extractTafkhimCharacters = () => [
+  /(?:[\u064E-\u064F])(?:\u0627|\u0671)\u0644\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm,
+  /(?:[\u064E-\u064F])(?:\u0627|\u0671)\u0627\u0644\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm,
+  /(?:[\u064E-\u064F]) (?:\u0627|\u0671)\u0644\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm,
+  /(?:[\u064E-\u064F]) (?:\u0627|\u0671)\u0627\u0644\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm
+]
+
+const extractTarqiqCharacters = () => [
+  /\u0650(?:\u0627|\u0671)\u0644\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm,
+  /\u0650(?:\u0627|\u0671)\u0627\u0644\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm,
+  /\u0650 (?:\u0627|\u0671)\u0644\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm,
+  /\u0650 (?:\u0627|\u0671)\u0627\u0644\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm
+]
+
 const extractQalqalahSughraCharacters = () => [
   // Ba
   /\u0628\u0652(?![\u0628])/gm, /\u0628\u0652 (?![\u0628])/gm,
@@ -293,7 +307,8 @@ const extractMadThabiiCharacters = () => [
   // /(?![\u0621-\u0627])\u064F\u0648(?![\u064B-\u065F])/gm, /(?![\u0621-\u0627])\u064F \u0648(?![\u064B-\u065F])/gm,
   /(?![\u0621-\u0627])\u064F\u0648(?![\u064B-\u065F])(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u064F \u0648(?![\u064B-\u065F]) (?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u064F\u0648(?![\u064B-\u065F])(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u064F \u0648(?![\u064B-\u065F]) (?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm,
   // Ya
-  /(?![\u0621-\u0627])\u0650\u064A\u0652(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u0650 \u064A\u0652 (?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u0650\u064A\u06DF(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u0650 \u064A\u06DF(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm,
+  /(?![\u0621-\u0627])\u0650\u064A\u0652(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)(?!\u0649|\u064A)(?![\u0650-\u0651])(?![\u0650-\u0651])/gm, /(?![\u0621-\u0627])\u0650 \u064A\u0652 (?![\u0621-\u0627]|\u0605|\u0653|\u06E4)(?!\u0649|\u064A)(?![\u0650-\u0651])(?![\u0650-\u0651])/gm, /(?![\u0621-\u0627])\u0650\u064A\u06DF(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)(?!\u0649|\u064A)(?![\u0650-\u0651])(?![\u0650-\u0651])/gm, /(?![\u0621-\u0627])\u0650 \u064A\u06DF(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)(?!\u0649|\u064A)(?![\u0650-\u0651])(?![\u0650-\u0651])/gm,
+  /(?![\u0621-\u0627])\u0650\u064A\u0652(?![\u0621-\u0627]|\u0605|\u0653|\u06E4) (?!\u0649|\u064A)(?![\u0650-\u0651])(?![\u0650-\u0651])/gm, /(?![\u0621-\u0627])\u0650 \u064A\u0652 (?![\u0621-\u0627]|\u0605|\u0653|\u06E4) (?!\u0649|\u064A)(?![\u0650-\u0651])(?![\u0650-\u0651])/gm, /(?![\u0621-\u0627])\u0650\u064A\u06DF(?![\u0621-\u0627]|\u0605|\u0653|\u06E4) (?!\u0649|\u064A)(?![\u0650-\u0651])(?![\u0650-\u0651])/gm, /(?![\u0621-\u0627])\u0650 \u064A\u06DF(?![\u0621-\u0627]|\u0605|\u0653|\u06E4) (?!\u0649|\u064A)(?![\u0650-\u0651])(?![\u0650-\u0651])/gm,
   // /(?![\u0621-\u0627])\u064F\u0650(?![\u064B-\u065F])/gm, /(?![\u0621-\u0627])\u064F \u0650(?![\u064B-\u065F])/gm,
   /(?![\u0621-\u0627])\u0650\u064A(?![\u064B-\u065F])(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u0650 \u064A(?![\u064B-\u065F]) (?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u0650\u064A(?![\u064B-\u065F])(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u0650 \u064A(?![\u064B-\u065F]) (?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm,
   // Mad harakah
@@ -481,6 +496,23 @@ const extractMadBadalCharacters = () => [
   /(?:\u0627|[\u0623-\u0627])\u0650 (?:\u0626\u0649|\u064A|\u0649\u0654|\u0649\u0655)(?![\u064B-\u065F])/gm
 ]
 
+const extractMadTamkinCharacters = () => {
+  const madTamkin = madThabiiChars.slice(8, 14).map(regex => new RegExp(regex.source + / \u0649|\u064A(?:[\u0650-\u0651])(?:[\u0650-\u0651])/gm.source, 'gm'))
+  const madTamkinTrimmed = madThabiiChars.slice(8, 14).map(regex => new RegExp(regex.source + /\u0649|\u064A(?:[\u0650-\u0651])(?:[\u0650-\u0651])/gm.source, 'gm'))
+  const madTamkin2 = madThabiiChars.slice(8, 14).map(regex => new RegExp(regex.source + / \u0649|\u064A (?:[\u0650-\u0651])(?:[\u0650-\u0651])/gm.source, 'gm'))
+  const madTamkin2Trimmed = madThabiiChars.slice(8, 14).map(regex => new RegExp(regex.source + /\u0649|\u064A (?:[\u0650-\u0651])(?:[\u0650-\u0651])/gm.source, 'gm'))
+  return [...madTamkin, ...madTamkinTrimmed, ...madTamkin2, ...madTamkin2Trimmed]
+}
+
+const extractMadFarqCharacters = () => [
+  // Al-An'am
+  '\u0623\u0653\u0627\u0644\u0630', '\u0623\u0653\u0627 \u0644\u0630',
+  '\u0622\u0627\u0644\u0630', '\u0622\u0627 \u0644\u0630',
+  // Yunus & An-Naml
+  '\u0623\u0653\u0627\u0644\u0644', '\u0623\u0653 \u0627\u0644\u0644',
+  '\u0622\u0627\u0644\u0644', '\u0622 \u0627\u0644\u0644'
+]
+
 const idzharTajweed = extractIdzharCharacters()
 const idghamBigunnahTajweed = extractIdghamBigunnahCharacters()
 const idghamBilagunnahTajweed = extractIdghamBilagunnahCharacters()
@@ -495,6 +527,8 @@ const idghamMutaqooribainTajweed = extractIdghamMutaqooribainCharacters()
 const gunnahTajweed = extractGunnahCharacters()
 const idzharQamariyahTajweed = extractIdzharQamariyahCharacters()
 const idghamSyamsiyahTajweed = extractIdghamSyamsiyahCharacters()
+const tafkhimTajweed = extractTafkhimCharacters()
+const tarqiqTajweed = extractTarqiqCharacters()
 const qalqalahSughraTajweed = extractQalqalahSughraCharacters()
 const qalqalahKubraTajweed = extractQalqalahKubraCharacters()
 const madThabiiTajweed = extractMadThabiiCharacters()
@@ -508,6 +542,8 @@ const madShilahQashirahTajweed = extractMadShilahQashirahCharacters()
 const madShilahThawilahTajweed = extractMadShilahThawilahCharacters()
 const madIwadTajweed = extractMadIwadCharacters()
 const madBadalTajweed = extractMadBadalCharacters()
+const madTamkinTajweed = extractMadTamkinCharacters()
+const madFarqTajweed = extractMadFarqCharacters()
 
 const tajweedLaws = () => [
   {
@@ -615,6 +651,22 @@ const tajweedLaws = () => [
     detailPage: '/detail?tajweed='
   },
   {
+    id: 15,
+    name: 'Tafkhim',
+    color: '#ffbf00',
+    rules: tafkhimTajweed,
+    group: 'Tafkhim & Tarqiq',
+    detailPage: '/detail?tajweed='
+  },
+  {
+    id: 16,
+    name: 'Tarqiq',
+    color: '#8000ff',
+    rules: tarqiqTajweed,
+    group: 'Tafkhim & Tarqiq',
+    detailPage: '/detail?tajweed='
+  },
+  {
     id: 21,
     name: 'Qalqalah Sughra',
     color: '#ff8d83',
@@ -699,6 +751,22 @@ const tajweedLaws = () => [
     name: 'Mad Badal',
     color: '#00ff40',
     rules: madBadalTajweed,
+    group: 'Ahkämul-madd',
+    detailPage: '/detail?tajweed='
+  },
+  {
+    id: 35,
+    name: 'Mad Tamkin',
+    color: '#00ff00',
+    rules: madTamkinTajweed,
+    group: 'Ahkämul-madd',
+    detailPage: '/detail?tajweed='
+  },
+  {
+    id: 36,
+    name: 'Mad Farq',
+    color: '#00ff40',
+    rules: madFarqTajweed,
     group: 'Ahkämul-madd',
     detailPage: '/detail?tajweed='
   },

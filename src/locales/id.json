@@ -211,6 +211,24 @@
             "page": "/detail?tajweed=idgham_syamsiyah"
         },
         {
+            "id": 15,
+            "name": "Tafkhim",
+            "group": "Tafkhim & Tarqiq",
+            "summary": "",
+            "detail": "",
+            "examples": [""],
+            "page": "/detail?tajweed=tafkhim"
+        },
+        {
+            "id": 16,
+            "name": "Tarqiq",
+            "group": "Tafkhim & Tarqiq",
+            "summary": "",
+            "detail": "",
+            "examples": [""],
+            "page": "/detail?tajweed=tarqiq"
+        },
+        {
             "id": 21,
             "name": "Qalqalah Sughra",
             "group": "Ahkämul Al-hurüf",
@@ -338,6 +356,24 @@
             "detail": "Cara membæanya harus dipanjangkan satu alif atau dua harokat seperti MAD THOBI'II.",
             "examples": [""],
             "page": "/detail?tajweed=mad_badal"
+        },
+        {
+            "id": 35,
+            "name": "Mad Tamkin",
+            "group": "Ahkämul-madd",
+            "summary": "",
+            "detail": "",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_tamkin"
+        },
+        {
+            "id": 36,
+            "name": "Mad Farq",
+            "group": "Ahkämul-madd",
+            "summary": "",
+            "detail": "",
+            "examples": [""],
+            "page": "/detail?tajweed=mad_farq"
         }
     ]
 }
