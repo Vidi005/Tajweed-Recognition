@@ -16,6 +16,7 @@
     "capture_image": "Ambil Gambar",
     "select_image": "Pilih Gambar",
     "screen_capture": "Tangkapan Layar",
+    "capture_error": "Tidak dapat mengambil gambar!",
     "manual_input": "Input Manual",
     "recognizing": "Memproses...",
     "generate": "Generate",

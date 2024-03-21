@@ -14,6 +14,7 @@
     "recognition_failed": "Failed to Recognize Text!",
     "unsaved_warning": "Are you sure want to close this result?",
     "capture_image": "Capture Image",
+    "capture_error": "Capturing Error!",
     "select_image": "Select Image",
     "screen_capture": "Screen Capture",
     "manual_input": "Input Manually",

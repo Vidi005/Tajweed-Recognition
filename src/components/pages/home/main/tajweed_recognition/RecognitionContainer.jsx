@@ -162,6 +162,42 @@ class RecognitionContainer extends React.Component {
     })
   }
 
+  takeScreenCapture = async() => {
+    try {
+      this.setState({ isRecognizing: true })
+      const captureStream = await navigator.mediaDevices.getDisplayMedia({
+        video: true,
+        audio: false
+      })
+      const videoElement = document.createElement('video')
+      videoElement.srcObject = captureStream
+      videoElement.autoplay = true
+      await new Promise(resolve => {
+        videoElement.onloadedmetadata = () => {
+          videoElement.width = videoElement.videoWidth
+          videoElement.height = videoElement.videoHeight
+          resolve()
+        }
+      })
+      const canvas = document.createElement('canvas')
+      canvas.width = videoElement.videoWidth
+      canvas.height = videoElement.videoHeight
+      const ctx = canvas.getContext('2d')
+      ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height)
+      const imageUrl = canvas.toDataURL()
+      this.setState({ isRecognizing: true }, () => this.recognizeImage(imageUrl))
+      captureStream.getVideoTracks().forEach(track => track.stop())
+    } catch (error) {
+      this.setState({ isRecognizing: false })
+      Swal.fire({
+        title: this.props.t('capture_error'),
+        text: error.message,
+        icon: 'error',
+        confirmButtonColor: 'green'
+      })
+    }
+  }
+
   editTextInput() {
     this.setState({ isResultClosed: false, isEditMode: true })
   }
@@ -178,8 +214,8 @@ class RecognitionContainer extends React.Component {
         this.setState({
           isRecognizing: false,
           isEditMode: false,
-          recognizedText: data.text.split('\n').join(' ').trim().replace(/\s+/g, ' '),
-          coloredTajweeds: this.colorizeChars(data.text.trim()),
+          recognizedText: this.removeNonArabic(data.text.split('\n').join(' ').trim().replace(/\s+/g, ' ')),
+          coloredTajweeds: this.colorizeChars(this.removeNonArabic(data.text.trim())),
           isResultClosed: false }, () => this.filterColorizedTajweeds(this.state.coloredTajweeds))
       } else {
         this.setState({ isRecognizing: false })
@@ -197,6 +233,15 @@ class RecognitionContainer extends React.Component {
         title: this.props.t('recognition_failed'),
         text: error.message
       })
+    }
+  }
+
+  removeNonArabic(text) {
+    const arabicRegex = /[\u0600-\u06FF]/gm
+    if (arabicRegex.test(text)) {
+      return text.replace(/[^\u0600-\u06FF\s]/gm, '')
+    } else {
+      return ''
     }
   }
 
@@ -359,7 +404,7 @@ class RecognitionContainer extends React.Component {
             <img className="h-8 md:h-12 mr-2" src="images/import-icon.svg" alt="Select an Image" />
             <h5 className="md:text-lg flex-nowrap">{this.props.t('select_image')}</h5>
           </label>
-          <button className="btn-capture grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 duration-200">
+          <button className="btn-screenshot grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 duration-200" onClick={this.takeScreenCapture.bind(this)}>
             <img className="h-8 md:h-12 mr-2" src="images/share-screen-icon.svg" alt="Screen Capture" />
             <h5 className="md:text-lg whitespace-nowrap">{this.props.t('screen_capture')}</h5>
           </button>
