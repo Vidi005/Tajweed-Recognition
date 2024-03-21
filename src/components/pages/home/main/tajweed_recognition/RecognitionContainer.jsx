@@ -250,7 +250,7 @@ class RecognitionContainer extends React.Component {
     if (matchedTajweed.length === 1) {
       const tooltipColor = `${matchedTajweed[0].color}80`
       this.setState({
-        tooltipContent: matchedTajweed.map(tajweedLaw => tajweedLaw.name).join(', '),
+        tooltipContent: matchedTajweed[0].name,
         tooltipColor: tooltipColor,
       })
       setTimeout(() => {

@@ -309,8 +309,8 @@ const extractMadThabiiCharacters = () => [
   // /(?![\u0621-\u0627])\u064F\u0648(?![\u064B-\u065F])/gm, /(?![\u0621-\u0627])\u064F \u0648(?![\u064B-\u065F])/gm,
   /(?![\u0621-\u0627])\u064F\u0648(?![\u064B-\u065F])(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u064F \u0648(?![\u064B-\u065F]) (?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u064F\u0648(?![\u064B-\u065F])(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u064F \u0648(?![\u064B-\u065F]) (?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm,
   // Ya
-  /(?![\u0621-\u0627])\u0650\u064A\u0652(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)(?!\u0649|\u064A)(?![\u0650-\u0651])(?![\u0650-\u0651])/gm, /(?![\u0621-\u0627])\u0650 \u064A\u0652 (?![\u0621-\u0627]|\u0605|\u0653|\u06E4)(?!\u0649|\u064A)(?![\u0650-\u0651])(?![\u0650-\u0651])/gm, /(?![\u0621-\u0627])\u0650\u064A\u06DF(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)(?!\u0649|\u064A)(?![\u0650-\u0651])(?![\u0650-\u0651])/gm, /(?![\u0621-\u0627])\u0650 \u064A\u06DF(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)(?!\u0649|\u064A)(?![\u0650-\u0651])(?![\u0650-\u0651])/gm,
-  /(?![\u0621-\u0627])\u0650\u064A\u0652(?![\u0621-\u0627]|\u0605|\u0653|\u06E4) (?!\u0649|\u064A)(?![\u0650-\u0651])(?![\u0650-\u0651])/gm, /(?![\u0621-\u0627])\u0650 \u064A\u0652 (?![\u0621-\u0627]|\u0605|\u0653|\u06E4) (?!\u0649|\u064A)(?![\u0650-\u0651])(?![\u0650-\u0651])/gm, /(?![\u0621-\u0627])\u0650\u064A\u06DF(?![\u0621-\u0627]|\u0605|\u0653|\u06E4) (?!\u0649|\u064A)(?![\u0650-\u0651])(?![\u0650-\u0651])/gm, /(?![\u0621-\u0627])\u0650 \u064A\u06DF(?![\u0621-\u0627]|\u0605|\u0653|\u06E4) (?!\u0649|\u064A)(?![\u0650-\u0651])(?![\u0650-\u0651])/gm,
+  /(?![\u0621-\u0627]|([\u0649-\u064A][\u0650-\u0651][\u0650-\u0651]))\u0650\u064A\u0652(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627]|([\u0649-\u064A][\u0650-\u0651][\u0650-\u0651]))\u0650 \u064A\u0652 (?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627]|([\u0649-\u064A][\u0650-\u0651][\u0650-\u0651]))\u0650\u064A\u06DF(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627]|([\u0649-\u064A][\u0650-\u0651][\u0650-\u0651]))\u0650 \u064A\u06DF(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm,
+  /(?![\u0621-\u0627]|([\u0649-\u064A][\u0650-\u0651][\u0650-\u0651]))\u0650\u064A\u0652(?![\u0621-\u0627]|\u0605|\u0653|\u06E4) /gm, /(?![\u0621-\u0627]|([\u0649-\u064A][\u0650-\u0651][\u0650-\u0651]))\u0650 \u064A\u0652 (?![\u0621-\u0627]|\u0605|\u0653|\u06E4) /gm, /(?![\u0621-\u0627]|([\u0649-\u064A][\u0650-\u0651][\u0650-\u0651]))\u0650\u064A\u06DF(?![\u0621-\u0627]|\u0605|\u0653|\u06E4) /gm, /(?![\u0621-\u0627]|([\u0649-\u064A][\u0650-\u0651][\u0650-\u0651]))\u0650 \u064A\u06DF(?![\u0621-\u0627]|\u0605|\u0653|\u06E4) /gm,
   // /(?![\u0621-\u0627])\u064F\u0650(?![\u064B-\u065F])/gm, /(?![\u0621-\u0627])\u064F \u0650(?![\u064B-\u065F])/gm,
   /(?![\u0621-\u0627])\u0650\u064A(?![\u064B-\u065F])(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u0650 \u064A(?![\u064B-\u065F]) (?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u0650\u064A(?![\u064B-\u065F])(?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm, /(?![\u0621-\u0627])\u0650 \u064A(?![\u064B-\u065F]) (?![\u0621-\u0627]|\u0605|\u0653|\u06E4)/gm,
   // Mad harakah
@@ -500,10 +500,10 @@ const extractMadBadalCharacters = () => [
 ]
 
 const extractMadTamkinCharacters = () => {
-  const madTamkin = madThabiiChars.slice(8, 14).map(regex => new RegExp(regex.source + / \u0649|\u064A(?:[\u0650-\u0651])(?:[\u0650-\u0651])/gm.source, 'gm'))
-  const madTamkinTrimmed = madThabiiChars.slice(8, 14).map(regex => new RegExp(regex.source + /\u0649|\u064A(?:[\u0650-\u0651])(?:[\u0650-\u0651])/gm.source, 'gm'))
-  const madTamkin2 = madThabiiChars.slice(8, 14).map(regex => new RegExp(regex.source + / \u0649|\u064A (?:[\u0650-\u0651])(?:[\u0650-\u0651])/gm.source, 'gm'))
-  const madTamkin2Trimmed = madThabiiChars.slice(8, 14).map(regex => new RegExp(regex.source + /\u0649|\u064A (?:[\u0650-\u0651])(?:[\u0650-\u0651])/gm.source, 'gm'))
+  const madTamkin = madThabiiChars.slice(8, 14).map(regex => new RegExp(/(?:[\u0649-\u064A])(?:[\u0650-\u0651])(?:[\u0650-\u0651])\s/gm.source + regex.source, 'gm'))
+  const madTamkinTrimmed = madThabiiChars.slice(8, 14).map(regex => new RegExp(/(?:[\u0649-\u064A])(?:[\u0650-\u0651])(?:[\u0650-\u0651])/gm.source + regex.source, 'gm'))
+  const madTamkin2 = madThabiiChars.slice(8, 14).map(regex => new RegExp(/(?:[\u0649-\u064A])(?:[\u0650-\u0651])(?:[\u0650-\u0651])\s/gm.source + regex.source, 'gm'))
+  const madTamkin2Trimmed = madThabiiChars.slice(8, 14).map(regex => new RegExp(/(?:[\u0649-\u064A])(?:[\u0650-\u0651])(?:[\u0650-\u0651])/gm.source + regex.source, 'gm'))
   return [...madTamkin, ...madTamkinTrimmed, ...madTamkin2, ...madTamkin2Trimmed]
 }
 
@@ -555,6 +555,7 @@ const tajweedLaws = () => [
     color: '#00d5ef',
     rules: ikhfaTajweed,
     group: 'Ahkämul Al-hurüf',
+    category: 'Nun Sukun & Tanwin',
     detailPage: '/detail?tajweed='
   },
   {
@@ -563,6 +564,7 @@ const tajweedLaws = () => [
     color: '#0040ff',
     rules: iqlabTajweed,
     group: 'Ahkämul Al-hurüf',
+    category: 'Nun Sukun & Tanwin',
     detailPage: '/detail?tajweed='
   },
   {
@@ -571,6 +573,7 @@ const tajweedLaws = () => [
     color: '#4ecab6',
     rules: idghamBigunnahTajweed,
     group: 'Ahkämul Al-hurüf',
+    category: 'Nun Sukun & Tanwin',
     detailPage: '/detail?tajweed='
   },
   {
@@ -579,6 +582,7 @@ const tajweedLaws = () => [
     color: '#ff0000',
     rules: idghamBilagunnahTajweed,
     group: 'Ahkämul Al-hurüf',
+    category: 'Nun Sukun & Tanwin',
     detailPage: '/detail?tajweed='
   },
   {
@@ -587,6 +591,7 @@ const tajweedLaws = () => [
     color: '#ff0040',
     rules: idghamMutamasilainTajweed,
     group: 'Ahkämul Al-hurüf',
+    category: 'Idghom',
     detailPage: '/detail?tajweed='
   },
   {
@@ -595,6 +600,7 @@ const tajweedLaws = () => [
     color: '#ff8000',
     rules: idghamMutajaanisainTajweed,
     group: 'Ahkämul Al-hurüf',
+    category: 'Idghom',
     detailPage: '/detail?tajweed='
   },
   {
@@ -603,6 +609,7 @@ const tajweedLaws = () => [
     color: '#ffbf00',
     rules: idghamMutaqooribainTajweed,
     group: 'Ahkämul Al-hurüf',
+    category: 'Idghom',
     detailPage: '/detail?tajweed='
   },
   {
@@ -611,6 +618,7 @@ const tajweedLaws = () => [
     color: '#e5ea9f',
     rules: idghamMimiTajweed,
     group: 'Ahkämul Al-hurüf',
+    category: 'Mim Sukun',
     detailPage: '/detail?tajweed='
   },
   {
@@ -619,6 +627,7 @@ const tajweedLaws = () => [
     color: '#ffcc8e',
     rules: gunnahTajweed,
     group: 'Ahkämul Al-hurüf',
+    category: 'Nun Tasydid & Mim Tasydid',
     detailPage: '/detail?tajweed='
   },
   {
@@ -627,6 +636,7 @@ const tajweedLaws = () => [
     color: '#ffd9e2',
     rules: ikhfaSyafawiTajweed,
     group: 'Ahkämul Al-hurüf',
+    category: 'Mim Sukun',
     detailPage: '/detail?tajweed='
   },
   {
@@ -635,6 +645,7 @@ const tajweedLaws = () => [
     color: '#6b7280',
     rules: idzharSyafawiTajweed,
     group: 'Ahkämul Al-hurüf',
+    category: 'Mim Sukun',
     detailPage: '/detail?tajweed='
   },
   {
@@ -642,7 +653,8 @@ const tajweedLaws = () => [
     name: 'Idzhar Qamariyah',
     color: '#80ff00',
     rules: idzharQamariyahTajweed,
-    group: 'Lam Ta\'rif',
+    group: 'Ahkämul Al-hurüf',
+    category: 'Lam Ta\'rif',
     detailPage: '/detail?tajweed='
   },
   {
@@ -650,7 +662,8 @@ const tajweedLaws = () => [
     name: 'Idgham Syamsiyah',
     color: '#0000ff',
     rules: idghamSyamsiyahTajweed,
-    group: 'Lam Ta\'rif',
+    group: 'Ahkämul Al-hurüf',
+    category: 'Lam Ta\'rif',
     detailPage: '/detail?tajweed='
   },
   {
@@ -658,7 +671,8 @@ const tajweedLaws = () => [
     name: 'Tafkhim',
     color: '#ffbf00',
     rules: tafkhimTajweed,
-    group: 'Tafkhim & Tarqiq',
+    group: 'Ahkämul Al-hurüf',
+    category: 'Tafkhim & Tarqiq',
     detailPage: '/detail?tajweed='
   },
   {
@@ -666,7 +680,8 @@ const tajweedLaws = () => [
     name: 'Tarqiq',
     color: '#8000ff',
     rules: tarqiqTajweed,
-    group: 'Tafkhim & Tarqiq',
+    group: 'Ahkämul Al-hurüf',
+    category: 'Tafkhim & Tarqiq',
     detailPage: '/detail?tajweed='
   },
   {
@@ -675,6 +690,7 @@ const tajweedLaws = () => [
     color: '#ff8d83',
     rules: qalqalahSughraTajweed,
     group: 'Ahkämul Al-hurüf',
+    category: 'Qolqolah',
     detailPage: '/detail?tajweed='
   },
   {
@@ -683,6 +699,7 @@ const tajweedLaws = () => [
     color: '#FF4500',
     rules: qalqalahKubraTajweed,
     group: 'Ahkämul Al-hurüf',
+    category: 'Qolqolah',
     detailPage: '/detail?tajweed='
   },
   {
@@ -691,6 +708,7 @@ const tajweedLaws = () => [
     color: '#00bfff',
     rules: madWajibTajweed,
     group: 'Ahkämul-madd',
+    category: 'Mad',
     detailPage: '/detail?tajweed='
   },
   {
@@ -699,6 +717,7 @@ const tajweedLaws = () => [
     color: '#00ff80',
     rules: madJaizTajweed,
     group: 'Ahkämul-madd',
+    category: 'Mad',
     detailPage: '/detail?tajweed='
   },
   {
@@ -707,6 +726,7 @@ const tajweedLaws = () => [
     color: '#ff00ff',
     rules: madAridLissukunTajweed,
     group: 'Ahkämul-madd',
+    category: 'Mad',
     detailPage: '/detail?tajweed='
   },
   {
@@ -715,6 +735,7 @@ const tajweedLaws = () => [
     color: '#40ff00',
     rules: madShilahQashirahTajweed,
     group: 'Ahkämul-madd',
+    category: 'Mad',
     detailPage: '/detail?tajweed='
   },
   {
@@ -723,6 +744,7 @@ const tajweedLaws = () => [
     color: '#0080ff',
     rules: madShilahThawilahTajweed,
     group: 'Ahkämul-madd',
+    category: 'Mad',
     detailPage: '/detail?tajweed='
   },
   {
@@ -731,6 +753,7 @@ const tajweedLaws = () => [
     color: '#00ffbf',
     rules: madIwadTajweed,
     group: 'Ahkämul-madd',
+    category: 'Mad',
     detailPage: '/detail?tajweed='
   },
   {
@@ -739,6 +762,7 @@ const tajweedLaws = () => [
     color: '#ff00bf',
     rules: madLazimMutsaqqalKilmiTajweed,
     group: 'Ahkämul-madd',
+    category: 'Mad',
     detailPage: '/detail?tajweed='
   },
   {
@@ -747,6 +771,7 @@ const tajweedLaws = () => [
     color: '#ff0080',
     rules: madLazimMukhaffafKilmiTajweed,
     group: 'Ahkämul-madd',
+    category: 'Mad',
     detailPage: '/detail?tajweed='
   },
   {
@@ -755,6 +780,7 @@ const tajweedLaws = () => [
     color: '#00ff40',
     rules: madBadalTajweed,
     group: 'Ahkämul-madd',
+    category: 'Mad',
     detailPage: '/detail?tajweed='
   },
   {
@@ -763,6 +789,7 @@ const tajweedLaws = () => [
     color: '#00ff00',
     rules: madTamkinTajweed,
     group: 'Ahkämul-madd',
+    category: 'Mad',
     detailPage: '/detail?tajweed='
   },
   {
@@ -771,6 +798,7 @@ const tajweedLaws = () => [
     color: '#00ff40',
     rules: madFarqTajweed,
     group: 'Ahkämul-madd',
+    category: 'Mad',
     detailPage: '/detail?tajweed='
   },
   {
@@ -779,6 +807,7 @@ const tajweedLaws = () => [
     color: '#00ff00',
     rules: madThabiiTajweed,
     group: 'Ahkämul-madd',
+    category: 'Mad',
     detailPage: '/detail?tajweed='
   },
   {
@@ -787,6 +816,7 @@ const tajweedLaws = () => [
     color: '#bfff00',
     rules: madLayyinTajweed,
     group: 'Ahkämul-madd',
+    category: 'Mad',
     detailPage: '/detail?tajweed='
   },
   {
@@ -795,6 +825,7 @@ const tajweedLaws = () => [
     color: '#6b7280',
     rules: idzharTajweed,
     group: 'Ahkämul Al-hurüf',
+    category: 'Nun Sukun & Tanwin',
     detailPage: '/detail?tajweed='
   },
 ]
