@@ -1,6 +1,7 @@
 import { Dialog, Transition } from "@headlessui/react"
 import React, { Fragment } from "react"
 import { withTranslation } from "react-i18next"
+import { Link } from "react-router-dom"
 
 const TajweedPreview = ({ props, isModalOpened, selectedTajweed, onCloseSummaryModal }) => (
   <Transition appear show={isModalOpened} as={Fragment}>
@@ -35,7 +36,9 @@ const TajweedPreview = ({ props, isModalOpened, selectedTajweed, onCloseSummaryM
           <Dialog.Title as="span" className={"w-full pt-0.5 mb-0.5 bg-none dark:bg-white"}></Dialog.Title>
           <span className="flex flex-col items-center p-4 bg-green-50 dark:bg-gray-900 text-base lg:text-lg">
             <p className="text-justify text-green-900 dark:text-white leading-normal">{selectedTajweed.summary}</p>
-            <button className="grid items-center justify-center w-fit m-4 px-3 py-2 bg-green-800 hover:bg-green-900 active:bg-green-500 text-center text-white rounded-md shadow-md dark:shadow-white/50 duration-200">{props.t('detail_tajweed')}</button>
+            <Link to={selectedTajweed.detailPage}>
+              <button className="grid items-center justify-center w-fit m-4 px-3 py-2 bg-green-800 hover:bg-green-900 active:bg-green-500 text-center text-white rounded-md shadow-md dark:shadow-white/50 duration-200">{props.t('detail_tajweed')}</button>
+            </Link>
           </span>
         </Dialog.Panel>
       </Transition.Child>

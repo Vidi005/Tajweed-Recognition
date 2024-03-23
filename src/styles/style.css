@@ -30,3 +30,7 @@
     font-family: 'Awal-Ramadhan';
     src: url(../fonts/Awal-Ramadhan.ttf);
 }
+
+.tag-item {
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+}

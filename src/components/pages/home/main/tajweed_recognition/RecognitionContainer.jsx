@@ -353,7 +353,8 @@ class RecognitionContainer extends React.Component {
   showSummaryModal(idParam) {
     const tajweedName = this.checkParamEvent(idParam)[0].name
     const summary = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === this.checkParamEvent(idParam)[0].id)}.summary`)
-    this.setState({ isModalOpened: true, selectedTajweed: { tajweedName, summary } })
+    const detailPage = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === this.checkParamEvent(idParam)[0].id)}.page`)
+    this.setState({ isModalOpened: true, selectedTajweed: { tajweedName, summary, detailPage } })
   }
 
   filterColorizedTajweeds(coloredTajweeds) {

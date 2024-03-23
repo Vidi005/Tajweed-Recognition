@@ -572,7 +572,7 @@ const tajweedLaws = () => [
     rules: ikhfaTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Nun Sukun & Tanwin',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=ikhfa'
   },
   {
     id: 4,
@@ -581,7 +581,7 @@ const tajweedLaws = () => [
     rules: iqlabTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Nun Sukun & Tanwin',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=iqlab'
   },
   {
     id: 2,
@@ -590,7 +590,7 @@ const tajweedLaws = () => [
     rules: idghamBigunnahTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Nun Sukun & Tanwin',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=idgham_bigunnah'
   },
   {
     id: 3,
@@ -599,7 +599,7 @@ const tajweedLaws = () => [
     rules: idghamBilagunnahTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Nun Sukun & Tanwin',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=idgham_bilagunnah'
   },
   {
     id: 10,
@@ -608,7 +608,7 @@ const tajweedLaws = () => [
     rules: idghamMutamasilainTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Idghom',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=idgham_mutamasilain'
   },
   {
     id: 11,
@@ -617,7 +617,7 @@ const tajweedLaws = () => [
     rules: idghamMutajaanisainTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Idghom',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=idgham_mutajaanisain'
   },
   {
     id: 12,
@@ -626,7 +626,7 @@ const tajweedLaws = () => [
     rules: idghamMutaqooribainTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Idghom',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=idgham_mutaqooribain'
   },
   {
     id: 8,
@@ -635,7 +635,7 @@ const tajweedLaws = () => [
     rules: idghamMimiTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Mim Sukun',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=idgham_mimi'
   },
   {
     id: 9,
@@ -644,7 +644,7 @@ const tajweedLaws = () => [
     rules: gunnahTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Nun Tasydid & Mim Tasydid',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=gunnah'
   },
   {
     id: 7,
@@ -653,7 +653,7 @@ const tajweedLaws = () => [
     rules: ikhfaSyafawiTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Mim Sukun',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=ikhfa_syafawi'
   },
   {
     id: 6,
@@ -662,7 +662,7 @@ const tajweedLaws = () => [
     rules: idzharSyafawiTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Mim Sukun',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=idzhar_syafawi'
   },
   {
     id: 13,
@@ -671,7 +671,7 @@ const tajweedLaws = () => [
     rules: idzharQamariyahTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Lam Ta\'rif',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=idzhar_qamariyah'
   },
   {
     id: 14,
@@ -680,7 +680,7 @@ const tajweedLaws = () => [
     rules: idghamSyamsiyahTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Lam Ta\'rif',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=idgham_syamsiyah'
   },
   {
     id: 15,
@@ -689,7 +689,7 @@ const tajweedLaws = () => [
     rules: tafkhimTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Tafkhim & Tarqiq',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=tafkhim'
   },
   {
     id: 16,
@@ -698,7 +698,7 @@ const tajweedLaws = () => [
     rules: tarqiqTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Tafkhim & Tarqiq',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=tarqiq'
   },
   {
     id: 21,
@@ -707,7 +707,7 @@ const tajweedLaws = () => [
     rules: qalqalahSughraTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Qolqolah',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=qalqalah_sughra'
   },
   {
     id: 22,
@@ -716,7 +716,7 @@ const tajweedLaws = () => [
     rules: qalqalahKubraTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Qolqolah',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=qalqalah_kubra'
   },
   {
     id: 25,
@@ -725,7 +725,7 @@ const tajweedLaws = () => [
     rules: madWajibTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=mad_wajib_muttasil'
   },
   {
     id: 26,
@@ -734,7 +734,7 @@ const tajweedLaws = () => [
     rules: madJaizTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=mad_jaiz_munfassil'
   },
   {
     id: 30,
@@ -743,7 +743,7 @@ const tajweedLaws = () => [
     rules: madAridLissukunTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=mad_arid_lissukun'
   },
   {
     id: 31,
@@ -752,7 +752,7 @@ const tajweedLaws = () => [
     rules: madShilahQashirahTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=mad_shilah_qashirah'
   },
   {
     id: 32,
@@ -761,7 +761,7 @@ const tajweedLaws = () => [
     rules: madShilahThawilahTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=mad_shilah_thawilah'
   },
   {
     id: 33,
@@ -770,7 +770,7 @@ const tajweedLaws = () => [
     rules: madIwadTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=mad_iwad'
   },
   {
     id: 27,
@@ -779,7 +779,7 @@ const tajweedLaws = () => [
     rules: madLazimMutsaqqalKilmiTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=mad_lazim_mutsaqqal_kilmi'
   },
   {
     id: 28,
@@ -788,7 +788,7 @@ const tajweedLaws = () => [
     rules: madLazimMukhaffafKilmiTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=mad_lazim_mukhaffaf_kilmi'
   },
   {
     id: 34,
@@ -797,7 +797,7 @@ const tajweedLaws = () => [
     rules: madBadalTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=mad_badal'
   },
   {
     id: 35,
@@ -806,7 +806,7 @@ const tajweedLaws = () => [
     rules: madTamkinTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=mad_tamkin'
   },
   {
     id: 36,
@@ -815,7 +815,7 @@ const tajweedLaws = () => [
     rules: madFarqTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=mad_farq'
   },
   {
     id: 24,
@@ -824,7 +824,7 @@ const tajweedLaws = () => [
     rules: madThabiiTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=mad_thabii'
   },
   {
     id: 29,
@@ -833,7 +833,7 @@ const tajweedLaws = () => [
     rules: madLayyinTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=mad_layyin'
   },
   {
     id: 1,
@@ -842,7 +842,7 @@ const tajweedLaws = () => [
     rules: idzharTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Nun Sukun & Tanwin',
-    detailPage: '/detail?tajweed='
+    detailPage: '/detail?tajweed=idzhar'
   },
 ]
 
