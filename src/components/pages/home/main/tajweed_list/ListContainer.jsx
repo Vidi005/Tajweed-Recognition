@@ -53,7 +53,6 @@ class ListContainer extends React.Component {
       }
     });
   }
-  
 
   filterHandler(filter) {
     const tajweedData = [...this.loadTajweedData()]

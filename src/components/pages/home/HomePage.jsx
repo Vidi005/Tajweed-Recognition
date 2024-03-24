@@ -13,7 +13,9 @@ class HomePage extends React.Component {
     this.state = {
       LANGUAGE_STORAGE_KEY: 'LANG_STORE_KEY',
       DARK_MODE_STORAGE_KEY: 'DARK_STORE_KEY',
+      TAB_INDEX_STORAGE_KEY: 'TAB_STORE_KEY',
       selectedLanguage: 'en',
+      selectedTabIndex: parseInt(sessionStorage.getItem('TAB_STORE_KEY')) || 0,
       isDarkMode: false
     }
   }
@@ -86,6 +88,13 @@ class HomePage extends React.Component {
     }
   }
 
+  setSelectedTabIndex (index) {
+    this.setState({ selectedTabIndex: index })
+    if (isStorageExist(this.props.t('browser_warning'))) {
+      sessionStorage.setItem(this.state.TAB_INDEX_STORAGE_KEY, JSON.stringify(index))
+    }
+  }
+
   render () {
     return (
       <div className="home-page h-screen w-full flex flex-col bg-green-100 dark:bg-black animate__animated animate__fadeIn">
@@ -98,7 +107,12 @@ class HomePage extends React.Component {
           setDisplayMode={this.setDisplayMode.bind(this)}
           isDarkMode={this.state.isDarkMode}
         />
-        <Tab.Group as={"section"} className={"app__tab-group grow flex flex-col bg-green-100 dark:bg-black duration-200"}>
+        <Tab.Group
+          as={"section"}
+          className={"app__tab-group grow flex flex-col bg-green-100 dark:bg-black duration-200"}
+          selectedIndex={this.state.selectedTabIndex}
+          onChange={this.setSelectedTabIndex.bind(this)}
+        >
           <MainContainer props={this.props}/>
           <BottomBarContainer props={this.props}/>
         </Tab.Group>

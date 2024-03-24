@@ -357,17 +357,15 @@ const extractMadWajibCharacters = () => {
   const madWajibTrimmed = madThabiiChars.map(regex => new RegExp(regex.source + /\u0621(?:[\u064B-\u065F])/gm.source, 'gm'))
   const madWajib = madThabiiChars.map(regex => new RegExp(regex.source + /\s\u0621(?:[\u064B-\u065F])/gm.source, 'gm'))
   const madWajibDiacriticTrimmed = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)\u0621(?:[\u064B-\u065F])/gm.source, 'gm'))
-  const madWajibDiacritic = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4) \u0621(?:[\u064B-\u065F])/gm.source, 'gm'))
+  const madWajibDiacritic = madThabiiChars.map(regex => new RegExp(regex.source + /\s(?:\u0605|\u0622|\u0653|\u06E4) \u0621(?:[\u064B-\u065F])/gm.source, 'gm'))
   const madWajibDiacritic2Trimmed = madThabiiChars.map(regex => new RegExp(regex.source.replace('\u0627', '\u0622') + /\u0621(?:[\u064B-\u065F])/gm.source, 'gm'))
   const madWajibDiacritic2 = madThabiiChars.map(regex => new RegExp(regex.source.replace('\u0627', '\u0622') + /\s\u0621(?:[\u064B-\u065F])/gm.source, 'gm'))
-  const hamzahDiacritics = madThabiiChars.map(regex => new RegExp(regex.source + /\u0653\u0649\u0655/gm.source, 'gm'))
-  const hamzahDiacritics2 = madThabiiChars.map(regex => new RegExp(regex.source + /\u06E4\u0649\u0655/gm.source, 'gm'))
-  const hamzahDiacritics3 = madThabiiChars.map(regex => new RegExp(regex.source + /\u0653\u0648\u0654/gm.source, 'gm'))
-  const hamzahDiacritics4 = madThabiiChars.map(regex => new RegExp(regex.source + /\u06E4\u0648\u0654/gm.source, 'gm'))
-  const hamzahDiacritics5 = madThabiiChars.map(regex => new RegExp(regex.source + /\u0653\u0624/gm.source, 'gm'))
-  const hamzahDiacritics6 = madThabiiChars.map(regex => new RegExp(regex.source + /\u06E4\u0624/gm.source, 'gm'))
+  const hamzahDiacriticsTrimmed = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0653|\u06E4[\u0649-\u0649][\u0654-\u0655])/gm.source, 'gm'))
+  const hamzahDiacritics = madThabiiChars.map(regex => new RegExp(regex.source + /\s(?:\u0653|\u06E4[\u0649-\u0649][\u0654-\u0655])/gm.source, 'gm'))
+  const hamzahDiacritics2Trimmed = madThabiiChars.map(regex => new RegExp(regex.source + /\u0653\u0624|\u06E4\u0624/gm.source, 'gm'))
+  const hamzahDiacritics2 = madThabiiChars.map(regex => new RegExp(regex.source + /\s\u0653\u0624|\u06E4\u0624/gm.source, 'gm'))
   const alif = [/\u0622\u0621/gm, /\u0622 \u0621/gm, /\u0627(?:\u0605|\u0653|\u06E4)\u0621/gm, /\u0627(?:\u0605|\u0653|\u06E4) \u0621/gm]
-  const lam = [/\u0644\u0622\u0621/gm, /\u0644\u0622 \u0621/gm, /لآَء/gm, /لآَء/gm, /لآَء/gm, /لآَ ء/gm, /لآَ ء/gm, /لآَ ء/gm]
+  // const lam = [/\u0644\u0622\u0621/gm, /\u0644\u0622 \u0621/gm, /لآَء/gm, /لآَء/gm, /لآَء/gm, /لآَ ء/gm, /لآَ ء/gm, /لآَ ء/gm]
   return [
     ...madWajibTrimmed,
     ...madWajib,
@@ -375,12 +373,10 @@ const extractMadWajibCharacters = () => {
     ...madWajibDiacritic,
     ...madWajibDiacritic2Trimmed,
     ...madWajibDiacritic2,
+    ...hamzahDiacriticsTrimmed,
     ...hamzahDiacritics,
+    ...hamzahDiacritics2Trimmed,
     ...hamzahDiacritics2,
-    ...hamzahDiacritics3,
-    ...hamzahDiacritics4,
-    ...hamzahDiacritics5,
-    ...hamzahDiacritics6,
     ...alif,
     // ...lam
   ]
@@ -394,11 +390,11 @@ const extractMadJaizCharacters = () => {
     /\u0622(?:\u0623|\u0625|\u0627)/gm, /\u0622 (?:\u0623|\u0625|\u0627)/gm,
     /\u0627(?:\u0605|\u0653|\u06E4)(?:\u0623|\u0625|\u0627)/gm, /\u0627(?:\u0605|\u0653|\u06E4) (?:\u0623|\u0625|\u0627)/gm
   ]
-  const lam = [
-    /\u0644\u0622\u0623/gm, /\u0644\u0622\u0625/gm, /\u0644\u0622\u0627/gm,
-    /\u0644\u0622 \u0623/gm, /\u0644\u0622 \u0625/gm, /\u0644\u0622 \u0627/gm,
-    /لآَأ/gm, /لآَﺇ/gm, /لآَا/gm, /لآَ أ/gm, /لآَ ﺇ/gm, /لآَ ا/gm
-  ]
+  // const lam = [
+  //   /\u0644\u0622\u0623/gm, /\u0644\u0622\u0625/gm, /\u0644\u0622\u0627/gm,
+  //   /\u0644\u0622 \u0623/gm, /\u0644\u0622 \u0625/gm, /\u0644\u0622 \u0627/gm,
+  //   /لآَأ/gm, /لآَﺇ/gm, /لآَا/gm, /لآَ أ/gm, /لآَ ﺇ/gm, /لآَ ا/gm
+  // ]
   return [
     ...madJaizVar1,
     ...madJaizVar2,

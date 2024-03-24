@@ -15,6 +15,7 @@ class RecognitionContainer extends React.Component {
     this.stream = null
     this.state = {
       CONTENT_DARK_STORAGE_KEY: 'CONTENT_DARK_STORE_KEY',
+      RESULT_CONTENT_STORAGE_KEY: 'RESULT_CONTENT_STORE_KEY',
       facingMode: 'environment',
       recognizedText: '',
       twTextSize: '1.5rem',
@@ -59,12 +60,14 @@ class RecognitionContainer extends React.Component {
 
   componentWillUnmount () {
     removeEventListener('beforeunload', this.onUnloadPage)
+    this.saveTempContentResultData()
   }
 
   checkLocalStorage() {
     isStorageExist(this.props.t('browser_warning'))
     if (isStorageExist('')) {
       this.checkContentDisplayMode()
+      this.checkResultContentState()
     }
   }
 
@@ -78,6 +81,14 @@ class RecognitionContainer extends React.Component {
     } catch (error) {
       localStorage.removeItem(this.state.CONTENT_DARK_STORAGE_KEY)
       alert(`${this.props.t('error_alert')}: ${error.message}\n${this.props.t('error_solution')}.`)
+    }
+  }
+
+  checkResultContentState() {
+    const getResultContentTempData = sessionStorage.getItem(this.state.RESULT_CONTENT_STORAGE_KEY)
+    if (getResultContentTempData) {
+      const { recognizedText, twTextSize, coloredTajweeds, filteredTajweeds, isResultClosed } = JSON.parse(getResultContentTempData)
+      this.setState({ recognizedText, twTextSize, coloredTajweeds, filteredTajweeds, isResultClosed })
     }
   }
 
@@ -122,6 +133,18 @@ class RecognitionContainer extends React.Component {
   saveContentDisplayMode(selectedDisplayMode) {
     if (isStorageExist(this.props.t('browser_warning'))) {
       localStorage.setItem(this.state.CONTENT_DARK_STORAGE_KEY, JSON.stringify(selectedDisplayMode))
+    }
+  }
+
+  saveTempContentResultData() {
+    if (isStorageExist(this.props.t('browser_warning')) && this.state.coloredTajweeds.length > 0) {
+      sessionStorage.setItem(this.state.RESULT_CONTENT_STORAGE_KEY, JSON.stringify({
+        recognizedText: this.state.recognizedText,
+        twTextSize: this.state.twTextSize,
+        coloredTajweeds: this.state.coloredTajweeds,
+        filteredTajweeds: this.state.filteredTajweeds,
+        isResultClosed: this.state.isResultClosed
+      }))
     }
   }
 
@@ -386,7 +409,8 @@ class RecognitionContainer extends React.Component {
   }
 
   closeResult () {
-    this.setState({ isResultClosed: true })
+    this.setState({ isResultClosed: true, coloredTajweeds: [] })
+    if (isStorageExist(this.props.t('browser_warning'))) sessionStorage.clear()
   }
 
   render() {
