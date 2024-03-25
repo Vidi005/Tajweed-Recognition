@@ -26,6 +26,8 @@ class RecognitionContainer extends React.Component {
       coloredTajweeds: [],
       filteredTajweeds: [],
       lines: [],
+      selectedTajweedIds: [],
+      selectedTajweedLaws: [],
       isCameraModeSelected: false,
       isScreenSharingModeSelected: false,
       isCameraPermissionGranted: false,
@@ -87,8 +89,24 @@ class RecognitionContainer extends React.Component {
   checkResultContentState() {
     const getResultContentTempData = sessionStorage.getItem(this.state.RESULT_CONTENT_STORAGE_KEY)
     if (getResultContentTempData) {
-      const { recognizedText, twTextSize, coloredTajweeds, filteredTajweeds, isResultClosed } = JSON.parse(getResultContentTempData)
-      this.setState({ recognizedText, twTextSize, coloredTajweeds, filteredTajweeds, isResultClosed })
+      const {
+        recognizedText,
+        twTextSize,
+        coloredTajweeds,
+        filteredTajweeds,
+        selectedTajweedIds,
+        selectedTajweedLaws,
+        isResultClosed
+      } = JSON.parse(getResultContentTempData)
+      this.setState({
+        recognizedText,
+        twTextSize,
+        coloredTajweeds,
+        filteredTajweeds,
+        selectedTajweedIds,
+        selectedTajweedLaws,
+        isResultClosed
+      })
     }
   }
 
@@ -110,7 +128,7 @@ class RecognitionContainer extends React.Component {
     this.setState(prevState => ({ isEditMode: !prevState.isEditMode }), () => {
       scrollTo(0, 0)
       if (!this.state.isEditMode) {
-        this.setState({ coloredTajweeds: this.colorizeChars(this.state.recognizedText) }, () => {
+        this.setState({ coloredTajweeds: this.colorizeChars(this.state.recognizedText, tajweedLaws()) }, () => {
           this.filterColorizedTajweeds(this.state.coloredTajweeds)
         })
       }
@@ -143,6 +161,8 @@ class RecognitionContainer extends React.Component {
         twTextSize: this.state.twTextSize,
         coloredTajweeds: this.state.coloredTajweeds,
         filteredTajweeds: this.state.filteredTajweeds,
+        selectedTajweedIds: this.state.selectedTajweedIds,
+        selectedTajweedLaws: this.state.selectedTajweedLaws,
         isResultClosed: this.state.isResultClosed
       }))
     }
@@ -238,7 +258,7 @@ class RecognitionContainer extends React.Component {
           isRecognizing: false,
           isEditMode: false,
           recognizedText: this.removeNonArabic(data.text.split('\n').join(' ').trim().replace(/\s+/g, ' ')),
-          coloredTajweeds: this.colorizeChars(this.removeNonArabic(data.text.trim())),
+          coloredTajweeds: this.colorizeChars(this.removeNonArabic(data.text.trim()), tajweedLaws()),
           isResultClosed: false }, () => this.filterColorizedTajweeds(this.state.coloredTajweeds))
       } else {
         this.setState({ isRecognizing: false })
@@ -273,7 +293,7 @@ class RecognitionContainer extends React.Component {
     event.returnValue = this.props.t('unsaved_warning')
   }
   
-  colorizeChars(recognizedText) {
+  colorizeChars(recognizedText, tajweedLaws) {
     let colorizedChars = recognizedText
     const isInsideSpan = (startIdx, endIdx) => {
       const spanRegex = /<span\b[^>]*>(.*?)<\/span>/gm
@@ -297,7 +317,7 @@ class RecognitionContainer extends React.Component {
         return `<span class="tajweed-${id}" style="color: ${color}; cursor: pointer;">${match}</span>`
       })
     }
-    tajweedLaws().forEach(tajweedLaw => {
+    tajweedLaws.forEach(tajweedLaw => {
       tajweedLaw.rules.forEach(rule => {
         if (typeof rule === 'string') {
           const regex = new RegExp(`(${rule})`, 'gm')
@@ -369,15 +389,17 @@ class RecognitionContainer extends React.Component {
       }
     } else {
       const tajweedId = idParam
-      return tajweedLaws().filter(tajweedLaw => tajweedLaw.id === tajweedId)
+      return tajweedLaws().filter(tajweedLaw => tajweedLaw.id === tajweedId) || []
     }
   }
 
   showSummaryModal(idParam) {
-    const tajweedName = this.checkParamEvent(idParam)[0].name
-    const summary = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === this.checkParamEvent(idParam)[0].id)}.summary`)
-    const detailPage = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === this.checkParamEvent(idParam)[0].id)}.page`)
-    this.setState({ isModalOpened: true, selectedTajweed: { tajweedName, summary, detailPage } })
+    if (this.checkParamEvent(idParam)?.length > 0) {
+      const tajweedName = this.checkParamEvent(idParam)[0].name
+      const summary = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === this.checkParamEvent(idParam)[0].id)}.summary`)
+      const detailPage = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === this.checkParamEvent(idParam)[0].id)}.page`)
+      this.setState({ isModalOpened: true, selectedTajweed: { tajweedName, summary, detailPage } })
+    }
   }
 
   filterColorizedTajweeds(coloredTajweeds) {
@@ -385,7 +407,11 @@ class RecognitionContainer extends React.Component {
       const styleRegex = new RegExp(`class="tajweed-${tajweedLaw.id}"`)
       return styleRegex.test(coloredTajweeds)
     }).sort((a, b) => a.id - b.id)
-    this.setState({ filteredTajweeds: colorizedTajweeds })
+    this.setState({
+      filteredTajweeds: colorizedTajweeds,
+      selectedTajweedLaws: colorizedTajweeds,
+      selectedTajweedIds: colorizedTajweeds.map(tajweedLaw => tajweedLaw.id)
+    })
   }
 
   calculateLines(classNames, isHovered, dataIdx, color) {
@@ -394,14 +420,46 @@ class RecognitionContainer extends React.Component {
     elements.forEach(element => {
       const rect1 = element.getBoundingClientRect()
       const activeSlides = document.querySelectorAll('.slick-active')
-      const rect2 = activeSlides[dataIdx > activeSlides.length ? dataIdx % activeSlides.length : dataIdx].getBoundingClientRect()
+      const rect2 = activeSlides[dataIdx > activeSlides?.length ? dataIdx % activeSlides?.length : dataIdx]?.getBoundingClientRect()
       const x1 = rect1.left + rect1.width / 2
-      const x2 = rect2.left + rect2.width / 2
+      const x2 = rect2?.left + rect2?.width / 2
       const y1 = rect1.bottom - rect1.height / 4
-      const y2 = rect2.top
+      const y2 = rect2?.top
       lines.push({ x1, x2, y1, y2 })
     })
     this.setState({ isCarouselItemHovered: isHovered, lines: lines, linesColor: color })
+  }
+
+  changeSelectOptions() {
+    const filteredTajweeds = [...this.state.filteredTajweeds]
+    this.setState({
+      selectedTajweedLaws: filteredTajweeds.filter(tajweedLaw => this.state.selectedTajweedIds.includes(tajweedLaw.id)),
+      coloredTajweeds: this.colorizeChars(this.state.recognizedText, filteredTajweeds.filter(tajweedLaw => this.state.selectedTajweedIds.includes(tajweedLaw.id)))
+    })
+  }
+
+  toggleOption(optionId) {
+    const { selectedTajweedIds } = this.state
+    if (selectedTajweedIds.includes(optionId)) {
+      this.setState({ selectedTajweedIds: selectedTajweedIds.filter(id => id !== optionId) }, () => {
+        this.changeSelectOptions()
+      })
+    } else {
+      this.setState({ selectedTajweedIds: [...selectedTajweedIds, optionId] }, () => {
+        this.changeSelectOptions()
+      })
+    }
+  }
+
+  toggleSelectAllGroup(group) {
+    const { selectedTajweedIds } = this.state
+    const { filteredTajweeds } = this.state
+    const groupOptions = filteredTajweeds.filter(tajweedLaw => tajweedLaw.category === group).map(tajweedLaw => tajweedLaw.id)
+    if (selectedTajweedIds.some(optionId => groupOptions.includes(optionId))) {
+      this.setState({selectedTajweedIds: selectedTajweedIds.filter(optionId => !groupOptions.includes(optionId))}, () => {
+        this.changeSelectOptions()
+      })
+    } else this.setState({ selectedTajweedIds: [...selectedTajweedIds, ...groupOptions] }, () => this.changeSelectOptions())
   }
 
   onCloseSummaryModal() {
@@ -463,6 +521,8 @@ class RecognitionContainer extends React.Component {
           showSummaryModal={this.showSummaryModal.bind(this)}
           hideTooltip={this.hideTooltip.bind(this)}
           calculateLines={this.calculateLines.bind(this)}
+          toggleOption={this.toggleOption.bind(this)}
+          toggleSelectAllGroup={this.toggleSelectAllGroup.bind(this)}
         />
         <TajweedPreview
           props={this.props}
