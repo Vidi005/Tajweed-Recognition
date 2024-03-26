@@ -850,4 +850,14 @@ const sources = [
 
 const twTextSizes = () => ['0.75rem', '0.875rem', '1rem', '1.125rem', '1.25rem', '1.5rem', '1.875rem', '2.25rem', '3rem', '3.75rem', '4.5rem', '6rem', '8rem']
 
-export { isStorageExist, twTextSizes, tajweedLaws, sources }
+const getDetailTajweed = () => {
+  const url = location.toString()
+  const detailTajweed = url.substring(url.indexOf('?'))
+  if (url.includes('?tajweed=') && detailTajweed.length > 1) {
+    return `/detail${detailTajweed}`
+  } else {
+    return ''
+  }
+}
+
+export { isStorageExist, twTextSizes, tajweedLaws, getDetailTajweed, sources }

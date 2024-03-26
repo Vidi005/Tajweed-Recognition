@@ -26,6 +26,10 @@
     "empty_list": "Tidak Ada Tajwid Yang Ditemukan!",
     "group": "Grup",
     "category": "Kategori",
+    "detail_page_title": "Detil Tadjwid",
+    "no_tajweed_found": "Tajweed tidak ditemukan!",
+    "examples": "Contoh:",
+    "sources": "Sumber:",
     "tajweed_laws": [
         {
             "id": 1,

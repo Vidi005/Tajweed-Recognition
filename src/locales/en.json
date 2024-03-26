@@ -26,6 +26,10 @@
     "empty_list": "No Tajweed Found!",
     "group": "Group",
     "category": "Category",
+    "detail_page_title": "Detail Tajweed",
+    "no_tajweed_found": "Tajweed not found!",
+    "examples": "Examples:",
+    "sources": "Sources:",
     "tajweed_laws": [
         {
             "id": 1,

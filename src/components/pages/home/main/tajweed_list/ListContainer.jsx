@@ -73,7 +73,7 @@ class ListContainer extends React.Component {
           searchItems={this.searchHandler.bind(this)}
           filterItems={this.filterHandler.bind(this)}
         />
-        <section className="nav-product-list min-h-full max-h-full bg-green-200 dark:bg-gray-900 overflow-y-auto animate__animated animate__fadeIn animate__faster">
+        <section className="nav-product-list min-h-full max-h-full bg-green-100 dark:bg-gray-900 overflow-y-auto animate__animated animate__fadeIn animate__faster">
           <MobileDisplayList t={this.props.t} getFilteredTajweeds={this.state.getFilteredTajweeds}/>
         </section>
       </React.Fragment>
