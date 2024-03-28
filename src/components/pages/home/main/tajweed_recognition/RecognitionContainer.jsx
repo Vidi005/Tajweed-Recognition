@@ -1,6 +1,6 @@
 import React from "react"
 import Swal from "sweetalert2"
-import { isStorageExist, loadFileAsArrayBuffer, tajweedLaws, twTextSizes } from "../../../../../utils/data"
+import { buildRegExp, checkParamEvent, colorizeChars, isStorageExist, loadFileAsArrayBuffer, removeNonArabic, tajweedLaws, twTextSizes } from "../../../../../utils/data"
 import Tesseract from "tesseract.js"
 import ResultContainer from "./ResultContainer"
 import DropZoneContainer from "./import_mode/DropZoneContainer"
@@ -9,6 +9,7 @@ import en from "../../../../../locales/en.json"
 import TajweedPreview from "./pop_up/TajweedPreview"
 import PdfSettingPrompt from "./pop_up/PdfSettingPrompt"
 import { pdfjs } from "react-pdf"
+import CameraContainer from "./camera_mode/CameraContainer"
 
 if (import.meta && import.meta.url) {
   pdfjs.GlobalWorkerOptions.workerSrc = new URL(
@@ -23,6 +24,7 @@ class RecognitionContainer extends React.Component {
   constructor(props) {
     super(props)
     this.cameraRef = React.createRef()
+    this.canvasRef = React.createRef()
     this.stream = null
     this.state = {
       CONTENT_DARK_STORAGE_KEY: 'CONTENT_DARK_STORE_KEY',
@@ -142,7 +144,7 @@ class RecognitionContainer extends React.Component {
     this.setState(prevState => ({ isEditMode: !prevState.isEditMode }), () => {
       scrollTo(0, 0)
       if (!this.state.isEditMode) {
-        this.setState({ coloredTajweeds: this.colorizeChars(this.state.recognizedText, tajweedLaws()) }, () => {
+        this.setState({ coloredTajweeds: colorizeChars(this.state.recognizedText, tajweedLaws()) }, () => {
           this.filterColorizedTajweeds(this.state.coloredTajweeds)
         })
       }
@@ -179,6 +181,87 @@ class RecognitionContainer extends React.Component {
         selectedTajweedLaws: this.state.selectedTajweedLaws,
         isResultClosed: this.state.isResultClosed
       }))
+    }
+  }
+
+  setUpCamera = async () => {
+    if (location.protocol.startsWith('https') || location.hostname === 'localhost') {
+      let idealAspectRatio = 1
+      if (window.innerHeight > window.innerWidth) idealAspectRatio = 4 / 3
+      else idealAspectRatio = 3 / 4
+      const constraints = {
+        audio: false,
+        video: {
+          facingMode: { exact: this.state.facingMode },
+          aspectRatio: { ideal: idealAspectRatio }
+        }
+      }
+      try {
+        this.stream = await navigator.mediaDevices.getUserMedia(constraints)
+        this.setState({ isCameraPermissionGranted: true, isCameraModeSelected: true }, () => {
+          this.cameraRef.current.srcObject = this.stream
+        })
+      } catch (error) {
+        this.setState(() => ({
+          isCameraPermissionGranted: false
+        }))
+        Swal.fire({
+          icon: 'error',
+          title: this.props.t('camera_title_alert.0'),
+          text: `${error.message}`
+        })
+      }
+    } else {
+      Swal.fire({
+        icon: 'warning',
+        title: this.props.t('camera_title_alert.1'),
+        text: this.props.t('camera_text_alert.1')
+      })
+    }
+  }
+
+  switchCamera () {
+    this.stopCamera()
+    this.setState(prevState => ({
+      facingMode: prevState.facingMode === 'environment' ? 'user' : 'environment'
+    }), () => this.setUpCamera())
+  }
+
+  captureImage () {
+    if (this.stream) {
+      this.setState(prevState => ({
+        isBtnCaptureClicked: !prevState.isBtnCaptureClicked,
+        isRecognizing: true,
+        isCameraModeSelected: false
+      }))
+      const canvas = this.canvasRef.current
+      const video = this.cameraRef.current
+      if (canvas) {
+        canvas.width = video.clientWidth
+        canvas.height = video.clientHeight
+        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height)
+        this.recognizeImage(canvas.toDataURL())
+      } else {
+        this.setState({ isRecognizing: false })
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: this.props.t('canvas_is_null')
+        })
+      }
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: this.props.t('camera_title_alert.2'),
+        text: this.props.t('camera_text_alert.2')
+      })
+    }
+  }
+
+  stopCamera () {
+    if (this.stream) {
+      const tracks = this.stream.getTracks()
+      tracks.forEach(track => track.stop())
     }
   }
 
@@ -288,8 +371,8 @@ class RecognitionContainer extends React.Component {
         this.setState({
           isRecognizing: false,
           isEditMode: false,
-          recognizedText: this.removeNonArabic(data.text.split('\n').join(' ').trim().replace(/\s+/g, ' ')),
-          coloredTajweeds: this.colorizeChars(this.removeNonArabic(data.text.trim()), tajweedLaws()),
+          recognizedText: removeNonArabic(data.text.split('\n').join(' ').trim().replace(/\s+/g, ' ')),
+          coloredTajweeds: colorizeChars(removeNonArabic(data.text.trim()), tajweedLaws()),
           isResultClosed: false }, () => this.filterColorizedTajweeds(this.state.coloredTajweeds))
       } else {
         this.setState({ isRecognizing: false }, () => {
@@ -376,8 +459,8 @@ class RecognitionContainer extends React.Component {
         text += pageText
       }
       this.setState({
-        recognizedText: this.removeNonArabic(text.trim()),
-        coloredTajweeds: this.colorizeChars(this.removeNonArabic(text.trim()), tajweedLaws()),
+        recognizedText: removeNonArabic(text.trim()),
+        coloredTajweeds: colorizeChars(removeNonArabic(text.trim()), tajweedLaws()),
         isRecognizing: false,
         isResultClosed: false,
         dataFile: null
@@ -392,60 +475,14 @@ class RecognitionContainer extends React.Component {
     }
   }
 
-  removeNonArabic(text) {
-    const arabicRegex = /[\u0600-\u06FF]/gm
-    if (arabicRegex.test(text)) {
-      return text.replace(/[^\u0600-\u06FF\s]/gm, '')
-    } else {
-      return ''
-    }
-  }
-
   onUnloadPage (event) {
     event.preventDefault()
     event.returnValue = this.props.t('unsaved_warning')
   }
-  
-  colorizeChars(recognizedText, tajweedLaws) {
-    let colorizedChars = recognizedText
-    const isInsideSpan = (startIdx, endIdx) => {
-      const spanRegex = /<span\b[^>]*>(.*?)<\/span>/gm
-      let match
-      while ((match = spanRegex.exec(colorizedChars)) !== null) {
-        const spanStart = match.index
-        const spanEnd = spanStart + match[0].length
-        if (startIdx >= spanStart && endIdx <= spanEnd) {
-          return true
-        }
-      }
-      return false
-    }
-    const applyColor = (regex, id, color) => {
-      colorizedChars = colorizedChars.replace(regex, (match, startIdx, endIdx) => {
-        // if (!isInsideSpan(startIdx, endIdx)) {
-        //   return `<span class="tajweed-${id}" style="color: ${color}; cursor: pointer;">${match}</span>`
-        // } else {
-        //   return match
-        // }
-        return `<span class="tajweed-${id}" style="color: ${color}; cursor: pointer;">${match}</span>`
-      })
-    }
-    tajweedLaws.forEach(tajweedLaw => {
-      tajweedLaw.rules.forEach(rule => {
-        if (typeof rule === 'string') {
-          const regex = new RegExp(`(${rule})`, 'gm')
-          applyColor(regex, tajweedLaw.id, tajweedLaw.color)
-        } else {
-          applyColor(rule, tajweedLaw.id, tajweedLaw.color)
-        }
-      })
-    })
-    return colorizedChars
-  }
 
   showTooltip(event) {
     const matchedTajweed = tajweedLaws().filter(tajweedLaw => {
-      const regex = this.buildRegExp(tajweedLaw.rules)
+      const regex = buildRegExp(tajweedLaw.rules)
       return regex.test(event.target.innerHTML)
     })
     if (matchedTajweed.length === 1) {
@@ -474,15 +511,6 @@ class RecognitionContainer extends React.Component {
     }
   }
 
-  buildRegExp(rules) {
-    const isRegexArray = rules.every(rule => rule instanceof RegExp)
-    if (isRegexArray) {
-      return new RegExp(`${rules.map(regex => regex.source).join('|')}`, 'gm')
-    } else {
-      return new RegExp(`(${rules.join('|')})`, 'gm')
-    }
-  }
-
   hideTooltip() {
     this.setState({
       tooltipContent: '',
@@ -490,27 +518,11 @@ class RecognitionContainer extends React.Component {
     })
   }
 
-  checkParamEvent(idParam) {
-    if (typeof idParam !== 'number') {
-      const event = idParam
-      const matchedTajweed = tajweedLaws().filter(tajweedLaw => {
-        const regex = this.buildRegExp(tajweedLaw.rules)
-        return regex.test(event.target.innerHTML)
-      })
-      if (matchedTajweed.length === 1) {
-        return matchedTajweed
-      }
-    } else {
-      const tajweedId = idParam
-      return tajweedLaws().filter(tajweedLaw => tajweedLaw.id === tajweedId) || []
-    }
-  }
-
   showSummaryModal(idParam) {
-    if (this.checkParamEvent(idParam)?.length > 0) {
-      const tajweedName = this.checkParamEvent(idParam)[0].name
-      const summary = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === this.checkParamEvent(idParam)[0].id)}.summary`)
-      const detailPage = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === this.checkParamEvent(idParam)[0].id)}.page`)
+    if (checkParamEvent(idParam)?.length > 0) {
+      const tajweedName = checkParamEvent(idParam)[0].name
+      const summary = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === checkParamEvent(idParam)[0].id)}.summary`)
+      const detailPage = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === checkParamEvent(idParam)[0].id)}.page`)
       this.setState({ isModalOpened: true, selectedTajweed: { tajweedName, summary, detailPage } })
     }
   }
@@ -550,7 +562,7 @@ class RecognitionContainer extends React.Component {
     const filteredTajweeds = [...this.state.filteredTajweeds]
     this.setState({
       selectedTajweedLaws: filteredTajweeds.filter(tajweedLaw => this.state.selectedTajweedIds.includes(tajweedLaw.id)),
-      coloredTajweeds: this.colorizeChars(this.state.recognizedText, filteredTajweeds.filter(tajweedLaw => this.state.selectedTajweedIds.includes(tajweedLaw.id)))
+      coloredTajweeds: colorizeChars(this.state.recognizedText, filteredTajweeds.filter(tajweedLaw => this.state.selectedTajweedIds.includes(tajweedLaw.id)))
     })
   }
 
@@ -578,6 +590,11 @@ class RecognitionContainer extends React.Component {
     } else this.setState({ selectedTajweedIds: [...selectedTajweedIds, ...groupOptions] }, () => this.changeSelectOptions())
   }
 
+  onCloseCamera() {
+    this.stopCamera()
+    this.setState({ isCameraModeSelected: false })
+  }
+
   cancelRecognition() {
     this.setState({ isPromptOpened: false, isRecognizing: false, dataFile: null })
   }
@@ -598,7 +615,7 @@ class RecognitionContainer extends React.Component {
         <h2>Recognize Tajweed</h2>
         <p className="relative text-justify lg:text-lg lg:text-center md:mx-8 lg:mx-16">{this.props.t('app_description')}</p>
         <div className="btn-container relative flex flex-wrap items-center justify-center">
-          <button className="btn-capture grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 duration-200">
+          <button className="btn-capture grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 duration-200" onClick={this.setUpCamera.bind(this)}>
             <img className="h-8 md:h-12 mr-2" src="images/camera-icon.svg" alt="Capture Image" />
             <h5 className="md:text-lg whitespace-nowrap">{this.props.t('capture_image')}</h5>
           </button>
@@ -624,6 +641,19 @@ class RecognitionContainer extends React.Component {
               <span className="text-white text-xl">{this.props.t('recognizing')}</span>
             </div>
           </div>
+        )}
+        {this.state.isCameraModeSelected && (
+          <CameraContainer
+            props={this.props}
+            cameraRef={this.cameraRef}
+            canvasRef={this.canvasRef}
+            isCameraPermissionGranted={this.state.isCameraPermissionGranted}
+            isCameraReady={this.stream}
+            setUpCamera={this.setUpCamera.bind(this)}
+            onCloseCamera={this.onCloseCamera.bind(this)}
+            captureImage={this.captureImage.bind(this)}
+            switchCamera={this.switchCamera.bind(this)}
+          />
         )}
         <ResultContainer
           props={this.props}

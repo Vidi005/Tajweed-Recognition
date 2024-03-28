@@ -19,7 +19,7 @@ const MenuBarContainer = ({ isEditMode, selectedTajweedIds, filteredTajweeds, to
         leaveFrom="transform opacity-100 scale-100 translate-y-0"
         leaveTo="transform opacity-0 scale-95 -translate-y-1/4"
       >
-        <Popover.Panel className={"absolute right-2 mt-2 max-w-full w-max h-5/6 p-2 origin-top-right bg-green-50 dark:bg-gray-700 shadow-xl dark:shadow-md dark:shadow-white/50 rounded-lg overflow-x-hidden z-10"}>
+        <Popover.Panel className={"absolute right-2 mt-2 max-w-full w-max max-h-[83%] p-2 origin-top-right bg-green-50 dark:bg-gray-700 shadow-xl dark:shadow-md dark:shadow-white/50 rounded-lg overflow-x-hidden z-10"}>
           <Listbox value={selectedTajweedIds} multiple>
             <Listbox.Options static className={"menu-list max-h-full overflow-y-auto"}>
             {Array.from(new Set(filteredTajweeds.map(tajweedLaw => tajweedLaw.category))).map(category => (

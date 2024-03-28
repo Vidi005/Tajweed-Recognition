@@ -865,6 +865,60 @@ const sources = [
   'https://www.gramedia.com/literasi/hukum-tajwid-dan-contohnya'
 ]
 
+const removeNonArabic = text => {
+  const arabicRegex = /[\u0600-\u06FF]/gm
+  if (arabicRegex.test(text)) {
+    return text.replace(/[^\u0600-\u06FF\s]/gm, '')
+  } else {
+    return ''
+  }
+}
+
+const buildRegExp = rules => {
+  const isRegexArray = rules.every(rule => rule instanceof RegExp)
+  if (isRegexArray) {
+    return new RegExp(`${rules.map(regex => regex.source).join('|')}`, 'gm')
+  } else {
+    return new RegExp(`(${rules.join('|')})`, 'gm')
+  }
+}
+
+const colorizeChars = (recognizedText, tajweedLaws) => {
+  let colorizedChars = recognizedText
+  const applyColor = (regex, id, color) => {
+    colorizedChars = colorizedChars.replace(regex, (match) => {
+      return `<span class="tajweed-${id}" style="color: ${color}; cursor: pointer;">${match}</span>`
+    })
+  }
+  tajweedLaws.forEach(tajweedLaw => {
+    tajweedLaw.rules.forEach(rule => {
+      if (typeof rule === 'string') {
+        const regex = new RegExp(`(${rule})`, 'gm')
+        applyColor(regex, tajweedLaw.id, tajweedLaw.color)
+      } else {
+        applyColor(rule, tajweedLaw.id, tajweedLaw.color)
+      }
+    })
+  })
+  return colorizedChars
+}
+
+const checkParamEvent = idParam => {
+  if (typeof idParam !== 'number') {
+    const event = idParam
+    const matchedTajweed = tajweedLaws().filter(tajweedLaw => {
+      const regex = buildRegExp(tajweedLaw.rules)
+      return regex.test(event.target.innerHTML)
+    })
+    if (matchedTajweed.length === 1) {
+      return matchedTajweed
+    }
+  } else {
+    const tajweedId = idParam
+    return tajweedLaws().filter(tajweedLaw => tajweedLaw.id === tajweedId) || []
+  }
+}
+
 const twTextSizes = () => ['0.75rem', '0.875rem', '1rem', '1.125rem', '1.25rem', '1.5rem', '1.875rem', '2.25rem', '3rem', '3.75rem', '4.5rem', '6rem', '8rem']
 
 const loadFileAsArrayBuffer = file => {
@@ -886,4 +940,4 @@ const getDetailTajweed = () => {
   }
 }
 
-export { isStorageExist, twTextSizes, tajweedLaws, loadFileAsArrayBuffer, getDetailTajweed, sources }
+export { isStorageExist, removeNonArabic, buildRegExp, colorizeChars, checkParamEvent, twTextSizes, tajweedLaws, loadFileAsArrayBuffer, getDetailTajweed, sources }
