@@ -1,12 +1,23 @@
 import React from "react"
 import Swal from "sweetalert2"
-import { isStorageExist, tajweedLaws, twTextSizes } from "../../../../../utils/data"
+import { isStorageExist, loadFileAsArrayBuffer, tajweedLaws, twTextSizes } from "../../../../../utils/data"
 import Tesseract from "tesseract.js"
 import ResultContainer from "./ResultContainer"
 import DropZoneContainer from "./import_mode/DropZoneContainer"
 import { withTranslation } from "react-i18next"
 import en from "../../../../../locales/en.json"
 import TajweedPreview from "./pop_up/TajweedPreview"
+import PdfSettingPrompt from "./pop_up/PdfSettingPrompt"
+import { pdfjs } from "react-pdf"
+
+if (import.meta && import.meta.url) {
+  pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+    'pdfjs-dist/build/pdf.worker.min.js',
+    import.meta.url,
+  ).toString()
+} else {
+  pdfjs.GlobalWorkerOptions.workerSrc = 'pdfjs-dist/legacy/build/pdf.worker.min.js'
+}
 
 class RecognitionContainer extends React.Component {
   constructor(props) {
@@ -22,12 +33,15 @@ class RecognitionContainer extends React.Component {
       tooltipContent: '',
       tooltipColor: '',
       linesColor: '',
+      dataFile: null,
       selectedTajweed: {},
       coloredTajweeds: [],
       filteredTajweeds: [],
       lines: [],
       selectedTajweedIds: [],
       selectedTajweedLaws: [],
+      isPromptOpened: false,
+      isOCREnabled: false,
       isCameraModeSelected: false,
       isScreenSharingModeSelected: false,
       isCameraPermissionGranted: false,
@@ -168,26 +182,15 @@ class RecognitionContainer extends React.Component {
     }
   }
 
-  pickImage = (files) => {
+  pickFile = (files) => {
     if (files.length === 0) return
     this.setState({
       isRecognizing: true
-    }, () => {
+    }, async () => {
       const file = files[0]
       const validImageExtensions = ['jpeg', 'jpg', 'png', 'webp', 'bmp', 'heic', 'svg']
+      const validPdfExtension = ['pdf']
       const fileExtension = file.name.split('.').pop().toLowerCase()
-      if (!validImageExtensions.includes(fileExtension)) {
-        this.setState({
-          isRecognizing: false
-        }, () => {
-          Swal.fire({
-            icon: 'error',
-            title: this.props.t('invalid_file.0'),
-            text: this.props.t('invalid_file.1')
-          })
-        })
-        return
-      }
       if (file) {
         const maxSize = 5 * 1024 * 1024
         if (file.size > maxSize) {
@@ -200,7 +203,35 @@ class RecognitionContainer extends React.Component {
           })
           return
         }
-        this.recognizeImage(file)
+        if (validPdfExtension.includes(fileExtension)) {
+          this.setState({ isPromptOpened: true, dataFile: file })
+        } else if (validImageExtensions.includes(fileExtension)) {
+          this.recognizeImage(file)
+        } else {
+          this.setState({
+            isRecognizing: false
+          }, () => {
+            Swal.fire({
+              icon: 'error',
+              title: this.props.t('invalid_file.0'),
+              text: this.props.t('invalid_file.1')
+            })
+          })
+        }
+      }
+    })
+  }
+
+  enableOCRMode() {
+    this.setState(prevState => ({ isOCREnabled: !prevState.isOCREnabled }))
+  }
+
+  confirmSetting() {
+    this.setState({ isPromptOpened: false }, () => {
+      if (this.state.isOCREnabled) {
+        this.extractImageTextFromPDF(this.state.dataFile)
+      } else {
+        this.extractTextFromPDF(this.state.dataFile)
       }
     })
   }
@@ -261,16 +292,98 @@ class RecognitionContainer extends React.Component {
           coloredTajweeds: this.colorizeChars(this.removeNonArabic(data.text.trim()), tajweedLaws()),
           isResultClosed: false }, () => this.filterColorizedTajweeds(this.state.coloredTajweeds))
       } else {
-        this.setState({ isRecognizing: false })
-        Swal.fire({
-          title: this.props.t('empty_arabic_text.0'),
-          text: this.props.t('empty_arabic_text.1'),
-          icon: 'error',
-          confirmButtonColor: 'green'
-        })
+        this.setState({ isRecognizing: false }, () => {
+          Swal.fire({
+            title: this.props.t('empty_arabic_text.0'),
+            text: this.props.t('empty_arabic_text.1'),
+            icon: 'error',
+            confirmButtonColor: 'green'
+          })
+        }, 100)
       }
     } catch (error) {
       this.setState({ isRecognizing: false })
+      Swal.fire({
+        icon: 'error',
+        title: this.props.t('recognition_failed'),
+        text: error.message
+      })
+    }
+  }
+
+  async extractImageTextFromPDF(file) {
+    try {
+      const pdf = await pdfjs.getDocument({ url: URL.createObjectURL(file) }).promise
+      const maxPages = pdf.numPages
+      const firstPage = await pdf.getPage(1)
+      const firstPageViewport = firstPage.getViewport({ scale: 1.0 })
+      const combinedCanvas = document.createElement('canvas')
+      const combinedContext = combinedCanvas.getContext('2d')
+      combinedCanvas.height = firstPageViewport.height * maxPages
+      combinedCanvas.width = firstPageViewport.width
+      let yOffset = 0
+      for (let pageNum = 1; pageNum <= maxPages; pageNum++) {
+        const page = await pdf.getPage(pageNum)
+        const viewport = page.getViewport({ scale: 1.0 })
+        const canvas = document.createElement('canvas')
+        const context = canvas.getContext('2d')
+        canvas.height = viewport.height
+        canvas.width = viewport.width
+        const renderContext = {
+          canvasContext: context,
+          viewport: viewport
+        }
+        page.render(renderContext)
+        combinedContext.drawImage(canvas, 0, yOffset)
+        yOffset += viewport.height
+      }
+      const combinedImageData = combinedCanvas.toDataURL()
+      this.recognizeImage(combinedImageData)
+    } catch (error) {
+      this.setState({ isRecognizing: false, dataFile: null })
+      Swal.fire({
+        icon: 'error',
+        title: this.props.t('recognition_failed'),
+        text: error.message
+      })
+    }
+  }
+
+  async extractTextFromPDF(file) {
+    try {
+      const arrayBuffer = await loadFileAsArrayBuffer(file)
+      const pdf = await pdfjs.getDocument(arrayBuffer).promise
+      const maxPages = pdf.numPages
+      let text = ''
+      const getPageText = async (pageNum) => {
+        const page = await pdf.getPage(pageNum)
+        const textContent = await page.getTextContent()
+        if (textContent.items.length === 0) {
+          this.setState({ isRecognizing: false })
+          Swal.fire({
+            icon: 'error',
+            title: this.props.t('empty_text.0'),
+            text: this.props.t('empty_text.1')
+          })
+          return
+        } else {
+          const strings = textContent.items.map(item => item.str)
+          text += strings.join(' ')
+        }
+      }
+      for (let pageNum = 1; pageNum <= maxPages; pageNum++) {
+        const pageText = await getPageText(pageNum)
+        text += pageText
+      }
+      this.setState({
+        recognizedText: this.removeNonArabic(text.trim()),
+        coloredTajweeds: this.colorizeChars(this.removeNonArabic(text.trim()), tajweedLaws()),
+        isRecognizing: false,
+        isResultClosed: false,
+        dataFile: null
+      }, () => this.filterColorizedTajweeds(this.state.coloredTajweeds))
+    } catch (error) {
+      this.setState({ isRecognizing: false, dataFile: null })
       Swal.fire({
         icon: 'error',
         title: this.props.t('recognition_failed'),
@@ -417,6 +530,7 @@ class RecognitionContainer extends React.Component {
   calculateLines(classNames, isHovered, dataIdx, color) {
     const elements = document.querySelectorAll(`.${classNames}`)
     const lines = []
+    const contentContainerY1 = this.contentContainerRef.current.getBoundingClientRect().top
     elements.forEach(element => {
       const rect1 = element.getBoundingClientRect()
       const activeSlides = document.querySelectorAll('.slick-active')
@@ -425,7 +539,9 @@ class RecognitionContainer extends React.Component {
       const x2 = rect2?.left + rect2?.width / 2
       const y1 = rect1.bottom - rect1.height / 4
       const y2 = rect2?.top
-      lines.push({ x1, x2, y1, y2 })
+      if (y1 > contentContainerY1 && y1 !== 0) {
+        lines.push({ x1, x2, y1, y2 })
+      }
     })
     this.setState({ isCarouselItemHovered: isHovered, lines: lines, linesColor: color })
   }
@@ -462,6 +578,10 @@ class RecognitionContainer extends React.Component {
     } else this.setState({ selectedTajweedIds: [...selectedTajweedIds, ...groupOptions] }, () => this.changeSelectOptions())
   }
 
+  cancelRecognition() {
+    this.setState({ isPromptOpened: false, isRecognizing: false, dataFile: null })
+  }
+
   onCloseSummaryModal() {
     this.setState({ isModalOpened: false })
   }
@@ -474,7 +594,7 @@ class RecognitionContainer extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <DropZoneContainer props={this.props} pickImage={this.pickImage.bind(this)}/>
+        <DropZoneContainer props={this.props} pickFile={this.pickFile.bind(this)}/>
         <h2>Recognize Tajweed</h2>
         <p className="relative text-justify lg:text-lg lg:text-center md:mx-8 lg:mx-16">{this.props.t('app_description')}</p>
         <div className="btn-container relative flex flex-wrap items-center justify-center">
@@ -482,10 +602,10 @@ class RecognitionContainer extends React.Component {
             <img className="h-8 md:h-12 mr-2" src="images/camera-icon.svg" alt="Capture Image" />
             <h5 className="md:text-lg whitespace-nowrap">{this.props.t('capture_image')}</h5>
           </button>
-          <label htmlFor="image-picker" className="btn-import grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 cursor-pointer duration-200">
-            <input type="file" id="image-picker" className="hidden" accept="image/*" onChange={e => this.pickImage(e.target.files)} />
-            <img className="h-8 md:h-12 mr-2" src="images/import-icon.svg" alt="Select an Image" />
-            <h5 className="md:text-lg flex-nowrap">{this.props.t('select_image')}</h5>
+          <label htmlFor="file-picker" className="btn-import grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 cursor-pointer duration-200">
+            <input type="file" id="file-picker" className="hidden" accept="image/*, application/pdf" onChange={e => this.pickFile(e.target.files)} />
+            <img className="h-8 md:h-12 mr-2" src="images/import-icon.svg" alt="Select a File" />
+            <h5 className="md:text-lg whitespace-nowrap">{this.props.t('select_file')}</h5>
           </label>
           <button className="btn-screenshot grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 duration-200" onClick={this.takeScreenCapture.bind(this)}>
             <img className="h-8 md:h-12 mr-2" src="images/share-screen-icon.svg" alt="Screen Capture" />
@@ -523,6 +643,14 @@ class RecognitionContainer extends React.Component {
           calculateLines={this.calculateLines.bind(this)}
           toggleOption={this.toggleOption.bind(this)}
           toggleSelectAllGroup={this.toggleSelectAllGroup.bind(this)}
+        />
+        <PdfSettingPrompt
+          props={this.props}
+          isPromptOpened={this.state.isPromptOpened}
+          isOCREnabled={this.state.isOCREnabled}
+          cancelRecognition={this.cancelRecognition.bind(this)}
+          enableOCRMode={this.enableOCRMode.bind(this)}
+          confirmSetting={this.confirmSetting.bind(this)}
         />
         <TajweedPreview
           props={this.props}
