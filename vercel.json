@@ -4,5 +4,6 @@
             "source": "/sitemap.xml",
             "destination": "/sitemap.xml"
         }
-    ]
+    ],
+    "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }]
 }

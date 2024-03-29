@@ -186,6 +186,7 @@ class RecognitionContainer extends React.Component {
 
   setUpCamera = async () => {
     if (location.protocol.startsWith('https') || location.hostname === 'localhost') {
+      this.setState({ isCameraModeSelected: true })
       let idealAspectRatio = 1
       if (window.innerHeight > window.innerWidth) idealAspectRatio = 4 / 3
       else idealAspectRatio = 3 / 4
@@ -198,13 +199,11 @@ class RecognitionContainer extends React.Component {
       }
       try {
         this.stream = await navigator.mediaDevices.getUserMedia(constraints)
-        this.setState({ isCameraPermissionGranted: true, isCameraModeSelected: true }, () => {
+        this.setState({ isCameraPermissionGranted: true }, () => {
           this.cameraRef.current.srcObject = this.stream
         })
       } catch (error) {
-        this.setState(() => ({
-          isCameraPermissionGranted: false
-        }))
+        this.setState(() => ({ isCameraPermissionGranted: false }))
         Swal.fire({
           icon: 'error',
           title: this.props.t('camera_title_alert.0'),
