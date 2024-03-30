@@ -4,7 +4,7 @@ import { withTranslation } from "react-i18next"
 
 const FooterContainer = ({ t }) => (
   <footer className="p-2">
-    <h3 className="my-2 text-green-700 dark:text-gray-200">{t('sources')}</h3>
+    <h4 className="my-2 text-green-700 dark:text-gray-200">{t('sources')}</h4>
     <ul className="grid grid-flow-row gap-2">
     {sources.map((source, idx) =>
       (

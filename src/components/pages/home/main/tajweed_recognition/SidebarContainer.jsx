@@ -3,7 +3,7 @@ import React, { Fragment } from "react"
 import { withTranslation } from "react-i18next"
 
 const SidebarContainer = ({ props, selectedTajweedIds, filteredTajweeds, toggleOption, toggleSelectAllGroup }) => (
-  <aside className="hidden w-0 lg:inline-block lg:w-1/4 bg-green-50 dark:bg-gray-700 overflow-y-auto">
+  <aside className="hidden w-0 lg:inline-block lg:w-1/4 bg-green-50 dark:bg-gray-700 shadow-lg dark:shadow-white/50 overflow-y-auto">
     <h4 className="px-3 py-2">{props.t("sidebar_title")}</h4>
     {Array.from(new Set(filteredTajweeds.map(tajweedLaw => tajweedLaw.category))).map(category => (
       <Disclosure as={"menu"} key={category} className={"px-2"}>

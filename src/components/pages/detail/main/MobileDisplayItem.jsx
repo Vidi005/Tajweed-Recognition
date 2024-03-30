@@ -41,15 +41,12 @@ const MobileDisplayItem = ({ t }) => {
           <article className="p-1 text-justify text-green-800 dark:text-gray-100">{findTajweedLaw().detail}</article>
           <article className="border-t border-t-green-700 dark:border-t-gray-200 p-2 text-green-700 dark:text-gray-200">
             <h4>{t('examples')}</h4>
-            <table>
+            <table className="table-auto">
               <tbody>
                 {findTajweedLaw().examples.map((example, idx) => (
                   <tr key={idx}>
-                    <td>
-                      <ul>
-                        <li>{example}</li>
-                      </ul>
-                    </td>
+                    <td className="pr-2">•</td>
+                    <td>{example}</td>
                   </tr>
                 ))}
               </tbody>
