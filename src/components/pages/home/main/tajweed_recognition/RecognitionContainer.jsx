@@ -230,8 +230,7 @@ class RecognitionContainer extends React.Component {
     if (this.stream) {
       this.setState(prevState => ({
         isBtnCaptureClicked: !prevState.isBtnCaptureClicked,
-        isRecognizing: true,
-        isCameraModeSelected: false
+        isRecognizing: true
       }))
       const canvas = this.canvasRef.current
       const video = this.cameraRef.current
@@ -240,6 +239,7 @@ class RecognitionContainer extends React.Component {
         canvas.height = video.clientHeight
         canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height)
         this.recognizeImage(canvas.toDataURL())
+        this.onCloseCamera()
       } else {
         this.setState({ isRecognizing: false })
         Swal.fire({
