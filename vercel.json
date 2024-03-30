@@ -1,9 +1,9 @@
 {
-    "rewrites": [
+    "routes": [
         {
-            "source": "/sitemap.xml",
-            "destination": "/sitemap.xml"
+            "src": "/(?!sitemap\\.xml$)[^.]+",
+            "dest": "/",
+            "status": 200
         }
-    ],
-    "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }]
+    ]
 }
