@@ -37,11 +37,12 @@ const MenuBarContainer = ({ isEditMode, selectedTajweedIds, filteredTajweeds, to
                   <Listbox.Label className={"flex items-center flex-nowrap cursor-pointer p-2 text-green-900 dark:text-gray-50 animate__animated animate__fadeInRight animate__faster"} key={tajweedLaw.id} value={tajweedLaw.id}>
                     <input
                       type="checkbox"
-                      className="form-checkbox accent-green-700 dark:accent-gray-500 h-5 w-5 ml-6 mr-3 duration-200"
+                      className="form-checkbox h-5 w-5 ml-6 mr-3 duration-200"
+                      style={{ accentColor: tajweedLaw.color }}
                       checked={selectedTajweedIds.includes(tajweedLaw.id)}
                       onChange={() => toggleOption(tajweedLaw.id)}
                     />
-                    <span className="grow text-sm md:text-base">{tajweedLaw.name}</span>
+                    <span className="grow text-sm md:text-base brightness-75 dark:brightness-110" style={{ color: tajweedLaw.color }}>{tajweedLaw.name}</span>
                   </Listbox.Label>
                 ))}
               </React.Fragment>
