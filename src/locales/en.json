@@ -17,6 +17,8 @@
     "empty_text": ["No Text Found!", "Please try other contained text file."],
     "empty_arabic_text": ["There was no Arabic text found!.", "Please try other contained Arabic Characters file."],
     "recognition_failed": "Failed to Recognize Text!",
+    "sidebar_title": "Tajweed Display Setting",
+    "select_all": "Select All",
     "unsaved_warning": "Are you sure want to close this result?",
     "capture_image": "Capture Image",
     "capture_error": "Capturing Error!",

@@ -17,6 +17,8 @@
     "empty_text": ["Tidak ada teks!", "Silakan coba file lain yang terdapat huruf."],
     "empty_arabic_text": ["Tidak ada teks Arab ditemukan!", "Silakan coba dengan teks yang terdapat huruf Arab."],
     "recognition_failed": "Gagal Mengenali Teks!",
+    "sidebar_title": "Pengaturan Tampilan Tadjwid",
+    "select_all": "Pilih Semua",
     "unsaved_warning": "Apakah Anda yakin ingin menutup hasil ini?",
     "capture_image": "Ambil Gambar",
     "capture_error": "Tidak dapat mengambil gambar!",

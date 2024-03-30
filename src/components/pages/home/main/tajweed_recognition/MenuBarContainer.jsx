@@ -3,9 +3,9 @@ import React, { Fragment } from "react"
 import Swal from "sweetalert2"
 
 const MenuBarContainer = ({ isEditMode, selectedTajweedIds, filteredTajweeds, toggleOption, toggleSelectAllGroup, closeResult }) => (
-  <div className="menu-bar__container flex flex-nowrap items-center w-full p-1 bg-green-50 dark:bg-gray-700 shadow-lg">
+  <header className="menu-bar__container flex flex-nowrap items-center w-full p-1 bg-green-50 dark:bg-gray-700 shadow-lg">
     <h3 className="title-bar flex-1 pl-2 text-green-900 dark:text-white">{isEditMode ? "Editor" : "Result"}</h3>
-    <Popover className={"menu-btn flex-none inline-block md:hidden h-10"}>
+    <Popover className={"menu-btn flex-none inline-block lg:hidden h-10"}>
       <Popover.Button className={"p-2 hover:bg-green-800/25 dark:hover:bg-gray-500 active:bg-green-800/40 dark:active:bg-gray-300 duration-200 rounded-md"} disabled={filteredTajweeds.length === 0}>
         <img className="dark:hidden h-full duration-200" src="images/tajweed-menu-icon.svg" alt="Tajweed Settings" />
         <img className="hidden dark:block h-full duration-200" src="images/tajweed-menu-icon-dark.svg" alt="Tajweed Settings" />
@@ -66,7 +66,7 @@ const MenuBarContainer = ({ isEditMode, selectedTajweedIds, filteredTajweeds, to
       <img className="dark:hidden h-full duration-200" src="images/close-icon.svg" alt="Close" />
       <img className="hidden dark:block h-full duration-200" src="images/close-icon-dark.svg" alt="Close" />
     </button>
-  </div>
+  </header>
 )
 
 export default MenuBarContainer

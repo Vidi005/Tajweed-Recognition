@@ -15,21 +15,21 @@ const SliderContainer = ({ colorizedTajweeds, carouselItemsRefs, calculateLines,
     prevArrow: <CustomPrevArrow />,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1280,
         settings: {
           slidesToShow: colorizedTajweeds?.length > 3 ? 4 : colorizedTajweeds?.length,
           slidesToScroll: colorizedTajweeds?.length > 3 ? 4 : colorizedTajweeds?.length
         }
       },
       {
-        breakpoint: 768,
+        breakpoint: 1024,
         settings: {
           slidesToShow: colorizedTajweeds?.length > 2 ? 3 : colorizedTajweeds?.length,
           slidesToScroll: colorizedTajweeds?.length > 2 ? 3 : colorizedTajweeds?.length
         }
       },
       {
-        breakpoint: 640,
+        breakpoint: 768,
         settings: {
           slidesToShow: colorizedTajweeds?.length > 1 ? 2 : colorizedTajweeds?.length,
           slidesToScroll: colorizedTajweeds?.length > 1 ? 2 : colorizedTajweeds?.length
