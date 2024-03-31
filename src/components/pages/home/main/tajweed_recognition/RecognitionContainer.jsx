@@ -493,19 +493,21 @@ class RecognitionContainer extends React.Component {
       setTimeout(() => {
         const contentContainerRect = this.contentContainerRef.current.getBoundingClientRect()
         const tooltip = this.tooltipRef.current
-        const tooltipWidth = tooltip.offsetWidth
-        const tooltipHeight = tooltip.offsetHeight
+        const tooltipWidth = tooltip?.offsetWidth
+        const tooltipHeight = tooltip?.offsetHeight
         const containerHalfWidth = contentContainerRect.width / 2
         const leftPosition = event.clientX
-        if (leftPosition < containerHalfWidth) {
-          tooltip.style.left = `${leftPosition}px`
-          tooltip.style.right = 'auto'
-        } else {
-          tooltip.style.left = `${leftPosition - tooltipWidth}px`
-          tooltip.style.right = 'auto'
+        if (tooltip) {
+          if (leftPosition < containerHalfWidth) {
+            tooltip.style.left = `${leftPosition}px`
+            tooltip.style.right = 'auto'
+          } else {
+            tooltip.style.left = `${leftPosition - tooltipWidth}px`
+            tooltip.style.right = 'auto'
+          }
+          tooltip.style.top = `${event.clientY - tooltipHeight - 10}px`
+          tooltip.style.backgroundColor = tooltipColor
         }
-        tooltip.style.top = `${event.clientY - tooltipHeight - 10}px`
-        tooltip.style.backgroundColor = tooltipColor
       }, 10)
     }
   }

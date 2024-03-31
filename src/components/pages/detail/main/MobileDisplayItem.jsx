@@ -45,7 +45,7 @@ const MobileDisplayItem = ({ t }) => {
               <tbody>
                 {findTajweedLaw().examples.map((example, idx) => (
                   <tr key={idx}>
-                    <td className="pr-2">•</td>
+                    <td className="pr-2 align-top">•</td>
                     <td>{example}</td>
                   </tr>
                 ))}
