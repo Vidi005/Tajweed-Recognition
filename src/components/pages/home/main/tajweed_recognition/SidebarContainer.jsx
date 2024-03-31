@@ -29,7 +29,7 @@ const SidebarContainer = ({ props, selectedTajweedIds, filteredTajweeds, toggleO
                       name="select-all"
                       id="select-all"
                       className="form-checkbox accent-green-600 dark:accent-gray-600 h-5 w-5 mr-4 duration-200"
-                      checked={filteredTajweeds.filter(tajweedLaw => tajweedLaw.category === category).every(tajweedLaw => selectedTajweedIds.includes(tajweedLaw.id))}
+                      checked={filteredTajweeds.filter(tajweedLaw => tajweedLaw.category === category).every(tajweedLaw => selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id))}
                       onChange={() => toggleSelectAllGroup(category)}
                     />
                     <span className="grow text-base">{props.t('select_all')}</span>
@@ -42,7 +42,7 @@ const SidebarContainer = ({ props, selectedTajweedIds, filteredTajweeds, toggleO
                         id={tajweedLaw.id}
                         className="form-checkbox h-5 w-5 ml-6 mr-3 duration-200"
                         style={{ accentColor: tajweedLaw.color }}
-                        checked={selectedTajweedIds.includes(tajweedLaw.id)}
+                        checked={selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id)}
                         onChange={() => toggleOption(tajweedLaw.id)}
                       />
                       <span className="grow text-base brightness-75 dark:brightness-110" style={{ color: tajweedLaw.color }}>{tajweedLaw.name}</span>

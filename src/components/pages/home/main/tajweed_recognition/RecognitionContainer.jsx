@@ -560,14 +560,14 @@ class RecognitionContainer extends React.Component {
   changeSelectOptions() {
     const filteredTajweeds = [...this.state.filteredTajweeds]
     this.setState({
-      selectedTajweedLaws: filteredTajweeds.filter(tajweedLaw => this.state.selectedTajweedIds.includes(tajweedLaw.id)),
-      coloredTajweeds: colorizeChars(this.state.recognizedText, filteredTajweeds.filter(tajweedLaw => this.state.selectedTajweedIds.includes(tajweedLaw.id)))
+      selectedTajweedLaws: filteredTajweeds.filter(tajweedLaw => this.state.selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id)),
+      coloredTajweeds: colorizeChars(this.state.recognizedText, filteredTajweeds.filter(tajweedLaw => this.state.selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id)))
     })
   }
 
   toggleOption(optionId) {
     const { selectedTajweedIds } = this.state
-    if (selectedTajweedIds.includes(optionId)) {
+    if (selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === optionId)) {
       this.setState({ selectedTajweedIds: selectedTajweedIds.filter(id => id !== optionId) }, () => {
         this.changeSelectOptions()
       })
@@ -582,8 +582,8 @@ class RecognitionContainer extends React.Component {
     const { selectedTajweedIds } = this.state
     const { filteredTajweeds } = this.state
     const groupOptions = filteredTajweeds.filter(tajweedLaw => tajweedLaw.category === group).map(tajweedLaw => tajweedLaw.id)
-    if (selectedTajweedIds.some(optionId => groupOptions.includes(optionId))) {
-      this.setState({selectedTajweedIds: selectedTajweedIds.filter(optionId => !groupOptions.includes(optionId))}, () => {
+    if (selectedTajweedIds.some(optionId => groupOptions.some(groupOption => groupOption === optionId))) {
+      this.setState({selectedTajweedIds: selectedTajweedIds.filter(optionId => !groupOptions.some(groupOption => groupOption === optionId))}, () => {
         this.changeSelectOptions()
       })
     } else this.setState({ selectedTajweedIds: [...selectedTajweedIds, ...groupOptions] }, () => this.changeSelectOptions())
