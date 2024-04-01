@@ -530,7 +530,7 @@ class RecognitionContainer extends React.Component {
 
   filterColorizedTajweeds(coloredTajweeds) {
     const colorizedTajweeds = tajweedLaws().filter(tajweedLaw => {
-      const styleRegex = new RegExp(`class="tajweed-${tajweedLaw.id}"`)
+      const styleRegex = new RegExp(`class="tajweed-${tajweedLaw.id}" `)
       return styleRegex.test(coloredTajweeds)
     }).sort((a, b) => a.id - b.id)
     this.setState({
