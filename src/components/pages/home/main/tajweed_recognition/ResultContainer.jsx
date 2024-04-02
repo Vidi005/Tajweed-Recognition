@@ -20,7 +20,7 @@ const ResultContainer = ({ props, state, increaseTextSize, contentContainerRef, 
       leaveFrom="opacity-100 translate-y-0"
       leaveTo="opacity-0 translate-y-full"
     >
-      <Dialog className="result-container fixed inset-0 flex flex-col bg-green-100 dark:bg-black" onClose={closeResult}>
+      <Dialog className="result-container fixed inset-0 flex flex-col bg-green-100 dark:bg-black" onClose={hideTooltip}>
         <MenuBarContainer
           props={props}
           isEditMode={state.isEditMode}
