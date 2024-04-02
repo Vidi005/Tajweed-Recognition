@@ -1,9 +1,10 @@
 import React from "react"
 import CameraSwitcher from "./CameraSwitcher"
 import { withTranslation } from "react-i18next"
+import { Dialog } from "@headlessui/react"
 
-const CameraContainer = ({ props, cameraRef, canvasRef, isCameraPermissionGranted, isCameraReady, setUpCamera, onCloseCamera, captureImage, switchCamera }) => (
-  <div className="fixed inset-0 bg-green-100 dark:bg-black animate__animated animate__fadeInRight animate__faster">
+const CameraContainer = ({ props, cameraRef, canvasRef, isCameraModeSelected, isCameraPermissionGranted, isCameraReady, setUpCamera, onCloseCamera, captureImage, switchCamera }) => (
+  <Dialog open={isCameraModeSelected} className="fixed inset-0 bg-green-100 dark:bg-black animate__animated animate__fadeInRight animate__faster" onClose={onCloseCamera}>
     <header className="camera-container__header sticky top-0 w-full p-2 bg-green-800 text-white text-center shadow-xl">
       <h2>{props.t('capture_image')}</h2>
     </header>
@@ -50,7 +51,7 @@ const CameraContainer = ({ props, cameraRef, canvasRef, isCameraPermissionGrante
           </section>
           )
     }
-  </div>
+  </Dialog>
   )
 
 export default withTranslation()(CameraContainer)

@@ -647,6 +647,7 @@ class RecognitionContainer extends React.Component {
             props={this.props}
             cameraRef={this.cameraRef}
             canvasRef={this.canvasRef}
+            isCameraModeSelected={this.state.isCameraModeSelected}
             isCameraPermissionGranted={this.state.isCameraPermissionGranted}
             isCameraReady={this.stream}
             setUpCamera={this.setUpCamera.bind(this)}
