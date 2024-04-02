@@ -31,6 +31,7 @@
     "screen_capture": "Tangkapan Layar",
     "manual_input": "Input Manual",
     "recognizing": "Memproses...",
+    "container_title": ["Editor", "Hasil"],
     "generate": "Generate",
     "detail_tajweed": "Lihat Detil",
     "search_items": "Cari Tadjwid",

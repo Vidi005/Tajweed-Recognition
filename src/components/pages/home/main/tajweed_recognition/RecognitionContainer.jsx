@@ -10,6 +10,7 @@ import TajweedPreview from "./pop_up/TajweedPreview"
 import PdfSettingPrompt from "./pop_up/PdfSettingPrompt"
 import { pdfjs } from "react-pdf"
 import CameraContainer from "./camera_mode/CameraContainer"
+import { Dialog } from "@headlessui/react"
 
 if (import.meta && import.meta.url) {
   pdfjs.GlobalWorkerOptions.workerSrc = new URL(
@@ -635,14 +636,12 @@ class RecognitionContainer extends React.Component {
           </button>
         </div>
         <h5>Tajweed Recognition @ {new Date().getFullYear()}</h5>
-        {this.state.isRecognizing && (
-          <div className="fixed inset-0 w-screen h-full flex items-center justify-center bg-black/50 backdrop-blur-sm duration-200 animate__animated animate__fadeIn">
-            <div className="flex items-center justify-center space-x-2">
-              <span className="w-8 h-8 aspect-square border-t-2 border-r-2 border-t-white border-r-white rounded-full bg-transparent animate-spin"></span>
-              <span className="text-white text-xl">{this.props.t('recognizing')}</span>
-            </div>
+        <Dialog open={this.state.isRecognizing} onClose={this.cancelRecognition.bind(this)} className="fixed inset-0 w-screen h-full flex items-center justify-center bg-black/50 backdrop-blur-sm duration-200 animate__animated animate__fadeIn">
+          <div className="flex items-center justify-center space-x-2">
+            <span className="w-8 h-8 aspect-square border-t-2 border-r-2 border-t-white border-r-white rounded-full bg-transparent animate-spin"></span>
+            <span className="text-white text-xl">{this.props.t('recognizing')}</span>
           </div>
-        )}
+        </Dialog>
         {this.state.isCameraModeSelected && (
           <CameraContainer
             props={this.props}

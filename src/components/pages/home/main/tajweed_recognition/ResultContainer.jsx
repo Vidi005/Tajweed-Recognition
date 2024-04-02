@@ -1,7 +1,7 @@
 /* eslint-disable react/no-danger-with-children */
 import React, { Fragment } from "react"
 import { withTranslation } from "react-i18next"
-import { Transition } from "@headlessui/react"
+import { Dialog, Transition } from "@headlessui/react"
 import MenuBarContainer from "./MenuBarContainer"
 import SliderContainer from "./SliderContainer"
 import TajweedGuidelines from "./TajweedGuidelines"
@@ -20,7 +20,7 @@ const ResultContainer = ({ props, state, increaseTextSize, contentContainerRef, 
       leaveFrom="opacity-100 translate-y-0"
       leaveTo="opacity-0 translate-y-full"
     >
-      <div className="result-container fixed inset-0 flex flex-col bg-green-100 dark:bg-black">
+      <Dialog className="result-container fixed inset-0 flex flex-col bg-green-100 dark:bg-black" onClose={closeResult}>
         <MenuBarContainer
           props={props}
           isEditMode={state.isEditMode}
@@ -91,7 +91,7 @@ const ResultContainer = ({ props, state, increaseTextSize, contentContainerRef, 
             />
           </article>
         </main>
-      </div>
+      </Dialog>
     </Transition>
   )
 )

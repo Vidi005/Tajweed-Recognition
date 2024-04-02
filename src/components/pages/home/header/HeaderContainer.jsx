@@ -2,7 +2,7 @@ import { Menu, Switch, Transition } from "@headlessui/react"
 import React, { Fragment } from "react"
 
 const HeaderContainer = ({ headerTitle, changeLanguage, setDisplayMode, isDarkMode }) => (
-  <header className="app-header relative flex flex-nowrap items-center justify-between bg-green-800 w-full p-1 shadow-xl">
+  <header className="app-header sticky top-0 flex flex-nowrap items-center justify-between bg-green-800 w-full p-1 shadow-xl z-10">
     <section className="header-title grow flex items-center p-1">
       <h2 className="grow font-ramadhan-start text-white">{headerTitle}</h2>
     </section>

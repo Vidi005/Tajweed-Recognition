@@ -23,7 +23,7 @@ const SidebarContainer = ({ props, selectedTajweedIds, filteredTajweeds, toggleO
                   leaveFrom="opacity-100 translate-y-0"
                   leaveTo="opacity-50 -translate-y-1/2"
                 >
-                  <label className="flex items-center flex-nowrap cursor-pointer px-3 py-2 bg-green-700/50 dark:bg-gray-800 text-white rounded-md" htmlFor="select-all">
+                  <label className="flex items-center flex-nowrap cursor-pointer px-3 py-2 bg-green-700/50 dark:bg-gray-800 text-white hover:translate-x-2 duration-300 rounded-md" htmlFor="select-all">
                     <input
                       type="checkbox"
                       name="select-all"
@@ -35,7 +35,7 @@ const SidebarContainer = ({ props, selectedTajweedIds, filteredTajweeds, toggleO
                     <span className="grow text-base">{props.t('select_all')}</span>
                   </label>
                   {filteredTajweeds.filter(tajweedLaw => tajweedLaw.category === category).map(tajweedLaw => (
-                    <label className="flex items-center flex-nowrap cursor-pointer px-3 py-2" key={tajweedLaw.id} htmlFor={tajweedLaw.id}>
+                    <label className="flex items-center flex-nowrap cursor-pointer px-3 py-2 hover:translate-x-2 duration-300" key={tajweedLaw.id} htmlFor={tajweedLaw.id}>
                       <input
                         name={tajweedLaw.id}
                         type="checkbox"
