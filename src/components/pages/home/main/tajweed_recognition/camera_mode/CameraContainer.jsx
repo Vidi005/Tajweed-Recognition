@@ -1,12 +1,11 @@
 import React from "react"
 import CameraSwitcher from "./CameraSwitcher"
-import { withTranslation } from "react-i18next"
 import { Dialog } from "@headlessui/react"
 
-const CameraContainer = ({ props, cameraRef, canvasRef, isCameraModeSelected, isCameraPermissionGranted, isCameraReady, setUpCamera, onCloseCamera, captureImage, switchCamera }) => (
+const CameraContainer = ({ t, cameraRef, canvasRef, isCameraModeSelected, isCameraPermissionGranted, isCameraReady, setUpCamera, onCloseCamera, captureImage, switchCamera }) => (
   <Dialog open={isCameraModeSelected} className="fixed inset-0 bg-green-100 dark:bg-black animate__animated animate__fadeInRight animate__faster" onClose={onCloseCamera}>
     <header className="camera-container__header sticky top-0 w-full p-2 bg-green-800 text-white text-center shadow-xl">
-      <h2>{props.t('capture_image')}</h2>
+      <h2>{t('capture_image')}</h2>
     </header>
     {isCameraReady
       ? <video
@@ -47,11 +46,11 @@ const CameraContainer = ({ props, cameraRef, canvasRef, isCameraModeSelected, is
             <button
               className="bg-white my-2 active:bg-green-700 active:border-2 active:border-white p-3 font-sans text-green-900 active:text-white duration-200 rounded-xl shadow-xl"
               onClick={setUpCamera}
-            >{props.t('camera_permission')}</button>
+            >{t('camera_permission')}</button>
           </section>
           )
     }
   </Dialog>
   )
 
-export default withTranslation()(CameraContainer)
+export default CameraContainer

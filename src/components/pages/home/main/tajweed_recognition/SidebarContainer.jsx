@@ -1,10 +1,9 @@
 import { Disclosure, Transition } from "@headlessui/react"
 import React, { Fragment } from "react"
-import { withTranslation } from "react-i18next"
 
-const SidebarContainer = ({ props, selectedTajweedIds, filteredTajweeds, toggleOption, toggleSelectAllGroup }) => (
+const SidebarContainer = ({ t, selectedTajweedIds, filteredTajweeds, toggleOption, toggleSelectAllGroup }) => (
   <aside className="hidden w-0 lg:inline-block lg:w-1/4 bg-green-50 dark:bg-gray-700 shadow-lg dark:shadow-white/50 overflow-y-auto">
-    <h4 className="px-3 py-2 text-green-900 dark:text-white">{props.t("sidebar_title")}</h4>
+    <h4 className="px-3 py-2 text-green-900 dark:text-white">{t("sidebar_title")}</h4>
     {Array.from(new Set(filteredTajweeds.map(tajweedLaw => tajweedLaw.category))).map(category => (
       <Disclosure as={"menu"} key={category} className={"px-2"}>
         {({ open }) => (
@@ -32,7 +31,7 @@ const SidebarContainer = ({ props, selectedTajweedIds, filteredTajweeds, toggleO
                       checked={filteredTajweeds.filter(tajweedLaw => tajweedLaw.category === category).every(tajweedLaw => selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id))}
                       onChange={() => toggleSelectAllGroup(category)}
                     />
-                    <span className="grow text-base">{props.t('select_all')}</span>
+                    <span className="grow text-base">{t('select_all')}</span>
                   </label>
                   {filteredTajweeds.filter(tajweedLaw => tajweedLaw.category === category).map(tajweedLaw => (
                     <label className="flex items-center flex-nowrap cursor-pointer px-3 py-2 hover:translate-x-2 duration-300" key={tajweedLaw.id} htmlFor={tajweedLaw.id}>
@@ -58,4 +57,4 @@ const SidebarContainer = ({ props, selectedTajweedIds, filteredTajweeds, toggleO
   </aside>
 )
 
-export default withTranslation()(SidebarContainer)
+export default SidebarContainer

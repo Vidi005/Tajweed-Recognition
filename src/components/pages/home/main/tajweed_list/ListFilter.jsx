@@ -1,9 +1,8 @@
 import { Menu, Transition } from "@headlessui/react"
 import React, { Fragment } from "react"
-import { withTranslation } from "react-i18next"
 import en from "../../../../../locales/en.json"
 
-const ListFilter = ({ props, filterItems }) => (
+const ListFilter = ({ t, filterItems }) => (
   <Menu as={"menu"} className={"list-filter relative inline-block z-10"}>
     <Menu.Button className={"bg-green-100 dark:bg-gray-300 md:mx-1 p-1 hover:bg-green-800/40 dark:hover:bg-gray-50 rounded-lg shadow dark:shadow-white/50 duration-200"}>
       <img className="h-7 aspect-square" src="images/filter-icon.svg" alt="Filter" />
@@ -23,9 +22,9 @@ const ListFilter = ({ props, filterItems }) => (
             key={index}
             as={"span"}
             className={"text-green-900 dark:text-white bg-green-100 dark:bg-gray-800 hover:text-white dark:hover:text-green-900 hover:bg-green-800 dark:hover:bg-gray-50 hover:underline p-2 duration-200 cursor-pointer rounded-md animate__animated animate__fadeInRight animate__faster"}
-            onClick={() => filterItems(props.t(`filter_tajweeds.${index}`))}
+            onClick={() => filterItems(t(`filter_tajweeds.${index}`))}
           >
-            {props.t(`filter_tajweeds.${index}`)}
+            {t(`filter_tajweeds.${index}`)}
           </Menu.Item>
         ))}
       </Menu.Items>
@@ -33,4 +32,4 @@ const ListFilter = ({ props, filterItems }) => (
   </Menu>
 )
 
-export default withTranslation()(ListFilter)
+export default ListFilter

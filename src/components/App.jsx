@@ -16,7 +16,9 @@ const App = () => (
     </Helmet>
     <Routes>
       <Route path='/' element={<HomePage/>}/>
-      <Route path='/detail' element={<DetailTajweedPage t={i18n.t}/>}/>
+      <Route path='/recognition' element={<HomePage/>}/>
+      <Route path='/tajweed-list' element={<HomePage/>}/>
+      <Route path='/tajweed-list/detail' element={<DetailTajweedPage t={i18n.t}/>}/>
       <Route path='*' element={<NoPage t={i18n.t}/>}/>
     </Routes>
   </React.Fragment>

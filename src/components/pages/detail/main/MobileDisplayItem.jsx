@@ -6,7 +6,7 @@ import FooterContainer from "../footer/FooterContainer"
 
 const MobileDisplayItem = ({ t }) => {
   const findTajweedLaw = () => {
-    const getDetailPage = tajweedLaws().find(tajweedLaw => tajweedLaw.detailPage === getDetailTajweed())
+    const getDetailPage = tajweedLaws().find(tajweedLaw => `${tajweedLaw.detailPage}` === `${getDetailTajweed()}`)
     if (getDetailPage !== undefined) {
       const getLocaleIndex = en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.page === getDetailPage.detailPage)
       const examplesArray = en.tajweed_laws[getLocaleIndex].examples.map((_, index) => t(`tajweed_laws.${getLocaleIndex}.examples.${index}`))

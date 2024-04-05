@@ -11,6 +11,7 @@ import PdfSettingPrompt from "./pop_up/PdfSettingPrompt"
 import { pdfjs } from "react-pdf"
 import CameraContainer from "./camera_mode/CameraContainer"
 import { Dialog } from "@headlessui/react"
+import { Helmet } from "react-helmet"
 
 if (import.meta && import.meta.url) {
   pdfjs.GlobalWorkerOptions.workerSrc = new URL(
@@ -613,7 +614,13 @@ class RecognitionContainer extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <DropZoneContainer props={this.props} pickFile={this.pickFile.bind(this)}/>
+        <Helmet>
+          <title>{this.props.t('tab_list.0.tab_name')}</title>
+          <meta name="keywords" content={this.props.t('tab_list.0.tab_name')} />
+          <meta name="description" content={this.props.t('app_description')}/>
+          <link rel="canonical" href="https://tajweed-recognition.vercel.app/recognize"/>
+        </Helmet>
+        <DropZoneContainer t={this.props.t} pickFile={this.pickFile.bind(this)}/>
         <h2>Recognize Tajweed</h2>
         <p className="relative text-justify lg:text-lg lg:text-center md:mx-8 lg:mx-16">{this.props.t('app_description')}</p>
         <div className="btn-container relative flex flex-wrap items-center justify-center">
@@ -636,7 +643,7 @@ class RecognitionContainer extends React.Component {
           </button>
         </div>
         <h5>Tajweed Recognition @ {new Date().getFullYear()}</h5>
-        <Dialog open={this.state.isRecognizing} onClose={this.cancelRecognition.bind(this)} className="fixed inset-0 w-screen h-full flex items-center justify-center bg-black/50 backdrop-blur-sm duration-200 animate__animated animate__fadeIn">
+        <Dialog open={this.state.isRecognizing} onClose={this.closeResult.bind(this)} className="fixed inset-0 w-screen h-full flex items-center justify-center bg-black/50 backdrop-blur-sm duration-200 animate__animated animate__fadeIn">
           <div className="flex items-center justify-center space-x-2">
             <span className="w-8 h-8 aspect-square border-t-2 border-r-2 border-t-white border-r-white rounded-full bg-transparent animate-spin"></span>
             <span className="text-white text-xl">{this.props.t('recognizing')}</span>
@@ -644,7 +651,7 @@ class RecognitionContainer extends React.Component {
         </Dialog>
         {this.state.isCameraModeSelected && (
           <CameraContainer
-            props={this.props}
+            t={this.props.t}
             cameraRef={this.cameraRef}
             canvasRef={this.canvasRef}
             isCameraModeSelected={this.state.isCameraModeSelected}
@@ -657,7 +664,7 @@ class RecognitionContainer extends React.Component {
           />
         )}
         <ResultContainer
-          props={this.props}
+          t={this.props.t}
           state={this.state}
           contentContainerRef={this.contentContainerRef}
           tooltipRef={this.tooltipRef}
@@ -676,7 +683,7 @@ class RecognitionContainer extends React.Component {
           toggleSelectAllGroup={this.toggleSelectAllGroup.bind(this)}
         />
         <PdfSettingPrompt
-          props={this.props}
+          t={this.props.t}
           isPromptOpened={this.state.isPromptOpened}
           isOCREnabled={this.state.isOCREnabled}
           cancelRecognition={this.cancelRecognition.bind(this)}
@@ -684,7 +691,7 @@ class RecognitionContainer extends React.Component {
           confirmSetting={this.confirmSetting.bind(this)}
         />
         <TajweedPreview
-          props={this.props}
+          t={this.props.t}
           isModalOpened={this.state.isModalOpened}
           selectedTajweed={this.state.selectedTajweed}
           onCloseSummaryModal={this.onCloseSummaryModal.bind(this)}

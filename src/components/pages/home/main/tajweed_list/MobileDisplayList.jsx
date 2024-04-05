@@ -1,5 +1,4 @@
 import React from "react"
-import { withTranslation } from "react-i18next"
 import TajweedItemContent from "./TajweedItemContent"
 
 const MobileDisplayList = ({ t, getFilteredTajweeds }) => getFilteredTajweeds?.length > 0
@@ -25,4 +24,4 @@ const MobileDisplayList = ({ t, getFilteredTajweeds }) => getFilteredTajweeds?.l
     </article>
     )
 
-export default withTranslation()(MobileDisplayList)
+export default MobileDisplayList

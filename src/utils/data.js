@@ -931,14 +931,24 @@ const loadFileAsArrayBuffer = file => {
   })
 }
 
+const getSelectedTabByUrl = () => {
+  const url = location.toString()
+  const selectedTab = url.split('/')
+  if (selectedTab.length > 1 && selectedTab.includes('tajweed-list')) {
+    return 1
+  } else if (selectedTab.length > 1 && selectedTab.includes('recognition')) {
+    return 0
+  }
+}
+
 const getDetailTajweed = () => {
   const url = location.toString()
   const detailTajweed = url.substring(url.indexOf('?'))
-  if (url.includes('?tajweed=') && detailTajweed.length > 1) {
+  if (url.includes('?tajweed=') && url.includes('tajweed-list') && detailTajweed.length > 1) {
     return `/detail${detailTajweed}`
   } else {
     return ''
   }
 }
 
-export { isStorageExist, removeNonArabic, buildRegExp, colorizeChars, checkParamEvent, twTextSizes, tajweedLaws, loadFileAsArrayBuffer, getDetailTajweed, sources }
+export { isStorageExist, removeNonArabic, buildRegExp, colorizeChars, checkParamEvent, twTextSizes, tajweedLaws, loadFileAsArrayBuffer, getSelectedTabByUrl, getDetailTajweed, sources }

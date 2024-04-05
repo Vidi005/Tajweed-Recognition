@@ -3,6 +3,8 @@ import { withTranslation } from "react-i18next"
 import ListToolbar from "./ListToolbar"
 import MobileDisplayList from "./MobileDisplayList"
 import { tajweedLaws } from "../../../../../utils/data"
+import LargeDisplayList from "./LargeDisplayList"
+import { Helmet } from "react-helmet"
 
 class ListContainer extends React.Component {
   constructor(props) {
@@ -68,14 +70,24 @@ class ListContainer extends React.Component {
   render () {
     return (
       <React.Fragment>
+        <Helmet>
+          <title>{this.props.t('tab_list.1.tab_name')}</title>
+          <meta name="keywords" content={this.props.t('tab_list.1.tab_name')} />
+          <link rel="canonical" href="https://tajweed-recognition.vercel.app/tajweed-list"/>
+        </Helmet>
         <ListToolbar
-          props={this.props}
+          t={this.props.t}
           searchItems={this.searchHandler.bind(this)}
           filterItems={this.filterHandler.bind(this)}
         />
         <section className="nav-product-list min-h-full max-h-full bg-green-100 dark:bg-gray-900 overflow-y-auto animate__animated animate__fadeIn animate__faster">
           <MobileDisplayList t={this.props.t} getFilteredTajweeds={this.state.getFilteredTajweeds}/>
         </section>
+        <LargeDisplayList
+          props={this.props}
+          getFilteredTajweeds={this.state.getFilteredTajweeds}
+          searchItems={this.searchHandler.bind(this)}
+        />
       </React.Fragment>
     )
   }

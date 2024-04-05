@@ -6,8 +6,18 @@
       <priority>1.0</priority>
    </url>
    <url>
-      <loc>https://tajweed-recognition.vercel.app/detail</loc>
-      <lastmod>2024-03-15</lastmod>
+      <loc>https://tajweed-recognition.vercel.app/recognition</loc>
+      <lastmod>2024-03-05</lastmod>
+      <priority>1.0</priority>
+   </url>
+   <url>
+      <loc>https://tajweed-recognition.vercel.app/tajweed-list</loc>
+      <lastmod>2024-03-05</lastmod>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://tajweed-recognition.vercel.app/tajweed-list/detail</loc>
+      <lastmod>2024-03-05</lastmod>
       <priority>0.7</priority>
    </url>
 </urlset>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { isStorageExist } from '../../../utils/data'
+import { getSelectedTabByUrl, isStorageExist } from '../../../utils/data'
 import { Helmet } from 'react-helmet'
 import { withTranslation } from 'react-i18next'
 import HeaderContainer from './header/HeaderContainer'
@@ -13,9 +13,8 @@ class HomePage extends React.Component {
     this.state = {
       LANGUAGE_STORAGE_KEY: 'LANG_STORE_KEY',
       DARK_MODE_STORAGE_KEY: 'DARK_STORE_KEY',
-      TAB_INDEX_STORAGE_KEY: 'TAB_STORE_KEY',
       selectedLanguage: 'en',
-      selectedTabIndex: parseInt(sessionStorage.getItem('TAB_STORE_KEY')) || 0,
+      selectedTabIndex: getSelectedTabByUrl(),
       isDarkMode: false
     }
   }
@@ -90,9 +89,6 @@ class HomePage extends React.Component {
 
   setSelectedTabIndex (index) {
     this.setState({ selectedTabIndex: index })
-    if (isStorageExist(this.props.t('browser_warning'))) {
-      sessionStorage.setItem(this.state.TAB_INDEX_STORAGE_KEY, JSON.stringify(index))
-    }
   }
 
   render () {
@@ -113,8 +109,8 @@ class HomePage extends React.Component {
           selectedIndex={this.state.selectedTabIndex}
           onChange={this.setSelectedTabIndex.bind(this)}
         >
-          <MainContainer props={this.props}/>
-          <BottomBarContainer props={this.props}/>
+          <MainContainer t={this.props.t}/>
+          <BottomBarContainer t={this.props.t}/>
         </Tab.Group>
       </div>
     )
