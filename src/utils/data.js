@@ -951,4 +951,14 @@ const getDetailTajweed = () => {
   }
 }
 
+// const getDetailTajweed = () => {
+//   const url = location.toString()
+//   const detailTajweed = url.split('/')
+//   if (url.includes('tajweed-list') && detailTajweed.length > 5) {
+//     return `/detail/${detailTajweed[detailTajweed.length - 1]}`
+//   } else {
+//     return ''
+//   }
+// }
+
 export { isStorageExist, removeNonArabic, buildRegExp, colorizeChars, checkParamEvent, twTextSizes, tajweedLaws, loadFileAsArrayBuffer, getSelectedTabByUrl, getDetailTajweed, sources }

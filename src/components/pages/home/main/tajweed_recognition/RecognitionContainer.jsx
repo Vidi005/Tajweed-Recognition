@@ -463,6 +463,7 @@ class RecognitionContainer extends React.Component {
         recognizedText: removeNonArabic(text.trim()),
         coloredTajweeds: colorizeChars(removeNonArabic(text.trim()), tajweedLaws()),
         isRecognizing: false,
+        isEditMode: false,
         isResultClosed: false,
         dataFile: null
       }, () => this.filterColorizedTajweeds(this.state.coloredTajweeds))

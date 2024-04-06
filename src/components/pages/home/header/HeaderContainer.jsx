@@ -21,8 +21,8 @@ const HeaderContainer = ({ headerTitle, changeLanguage, setDisplayMode, isDarkMo
       </Switch>
       <Menu as={"menu"} className={"inline-block h-10 pl-2"}>
         <Menu.Button className={"inline-flex w-full items-center justify-center h-full p-2 hover:bg-black/50 focus-visible:ring-2 focus-visible:ring-white/75 duration-200 rounded-md"}>
-          <img className="h-full object-contain" src="images/lang-icon.svg" alt="Languages" />
-          <img className="h-full object-contain" src="images/expand-icon.svg" alt="Expand" />
+          <img className="h-full object-contain" src={`${import.meta.env.BASE_URL}images/lang-icon.svg`} alt="Languages" />
+          <img className="h-full object-contain" src={`${import.meta.env.BASE_URL}images/expand-icon.svg`} alt="Expand" />
         </Menu.Button>
         <Transition
           as={Fragment}

@@ -1,12 +1,12 @@
 import React, { Fragment } from "react"
 import SearchBar from "./SearchBar"
 import { Disclosure, Transition } from "@headlessui/react"
-import { withTranslation } from "react-i18next"
+import { Link } from "react-router-dom"
 
-const SidebarContainer = ({ t, searchitem, getFilteredTajweeds }) => (
-  <aside className="hidden lg:inline-block lg:w-1/4 bg-green-50 dark:bg-gray-700 shadow-lg dark:shadow-white/50 overflow-y-auto">
-    <h4 className="p-2 text-green-900 dark:text-white">Tajweed List</h4>
-    <SearchBar t={t} searchItems={searchitem}/>
+const SidebarContainer = ({ t, searchItems, getFilteredTajweeds }) => (
+  <aside className="hidden max-h-full p-2 lg:inline-block lg:w-1/4 bg-green-50 dark:bg-gray-700 shadow-lg dark:shadow-white/50 duration-200 overflow-y-auto">
+    <h3 className="m-1 p-2 text-green-900 dark:text-white">Tajweed List</h3>
+    <SearchBar t={t} searchItems={searchItems}/>
     {
       getFilteredTajweeds?.length > 0
         ? <>
@@ -14,12 +14,12 @@ const SidebarContainer = ({ t, searchitem, getFilteredTajweeds }) => (
             <Disclosure as={"menu"} key={category} className={"px-2"}>
               {({ open }) => (
                 <>
-                  <Disclosure.Button className={"flex w-full items-center m-1 p-2 text-green-900 dark:text-gray-100 hover:text-green-800/75 dark:hover:text-white duration-200"}>
-                    <img className={`${open ? "-rotate-180 duration-200" : "duration-200"} max-h-8`} src="images/expand-icon.svg" alt="Expand" />
-                    <span>{category}</span>
+                  <Disclosure.Button className={"flex w-full items-center my-1 py-2 font-bold text-green-900 dark:text-gray-100 group hover:text-green-800/75 dark:hover:text-white duration-200"}>
+                    <img className={`${open ? "duration-200" : "-rotate-90 duration-200"} max-h-8 invert dark:invert-0`} src="images/expand-icon.svg" alt="Expand" />
+                    <span className="group-hover:underline duration-200">{category}</span>
                   </Disclosure.Button>
                   <Transition as={Fragment} appear show={open}>
-                    <Disclosure.Panel className={"max-w-full mx-1 overflow-hidden"}>
+                    <Disclosure.Panel className={"max-w-full overflow-hidden"}>
                       <Transition.Child
                         enter="ease-out duration-300"
                         enterFrom="opacity-50 -translate-y-1/2"
@@ -29,8 +29,8 @@ const SidebarContainer = ({ t, searchitem, getFilteredTajweeds }) => (
                         leaveTo="opacity-50 -translate-y-1/2"
                       >
                         <li>
-                          {getFilteredTajweeds.filter(tajweedLaw => tajweedLaw.category === category).map(tajweedLaw => <ul className="p-2 text-base text-green-800 dark:text-gray-200 hover:text-green-700/75 dark:hover:text-gray-50 hover:translate-x-2 duration-300" key={tajweedLaw.id}>
-                            {tajweedLaw.name}
+                          {getFilteredTajweeds.filter(tajweedLaw => tajweedLaw.category === category).map(tajweedLaw => <ul className="max-w-full ml-4 p-2 text-base text-green-800 dark:text-gray-200 hover:text-green-700/75 dark:hover:text-gray-50 hover:underline hover:translate-x-2 cursor-pointer duration-300" key={tajweedLaw.id}>
+                            <Link to={`/tajweed-list${tajweedLaw.page}`}>{tajweedLaw.name}</Link>
                           </ul>)}
                         </li>
                       </Transition.Child>
@@ -42,7 +42,7 @@ const SidebarContainer = ({ t, searchitem, getFilteredTajweeds }) => (
           ))}
           </>
         : (
-          <article className="nav-product-list__content min-h-full lg:hidden font-bold text-center text-green-900 dark:text-white dark:bg-gray-900">
+          <article className="nav-product-list__content max-h-full lg:hidden font-bold text-center text-green-900 dark:text-white dark:bg-gray-900">
             <p className="border border-green-800 dark:border-gray-300 m-1 p-4 bg-green-50 dark:bg-gray-800 rounded-lg">{t('empty_list')}</p>
           </article>
           )

@@ -16,7 +16,7 @@ class SearchBar extends React.Component {
     return (
       <input
         type="search"
-        className="search-bar grow mr-2 p-1.5 md:p-2.5 border border-green-800 dark:border-gray-100 bg-green-50/25 dark:bg-gray-900/25 text-base md:text-lg text-black dark:text-white rounded-lg shadow-inner dark:shadow-white/50 backdrop-blur-sm"
+        className="search-bar grow lg:w-full mr-2 p-1.5 md:p-2.5 lg:p-2 border border-green-800 dark:border-gray-100 bg-green-50/25 dark:bg-gray-900/25 text-base md:text-lg text-black dark:text-white rounded-lg shadow-inner dark:shadow-white/50 backdrop-blur-sm"
         placeholder={this.props.t('search_items')}
         value={this.state.input}
         onChange={this.handleSearch.bind(this)}
