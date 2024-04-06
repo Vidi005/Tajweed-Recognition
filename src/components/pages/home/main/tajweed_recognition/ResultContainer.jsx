@@ -59,7 +59,7 @@ const ResultContainer = ({ t, state, increaseTextSize, contentContainerRef, tool
                 ? (
                   <React.Fragment>
                     <textarea dir="rtl" className={`border-4 border-double grow w-full p-1 font-lpmq-isep-misbah ${state.isContentDarkMode ? "border-white bg-black text-white" : "border-green-900 bg-white text-black"} overflow-y-auto rounded-md duration-200`} placeholder="Enter an arabic text here" style={{ fontSize: `${state.twTextSize}` }} onChange={onContentChangeHandler}>{state.recognizedText}</textarea>
-                    <button className="generate-btn flex items-center justify-center mx-auto my-2 py-1 px-3 border border-green-900 bg-green-800 hover:bg-green-900 active:bg-green-700  dark:hover:bg-green-700 dark:active:bg-green-500 text-center text-lg text-white shadow dark:shadow-white/50 duration-300 rounded-md" onClick={handleTextEditor}>{t.t('generate')}</button>
+                    <button className="generate-btn flex items-center justify-center mx-auto my-2 py-1 px-3 border border-green-900 bg-green-800 hover:bg-green-900 active:bg-green-700  dark:hover:bg-green-700 dark:active:bg-green-500 text-center text-lg text-white shadow dark:shadow-white/50 duration-300 rounded-md" onClick={handleTextEditor}>{t('generate')}</button>
                   </React.Fragment>
                   )
                 : (
