@@ -5,7 +5,7 @@ import MainContainer from './main/MainContainer'
 
 const DetailTajweedPage = ({ t }) => (
   <div className="detail-page h-screen w-full flex flex-col bg-green-100 dark:bg-black overflow-hidden">
-    <div className="lg:hidden flex flex-col grow animate__animated animate__fadeInRight animate__faster">
+    <div className="lg:hidden flex flex-col grow overflow-y-auto animate__animated animate__fadeInRight animate__faster">
       <Helmet>
         <title>{t('detail_page_title')}</title>
         <meta name="keywords" content="Detail Tajweed" />
