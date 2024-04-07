@@ -1,12 +1,14 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import HomePage from './pages/home/HomePage'
 import NoPage from './pages/empty/NoPage'
 import i18n from '../utils/localization'
 import DetailTajweedPage from './pages/detail/DetailTajweedPage'
 import DetailTajweedContent from './pages/home/main/tajweed_list/DetailTajweedContent'
 import { getSelectedTabByUrl, isStorageExist } from '../utils/data'
+import RecognitionMain from './pages/home/main/RecognitionMain'
+import ListMain from './pages/home/main/ListMain'
 
 class App extends React.Component {
   constructor(props) {
@@ -91,6 +93,7 @@ class App extends React.Component {
     this.setState({ selectedTabIndex: index })
   }
   render() {
+    const shouldRedirectToRecognition = location.pathname === '/' || location.pathname === ''
     return (
       <React.Fragment>
         <Helmet>
@@ -100,29 +103,29 @@ class App extends React.Component {
           <link rel="canonical" href="https://tajweed-recognition.vercel.app" />
         </Helmet>
         <Routes>
-          <Route path='/' element={
-            <HomePage
-              t={i18n.t}
-              isDarkMode={this.state.isDarkMode}
-              selectedTabIndex={this.state.selectedTabIndex}
-              setSelectedTabIndex={this.setSelectedTabIndex.bind(this)}
-              setDisplayMode={this.setDisplayMode.bind(this)}
-              changeLanguage={this.changeLanguage.bind(this)}
-            />
-          }/>
-          <Route path='/recognition' element={
-            <HomePage 
-              t={i18n.t}
-              isDarkMode={this.state.isDarkMode}
-              selectedTabIndex={this.state.selectedTabIndex}
-              setSelectedTabIndex={this.setSelectedTabIndex.bind(this)}
-              setDisplayMode={this.setDisplayMode.bind(this)}
-              changeLanguage={this.changeLanguage.bind(this)}
-              />
-          }/>
-          {window.innerWidth < 1024
+          {innerWidth < 1024
             ? (
               <>
+                <Route path='/' element={
+                  <HomePage
+                    t={i18n.t}
+                    isDarkMode={this.state.isDarkMode}
+                    selectedTabIndex={this.state.selectedTabIndex}
+                    setSelectedTabIndex={this.setSelectedTabIndex.bind(this)}
+                    setDisplayMode={this.setDisplayMode.bind(this)}
+                    changeLanguage={this.changeLanguage.bind(this)}
+                  />
+                }/>
+                <Route path='/recognition' element={
+                  <HomePage
+                    t={i18n.t}
+                    isDarkMode={this.state.isDarkMode}
+                    selectedTabIndex={this.state.selectedTabIndex}
+                    setSelectedTabIndex={this.setSelectedTabIndex.bind(this)}
+                    setDisplayMode={this.setDisplayMode.bind(this)}
+                    changeLanguage={this.changeLanguage.bind(this)}
+                  />
+                }/>
                 <Route path='/tajweed-list' element={
                   <HomePage
                     t={i18n.t}
@@ -137,20 +140,33 @@ class App extends React.Component {
               </>
               )
             : (
-              <>
-                <Route path='/tajweed-list' element={
-                  <HomePage
+              <Route path='/' element={
+                shouldRedirectToRecognition
+                  ? <Navigate to={'/recognition'} />
+                  : (
+                      <HomePage
+                        t={i18n.t}
+                        isDarkMode={this.state.isDarkMode}
+                        selectedTabIndex={this.state.selectedTabIndex}
+                        setSelectedTabIndex={this.setSelectedTabIndex.bind(this)}
+                        setDisplayMode={this.setDisplayMode.bind(this)}
+                        changeLanguage={this.changeLanguage.bind(this)}
+                      />
+                    ) 
+              }>
+                <Route path='/recognition' element={
+                  <RecognitionMain 
                     t={i18n.t}
-                    isDarkMode={this.state.isDarkMode}
-                    selectedTabIndex={this.state.selectedTabIndex}
-                    setSelectedTabIndex={this.setSelectedTabIndex.bind(this)}
-                    setDisplayMode={this.setDisplayMode.bind(this)}
-                    changeLanguage={this.changeLanguage.bind(this)}
+                    />
+                }/>
+                <Route path='/tajweed-list' element={
+                  <ListMain
+                    t={i18n.t}
                   />
                 }>
                   <Route path='detail/:tajweed' element={<DetailTajweedContent t={i18n.t}/>}/>
                 </Route>
-              </>
+              </Route>
               )
           }
           <Route path='*' element={<NoPage t={i18n.t}/>}/>

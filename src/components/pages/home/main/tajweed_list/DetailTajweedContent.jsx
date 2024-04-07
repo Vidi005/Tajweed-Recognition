@@ -1,7 +1,6 @@
 import React from "react"
 import { findNextTajweedLaw, findPreviousTajweedLaw, getDetailTajweed, tajweedLaws } from "../../../../../utils/data"
 import en from "../../../../../locales/en.json"
-import { Link } from "react-router-dom"
 import FooterContainer from "../../../detail/footer/FooterContainer"
 
 const DetailTajweedContent = ({ t }) => {

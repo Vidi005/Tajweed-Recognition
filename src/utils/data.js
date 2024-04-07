@@ -941,16 +941,6 @@ const getSelectedTabByUrl = () => {
   }
 }
 
-// const getDetailTajweed = () => {
-//   const url = location.toString()
-//   const detailTajweed = url.substring(url.indexOf('?'))
-//   if (url.includes('?tajweed=') && url.includes('tajweed-list') && detailTajweed.length > 1) {
-//     return `/detail${detailTajweed}`
-//   } else {
-//     return ''
-//   }
-// }
-
 const getDetailTajweed = () => {
   const url = location.toString()
   const detailTajweed = url.split('/')
