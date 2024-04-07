@@ -1,5 +1,4 @@
 import React from "react"
-import { withTranslation } from "react-i18next"
 import ListToolbar from "./ListToolbar"
 import MobileDisplayList from "./MobileDisplayList"
 import { tajweedLaws } from "../../../../../utils/data"
@@ -93,4 +92,4 @@ class ListContainer extends React.Component {
   }
 }
 
-export default withTranslation()(ListContainer)
+export default ListContainer

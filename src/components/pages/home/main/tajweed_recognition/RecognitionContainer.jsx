@@ -4,7 +4,6 @@ import { buildRegExp, checkParamEvent, colorizeChars, isStorageExist, loadFileAs
 import Tesseract from "tesseract.js"
 import ResultContainer from "./ResultContainer"
 import DropZoneContainer from "./import_mode/DropZoneContainer"
-import { withTranslation } from "react-i18next"
 import en from "../../../../../locales/en.json"
 import TajweedPreview from "./pop_up/TajweedPreview"
 import PdfSettingPrompt from "./pop_up/PdfSettingPrompt"
@@ -702,4 +701,4 @@ class RecognitionContainer extends React.Component {
   }
 }
 
-export default withTranslation()(RecognitionContainer)
+export default RecognitionContainer

@@ -1,6 +1,5 @@
 import React from "react"
 import { sources } from "../../../../utils/data"
-import { withTranslation } from "react-i18next"
 
 const FooterContainer = ({ t }) => (
   <footer className="p-2">
@@ -16,4 +15,4 @@ const FooterContainer = ({ t }) => (
   </footer>
 )
 
-export default withTranslation()(FooterContainer)
+export default FooterContainer

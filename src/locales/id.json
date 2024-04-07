@@ -37,6 +37,7 @@
     "container_title": ["Editor", "Hasil"],
     "generate": "Generate",
     "detail_tajweed": "Lihat Detil",
+    "tajweed_list": "Daftar Tadjwid",
     "tajweed_desc": "Deskripsi Tadjwid",
     "tajweed_content_desc": "Ilmu tadjwid adalah ilmu yang digunakan untuk mengetahui kaidah dan cara membaca (membunyikan) huruf-huruf Al-Qur'an secara baik dan benar. Tujuannya adalah untuk memelihara bacaan Al-Qur'an dari kesalahan dan perubahan serta memelihara lisan (mulut) dari kesalahan membaca.\nMempelajari ilmu tadjwid hukumnya Fardlu Kifayah, sedangkan membaca Al-Qur'an dengan baik sesuai dengan ilmu tadjwid hukumnya FardIu 'Ain.",
     "learn_tajweed": "Pelajari Tadjwid",
@@ -49,6 +50,9 @@
     "no_tajweed_found": "Tajweed tidak ditemukan!",
     "examples": "Contoh:",
     "sources": "Sumber:",
+    "not_found": "Tidak Ditemukan",
+    "page_not_found": "Halaman Tidak Ditemukan!",
+    "back_to_home": "Kembali ke Halaman Utama",
     "tajweed_laws": [
         {
             "id": 1,
@@ -65,7 +69,7 @@
                 "أَنَّ اللَّهَ عَزِيزٌ حَكِيمٌ Tanwin bertemu dengan ح",
                 "كُونُوا قِرَدَةً خَاسِئِينَ Tanwin bertemu dengan خ"
             ],
-            "page": "/detail?tajweed=idzhar"
+            "page": "/detail/idzhar"
         },
         {
             "id": 2,
@@ -84,7 +88,7 @@
                 "رَقَبَةٍ مِنْ قَبْلِ Tanwin bertemu dengan م",
                 "مِنْ خَيْلٍ وَلَا رِكَابٍ Tanwin bertemu dengan و"
             ],
-            "page": "/detail?tajweed=idgham_bigunnah"
+            "page": "/detail/idgham_bigunnah"
         },
         {
             "id": 3,
@@ -99,7 +103,7 @@
                 "لَا تَجْعَلْنَا فِتْنَةً لِلَّذِينَ Tanwin bertemu dengan ل",
                 "سَيَقُولُونَ ثَلَاثَةٌ رَابِعُهُمْ Tanwin bertemu dengan ر"
             ],
-            "page": "/detail?tajweed=idgham_bilagunnah"
+            "page": "/detail/idgham_bilagunnah"
         },
         {
             "id": 4,
@@ -109,7 +113,7 @@
             "summary": "Hukum bacaan Iqlab terjadi apabila nun mati atau tanwin bertemu dengan huruf iqlab (ب) maka dibacanya dengan ditukar.",
             "detail": "Iqlab artinya meleburkan atau lebih mudahnya cara membacanya dengan menukar huruf menjadi huruf mim.",
             "examples": ["أَنْ تُنْبِتُوا Nun mati bertemu dengan ب", "كُلُّ حِزْبٍ بِمَا Tanwin bertemu dengan ب"],
-            "page": "/detail?tajweed=iqlab"
+            "page": "/detail/iqlab"
         },
         {
             "id": 5,
@@ -135,7 +139,7 @@
                 "عَلِيمٌ قَدِيرٌ Tanwin bertemu dengan ق",
                 "وَرِزْقٌ كَرِيمٌ Tanwin bertemu dengan ك"
             ],
-            "page": "/detail?tajweed=ikhfa"
+            "page": "/detail/ikhfa"
         },
         {
             "id": 6,
@@ -151,7 +155,7 @@
                 "أَنَّ لَهُمْ جَنَّاتٍ Mim mati bertemu dengan ج",
                 "يَمْحَقُ اللَّهُ الرِّبَا Mim mati bertemu dengan ح"
             ],
-            "page": "/detail?tajweed=idzhar_syafawi"
+            "page": "/detail/idzhar_syafawi"
         },
         {
             "id": 7,
@@ -165,7 +169,7 @@
                 "وَهُمْ بِالْآَخِرَةِ Mim mati bertemu dengan huruf ب",
                 "عَلَيْهِمْ بِعِلْمٍMim mati bertemu dengan huruf ب"
             ],
-            "page": "/detail?tajweed=ikhfa_syafawi"
+            "page": "/detail/ikhfa_syafawi"
         },
         {
             "id": 8,
@@ -179,7 +183,7 @@
                 "كُلَّمَا أَضَاءَ لَهُمْ مَشَوْا فِيهِ Mim mati bertemu dengan م",
                 "إِلَيْكُمْ مِنْ رَبِّكُمْ Mim mati bertemu dengan م"
             ],
-            "page": "/detail?tajweed=idgham_mimi"
+            "page": "/detail/idgham_mimi"
         },
         {
             "id": 9,
@@ -189,7 +193,7 @@
             "summary": "Hukum bacaan Gunnah terjadi apabila ada mim yang bertasydid (مّ) dan nun yang bertasydid (نّ), maka dibaca dengan mendengung dan disebut dengan bacaan Ghunnah.",
             "detail": "Ghunnah artinya mendengung (di pangkal hidung). Jadi cara membacanya dengan mendengungkan huruf mim dan nun bertasydid di pangkal hidung selama 2 - 3 harokat.",
             "examples": [""],
-            "page": "/detail?tajweed=gunnah"
+            "page": "/detail/gunnah"
         },
         {
             "id": 10,
@@ -199,7 +203,7 @@
             "summary": "Hukum bacaan disebut Idgham Mutamasilain, yakni apabila suatu huruf bertemu huruf sesamanya, yang sama makhroj dan sifatnya, huruf yang pertama sukun (mati) dan huruf yang kedua berharakah.",
             "detail": "Cara membacanya adalah dengan memasukkan (mentasydid-kan) huruf sukun yang pertama pada huruf berharokat yang kedua. Dan ditekan sena ditahan tidak lebih dari satu harokat.",
             "examples": [""],
-            "page": "/detail?tajweed=idgham_mutamasilain"
+            "page": "/detail/idgham_mutamasilain"
         },
         {
             "id": 11,
@@ -209,7 +213,7 @@
             "summary": "Hukum bacaan disebut Idgham Mutajaanisain, yakni apabila ada suatu huruf yang sukun berhadapan dengan huruf yang berharakat, kedua-duanya itu sama makhrojnya tapi lain sifatnya.",
             "detail": "Cara menbacanya adalah dengan memasukkan atau mengidghom-kan huruf pertama pada huruf yang kedua.",
             "examples": [""],
-            "page": "/detail?tajweed=idgham_mutajaanisain"
+            "page": "/detail/idgham_mutajaanisain"
         },
         {
             "id": 12,
@@ -219,7 +223,7 @@
             "summary": "Hukum bacaan disebut Idgham Mutaqooribain yakni, apabila ada huruf bersukun bertemu dengan huruf yang berharokat kedua huruf itu berdekatan makhroj dan sifatnya.",
             "detail": "Cara membacanya adalah dengan memasukkan atau mentasydid-kan huruf pertama pada huruf yang kedua.",
             "examples": [""],
-            "page": "/detail?tajweed=idgham_mutaqooribain"
+            "page": "/detail/idgham_mutaqooribain"
         },
         {
             "id": 13,
@@ -235,7 +239,7 @@
                 "خَلَقَ الْمَوْتَ وَالْحَيَاةَ Alif lam bertemu dengan ح",
                 "وَهُوَ اللَّطِيفُ الْخَبِيرُ Alif lam bertemu dengan خ"
             ],
-            "page": "/detail?tajweed=idzhar_qamariyah"
+            "page": "/detail/idzhar_qamariyah"
         },
         {
             "id": 14,
@@ -251,7 +255,7 @@
                 "وَالذَّاكِرِينَ Alif lam bertemu dengan ذ",
                 "الرَّحْمَنِ Alif lam bertemu dengan ر"
             ],
-            "page": "/detail?tajweed=idgham_syamsiyah"
+            "page": "/detail/idgham_syamsiyah"
         },
         {
             "id": 15,
@@ -261,7 +265,7 @@
             "summary": "Hukum bacaan Tafkhim terjadi apabila ada huruf lam (ل) yang terdapat dalam perkataan Allah (اللّه) dan didahului oleh huruf yang berharokat Fathah atau Dlommah.",
             "detail": "Cara membacanya harus dibaca tebal atau Tafkhim yakni dengan cara mengangkat semua lidah dan menekannya ke langit-langit atas sambil menekankan suara yang cukup kuat.",
             "examples": [""],
-            "page": "/detail?tajweed=tafkhim"
+            "page": "/detail/tafkhim"
         },
         {
             "id": 16,
@@ -271,7 +275,7 @@
             "summary": "Hukum bacaan Tarqiq terjadi apabila ada huruf lam (ل) yang terdapat dalam semua perkataan Allah (اللّه) dan didahului oleh huruf yang berharokat Kasroh.",
             "detail": "Cara membacanya harus dibaca tipis atau Tarqiq.",
             "examples": [""],
-            "page": "/detail?tajweed=tarqiq"
+            "page": "/detail/tarqiq"
         },
         {
             "id": 21,
@@ -287,7 +291,7 @@
                 "فَعَلَيَّ إِجْرَامِي Ada huruf Ja mati di tengah kata",
                 "يَدْعُو مِنْ دُونِ اللَّهِ  Ada huruf Da mati di tengah kata"
             ],
-            "page": "/detail?tajweed=qalqalah_sughra"
+            "page": "/detail/qalqalah_sughra"
         },
         {
             "id": 22,
@@ -303,7 +307,7 @@
                 "قَائِمًا بِالْقِسْطِ Ada huruf Tho di akhir kalimat",
                 "وَالسَّمَاءِ وَالطَّارِقِ Ada huruf Qaf di akhir kalimat"
             ],
-            "page": "/detail?tajweed=qalqalah_kubra"
+            "page": "/detail/qalqalah_kubra"
         },
         {
             "id": 24,
@@ -313,7 +317,7 @@
             "summary": "Hukum bacaan disebut Mad Thobi'i yakni, apabila huruf yang dipanjangkan bunyi suaranya berupa huruf berharokat Dlommah (ُ) dan sesudahnya terdapat huruf Wau Sukun (ﻭْ), Huruf berharokat kasroh dan sesudahnya terdapat huruf Yaa' Sukun (ﻱْ), huruf berharokat fathah (َ) dan sesudahnya terdapat huruf Alif (ا)",
             "detail": "",
             "examples": [""],
-            "page": "/detail?tajweed=mad_thabii"
+            "page": "/detail/mad_thabii"
         },
         {
             "id": 25,
@@ -323,7 +327,7 @@
             "summary": "Hukum bacaan disebut Mad Wajib Muttasil yakni, apabila ada Mad Thobi'i bertemu dengan Hamzah (ء) berharokat hidup di dalam satu kata/kalimat.",
             "detail": "Cara membacanya wajib dipanjangkan sampai dua setengah Alif atau lima harokat atau dua setengah kali panjang Mad Thobi'i.",
             "examples": [""],
-            "page": "/detail?tajweed=mad_wajib_muttasil"
+            "page": "/detail/mad_wajib_muttasil"
         },
         {
             "id": 26,
@@ -333,7 +337,7 @@
             "summary": "Hukum bacaan disebut Mad Jaiz Munfashil yakni, apabila Mad Thobi'i bertemu dengan Hamzah (ء) di lain perkataan.",
             "detail": "Cara membacanya lebih baik dipanjangkan seperti panjangnya Mad Wajib Muttashil, tetapi juga boleh dipanjangkan seperti panjang Mad Thobi'i.",
             "examples": [""],
-            "page": "/detail?tajweed=mad_jaiz_munfassil"
+            "page": "/detail/mad_jaiz_munfassil"
         },
         {
             "id": 27,
@@ -343,7 +347,7 @@
             "summary": "Hukum bacaan disebut Mad Lazim Mutsaqqol Kilmi yakni, apabila Mad Thobi'i berhadapan dengan huruf yang ber-tasydid di dalam satu perkataan.",
             "detail": "Cara membacannya harus dipanjangkan lebih dahulu sepanjang 3 alif atau 6 harokat baru ditasydidkan.",
             "examples": [""],
-            "page": "/detail?tajweed=mad_lazim_mutsaqqal_kilmi"
+            "page": "/detail/mad_lazim_mutsaqqal_kilmi"
         },
         {
             "id": 28,
@@ -353,7 +357,7 @@
             "summary": "Hukum bacaan disebut Mad Lazim Mukhaffaf Kilmi yakni, apabila Mad Thobi'i bertemu dengan huruf yang berharokat Sukun tidak di akhir perkataan. (dipanjangkan sampai tiga alif atau enam harokat).",
             "detail": "Cara membacanya sepert Mad Lazim Mutsaqqol Kilmi (dipanjangkan sampai tiga alif atau enam harokat).",
             "examples": [""],
-            "page": "/detail?tajweed=mad_lazim_mukhaffaf_kilmi"
+            "page": "/detail/mad_lazim_mukhaffaf_kilmi"
         },
         {
             "id": 29,
@@ -363,7 +367,7 @@
             "summary": "Hukum bacaan disebut Mad Layyin yakni, apabila ada huruf Mad, baik yang berupa Wau Sukun (ﻭْ) atau Yaa' Sukun (ﻱْ) didahului oleh huruf yang berharokat Fathah.",
             "detail": "Cara membacanya dengan lunak dan lemas.",
             "examples": [""],
-            "page": "/detail?tajweed=mad_layyin"
+            "page": "/detail/mad_layyin"
         },
         {
             "id": 30,
@@ -373,7 +377,7 @@
             "summary": "Hukum bacaan disebut Mad Arid Lissukun yakni, apabila ada Mad Thobi'i atau Mad Layyin dan sesudahnya ada waqof (tempat berhenti).",
             "detail": "Cara membacanya ada 3 macam :\na. Yang lebih utama, yakni dibaca panjang, sama dengan Mad Wajib Mutashil (tiga alif atau enam harokat).\nb. Yang pertengahan (sedang), yakni dibaca dua alif atau empat harokat (dua kali Mad Thobi'i).\nc.Yang pendek, yakni boleh hanya dibaca seperti Mad Thobi'i biasa (dua harokat).",
             "examples": [""],
-            "page": "/detail?tajweed=mad_arid_lissukun"
+            "page": "/detail/mad_arid_lissukun"
         },
         {
             "id": 31,
@@ -383,7 +387,7 @@
             "summary": "Hukum bacaan disebut Mad Shilah Qashirah yakni, apabila ada huruf Haa Dlomir/kata ganti orang (benda) ketiga yang berupa (ه) berada sesudah huruf hidup (berharokat) dan sesudahnya tidak bertemu/dihubungkan dengan huruf bersukun atau huruf bertasydid dan atau huruf alif.",
             "detail": "Cara membacanya dipanjangkan sampai satu alif atau dua harokat atau seperti panjang Mad Thobi'i.",
             "examples": [""],
-            "page": "/detail?tajweed=mad_shilah_qashirah"
+            "page": "/detail/mad_shilah_qashirah"
         },
         {
             "id": 32,
@@ -393,7 +397,7 @@
             "summary": "Hukum bacaan disebut Mad Shilah Thawilah yakni, apabila Mad Shilah Qoshiroh bertemu dengan Hamzah (ء) didahului oleh huruf yang berharokat hidup.",
             "detail": "Cara membacanya seperti bacaan Mad Jaiz Munfashil, artinya boleh dipanjangkan sampai dua setengah Alif atau satu Alif seperti Mad Thobi'i.",
             "examples": [""],
-            "page": "/detail?tajweed=mad_shilah_thawilah"
+            "page": "/detail/mad_shilah_thawilah"
         },
         {
             "id": 33,
@@ -403,7 +407,7 @@
             "summary": "Hukum bacaan disebut Mad Iwad yakni, apabila ada Fathatain (ً) yang jatuh pada waqof (pemberhentian), pada akhir kalimat (selain ta'marbuthoh) atau disebut Mad pengganti Tanwin sehingga Tanwin tidak berbunyi lagi.",
             "detail": "Cara membacanya dipanjangkan satu Alif seperti Mad Thobi'i.",
             "examples": [""],
-            "page": "/detail?tajweed=mad_iwad"
+            "page": "/detail/mad_iwad"
         },
         {
             "id": 34,
@@ -413,7 +417,7 @@
             "summary": "Apabila ada Hamzah (ء) bertemu dengan Mad yang berasal dari Hamzah Sukun,kemudian hamzah ini diubah dan diganti dengan Alif (ا), Wau (ﻭ)",
             "detail": "Cara membæanya harus dipanjangkan satu alif atau dua harokat seperti Mad Thobi'i.",
             "examples": [""],
-            "page": "/detail?tajweed=mad_badal"
+            "page": "/detail/mad_badal"
         },
         {
             "id": 35,
@@ -423,7 +427,7 @@
             "summary": "Hukum bacaan disebut Mad Tamkin yakni, apabila ada Yaa' Sukun (ﻱْ) yang didahului dengan Yaa' yang bertasydid dan harokatnya kasroh (ﻱِ).",
             "detail": "Cara membacanya ditepatkan dengan tasydid dan Mad Thobi'i-nya sepanjang dua harokat atau satu alif.",
             "examples": [""],
-            "page": "/detail?tajweed=mad_tamkin"
+            "page": "/detail/mad_tamkin"
         },
         {
             "id": 36,
@@ -433,7 +437,7 @@
             "summary": "Hukum bacaan disebut Mad Farq adalah satu Mad yang di dalam Al-Qur'an hanya terdapat di empat tempat.",
             "detail": "Cara membacanya harus dipanjangkan untuk membedakan antara pertanyaan atau bukan, jadi dipanjangkannya itu supaya jelas bahwa kalimat itu berbentuk pertanyaan.",
             "examples": [""],
-            "page": "/detail?tajweed=mad_farq"
+            "page": "/detail/mad_farq"
         }
     ]
 }

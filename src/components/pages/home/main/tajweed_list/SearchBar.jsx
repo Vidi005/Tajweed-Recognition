@@ -1,5 +1,4 @@
 import React from "react"
-import { withTranslation } from "react-i18next"
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -25,4 +24,4 @@ class SearchBar extends React.Component {
   }
 }
 
-export default withTranslation()(SearchBar)
+export default SearchBar

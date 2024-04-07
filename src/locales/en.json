@@ -37,6 +37,7 @@
     "container_title": ["Editor", "Result"],
     "generate": "Generate",
     "detail_tajweed": "More Detail",
+    "tajweed_list": "Tajweed List",
     "tajweed_desc": "Tajweed Description",
     "tajweed_content_desc": "The science of tajwid is the knowledge used to understand the rules and methods of reciting (pronouncing) the letters of the Qur'an correctly and beautifully. Its purpose is to preserve the recitation of the Qur'an from errors and changes, as well as to safeguard the mouth from reading mistakes. Studying the science of tajwid is a communal obligation (Fardlu Kifayah), while reciting the Qur'an correctly according to the rules of tajwid is an individual obligation (Fardlu 'Ain).",
     "learn_tajweed": "Learn Tajweed",
@@ -49,6 +50,9 @@
     "no_tajweed_found": "Tajweed not found!",
     "examples": "Examples:",
     "sources": "Sources:",
+    "not_found": "Not Found",
+    "page_not_found": "Page Not Found!",
+    "back_to_home": "Back to Home",
     "tajweed_laws": [
         {
             "id": 1,
@@ -65,7 +69,7 @@
                 "أَنَّ اللَّهَ عَزِيزٌ حَكِيمٌ Tanwin meets ح",
                 "كُونُوا قِرَدَةً خَاسِئِينَ Tanwin meets خ"
             ],
-            "page": "/detail?tajweed=idzhar"
+            "page": "/detail/idzhar"
         },
         {
             "id": 2,
@@ -84,7 +88,7 @@
                 "رَقَبَةٍ مِنْ قَبْلِ Tanwin meets م",
                 "مِنْ خَيْلٍ وَلَا رِكَابٍ Tanwin meets و"
             ],
-            "page": "/detail?tajweed=idgham_bigunnah"
+            "page": "/detail/idgham_bigunnah"
         },
         {
             "id": 3,
@@ -99,7 +103,7 @@
                 "لَا تَجْعَلْنَا فِتْنَةً لِلَّذِينَ Tanwin meets ل",
                 "سَيَقُولُونَ ثَلَاثَةٌ رَابِعُهُمْ Tanwin meets ر"
             ],
-            "page": "/detail?tajweed=idgham_bilagunnah"
+            "page": "/detail/idgham_bilagunnah"
         },
         {
             "id": 4,
@@ -109,7 +113,7 @@
             "summary": "Iqlab tajweed law happens when a nun sakinah or tanwin meets the letter of iqlab (ب), it is pronounced by replacing it with the letter mim.",
             "detail": "Iqlab means to merge or, in simpler terms, to replace the letter with the letter mim.",
             "examples": ["أَنْ تُنْبِتُوا Nun sakinah meets ب", "كُلُّ حِزْبٍ بِمَا Tanwin meets ب"],
-            "page": "/detail?tajweed=iqlab"
+            "page": "/detail/iqlab"
         },
         {
             "id": 5,
@@ -135,7 +139,7 @@
                 "عَلِيمٌ قَدِيرٌ Tanwin meets ق",
                 "وَرِزْقٌ كَرِيمٌ Tanwin meets ك"
             ],
-            "page": "/detail?tajweed=ikhfa"
+            "page": "/detail/ikhfa"
         },
         {
             "id": 6,
@@ -151,7 +155,7 @@
                 "أَنَّ لَهُمْ جَنَّاتٍ Mim sakinah meets ج",
                 "يَمْحَقُ اللَّهُ الرِّبَا Mim sakinah meets ح"
             ],
-            "page": "/detail?tajweed=idzhar_syafawi"
+            "page": "/detail/idzhar_syafawi"
         },
         {
             "id": 7,
@@ -165,7 +169,7 @@
                 "وَهُمْ بِالْآَخِرَةِ Mim sakinah meets the letter of ب",
                 "عَلَيْهِمْ بِعِلْمٍMim sakinah meets the letter of ب"
             ],
-            "page": "/detail?tajweed=ikhfa_syafawi"
+            "page": "/detail/ikhfa_syafawi"
         },
         {
             "id": 8,
@@ -179,7 +183,7 @@
                 "كُلَّمَا أَضَاءَ لَهُمْ مَشَوْا فِيهِ Mim sakinah meets م",
                 "إِلَيْكُمْ مِنْ رَبِّكُمْ Mim sakinah meets م"
             ],
-            "page": "/detail?tajweed=idgham_mimi"
+            "page": "/detail/idgham_mimi"
         },
         {
             "id": 9,
@@ -189,7 +193,7 @@
             "summary": "Gunnah tajweed law happens if there is a shaddah on the letter mim (مّ) and nun (ن), it is pronounced with a nasal sound and is called Ghunnah.",
             "detail": "Ghunnah means: nasaling (at the bridge of the nose). So the way to read it is by humming the letters mim and nun taysdid on the bridge of the nose for 2 - 3 harakah.",
             "examples": [""],
-            "page": "/detail?tajweed=gunnah"
+            "page": "/detail/gunnah"
         },
         {
             "id": 10,
@@ -199,7 +203,7 @@
             "summary": "Idgham Mutamasilain tajweed law happens when a letter meets a similar letter, with the same makhraj and characteristic, where the first letter is sukun (silent) and the second letter has a harakah.",
             "detail": "The way to read it is by inserting the first sukun letter into the second harokah letter. And being pressured, he was detained for no more than one harokah",
             "examples": [""],
-            "page": "/detail?tajweed=idgham_mutamasilain"
+            "page": "/detail/idgham_mutamasilain"
         },
         {
             "id": 11,
@@ -209,7 +213,7 @@
             "summary": "Idgham Mutajaanisain tajweed law happens if there is a letter with the meaning of sukun opposite a letter with the meaning of harakah, both have the same makhroj but have different characteristics.",
             "detail": "The way to read it is by inserting or idghom the first letter in the second letter.",
             "examples": [""],
-            "page": "/detail?tajweed=idgham_mutajaanisain"
+            "page": "/detail/idgham_mutajaanisain"
         },
         {
             "id": 12,
@@ -219,7 +223,7 @@
             "summary": "Idgham Mutaqooribain tajweed law happens if a letter with a sukun meets a letter with a harakah, the two letters are close to each other, makhroj and its properties.",
             "detail": "The way to read it is by inserting or adding the first letter to the second letter.",
             "examples": [""],
-            "page": "/detail?tajweed=idgham_mutaqooribain"
+            "page": "/detail/idgham_mutaqooribain"
         },
         {
             "id": 13,
@@ -235,7 +239,7 @@
                 "خَلَقَ الْمَوْتَ وَالْحَيَاةَ Alif lam meets ح",
                 "وَهُوَ اللَّطِيفُ الْخَبِيرُ Alif lam meets خ"
             ],
-            "page": "/detail?tajweed=idzhar_qamariyah"
+            "page": "/detail/idzhar_qamariyah"
         },
         {
             "id": 14,
@@ -251,7 +255,7 @@
                 "وَالذَّاكِرِينَ Alif lam meets ذ",
                 "الرَّحْمَنِ Alif lam meets ر"
             ],
-            "page": "/detail?tajweed=idgham_syamsiyah"
+            "page": "/detail/idgham_syamsiyah"
         },
         {
             "id": 15,
@@ -261,7 +265,7 @@
             "summary": "Tafkhim tajweed law happens when there is the letter lam (ل) in the word Allah (اللّه) preceded by a letter with a Fathah or Dammah vowel.",
             "detail": "It must be recited thickly or with Tafkhim, which is done by lifting the entire tongue and pressing it against the upper palate while emphasizing the sound strongly.",
             "examples": [""],
-            "page": "/detail?tajweed=tafkhim"
+            "page": "/detail/tafkhim"
         },
         {
             "id": 16,
@@ -271,7 +275,7 @@
             "summary": "Tarqiq tajweed law happens when there is the letter lam (ل) in the word Allah (اللّه) preceded by a letter with a Kasrah vowel.",
             "detail": "It must be recited thinly or with Tarqiq",
             "examples": [""],
-            "page": "/detail?tajweed=tarqiq"
+            "page": "/detail/tarqiq"
         },
         {
             "id": 21,
@@ -287,7 +291,7 @@
                 "فَعَلَيَّ إِجْرَامِي There is a Ja sakinah letter in the middle of the word",
                 "يَدْعُو مِنْ دُونِ اللَّهِ  There is a Da sakinah letter in the meiddle of the word"
             ],
-            "page": "/detail?tajweed=qalqalah_sughra"
+            "page": "/detail/qalqalah_sughra"
         },
         {
             "id": 22,
@@ -303,7 +307,7 @@
                 "قَائِمًا بِالْقِسْطِ There is a Tho letter in the end of the sentence",
                 "وَالسَّمَاءِ وَالطَّارِقِ There is a Qaf letter in the end of the sentence"
             ],
-            "page": "/detail?tajweed=qalqalah_kubra"
+            "page": "/detail/qalqalah_kubra"
         },
         {
             "id": 24,
@@ -313,7 +317,7 @@
             "summary": "The law of reading is called Mad Thobi'i, that is, if the letter whose sound is extended is a letter with the harokat Dlommah (ُ) and after it there is the letter Wau Sukun (ﻭْ), a letter with the harokat kasroh and after that there is the letter Yaa' Sukun (ﻱْ), a letter with the harokat fathah (َ) and after that there is the letter Alif (ا)",
             "detail": "",
             "examples": [""],
-            "page": "/detail?tajweed=mad_thabii"
+            "page": "/detail/mad_thabii"
         },
         {
             "id": 25,
@@ -323,7 +327,7 @@
             "summary": "Mad Wajib Muttasil tajweed law happens if Mad Thobi'i meets a living Hamzah (ء) within a word/sentence, it is mandatory to prolong it.",
             "detail": "The way to read it must be extended to two and a half Alif or five harokat or two and a half times the length of Mad Thobi'i.",
             "examples": [""],
-            "page": "/detail?tajweed=mad_wajib_muttasil"
+            "page": "/detail/mad_wajib_muttasil"
         },
         {
             "id": 26,
@@ -333,7 +337,7 @@
             "summary": "The recitation rule is called Mad Jaiz Munfashil when Mad Thobi'i (ء) is in a different word.",
             "detail": "The way to read it is better to extend it like the length of Mad Wajib Muttashil, but also may be extended like the length of Mad Thobi'i.",
             "examples": [""],
-            "page": "/detail?tajweed=mad_jaiz_munfassil"
+            "page": "/detail/mad_jaiz_munfassil"
         },
         {
             "id": 27,
@@ -343,7 +347,7 @@
             "summary": "Mad Lazim Mutsaqqal Kilmi tajweed law happens if Mad Thobi'i is faced with letters with shaddah within a word.",
             "detail": "The pronunciation should be prolonged first for 3 alif or 6 harakah before shaddah is added.",
             "examples": [""],
-            "page": "/detail?tajweed=mad_lazim_mutsaqqal_kilmi"
+            "page": "/detail/mad_lazim_mutsaqqal_kilmi"
         },
         {
             "id": 28,
@@ -353,7 +357,7 @@
             "summary": "Mad Lazim Mukhaffaf Kilmi tajweed law happens if Mad Thobi'i meets a sukun-harokat letter not at the end of a word. (prolonged up to three alif or six harakah).",
             "detail": "The way to read it is like Mad Lazim Mutsaqqol Kilmi (extended to three alif or six harakah).",
             "examples": [""],
-            "page": "/detail?tajweed=mad_lazim_mukhaffaf_kilmi"
+            "page": "/detail/mad_lazim_mukhaffaf_kilmi"
         },
         {
             "id": 29,
@@ -363,7 +367,7 @@
             "summary": "Mad Layyin tajweed law happens if there is a Mad letter, whether it is Wau Sukun (ﻭْ) or Yaa' Sukun (ﻱْ) preceded by a fathah-harokat letter.",
             "detail": "It is pronounced softly and smoothly.",
             "examples": [""],
-            "page": "/detail?tajweed=mad_layyin"
+            "page": "/detail/mad_layyin"
         },
         {
             "id": 30,
@@ -373,7 +377,7 @@
             "summary": "Mad Arid Lissukun tajweed law happens if there is Mad Thobi'i or Mad Layyin followed by a waqof (stopping place).",
             "detail": "There are 3 ways to read it:\na. What is more important is that it is read long, the same as Mad Wajib Mutashil (three alif or six harakah).\nb. The middle (medium) one can only be read as two Alif or four harokats (twice Mad Thobi'i).\nc. The sortest one may be only read as Mad Thobi'i (two harakah).",
             "examples": [""],
-            "page": "/detail?tajweed=mad_arid_lissukun"
+            "page": "/detail/mad_arid_lissukun"
         },
         {
             "id": 31,
@@ -383,7 +387,7 @@
             "summary": "Mad Shilah Qashirah tajweed law happens if the letter Haa Dlomir/third person pronoun (noun) comes (ه) after a vowel-harokat letter and is not connected to a sukun or shaddah letter or the letter alif.",
             "detail": "The way to read it is extended to one Alif or two harokat or like the length of Mad Thobi 'ii.",
             "examples": [""],
-            "page": "/detail?tajweed=mad_shilah_qashirah"
+            "page": "/detail/mad_shilah_qashirah"
         },
         {
             "id": 32,
@@ -393,7 +397,7 @@
             "summary": "Mad Shilah Thawilah tajweed law happens if Mad Shilah Qoshiroh meets Hamzah (ء) preceded by a vowel-harokat letter.",
             "detail": "The way to read it is like reading Mad Jaiz Munfashil, meaning it can be extended to two and a half Alif or one Alif like Mad Thobi 'ii.",
             "examples": [""],
-            "page": "/detail?tajweed=mad_shilah_thawilah"
+            "page": "/detail/mad_shilah_thawilah"
         },
         {
             "id": 33,
@@ -403,7 +407,7 @@
             "summary": "Mad Iwad tajweed law happens if there is fathatain vowels (ً) falling on waqof (pause), at the end of a sentence (except for ta' marbuthoh), or mentioned as a replacement for tanwin so that it is no longer pronounced.",
             "detail": "The way to read it is extended one Alif like Mad Thobi'ii.",
             "examples": [""],
-            "page": "/detail?tajweed=mad_iwad"
+            "page": "/detail/mad_iwad"
         },
         {
             "id": 34,
@@ -413,7 +417,7 @@
             "summary": "Mad Badal tajweed law happens if Hamzah (ء) meets Mad from a sukun-hamzah, and this hamzah is changed and replaced with Alif (ا), Wau (ﻭ).",
             "detail": "It is pronounced by prolonging it for one alif or two harakah, like Mad Thobi'ii.",
             "examples": [""],
-            "page": "/detail?tajweed=mad_badal"
+            "page": "/detail/mad_badal"
         },
         {
             "id": 35,
@@ -423,7 +427,7 @@
             "summary": "The recitation rule called Mad Tamkin occurs when there is a Yaa' Sukun (ﻱْ) preceded by a Yaa' with shaddah and a Kasrah vowel (ﻱِ).",
             "detail": "The reading is established with shaddah and its natural Mad is extended to the length of two vowels or one alif.",
             "examples": [""],
-            "page": "/detail?tajweed=mad_tamkin"
+            "page": "/detail/mad_tamkin"
         },
         {
             "id": 36,
@@ -433,7 +437,7 @@
             "summary": "The reading rule called Mad Farq is a Mad that in the Quran only occurs in four places.",
             "detail": "The reading must be elongated to distinguish between a question or not, so the elongation makes it clear that the sentence is in the form of a question.",
             "examples": [""],
-            "page": "/detail?tajweed=mad_farq"
+            "page": "/detail/mad_farq"
         }
     ]    
 }

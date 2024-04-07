@@ -586,7 +586,7 @@ const tajweedLaws = () => [
     rules: ikhfaTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Nun Sukun & Tanwin',
-    detailPage: '/detail?tajweed=ikhfa'
+    detailPage: '/detail/ikhfa'
   },
   {
     id: 4,
@@ -595,7 +595,7 @@ const tajweedLaws = () => [
     rules: iqlabTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Nun Sukun & Tanwin',
-    detailPage: '/detail?tajweed=iqlab'
+    detailPage: '/detail/iqlab'
   },
   {
     id: 2,
@@ -604,7 +604,7 @@ const tajweedLaws = () => [
     rules: idghamBigunnahTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Nun Sukun & Tanwin',
-    detailPage: '/detail?tajweed=idgham_bigunnah'
+    detailPage: '/detail/idgham_bigunnah'
   },
   {
     id: 3,
@@ -613,7 +613,7 @@ const tajweedLaws = () => [
     rules: idghamBilagunnahTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Nun Sukun & Tanwin',
-    detailPage: '/detail?tajweed=idgham_bilagunnah'
+    detailPage: '/detail/idgham_bilagunnah'
   },
   {
     id: 10,
@@ -622,7 +622,7 @@ const tajweedLaws = () => [
     rules: idghamMutamasilainTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Idghom',
-    detailPage: '/detail?tajweed=idgham_mutamasilain'
+    detailPage: '/detail/idgham_mutamasilain'
   },
   {
     id: 11,
@@ -631,7 +631,7 @@ const tajweedLaws = () => [
     rules: idghamMutajaanisainTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Idghom',
-    detailPage: '/detail?tajweed=idgham_mutajaanisain'
+    detailPage: '/detail/idgham_mutajaanisain'
   },
   {
     id: 12,
@@ -640,7 +640,7 @@ const tajweedLaws = () => [
     rules: idghamMutaqooribainTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Idghom',
-    detailPage: '/detail?tajweed=idgham_mutaqooribain'
+    detailPage: '/detail/idgham_mutaqooribain'
   },
   {
     id: 8,
@@ -649,7 +649,7 @@ const tajweedLaws = () => [
     rules: idghamMimiTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Mim Sukun',
-    detailPage: '/detail?tajweed=idgham_mimi'
+    detailPage: '/detail/idgham_mimi'
   },
   {
     id: 9,
@@ -658,7 +658,7 @@ const tajweedLaws = () => [
     rules: gunnahTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Nun Tasydid & Mim Tasydid',
-    detailPage: '/detail?tajweed=gunnah'
+    detailPage: '/detail/gunnah'
   },
   {
     id: 7,
@@ -667,7 +667,7 @@ const tajweedLaws = () => [
     rules: ikhfaSyafawiTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Mim Sukun',
-    detailPage: '/detail?tajweed=ikhfa_syafawi'
+    detailPage: '/detail/ikhfa_syafawi'
   },
   {
     id: 6,
@@ -676,7 +676,7 @@ const tajweedLaws = () => [
     rules: idzharSyafawiTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Mim Sukun',
-    detailPage: '/detail?tajweed=idzhar_syafawi'
+    detailPage: '/detail/idzhar_syafawi'
   },
   {
     id: 13,
@@ -685,7 +685,7 @@ const tajweedLaws = () => [
     rules: idzharQamariyahTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Lam Ta\'rif',
-    detailPage: '/detail?tajweed=idzhar_qamariyah'
+    detailPage: '/detail/idzhar_qamariyah'
   },
   {
     id: 14,
@@ -694,7 +694,7 @@ const tajweedLaws = () => [
     rules: idghamSyamsiyahTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Lam Ta\'rif',
-    detailPage: '/detail?tajweed=idgham_syamsiyah'
+    detailPage: '/detail/idgham_syamsiyah'
   },
   {
     id: 15,
@@ -703,7 +703,7 @@ const tajweedLaws = () => [
     rules: tafkhimTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Tafkhim & Tarqiq',
-    detailPage: '/detail?tajweed=tafkhim'
+    detailPage: '/detail/tafkhim'
   },
   {
     id: 16,
@@ -712,7 +712,7 @@ const tajweedLaws = () => [
     rules: tarqiqTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Tafkhim & Tarqiq',
-    detailPage: '/detail?tajweed=tarqiq'
+    detailPage: '/detail/tarqiq'
   },
   {
     id: 21,
@@ -721,7 +721,7 @@ const tajweedLaws = () => [
     rules: qalqalahSughraTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Qolqolah',
-    detailPage: '/detail?tajweed=qalqalah_sughra'
+    detailPage: '/detail/qalqalah_sughra'
   },
   {
     id: 22,
@@ -730,7 +730,7 @@ const tajweedLaws = () => [
     rules: qalqalahKubraTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Qolqolah',
-    detailPage: '/detail?tajweed=qalqalah_kubra'
+    detailPage: '/detail/qalqalah_kubra'
   },
   {
     id: 25,
@@ -739,7 +739,7 @@ const tajweedLaws = () => [
     rules: madWajibTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed=mad_wajib_muttasil'
+    detailPage: '/detail/mad_wajib_muttasil'
   },
   {
     id: 26,
@@ -748,7 +748,7 @@ const tajweedLaws = () => [
     rules: madJaizTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed=mad_jaiz_munfassil'
+    detailPage: '/detail/mad_jaiz_munfassil'
   },
   {
     id: 30,
@@ -757,7 +757,7 @@ const tajweedLaws = () => [
     rules: madAridLissukunTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed=mad_arid_lissukun'
+    detailPage: '/detail/mad_arid_lissukun'
   },
   {
     id: 31,
@@ -766,7 +766,7 @@ const tajweedLaws = () => [
     rules: madShilahQashirahTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed=mad_shilah_qashirah'
+    detailPage: '/detail/mad_shilah_qashirah'
   },
   {
     id: 32,
@@ -775,7 +775,7 @@ const tajweedLaws = () => [
     rules: madShilahThawilahTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed=mad_shilah_thawilah'
+    detailPage: '/detail/mad_shilah_thawilah'
   },
   {
     id: 33,
@@ -784,7 +784,7 @@ const tajweedLaws = () => [
     rules: madIwadTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed=mad_iwad'
+    detailPage: '/detail/mad_iwad'
   },
   {
     id: 27,
@@ -793,7 +793,7 @@ const tajweedLaws = () => [
     rules: madLazimMutsaqqalKilmiTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed=mad_lazim_mutsaqqal_kilmi'
+    detailPage: '/detail/mad_lazim_mutsaqqal_kilmi'
   },
   {
     id: 28,
@@ -802,7 +802,7 @@ const tajweedLaws = () => [
     rules: madLazimMukhaffafKilmiTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed=mad_lazim_mukhaffaf_kilmi'
+    detailPage: '/detail/mad_lazim_mukhaffaf_kilmi'
   },
   {
     id: 34,
@@ -811,7 +811,7 @@ const tajweedLaws = () => [
     rules: madBadalTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed=mad_badal'
+    detailPage: '/detail/mad_badal'
   },
   {
     id: 35,
@@ -820,7 +820,7 @@ const tajweedLaws = () => [
     rules: madTamkinTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed=mad_tamkin'
+    detailPage: '/detail/mad_tamkin'
   },
   {
     id: 36,
@@ -829,7 +829,7 @@ const tajweedLaws = () => [
     rules: madFarqTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed=mad_farq'
+    detailPage: '/detail/mad_farq'
   },
   {
     id: 24,
@@ -838,7 +838,7 @@ const tajweedLaws = () => [
     rules: madThabiiTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed=mad_thabii'
+    detailPage: '/detail/mad_thabii'
   },
   {
     id: 29,
@@ -847,7 +847,7 @@ const tajweedLaws = () => [
     rules: madLayyinTajweed,
     group: 'Ahkämul-madd',
     category: 'Mad',
-    detailPage: '/detail?tajweed=mad_layyin'
+    detailPage: '/detail/mad_layyin'
   },
   {
     id: 1,
@@ -856,7 +856,7 @@ const tajweedLaws = () => [
     rules: idzharTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Nun Sukun & Tanwin',
-    detailPage: '/detail?tajweed=idzhar'
+    detailPage: '/detail/idzhar'
   },
 ]
 
@@ -941,24 +941,47 @@ const getSelectedTabByUrl = () => {
   }
 }
 
-const getDetailTajweed = () => {
-  const url = location.toString()
-  const detailTajweed = url.substring(url.indexOf('?'))
-  if (url.includes('?tajweed=') && url.includes('tajweed-list') && detailTajweed.length > 1) {
-    return `/detail${detailTajweed}`
-  } else {
-    return ''
-  }
-}
-
 // const getDetailTajweed = () => {
 //   const url = location.toString()
-//   const detailTajweed = url.split('/')
-//   if (url.includes('tajweed-list') && detailTajweed.length > 5) {
-//     return `/detail/${detailTajweed[detailTajweed.length - 1]}`
+//   const detailTajweed = url.substring(url.indexOf('?'))
+//   if (url.includes('?tajweed=') && url.includes('tajweed-list') && detailTajweed.length > 1) {
+//     return `/detail${detailTajweed}`
 //   } else {
 //     return ''
 //   }
 // }
 
-export { isStorageExist, removeNonArabic, buildRegExp, colorizeChars, checkParamEvent, twTextSizes, tajweedLaws, loadFileAsArrayBuffer, getSelectedTabByUrl, getDetailTajweed, sources }
+const getDetailTajweed = () => {
+  const url = location.toString()
+  const detailTajweed = url.split('/')
+  if (url.includes('tajweed-list') && detailTajweed.length > 5) {
+    return `/detail/${detailTajweed[detailTajweed.length - 1]}`
+  } else {
+    return ''
+  }
+}
+
+const sortedTajweeds = tajweedLaws().sort((a, b) => parseInt(a.id, 10) - parseInt(b.id, 10))
+const currentIndex = sortedTajweeds.findIndex(tajweedLaw => tajweedLaw.detailPage === getDetailTajweed())
+const findPreviousTajweedLaw = () => {
+  if (currentIndex > 0) {
+    return {
+      prevName: sortedTajweeds[currentIndex - 1].name,
+      prevPage: sortedTajweeds[currentIndex - 1].detailPage
+    }
+  } else {
+    return null
+  }
+}
+const findNextTajweedLaw = () => {
+  if (currentIndex < sortedTajweeds.length - 1) {
+    return {
+      nextName: sortedTajweeds[currentIndex + 1].name,
+      nextPage: sortedTajweeds[currentIndex + 1].detailPage
+    }
+  } else {
+    return null
+  }
+}
+
+export { isStorageExist, removeNonArabic, buildRegExp, colorizeChars, checkParamEvent, twTextSizes, tajweedLaws, loadFileAsArrayBuffer, getSelectedTabByUrl, getDetailTajweed, findPreviousTajweedLaw, findNextTajweedLaw, sources }
