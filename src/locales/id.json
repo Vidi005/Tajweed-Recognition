@@ -167,7 +167,7 @@
             "examples": [
                 "وَمَا هُمْ بِمُؤْمِنِينَ Mim mati bertemu dengan huruf ب",
                 "وَهُمْ بِالْآَخِرَةِ Mim mati bertemu dengan huruf ب",
-                "عَلَيْهِمْ بِعِلْمٍMim mati bertemu dengan huruf ب"
+                "عَلَيْهِمْ بِعِلْمٍ Mim mati bertemu dengan huruf ب"
             ],
             "page": "/detail/ikhfa_syafawi"
         },
@@ -192,7 +192,12 @@
             "category": "Nun Tasydid & Mim Tasydid",
             "summary": "Hukum bacaan Gunnah terjadi apabila ada mim yang bertasydid (مّ) dan nun yang bertasydid (نّ), maka dibaca dengan mendengung dan disebut dengan bacaan Ghunnah.",
             "detail": "Ghunnah artinya mendengung (di pangkal hidung). Jadi cara membacanya dengan mendengungkan huruf mim dan nun bertasydid di pangkal hidung selama 2 - 3 harokat.",
-            "examples": [""],
+            "examples": [
+                "امَّةٌ Mim Tasydid",
+                "النَّارِ Nun Tasydid",
+                "أمَنَّا Nun Tasydid",
+                "الْجَنَّةُ Nun Tasydid"
+            ],
             "page": "/detail/gunnah"
         },
         {
@@ -202,7 +207,16 @@
             "category": "Idghom",
             "summary": "Hukum bacaan disebut Idgham Mutamasilain, yakni apabila suatu huruf bertemu huruf sesamanya, yang sama makhroj dan sifatnya, huruf yang pertama sukun (mati) dan huruf yang kedua berharakah.",
             "detail": "Cara membacanya adalah dengan memasukkan (mentasydid-kan) huruf sukun yang pertama pada huruf berharokat yang kedua. Dan ditekan sena ditahan tidak lebih dari satu harokat.",
-            "examples": [""],
+            "examples": [
+                "فَلْيَكْتُبْ بَيْنَكُمْ Ba mati bertemu ب",
+                "طَلَعَتْ تَزَاوَرُ Ta mati bertemu ت",
+                "وَقَدْ دَخَلُوا Da mati bertemu د",
+                "إِذْ ذَهَبَ Dza mati bertemu ذ",
+                "يُدْرِكُكُمْ Ka mati bertemu ك",
+                "الَمْ أَقُلْ لَكَ Lam mati bertemu ل",
+                "َأَنْتُمْ مُسْلِمُوْنَ Mim mati bertemu م",
+                "مِنْ نَفْعِهِمَا Nun mati bertemu ن"
+            ],
             "page": "/detail/idgham_mutamasilain"
         },
         {
@@ -212,7 +226,14 @@
             "category": "Idghom",
             "summary": "Hukum bacaan disebut Idgham Mutajaanisain, yakni apabila ada suatu huruf yang sukun berhadapan dengan huruf yang berharakat, kedua-duanya itu sama makhrojnya tapi lain sifatnya.",
             "detail": "Cara menbacanya adalah dengan memasukkan atau mengidghom-kan huruf pertama pada huruf yang kedua.",
-            "examples": [""],
+            "examples": [
+                "إِذْ مَمَّتْ طَائِفَتْنِ Ta mati bertemu ط",
+                "اثْقَلَتْ دَعَوَا اللهَ Ta mati bertemu د",
+                "لَقَدْ تَابَ Da mati bertemu ت",
+                "إِذْ ظَلَمُوا Dzal mati bertemu ظ",
+                "لَئِنْ بَسَطْتَ Tho mati bertemu ت",
+                "ُلْ رَّبِّي Lam mati bertemu ر"
+            ],
             "page": "/detail/idgham_mutajaanisain"
         },
         {
@@ -222,7 +243,12 @@
             "category": "Idghom",
             "summary": "Hukum bacaan disebut Idgham Mutaqooribain yakni, apabila ada huruf bersukun bertemu dengan huruf yang berharokat kedua huruf itu berdekatan makhroj dan sifatnya.",
             "detail": "Cara membacanya adalah dengan memasukkan atau mentasydid-kan huruf pertama pada huruf yang kedua.",
-            "examples": [""],
+            "examples": [
+                "ارْ كَيْمَعَنَا Ba mati bertemu م",
+                "َذَّبَتْ ثَمُود Ta mati bertemu ث",
+                "يَلْهَثْ ذَلِكَ Tsa mati bertemu ذ",
+                "نَخْلُقُكُمْ Qaf mati bertemu ك"
+            ],
             "page": "/detail/idgham_mutaqooribain"
         },
         {
@@ -264,7 +290,21 @@
             "category": "Tafkhim & Tarqiq",
             "summary": "Hukum bacaan Tafkhim terjadi apabila ada huruf lam (ل) yang terdapat dalam perkataan Allah (اللّه) dan didahului oleh huruf yang berharokat Fathah atau Dlommah.",
             "detail": "Cara membacanya harus dibaca tebal atau Tafkhim yakni dengan cara mengangkat semua lidah dan menekannya ke langit-langit atas sambil menekankan suara yang cukup kuat.",
-            "examples": [""],
+            "examples": [
+                "َلَوْ شَاءَ اللهُ Fathah bertemu اللهُ",
+                "هَدْنَا اللهُ Fathah bertemu اللهُ",
+                "مَا شَاءَ اللهُ Fathah bertemu اللهُ",
+                "زِينَةَ اللهِ Fathah bertemu اللهُ",
+                "ذَهَبَ الله Fathah bertemu اللهُ",
+                "شَهِدَ اللهُ Fathah bertemu اللهُ",
+                "رَحْمَتَ اللهِ Fathah bertemu اللهُ",
+                "وَاتَّقُو الله Dammah bertemu اللهُ",
+                "رَسُولُ اللَّهِ Dammah bertemu اللهُ",
+                "ذُكِرَ اسْمُ اللهِ Dammah bertemu اللهُ",
+                "ذلِكُمُ اللهُ Dammah bertemu اللهُ",
+                "انْ لَعْنَةُ اللهِ Dammah bertemu اللهُ",
+                "رَزَقَكُمُ اللهُ Dammah bertemu اللهُ"
+            ],
             "page": "/detail/tafkhim"
         },
         {
@@ -274,7 +314,17 @@
             "category": "Tafkhim & Tarqiq",
             "summary": "Hukum bacaan Tarqiq terjadi apabila ada huruf lam (ل) yang terdapat dalam semua perkataan Allah (اللّه) dan didahului oleh huruf yang berharokat Kasroh.",
             "detail": "Cara membacanya harus dibaca tipis atau Tarqiq.",
-            "examples": [""],
+            "examples": [
+                "مِنْ دُونِ اللهِ Kasrah bertemu اللهُ",
+                "سَبِيلِ اللَّهِ Kasrah bertemu اللهُ",
+                "اَلْحَمْدُ لِلَّهِ Kasrah bertemu اللهُ",
+                "َرْضِ اللَّهِ Kasrah bertemu اللهُ",
+                "رَسُولِ اللهِ Kasrah bertemu اللهُ",
+                "بِسْمِ اللهِ Kasrah bertemu اللهُ",
+                "عِنْدِ اللهِ Kasrah bertemu اللهُ",
+                "وَلْيَتَّقِ الله Kasrah bertemu اللهُ",
+                "وَجْهِ اللهِ Kasrah bertemu اللهُ"
+            ],
             "page": "/detail/tarqiq"
         },
         {
@@ -316,7 +366,21 @@
             "category": "Mad",
             "summary": "Hukum bacaan disebut Mad Thobi'i yakni, apabila huruf yang dipanjangkan bunyi suaranya berupa huruf berharokat Dlommah (ُ) dan sesudahnya terdapat huruf Wau Sukun (ﻭْ), Huruf berharokat kasroh dan sesudahnya terdapat huruf Yaa' Sukun (ﻱْ), huruf berharokat fathah (َ) dan sesudahnya terdapat huruf Alif (ا)",
             "detail": "",
-            "examples": [""],
+            "examples": [
+                "يَسْتَبْشِرُونَ Dlommah bertemu و sukun",
+                "أَنْ تَكُونَ Dlommah bertemu و sukun",
+                "وَيَقْذِفُوْنَ Dlommah bertemu و sukun",
+                "اجُورَكُمْ Dlommah bertemu و sukun",
+                "َجْرٌ عَظِيم Kasrah bertemu ي sukun",
+                "صدِقِينَ Kasrah bertemu ي sukun",
+                "َأَيْتَ الْمُنْفِقِين Kasrah bertemu ي sukun",
+                "فِي سَبِيلِ اللَّهِ Kasrah bertemu ي sukun",
+                "جَعَلْنَا لَكُمْ Fathah bertemu ا",
+                "فَقَدْ فَازَ Fathah bertemu ا",
+                "َأَمْوَالَهُم Fathah bertemu ا",
+                "أَمْوَالِكُمْ Fathah bertemu ا",
+                "مَا بِصَاحِبِكُمْ Fathah bertemu ا"
+            ],
             "page": "/detail/mad_thabii"
         },
         {
