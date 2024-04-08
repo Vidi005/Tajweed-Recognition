@@ -546,10 +546,11 @@ class RecognitionContainer extends React.Component {
     const elements = document.querySelectorAll(`.${classNames}`)
     const lines = []
     const contentContainerY1 = this.contentContainerRef.current.getBoundingClientRect().top
+    const activeSlides = document.querySelectorAll('.slick-active')
     elements.forEach(element => {
       const rect1 = element.getBoundingClientRect()
-      const activeSlides = document.querySelectorAll('.slick-active')
-      const rect2 = activeSlides[dataIdx > activeSlides?.length ? dataIdx % activeSlides?.length : dataIdx]?.getBoundingClientRect()
+      const adjustedDataIdx = dataIdx >= activeSlides.length ? dataIdx % activeSlides.length : dataIdx
+      const rect2 = activeSlides[adjustedDataIdx]?.getBoundingClientRect()
       const x1 = rect1.left + rect1.width / 2
       const x2 = rect2?.left + rect2?.width / 2
       const y1 = rect1.bottom - rect1.height / 4

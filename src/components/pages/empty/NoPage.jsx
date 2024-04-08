@@ -2,7 +2,7 @@ import React from "react"
 
 const NoPage = ({ t }) => (
   <React.Fragment>
-    <main className="no-page-main h-screen flex flex-col items-center justify-center bg-green-100 dark:bg-gray-900 p-8">
+    <main className="no-page-main h-screen flex flex-col items-center justify-center bg-green-100 dark:bg-gray-900 p-8 text-green-900 dark:text-white">
       <article className="animate__animated animate__fadeInUpBig font-serif text-green-900 text-center">
         <h1 className="text-7xl leading-snug"><strong>404</strong></h1>
         <h3>{t('not_found')}</h3>

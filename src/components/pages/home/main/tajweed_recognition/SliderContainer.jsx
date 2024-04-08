@@ -45,12 +45,16 @@ const SliderContainer = ({ colorizedTajweeds, carouselItemsRefs, calculateLines,
             data-index={i}
             key={i}
             ref={carouselItemsRefs[`tajweed-${tajweed.id}`]}
-            className={`border-t-4 border-b-2 border-x border-x-green-900 hover:bg-green-800/25 dark:hover:bg-gray-500 dark:border-x-white lg:text-lg sm:text-base text-sm p-2 cursor-pointer duration-200`}
-            style={{ borderTopColor: tajweed.color, borderBottomColor: tajweed.color }}
             onMouseEnter={() => calculateLines(`tajweed-${tajweed.id}`, true, i, tajweed.color)}
             onMouseLeave={() => calculateLines(`tajweed-${tajweed.id}`, false, i, tajweed.color)}
             onClick={() => showSummaryModal(tajweed.id)}
-          >{tajweed.name}</span>
+          >
+            <div
+              className="border-t-4 border-b-2 border-x hover:bg-green-800/25 dark:hover:bg-gray-500 lg:text-lg sm:text-base text-sm p-2 cursor-pointer duration-200"
+              style={{ borderTopColor: tajweed.color, borderBottomColor: tajweed.color }}
+            >
+              {tajweed.name}
+            </div></span>
         ))}
       </Slider>
     </footer>
