@@ -860,6 +860,11 @@ const tajweedLaws = () => [
   },
 ]
 
+const alternativeUrls = [
+  "https://tajweed-recognition.vercel.app",
+  "https://tajweed-recognition.pages.dev",
+]
+
 const sources = [
   'https://tashih.kemenag.go.id/uploads/1/2019-08/buku_pedoman_tajwid_sistem_warna.pdf',
   'https://ia803106.us.archive.org/22/items/etaoin/Ilmu%20Tajwid%20Lengkap.pdf',
@@ -974,4 +979,4 @@ const findNextTajweedLaw = () => {
   }
 }
 
-export { isStorageExist, removeNonArabic, buildRegExp, colorizeChars, checkParamEvent, twTextSizes, tajweedLaws, loadFileAsArrayBuffer, getSelectedTabByUrl, getDetailTajweed, findPreviousTajweedLaw, findNextTajweedLaw, sources }
+export { isStorageExist, removeNonArabic, buildRegExp, colorizeChars, checkParamEvent, twTextSizes, tajweedLaws, loadFileAsArrayBuffer, getSelectedTabByUrl, getDetailTajweed, findPreviousTajweedLaw, findNextTajweedLaw, alternativeUrls, sources }

@@ -7,6 +7,9 @@ const HeaderContainer = ({ headerTitle, changeLanguage, setDisplayMode, isDarkMo
       <h2 className="grow font-ramadhan-start text-white">{headerTitle}</h2>
     </section>
     <section className="w-fit flex items-center pl-1">
+      <a href="https://github.com/Vidi005/Tajweed-Recognition">
+        <img className="h-10 mr-1 md:mr-2 p-2 object-contain hover:bg-black/50 focus-visible:ring-2 focus-visible:ring-white/75 duration-200 rounded-md" src={`${import.meta.env.BASE_URL}images/github-icon.png`} alt="Github" />
+      </a>
       <Switch
         checked={isDarkMode}
         onChange={setDisplayMode}

@@ -10,7 +10,7 @@ const DetailTajweedPage = ({ t }) => (
         <title>{t('detail_page_title')}</title>
         <meta name="keywords" content="Detail Tajweed" />
         <meta name="description" content="Detail Tajweed Descriptions."/>
-        <link rel="canonical" href="https://tajweed-recognition.vercel.app/tajweed-list/detail"/>
+        <link rel="canonical" href={location.toString()}/>
       </Helmet>
       <HeaderContainer t={t}/>
       <MainContainer t={t} />

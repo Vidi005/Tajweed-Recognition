@@ -72,7 +72,7 @@ class ListContainer extends React.Component {
         <Helmet>
           <title>{this.props.t('tab_list.1.tab_name')}</title>
           <meta name="keywords" content={this.props.t('tab_list.1.tab_name')} />
-          <link rel="canonical" href="https://tajweed-recognition.vercel.app/tajweed-list"/>
+          <link rel="canonical" href={location.toString()}/>
         </Helmet>
         <ListToolbar
           t={this.props.t}

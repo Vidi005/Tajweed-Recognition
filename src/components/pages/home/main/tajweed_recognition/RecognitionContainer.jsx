@@ -1,6 +1,6 @@
 import React from "react"
 import Swal from "sweetalert2"
-import { buildRegExp, checkParamEvent, colorizeChars, isStorageExist, loadFileAsArrayBuffer, removeNonArabic, tajweedLaws, twTextSizes } from "../../../../../utils/data"
+import { alternativeUrls, buildRegExp, checkParamEvent, colorizeChars, isStorageExist, loadFileAsArrayBuffer, removeNonArabic, tajweedLaws, twTextSizes } from "../../../../../utils/data"
 import Tesseract from "tesseract.js"
 import ResultContainer from "./ResultContainer"
 import DropZoneContainer from "./import_mode/DropZoneContainer"
@@ -619,7 +619,7 @@ class RecognitionContainer extends React.Component {
           <title>{this.props.t('tab_list.0.tab_name')}</title>
           <meta name="keywords" content={this.props.t('tab_list.0.tab_name')} />
           <meta name="description" content={this.props.t('app_description')}/>
-          <link rel="canonical" href="https://tajweed-recognition.vercel.app/recognize"/>
+          <link rel="canonical" href={location.toString()}/>
         </Helmet>
         <DropZoneContainer t={this.props.t} pickFile={this.pickFile.bind(this)}/>
         <h2>Recognize Tajweed</h2>
@@ -643,6 +643,18 @@ class RecognitionContainer extends React.Component {
             <h5 className="md:text-lg whitespace-nowrap">{this.props.t('manual_input')}</h5>
           </button>
         </div>
+        <p className="relative text-sm text-center md:text-base text-green-900 dark:text-white">
+          <span>{this.props.t('alternative_urls')}</span>
+          <br />
+          {location.toString().includes('vercel.app')
+            ? <a href={alternativeUrls[1]} className="text-blue-700 dark:text-blue-300 hover:text-blue-900 dark:hover:text-blue-50 active:text-violet-700 break-all">
+              <u>{alternativeUrls[1].replace('https://', '')}</u>
+            </a>
+            : <a href={alternativeUrls[0]} className="text-blue-700 dark:text-blue-300 hover:text-blue-900 dark:hover:text-blue-50 active:text-violet-700 break-all">
+              <u>{alternativeUrls[0].replace('https://', '')}</u>
+            </a>
+          }
+        </p>
         <h5>Tajweed Recognition @ {new Date().getFullYear()}</h5>
         <Dialog open={this.state.isRecognizing} onClose={this.closeResult.bind(this)} className="fixed inset-0 w-screen h-full flex items-center justify-center bg-black/50 backdrop-blur-sm duration-200 animate__animated animate__fadeIn">
           <div className="flex items-center justify-center space-x-2">

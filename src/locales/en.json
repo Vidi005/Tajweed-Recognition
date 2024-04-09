@@ -5,6 +5,7 @@
         { "tab_name": "Tajweed List", "tab_path": "/tajweed-list"}
     ],
     "app_description": "Welcome to Tajweed Recognition - An innovative application utilizing OCR technology to distinguish various rules of Tajweed within Arabic text on images, accompanied by color highlighting of Tajweed and interactive explanations for easier learning.",
+    "alternative_urls": "Alternative:",
     "tab_icons": ["/images/recognition-icon.svg", "/images/list-icon.svg"],
     "tab_icons_dark": ["/images/recognition-icon-dark.svg", "/images/list-icon-dark.svg"],
     "browser_warning": "Your browser does not support Local Storage/Cookies!\nPlease enable cookies in your browser settings or disable incognito mode.\nThank you.",

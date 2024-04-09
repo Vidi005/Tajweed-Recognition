@@ -7,17 +7,37 @@
    </url>
    <url>
       <loc>https://tajweed-recognition.vercel.app/recognition</loc>
-      <lastmod>2024-03-05</lastmod>
+      <lastmod>2024-04-05</lastmod>
       <priority>1.0</priority>
    </url>
    <url>
       <loc>https://tajweed-recognition.vercel.app/tajweed-list</loc>
-      <lastmod>2024-03-05</lastmod>
+      <lastmod>2024-04-05</lastmod>
       <priority>0.8</priority>
    </url>
    <url>
       <loc>https://tajweed-recognition.vercel.app/tajweed-list/detail</loc>
-      <lastmod>2024-03-05</lastmod>
+      <lastmod>2024-05-05</lastmod>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://tajweed-recognition.pages.dev</loc>
+      <lastmod>2024-04-09</lastmod>
+      <priority>1.0</priority>
+   </url>
+   <url>
+      <loc>https://tajweed-recognition.pages.dev/recognition</loc>
+      <lastmod>2024-04-09</lastmod>
+      <priority>1.0</priority>
+   </url>
+   <url>
+      <loc>https://tajweed-recognition.pages.dev/tajweed-list</loc>
+      <lastmod>2024-04-09</lastmod>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://tajweed-recognition.pages.dev/tajweed-list/detail</loc>
+      <lastmod>2024-05-09</lastmod>
       <priority>0.7</priority>
    </url>
 </urlset>
