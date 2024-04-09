@@ -391,7 +391,18 @@
             "category": "Mad",
             "summary": "Hukum bacaan disebut Mad Wajib Muttasil yakni, apabila ada Mad Thobi'i bertemu dengan Hamzah (ء) berharokat hidup di dalam satu kata/kalimat.",
             "detail": "Cara membacanya wajib dipanjangkan sampai dua setengah Alif atau lima harokat atau dua setengah kali panjang Mad Thobi'i.",
-            "examples": [""],
+            "examples": [
+                "مِنْهُ الْمَاءُ Mad Thobi'i bertemu Hamzah (ء) dalam satu kata/kalimat",
+                "صَفْرَاءُ Mad Thobi'i bertemu Hamzah (ء) dalam satu kata/kalimat",
+                "دُعَاءً Mad Thobi'i bertemu Hamzah (ء) dalam satu kata/kalimat",
+                "مَنْ يَشَاءُ Mad Thobi'i bertemu Hamzah (ء) dalam satu kata/kalimat",
+                "فَبَاءُ Mad Thobi'i bertemu Hamzah (ء) dalam satu kata/kalimat",
+                "أَحْيَاء Mad Thobi'i bertemu Hamzah (ء) dalam satu kata/kalimat",
+                "سَوَاء Mad Thobi'i bertemu Hamzah (ء) dalam satu kata/kalimat",
+                "امَنَ السُّفَهَاءُ Mad Thobi'i bertemu Hamzah (ء) dalam satu kata/kalimat",
+                "شُهَدَاءَ Mad Thobi'i bertemu Hamzah (ء) dalam satu kata/kalimat",
+                "وَلَوْ شَاءَ Mad Thobi'i bertemu Hamzah (ء) dalam satu kata/kalimat"
+            ],
             "page": "/detail/mad_wajib_muttasil"
         },
         {
@@ -401,7 +412,12 @@
             "category": "Mad",
             "summary": "Hukum bacaan disebut Mad Jaiz Munfashil yakni, apabila Mad Thobi'i bertemu dengan Hamzah (ء) di lain perkataan.",
             "detail": "Cara membacanya lebih baik dipanjangkan seperti panjangnya Mad Wajib Muttashil, tetapi juga boleh dipanjangkan seperti panjang Mad Thobi'i.",
-            "examples": [""],
+            "examples": [
+                "فِيهَا أَبَدًا Mad Thobi'i bertemu Hamzah (ء) di perkataan lain",
+                "بِمَا أُنْزِلَ Mad Thobi'i bertemu Hamzah (ء) di perkataan lain",
+                "وَمَا أُنْزِلَ Mad Thobi'i bertemu Hamzah (ء) di perkataan lain",
+                "ذُرِّيَّتِنَا أُمُّةً Mad Thobi'i bertemu Hamzah (ء) di perkataan lain"
+            ],
             "page": "/detail/mad_jaiz_munfassil"
         },
         {
@@ -411,7 +427,13 @@
             "category": "Mad",
             "summary": "Hukum bacaan disebut Mad Lazim Mutsaqqol Kilmi yakni, apabila Mad Thobi'i berhadapan dengan huruf yang ber-tasydid di dalam satu perkataan.",
             "detail": "Cara membacannya harus dipanjangkan lebih dahulu sepanjang 3 alif atau 6 harokat baru ditasydidkan.",
-            "examples": [""],
+            "examples": [
+                "هُمُ الضَّالُّونَ Mad Thobi'i bertemu tasydid dalam satu kata",
+                "وَلَا الضَّالِّينَ Mad Thobi'i bertemu tasydid dalam satu kata",
+                "إِلَّا الضَّالُوْنَ Mad Thobi'i bertemu tasydid dalam satu kata",
+                "جَاءَتِ الطَّامَّةُ Mad Thobi'i bertemu tasydid dalam satu kata",
+                "فِي السِّلْمِ كَافَّةً Mad Thobi'i bertemu tasydid dalam satu kata"
+            ],
             "page": "/detail/mad_lazim_mutsaqqal_kilmi"
         },
         {
@@ -421,7 +443,7 @@
             "category": "Mad",
             "summary": "Hukum bacaan disebut Mad Lazim Mukhaffaf Kilmi yakni, apabila Mad Thobi'i bertemu dengan huruf yang berharokat Sukun tidak di akhir perkataan. (dipanjangkan sampai tiga alif atau enam harokat).",
             "detail": "Cara membacanya sepert Mad Lazim Mutsaqqol Kilmi (dipanjangkan sampai tiga alif atau enam harokat).",
-            "examples": [""],
+            "examples": ["آلان hanya terdapat di Surat Yunus"],
             "page": "/detail/mad_lazim_mukhaffaf_kilmi"
         },
         {
@@ -431,7 +453,17 @@
             "category": "Mad",
             "summary": "Hukum bacaan disebut Mad Layyin yakni, apabila ada huruf Mad, baik yang berupa Wau Sukun (ﻭْ) atau Yaa' Sukun (ﻱْ) didahului oleh huruf yang berharokat Fathah.",
             "detail": "Cara membacanya dengan lunak dan lemas.",
-            "examples": [""],
+            "examples": [
+                "بِالْغَيْبِ Fathah bertemu يْ",
+                "عَلَيْهِ Fathah bertemu يْ",
+                "عَلَيْكُمْ Fathah bertemu يْ",
+                "إِلَيْكَ Fathah bertemu يْ",
+                "يَدَيْهَا Fathah bertemu يْ",
+                "فَتَمَنَّوُ الْمَوْتَ Fathah bertemu وْ",
+                "فَوْقَكُمْ Fathah bertemu وْ",
+                "يَوْمَ Fathah bertemu وْ",
+                "قَوْمًا Fathah bertemu وْ"
+            ],
             "page": "/detail/mad_layyin"
         },
         {
@@ -441,7 +473,16 @@
             "category": "Mad",
             "summary": "Hukum bacaan disebut Mad Arid Lissukun yakni, apabila ada Mad Thobi'i atau Mad Layyin dan sesudahnya ada waqof (tempat berhenti).",
             "detail": "Cara membacanya ada 3 macam :\na. Yang lebih utama, yakni dibaca panjang, sama dengan Mad Wajib Mutashil (tiga alif atau enam harokat).\nb. Yang pertengahan (sedang), yakni dibaca dua alif atau empat harokat (dua kali Mad Thobi'i).\nc.Yang pendek, yakni boleh hanya dibaca seperti Mad Thobi'i biasa (dua harokat).",
-            "examples": [""],
+            "examples": [
+                "ِغَيْرِ حِسَابٍ . Mad Thobi'i di akhir kalimat/bertemu waqof",
+                "شَدِيدُ الْعِقَابِ . Mad Thobi'i di akhir kalimat/bertemu waqof",
+                "ِهِمُ الْأَسْبَابُ . Mad Thobi'i di akhir kalimat/bertemu waqof",
+                "مِنَ النَّارِ . Mad Thobi'i di akhir kalimat/bertemu waqof",
+                "شَدِيدُ الْعَذَابِ . Mad Thobi'i di akhir kalimat/bertemu waqof",
+                "إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ . Mad Thobi'i di akhir kalimat/bertemu waqof",
+                "عَدُوٌّ مُّبِينٌ . Mad Thobi'i di akhir kalimat/bertemu waqof",
+                "شَاكِرٌ عَلِيمٌ . Mad Thobi'i di akhir kalimat/bertemu waqof"
+            ],
             "page": "/detail/mad_arid_lissukun"
         },
         {
@@ -451,7 +492,18 @@
             "category": "Mad",
             "summary": "Hukum bacaan disebut Mad Shilah Qashirah yakni, apabila ada huruf Haa Dlomir/kata ganti orang (benda) ketiga yang berupa (ه) berada sesudah huruf hidup (berharokat) dan sesudahnya tidak bertemu/dihubungkan dengan huruf bersukun atau huruf bertasydid dan atau huruf alif.",
             "detail": "Cara membacanya dipanjangkan sampai satu alif atau dua harokat atau seperti panjang Mad Thobi'i.",
-            "examples": [""],
+            "examples": [
+                "بِهِ عِنْدَ (ه) dipanjangkan seperti Mad Thobi 'ii",
+                "وَرَسُولِهِ كُنتُمْ (ه) dipanjangkan seperti Mad Thobi 'ii",
+                "بِيَدِهِ عُقْدَةُ (ه) dipanjangkan seperti Mad Thobi 'ii",
+                "ايْتِهِ لَعَلَّكُمْ (ه) dipanjangkan seperti Mad Thobi 'ii",
+                "جُنُودِهِ قَالُو (ه) dipanjangkan seperti Mad Thobi 'ii",
+                "لَهُ مُلْكُ (ه) dipanjangkan seperti Mad Thobi 'ii",
+                "أَجْرُهُ عِنْدَ (ه) dipanjangkan seperti Mad Thobi 'ii",
+                "وَعَدَّدَهُ يَحْسِبُ (ه) dipanjangkan seperti Mad Thobi 'ii",
+                "وَرَحْمَتُهُ لَكُنْتُمْ (ه) dipanjangkan seperti Mad Thobi 'ii",
+                "ِنَّهُ هُوَ  (ه) dipanjangkan seperti Mad Thobi 'ii"
+            ],
             "page": "/detail/mad_shilah_qashirah"
         },
         {
@@ -461,7 +513,18 @@
             "category": "Mad",
             "summary": "Hukum bacaan disebut Mad Shilah Thawilah yakni, apabila Mad Shilah Qoshiroh bertemu dengan Hamzah (ء) didahului oleh huruf yang berharokat hidup.",
             "detail": "Cara membacanya seperti bacaan Mad Jaiz Munfashil, artinya boleh dipanjangkan sampai dua setengah Alif atau satu Alif seperti Mad Thobi'i.",
-            "examples": [""],
+            "examples": [
+                "أَمْرُةَ إِذَا (ه) dipanjangkan seperti Mad Jaiz Munfashil",
+                "مِنْ دُونِ الهَةً (ه) dipanjangkan seperti Mad Jaiz Munfashil",
+                "عَلَى مَوْتِهِ إِلَّا (ه) dipanjangkan seperti Mad Jaiz Munfashil",
+                "وَرَسُولُهُ إِلَّا (ه) dipanjangkan seperti Mad Jaiz Munfashil",
+                "وَأَزْوَاجُهُ أُمَّهْتُهُمْ (ه) dipanjangkan seperti Mad Jaiz Munfashil",
+                "عِنْدَهُ إِلَّا بِإِذْنِهِ (ه) dipanjangkan seperti Mad Jaiz Munfashil",
+                "أَنَّ مَالَةَ أَخْلَدَهُ (ه) dipanjangkan seperti Mad Jaiz Munfashil",
+                "مِنْدُوْنِه إِلها (ه) seperti Mad  Jaiz Munfashil",
+                "ربة أَحَدًا (ه) dipanjangkan seperti Mad Jaiz Munfashil",
+                "عِلْمِهِ إِلَّا (ه) dipanjangkan seperti Mad Jaiz Munfashil"
+            ],
             "page": "/detail/mad_shilah_thawilah"
         },
         {
@@ -471,7 +534,19 @@
             "category": "Mad",
             "summary": "Hukum bacaan disebut Mad Iwad yakni, apabila ada Fathatain (ً) yang jatuh pada waqof (pemberhentian), pada akhir kalimat (selain ta'marbuthoh) atau disebut Mad pengganti Tanwin sehingga Tanwin tidak berbunyi lagi.",
             "detail": "Cara membacanya dipanjangkan satu Alif seperti Mad Thobi'i.",
-            "examples": [""],
+            "examples": [
+                ".عَذَابًا أَلِيمًا memanjangkan (مً) seperti Mad Thobi 'ii",
+                ".عَلِيمًا حَكِيمًا memanjangkan (مً) seperti Mad Thobi 'ii",
+                ".هَجْرًا جَمِيلاً memanjangkan (لاً) seperti Mad Thobi 'ii",
+                ".كَانَ مِيْقَاتًا memanjangkan (تً) seperti Mad Thobi 'ii",
+                ".شَيْءٍ عَدَدًا memanjangkan (دً) seperti Mad Thobi 'ii",
+                ".مَسْرُورًا memanjangkan (رً) seperti Mad Thobi 'ii",
+                ".سَبْعًا شِدَادًا memanjangkan (دً) seperti Mad Thobi 'ii",
+                ".نَهَا تَفْجِيرًا memanjangkan (رً) seperti Mad Thobi 'ii",
+                ".سَمِيعًا بَصِيرًا memanjangkan (رً) seperti Mad Thobi 'ii",
+                ".رَبُّهُمْ رَشَدًا memanjangkan (دً) seperti Mad Thobi 'ii",
+                ".ذلِكَ سَبِيلاً memanjangkan (لاً) seperti Mad Thobi 'ii"
+            ],
             "page": "/detail/mad_iwad"
         },
         {
@@ -481,7 +556,13 @@
             "category": "Mad",
             "summary": "Apabila ada Hamzah (ء) bertemu dengan Mad yang berasal dari Hamzah Sukun,kemudian hamzah ini diubah dan diganti dengan Alif (ا), Wau (ﻭ)",
             "detail": "Cara membæanya harus dipanjangkan satu alif atau dua harokat seperti Mad Thobi'i.",
-            "examples": [""],
+            "examples": [
+                "أُوتُوا memanjangkan (أ) seperti Mad Thobi 'ii",
+                "إِيْتُونِي memanjangkan (أ) seperti Mad Thobi 'ii",
+                "أَدَمُ memanjangkan (أ) seperti Mad Thobi 'ii",
+                "إِيْمَانُ memanjangkan (أ) seperti Mad Thobi 'ii",
+                "أَتُوا memanjangkan (أ) seperti Mad Thobi 'ii"
+            ],
             "page": "/detail/mad_badal"
         },
         {
@@ -491,7 +572,12 @@
             "category": "Mad",
             "summary": "Hukum bacaan disebut Mad Tamkin yakni, apabila ada Yaa' Sukun (ﻱْ) yang didahului dengan Yaa' yang bertasydid dan harokatnya kasroh (ﻱِ).",
             "detail": "Cara membacanya ditepatkan dengan tasydid dan Mad Thobi'i-nya sepanjang dua harokat atau satu alif.",
-            "examples": [""],
+            "examples": [
+                "وَإِذَا حُيِّيْتُمْ Yaa' taysdid bertemu (يْ)",
+                "وَخَاتَمَ النَّبِيِّينَ Yaa' taysdid bertemu (يْ)",
+                "رَبَّانِيِّينَ Yaa' taysdid bertemu (يْ)",
+                "في الْأُمِّيِّينَ Yaa' taysdid bertemu (يْ)"
+            ],
             "page": "/detail/mad_tamkin"
         },
         {
@@ -501,7 +587,11 @@
             "category": "Mad",
             "summary": "Hukum bacaan disebut Mad Farq adalah satu Mad yang di dalam Al-Qur'an hanya terdapat di empat tempat.",
             "detail": "Cara membacanya harus dipanjangkan untuk membedakan antara pertanyaan atau bukan, jadi dipanjangkannya itu supaya jelas bahwa kalimat itu berbentuk pertanyaan.",
-            "examples": [""],
+            "examples": [
+                "الأُنْثَيَيْنِ الذَّكَرَيْنِ حَرَّمَ أَما pada Surat Al-An'am",
+                "قُلْ اللَّهُ أَذِنَ لَكُمْ pada Surat Yunus",
+                "اللَّهُ خَيْرٌ أَمَّا يُشْرِكُونَ pada Surat An-Naml"
+            ],
             "page": "/detail/mad_farq"
         }
     ]
