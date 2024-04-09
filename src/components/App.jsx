@@ -100,6 +100,7 @@ class App extends React.Component {
           <title className="font-ramadhan-start">{i18n.t('app_name')}</title>
           <meta name="description" content={i18n.t('app_description')} />
           <meta name="google-site-verification" content="ThFmvf3VSJhWEhuU_8zz0txPahlU9ErT4z4ixbyUJn8" />
+          <meta name="google-site-verification" content="4Ytd1aN8H2pjZ27gjNW-snMP6R3piU86MKD2PbjmJl8" />
           <link rel="canonical" href={location.toString()} />
         </Helmet>
         <Routes>
