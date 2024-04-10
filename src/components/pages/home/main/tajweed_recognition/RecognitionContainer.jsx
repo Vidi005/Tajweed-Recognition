@@ -208,14 +208,16 @@ class RecognitionContainer extends React.Component {
         Swal.fire({
           icon: 'error',
           title: this.props.t('camera_title_alert.0'),
-          text: `${error.message}`
+          text: `${error.message}`,
+          confirmButtonColor: 'green'
         })
       }
     } else {
       Swal.fire({
         icon: 'warning',
         title: this.props.t('camera_title_alert.1'),
-        text: this.props.t('camera_text_alert.1')
+        text: this.props.t('camera_text_alert.1'),
+        confirmButtonColor: 'green'
       })
     }
   }
@@ -246,14 +248,16 @@ class RecognitionContainer extends React.Component {
         Swal.fire({
           icon: 'error',
           title: 'Error',
-          text: this.props.t('canvas_is_null')
+          text: this.props.t('canvas_is_null'),
+          confirmButtonColor: 'green'
         })
       }
     } else {
       Swal.fire({
         icon: 'error',
         title: this.props.t('camera_title_alert.2'),
-        text: this.props.t('camera_text_alert.2')
+        text: this.props.t('camera_text_alert.2'),
+        confirmButtonColor: 'green'
       })
     }
   }
@@ -281,7 +285,8 @@ class RecognitionContainer extends React.Component {
             Swal.fire({
               icon: 'error',
               title: this.props.t('file_size_limit.0'),
-              text: this.props.t('file_size_limit.1')
+              text: this.props.t('file_size_limit.1'),
+              confirmButtonColor: 'green'
             })
           })
           return
@@ -297,7 +302,8 @@ class RecognitionContainer extends React.Component {
             Swal.fire({
               icon: 'error',
               title: this.props.t('invalid_file.0'),
-              text: this.props.t('invalid_file.1')
+              text: this.props.t('invalid_file.1'),
+              confirmButtonColor: 'green'
             })
           })
         }
@@ -389,7 +395,8 @@ class RecognitionContainer extends React.Component {
       Swal.fire({
         icon: 'error',
         title: this.props.t('recognition_failed'),
-        text: error.message
+        text: error.message,
+        confirmButtonColor: 'green'
       })
     }
   }
@@ -410,7 +417,8 @@ class RecognitionContainer extends React.Component {
       Swal.fire({
         icon: 'error',
         title: this.props.t('recognition_failed'),
-        text: error.message
+        text: error.message,
+        confirmButtonColor: 'green'
       })
     }
   }
@@ -422,12 +430,22 @@ class RecognitionContainer extends React.Component {
       const maxPages = pdf.numPages
       const processPage = async (pageNum) => {
         if (pageNum > maxPages) {
-          this.setState({
-            isRecognizing: false,
-            isEditMode: false,
-            coloredTajweeds: colorizeChars(removeNonArabic(recognizedTextArray.join('\n').trim()), tajweedLaws()),
-            isResultClosed: false }, () => this.filterColorizedTajweeds(this.state.coloredTajweeds))
+          if (recognizedTextArray.join('').length > 0) {
+            this.setState({
+              isRecognizing: false,
+              isEditMode: false,
+              coloredTajweeds: colorizeChars(removeNonArabic(recognizedTextArray.join('\n').trim()), tajweedLaws()),
+              isResultClosed: false }, () => this.filterColorizedTajweeds(this.state.coloredTajweeds))
+              return
+          } else {
+            Swal.fire({
+              icon: 'warning',
+              title: this.props.t('empty_text.0'),
+              text: this.props.t('empty_text.1'),
+              confirmButtonColor: 'green'
+            })
             return
+          }
         }
         const page = await pdf.getPage(pageNum)
         const viewport = page.getViewport({ scale: 1.0 })
@@ -451,7 +469,8 @@ class RecognitionContainer extends React.Component {
       Swal.fire({
         icon: 'error',
         title: this.props.t('recognition_failed'),
-        text: error.message
+        text: error.message,
+        confirmButtonColor: 'green'
       })
     }
   }
@@ -468,9 +487,10 @@ class RecognitionContainer extends React.Component {
         if (textContent.items.length === 0) {
           this.setState({ isRecognizing: false })
           Swal.fire({
-            icon: 'error',
+            icon: 'warning',
             title: this.props.t('empty_text.0'),
-            text: this.props.t('empty_text.1')
+            text: this.props.t('empty_text.1'),
+            confirmButtonColor: 'green'
           })
           return
         } else {
@@ -495,7 +515,8 @@ class RecognitionContainer extends React.Component {
       Swal.fire({
         icon: 'error',
         title: this.props.t('recognition_failed'),
-        text: error.message
+        text: error.message,
+        confirmButtonColor: 'green'
       })
     }
   }

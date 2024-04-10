@@ -992,9 +992,9 @@ const sources = [
 ]
 
 const removeNonArabic = text => {
-  const arabicRegex = /[\u0600-\u06FF]/gm
+  const arabicRegex = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]/gm
   if (arabicRegex.test(text)) {
-    return text.replace(/[^\u0600-\u06FF\s]/gm, '')
+    return text.replace(/[^\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\s]/gm, '')
   } else {
     return ''
   }

@@ -14,7 +14,8 @@ const DropZoneContainer = ({ t, pickFile }) => (
       Swal.fire({
         icon: 'error',
         title: t('invalid_file.0'),
-        text: t('invalid_file.1')
+        text: t('invalid_file.1'),
+        confirmButtonColor: 'green'
       })
     }
   }}>
