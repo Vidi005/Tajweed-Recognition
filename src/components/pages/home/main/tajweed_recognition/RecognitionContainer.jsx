@@ -394,18 +394,41 @@ class RecognitionContainer extends React.Component {
     }
   }
 
+  async recognizeImagePerPage(file) {
+    try {
+      const { data } = await Tesseract.recognize(file, 'ara', {
+        recognize_character: true,
+        deskew: true,
+        invert: true,
+        psm: 6
+      })
+      if (data && data.text.length > 0) {
+        return removeNonArabic(data.text.split('\n').join(' ').trim().replace(/\s+/g, ' '))
+      }
+    } catch (error) {
+      this.setState({ isRecognizing: false })
+      Swal.fire({
+        icon: 'error',
+        title: this.props.t('recognition_failed'),
+        text: error.message
+      })
+    }
+  }
+
   async extractImageTextFromPDF(file) {
+    let recognizedTextArray = []
     try {
       const pdf = await pdfjs.getDocument({ url: URL.createObjectURL(file) }).promise
       const maxPages = pdf.numPages
-      const firstPage = await pdf.getPage(1)
-      const firstPageViewport = firstPage.getViewport({ scale: 1.0 })
-      const combinedCanvas = document.createElement('canvas')
-      const combinedContext = combinedCanvas.getContext('2d')
-      combinedCanvas.height = firstPageViewport.height * maxPages
-      combinedCanvas.width = firstPageViewport.width
-      let yOffset = 0
-      for (let pageNum = 1; pageNum <= maxPages; pageNum++) {
+      const processPage = async (pageNum) => {
+        if (pageNum > maxPages) {
+          this.setState({
+            isRecognizing: false,
+            isEditMode: false,
+            coloredTajweeds: colorizeChars(removeNonArabic(recognizedTextArray.join('\n').trim()), tajweedLaws()),
+            isResultClosed: false }, () => this.filterColorizedTajweeds(this.state.coloredTajweeds))
+            return
+        }
         const page = await pdf.getPage(pageNum)
         const viewport = page.getViewport({ scale: 1.0 })
         const canvas = document.createElement('canvas')
@@ -416,12 +439,13 @@ class RecognitionContainer extends React.Component {
           canvasContext: context,
           viewport: viewport
         }
-        page.render(renderContext)
-        combinedContext.drawImage(canvas, 0, yOffset)
-        yOffset += viewport.height
+        await page.render(renderContext).promise
+        const imageData = canvas.toDataURL()
+        const recognizedText = await this.recognizeImagePerPage(imageData)
+        recognizedTextArray.push(recognizedText)
+        await processPage(pageNum + 1)
       }
-      const combinedImageData = combinedCanvas.toDataURL()
-      this.recognizeImage(combinedImageData)
+      await processPage(1)
     } catch (error) {
       this.setState({ isRecognizing: false, dataFile: null })
       Swal.fire({
