@@ -35,7 +35,7 @@ const PdfSettingPrompt = ({ t, isPromptOpened, isOCREnabled, enableOCRMode, conf
             <p className="text-justify text-green-900 dark:text-white leading-tight">{t('additional_setting_desc')}</p>
             <Listbox value={isOCREnabled} onChange={enableOCRMode} className="w-full p-1 bg-green-50 dark:bg-gray-900 text-green-900 dark:text-white">
               <Listbox.Options static className="max-h-full flex flex-col items-center justify-center content-center">
-                <Listbox.Label className={"cursor-pointer px-2 py-3"}>
+                <Listbox.Option as="label" className={"cursor-pointer px-2 py-3"}>
                   <input
                     type="checkbox"
                     className="ocr-mode-checkbox accent-green-600 dark:accent-gray-600 h-5 w-5 duration-200"
@@ -43,7 +43,7 @@ const PdfSettingPrompt = ({ t, isPromptOpened, isOCREnabled, enableOCRMode, conf
                     onChange={enableOCRMode}
                   />
                   <span className="ml-2 text-base md:text-lg">{t('enable_ocr')}</span>
-                </Listbox.Label>
+                </Listbox.Option>
                 <button className="w-fit m-2 px-8 py-2 bg-green-800 hover:bg-green-900 active:bg-green-500 text-center text-white rounded-md shadow-md dark:shadow-white/50 duration-200" onClick={confirmSetting}>{t('ok')}</button>
               </Listbox.Options>
             </Listbox>

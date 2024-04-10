@@ -22,11 +22,11 @@ const SidebarContainer = ({ t, selectedTajweedIds, filteredTajweeds, toggleOptio
                   leaveFrom="opacity-100 translate-y-0"
                   leaveTo="opacity-50 -translate-y-1/2"
                 >
-                  <label className="flex items-center flex-nowrap cursor-pointer px-3 py-2 bg-green-700/50 dark:bg-gray-800 text-white hover:translate-x-2 duration-300 rounded-md" htmlFor="select-all">
+                  <label className="flex items-center flex-nowrap cursor-pointer px-3 py-2 bg-green-700/50 dark:bg-gray-800 text-white hover:translate-x-2 duration-300 rounded-md" htmlFor={category}>
                     <input
                       type="checkbox"
-                      name="select-all"
-                      id="select-all"
+                      name={category}
+                      id={category}
                       className="form-checkbox accent-green-600 dark:accent-gray-600 h-5 w-5 mr-4 duration-200"
                       checked={filteredTajweeds.filter(tajweedLaw => tajweedLaw.category === category).every(tajweedLaw => selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id))}
                       onChange={() => toggleSelectAllGroup(category)}
