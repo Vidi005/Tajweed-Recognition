@@ -271,9 +271,7 @@ class RecognitionContainer extends React.Component {
 
   pickFile = (files) => {
     if (files.length === 0) return
-    this.setState({
-      isRecognizing: true
-    }, async () => {
+    this.setState({ isRecognizing: true }, async () => {
       const file = files[0]
       const validImageExtensions = ['jpeg', 'jpg', 'png', 'webp', 'bmp', 'heic', 'svg']
       const validPdfExtension = ['pdf']
@@ -293,12 +291,9 @@ class RecognitionContainer extends React.Component {
         }
         if (validPdfExtension.includes(fileExtension)) {
           this.setState({ isPromptOpened: true, dataFile: file })
-        } else if (validImageExtensions.includes(fileExtension)) {
-          this.recognizeImage(file)
-        } else {
-          this.setState({
-            isRecognizing: false
-          }, () => {
+        } else if (validImageExtensions.includes(fileExtension)) this.recognizeImage(file)
+        else {
+          this.setState({ isRecognizing: false }, () => {
             Swal.fire({
               icon: 'error',
               title: this.props.t('invalid_file.0'),
@@ -317,11 +312,8 @@ class RecognitionContainer extends React.Component {
 
   confirmSetting() {
     this.setState({ isPromptOpened: false }, () => {
-      if (this.state.isOCREnabled) {
-        this.extractImageTextFromPDF(this.state.dataFile)
-      } else {
-        this.extractTextFromPDF(this.state.dataFile)
-      }
+      if (this.state.isOCREnabled) this.extractImageTextFromPDF(this.state.dataFile)
+      else this.extractTextFromPDF(this.state.dataFile)
     })
   }
 
@@ -436,7 +428,7 @@ class RecognitionContainer extends React.Component {
               isEditMode: false,
               coloredTajweeds: colorizeChars(removeNonArabic(recognizedTextArray.join('\n').trim()), tajweedLaws()),
               isResultClosed: false }, () => this.filterColorizedTajweeds(this.state.coloredTajweeds))
-              return
+            return
           } else {
             Swal.fire({
               icon: 'warning',
@@ -453,10 +445,7 @@ class RecognitionContainer extends React.Component {
         const context = canvas.getContext('2d')
         canvas.height = viewport.height
         canvas.width = viewport.width
-        const renderContext = {
-          canvasContext: context,
-          viewport: viewport
-        }
+        const renderContext = { canvasContext: context, viewport: viewport }
         await page.render(renderContext).promise
         const imageData = canvas.toDataURL()
         const recognizedText = await this.recognizeImagePerPage(imageData)
@@ -560,10 +549,7 @@ class RecognitionContainer extends React.Component {
   }
 
   hideTooltip() {
-    this.setState({
-      tooltipContent: '',
-      tooltipColor: ''
-    })
+    this.setState({ tooltipContent: '', tooltipColor: '' })
   }
 
   showSummaryModal(idParam) {
@@ -600,9 +586,7 @@ class RecognitionContainer extends React.Component {
       const x2 = rect2?.left + rect2?.width / 2
       const y1 = rect1.bottom - rect1.height / 4
       const y2 = rect2?.top
-      if (y1 > contentContainerY1 && y1 !== 0) {
-        lines.push({ x1, x2, y1, y2 })
-      }
+      if (y1 > contentContainerY1 && y1 !== 0) lines.push({ x1, x2, y1, y2 })
     })
     this.setState({ isCarouselItemHovered: isHovered, lines: lines, linesColor: color })
   }
@@ -633,7 +617,8 @@ class RecognitionContainer extends React.Component {
     const { filteredTajweeds } = this.state
     const groupOptions = filteredTajweeds.filter(tajweedLaw => tajweedLaw.category === group).map(tajweedLaw => tajweedLaw.id)
     if (selectedTajweedIds.some(optionId => groupOptions.some(groupOption => groupOption === optionId))) {
-      this.setState({selectedTajweedIds: selectedTajweedIds.filter(optionId => !groupOptions.some(groupOption => groupOption === optionId))}, () => {
+      this.setState({
+        selectedTajweedIds: selectedTajweedIds.filter(optionId => !groupOptions.some(groupOption => groupOption === optionId))}, () => {
         this.changeSelectOptions()
       })
     } else this.setState({ selectedTajweedIds: [...selectedTajweedIds, ...groupOptions] }, () => this.changeSelectOptions())

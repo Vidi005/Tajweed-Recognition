@@ -72,9 +72,7 @@ class App extends React.Component {
 
   changeLanguage (lang) {
     i18n.changeLanguage(lang)
-    this.setState({ selectedLanguage: lang }, () => {
-      this.saveLanguageData(lang)
-    })
+    this.setState({ selectedLanguage: lang }, () => this.saveLanguageData(lang))
   }
 
   saveDisplayMode (selectedDisplayMode) {
@@ -155,16 +153,8 @@ class App extends React.Component {
                       />
                     ) 
               }>
-                <Route path='/recognition' element={
-                  <RecognitionMain 
-                    t={i18n.t}
-                    />
-                }/>
-                <Route path='/tajweed-list' element={
-                  <ListMain
-                    t={i18n.t}
-                  />
-                }>
+                <Route path='/recognition' element={<RecognitionMain t={i18n.t}/>}/>
+                <Route path='/tajweed-list' element={<ListMain t={i18n.t}/>}>
                   <Route path='detail/:tajweed' element={<DetailTajweedContent t={i18n.t}/>}/>
                 </Route>
               </Route>

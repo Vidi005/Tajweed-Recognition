@@ -38,28 +38,24 @@ class ListContainer extends React.Component {
     this.setState({ searchQuery: query.toLowerCase() }, () => {
       const { searchQuery, filterBy } = this.state
       const tajweedData = [...this.loadTajweedData()]
-      if (searchQuery.length === 0) {
-        this.filterHandler(filterBy)
-      } else {
+      if (searchQuery.length === 0) this.filterHandler(filterBy)
+      else {
         let searchData = tajweedData
         if (filterBy !== this.props.t('filter_tajweeds.0')) {
           searchData = tajweedData.filter(tajweedLaw => 
             tajweedLaw.group === filterBy || tajweedLaw.category === filterBy
           )
         }
-        searchData = searchData.filter(tajweedLaw => 
-          tajweedLaw.name.toLowerCase().includes(searchQuery)
-        )
+        searchData = searchData.filter(tajweedLaw => tajweedLaw.name.toLowerCase().includes(searchQuery))
         this.setState({ getFilteredTajweeds: searchData })
       }
-    });
+    })
   }
 
   filterHandler(filter) {
     const tajweedData = [...this.loadTajweedData()]
-    if (filter === this.props.t('filter_tajweeds.0')) {
-      this.setState({ getFilteredTajweeds: tajweedData })
-    } else {
+    if (filter === this.props.t('filter_tajweeds.0')) this.setState({ getFilteredTajweeds: tajweedData })
+    else {
       const filteredTajweeds = tajweedData.filter(tajweedLaw => tajweedLaw.group === filter || tajweedLaw.category === filter)
       this.setState({ getFilteredTajweeds: filteredTajweeds })
     }

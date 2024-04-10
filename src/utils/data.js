@@ -515,14 +515,24 @@ const extractMadWajibCharacters = () => {
 const extractMadJaizCharacters = () => {
   const madJaizVar1 = madThabiiChars.map(regex => new RegExp(regex.source + /\s(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F]|\u0670)/gm.source, 'gm'))
   const madJaizVar1Trimmed = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F]|\u0670)/gm.source, 'gm'))
+  const madJaizVar1LaWashal = madThabiiChars.map(regex => new RegExp(regex.source + /\u06D9\s(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F]|\u0670)/gm.source, 'gm'))
+  const madJaizVar1LaWashalTrimmed = madThabiiChars.map(regex => new RegExp(regex.source + /\u06D9(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F]|\u0670)/gm.source, 'gm'))
   const madJaizVar2 = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)\s(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F]|\u0670)/gm.source, 'gm'))
   const madJaizVar2Trimmed = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F]|\u0670)/gm.source, 'gm'))
+  const madJaizVar2LaWashal = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)\u06D9\s(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F]|\u0670)/gm.source, 'gm'))
+  const madJaizVar2LaWashalTrimmed = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)\u06D9(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F]|\u0670)/gm.source, 'gm'))
   const madJaizVar3 = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)\s(?:\u0623|\u0625|\u0627)\s(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F]|\u0670)/gm.source, 'gm'))
   const madJaizVar3Trimmed = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)(?:\u0623|\u0625|\u0627)\s(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F]|\u0670)/gm.source, 'gm'))
+  const madJaizVar3LaWashal = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)\u06D9\s(?:\u0623|\u0625|\u0627)\s(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F]|\u0670)/gm.source, 'gm'))
+  const madJaizVar3LaWashalTrimmed = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)\u06D9(?:\u0623|\u0625|\u0627)\s(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F]|\u0670)/gm.source, 'gm'))
   const madJaizVar4 = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)(?:\u0623|\u0625|\u0627)\s(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F]|\u0670)/gm.source, 'gm'))
   const madJaizVar4Trimmed = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)(?:\u0623|\u0625|\u0627)(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F]|\u0670)/gm.source, 'gm'))
+  const madJaizVar4LaWashal = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)(?:\u0623|\u0625|\u0627)\u06D9\s(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F]|\u0670)/gm.source, 'gm'))
+  const madJaizVar4LaWashalTrimmed = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)(?:\u0623|\u0625|\u0627)\u06D9(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F]|\u0670)/gm.source, 'gm'))
   const madJaizVar5 = madThabiiChars.map(regex => new RegExp(regex.source.includes('\u0627') ? regex.source.replace('\u0627', '\u0622') + /\s(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F]|\u0670)/gm.source : null, 'gm'))
   const madJaizVar5Trimmed = madThabiiChars.map(regex => new RegExp(regex.source.includes('\u0627') ? regex.source.replace('\u0627', '\u0622') + /(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F]|\u0670)/gm.source : null, 'gm'))
+  const madJaizVar5LaWashal = madThabiiChars.map(regex => new RegExp(regex.source.includes('\u0627') ? regex.source.replace('\u0627', '\u0622') + /\u06D9\s(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F]|\u0670)/gm.source : null, 'gm'))
+  const madJaizVar5LaWashalTrimmed = madThabiiChars.map(regex => new RegExp(regex.source.includes('\u0627') ? regex.source.replace('\u0627', '\u0622') + /\u06D9(?:\u0623|\u0625|\u0627)(?:[\u064B-\u065F]|\u0670)/gm.source : null, 'gm'))
   const alif = [
     /\u0622(?:\u0623|\u0625|\u0627)/gm, /\u0622 (?:\u0623|\u0625|\u0627)/gm,
     /\u0627(?:\u0605|\u0653|\u06E4)(?:\u0623|\u0625|\u0627)/gm, /\u0627(?:\u0605|\u0653|\u06E4) (?:\u0623|\u0625|\u0627)/gm
@@ -530,14 +540,24 @@ const extractMadJaizCharacters = () => {
   return [
     ...madJaizVar1,
     ...madJaizVar1Trimmed,
+    ...madJaizVar1LaWashal,
+    ...madJaizVar1LaWashalTrimmed,
     ...madJaizVar2,
     ...madJaizVar2Trimmed,
+    ...madJaizVar2LaWashal,
+    ...madJaizVar2LaWashalTrimmed,
     ...madJaizVar3,
     ...madJaizVar3Trimmed,
+    ...madJaizVar3LaWashal,
+    ...madJaizVar3LaWashalTrimmed,
     ...madJaizVar4,
     ...madJaizVar4Trimmed,
+    ...madJaizVar4LaWashal,
+    ...madJaizVar4LaWashalTrimmed,
     ...madJaizVar5,
     ...madJaizVar5Trimmed,
+    ...madJaizVar5LaWashal,
+    ...madJaizVar5LaWashalTrimmed,
     ...alif
   ]
 }
@@ -1021,9 +1041,7 @@ const colorizeChars = (recognizedText, tajweedLaws) => {
       if (typeof rule === 'string') {
         const regex = new RegExp(`(${rule})`, 'gm')
         applyColor(regex, tajweedLaw.id, tajweedLaw.color)
-      } else {
-        applyColor(rule, tajweedLaw.id, tajweedLaw.color)
-      }
+      } else applyColor(rule, tajweedLaw.id, tajweedLaw.color)
     })
   })
   return colorizedChars

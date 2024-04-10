@@ -6,11 +6,9 @@ const DropZoneContainer = ({ t, pickFile }) => (
   <Dropzone accept="image/*, application/pdf" onDrop={acceptedFiles => {
     const imageFiles = acceptedFiles.filter(file => file.type.startsWith("image/"))
     const pdfFiles = acceptedFiles.filter(file => file.type === 'application/pdf')
-    if (imageFiles.length > 0) {
-      pickFile(imageFiles)
-    } else if (pdfFiles.length > 0) {
-      pickFile(pdfFiles)
-    } else {
+    if (imageFiles.length > 0) pickFile(imageFiles)
+    else if (pdfFiles.length > 0) pickFile(pdfFiles)
+    else {
       Swal.fire({
         icon: 'error',
         title: t('invalid_file.0'),
