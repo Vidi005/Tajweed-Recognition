@@ -494,8 +494,10 @@ const extractMadWajibCharacters = () => {
   const madWajibDiacritic2 = madThabiiChars.map(regex => new RegExp(regex.source.replace('\u0627', '\u0622') + /\s\u0621/gm.source, 'gm'))
   const hamzahDiacriticsTrimmed = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0653|\u06E4)(?:[\u0648-\u0649][\u0654-\u0655])/gm.source, 'gm'))
   const hamzahDiacritics = madThabiiChars.map(regex => new RegExp(regex.source + /\s(?:\u0653|\u06E4)(?:[\u0648-\u0649][\u0654-\u0655])/gm.source, 'gm'))
-  const hamzahDiacritics2Trimmed = madThabiiChars.map(regex => new RegExp(regex.source + /\u0653\u0624|\u06E4\u0624/gm.source, 'gm'))
-  const hamzahDiacritics2 = madThabiiChars.map(regex => new RegExp(regex.source + /\s\u0653\u0624|\u06E4\u0624/gm.source, 'gm'))
+  const hamzahDiacritics2Trimmed = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0653|\u06E4)(?:\u0624|\u0626)/gm.source, 'gm'))
+  const hamzahDiacritics2 = madThabiiChars.map(regex => new RegExp(regex.source + /\s(?:\u0653|\u06E4)(?:\u0624|\u0626)/gm.source, 'gm'))
+  const hamzahDiacritics3Trimmed = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0653|\u06E4)\u0640(?:\u0624|\u0626)/gm.source, 'gm'))
+  const hamzahDiacritics3 = madThabiiChars.map(regex => new RegExp(regex.source + /\s(?:\u0653|\u06E4)\u0640(?:\u0624|\u0626)/gm.source, 'gm'))
   const alif = [/\u0622\u0621/gm, /\u0622 \u0621/gm, /\u0627(?:\u0605|\u0653|\u06E4)\u0621/gm, /\u0627(?:\u0605|\u0653|\u06E4) \u0621/gm]
   return [
     ...madWajibTrimmed,
@@ -508,6 +510,8 @@ const extractMadWajibCharacters = () => {
     ...hamzahDiacritics,
     ...hamzahDiacritics2Trimmed,
     ...hamzahDiacritics2,
+    ...hamzahDiacritics3Trimmed,
+    ...hamzahDiacritics3,
     ...alif
   ]
 }

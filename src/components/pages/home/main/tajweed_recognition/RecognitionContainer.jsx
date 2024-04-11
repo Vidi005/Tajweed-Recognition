@@ -11,6 +11,7 @@ import { pdfjs } from "react-pdf"
 import CameraContainer from "./camera_mode/CameraContainer"
 import { Dialog } from "@headlessui/react"
 import { Helmet } from "react-helmet"
+import mammoth from "mammoth"
 
 if (import.meta && import.meta.url) {
   pdfjs.GlobalWorkerOptions.workerSrc = new URL(
@@ -122,7 +123,8 @@ class RecognitionContainer extends React.Component {
         filteredTajweeds,
         selectedTajweedIds,
         selectedTajweedLaws,
-        isResultClosed
+        isResultClosed,
+        isEditMode: true
       })
     }
   }
@@ -275,6 +277,7 @@ class RecognitionContainer extends React.Component {
       const file = files[0]
       const validImageExtensions = ['jpeg', 'jpg', 'png', 'webp', 'bmp', 'heic', 'svg']
       const validPdfExtension = ['pdf']
+      const validDocxExtension = ['docx']
       const fileExtension = file.name.split('.').pop().toLowerCase()
       if (file) {
         const maxSize = 5 * 1024 * 1024
@@ -291,7 +294,8 @@ class RecognitionContainer extends React.Component {
         }
         if (validPdfExtension.includes(fileExtension)) {
           this.setState({ isPromptOpened: true, dataFile: file })
-        } else if (validImageExtensions.includes(fileExtension)) this.recognizeImage(file)
+        } else if (validDocxExtension.includes(fileExtension)) this.extractTextFromDocx(file)
+        else if (validImageExtensions.includes(fileExtension)) this.recognizeImage(file)
         else {
           this.setState({ isRecognizing: false }, () => {
             Swal.fire({
@@ -510,6 +514,41 @@ class RecognitionContainer extends React.Component {
     }
   }
 
+  async extractTextFromDocx(file) {
+    try {
+      const arrayBuffer = await loadFileAsArrayBuffer(file)
+      const blob = new Blob([arrayBuffer], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' })
+      const text = await mammoth.extractRawText({ arrayBuffer: blob })
+      if (text.value.length > 0) {
+        this.setState({
+          recognizedText: removeNonArabic(text.value.trim()),
+          coloredTajweeds: colorizeChars(removeNonArabic(text.value.trim()), tajweedLaws()),
+          isRecognizing: false,
+          isEditMode: false,
+          isResultClosed: false,
+          dataFile: null
+        }, () => this.filterColorizedTajweeds(this.state.coloredTajweeds))
+      } else {
+        this.setState({ isRecognizing: false })
+          Swal.fire({
+            icon: 'warning',
+            title: this.props.t('empty_text.0'),
+            text: text.messages,
+            confirmButtonColor: 'green'
+          })
+          return
+      }
+    } catch (error) {
+      this.setState({ isRecognizing: false, dataFile: null })
+      Swal.fire({
+        icon: 'error',
+        title: this.props.t('recognition_failed'),
+        text: error.message,
+        confirmButtonColor: 'green'
+      })
+    }
+  }
+
   onUnloadPage (event) {
     event.preventDefault()
     event.returnValue = this.props.t('unsaved_warning')
@@ -574,21 +613,23 @@ class RecognitionContainer extends React.Component {
   }
 
   calculateLines(classNames, isHovered, dataIdx, color) {
-    const elements = document.querySelectorAll(`.${classNames}`)
-    const lines = []
-    const contentContainerY1 = this.contentContainerRef.current.getBoundingClientRect().top
-    const activeSlides = document.querySelectorAll('.slick-active')
-    elements.forEach(element => {
-      const rect1 = element.getBoundingClientRect()
-      const adjustedDataIdx = dataIdx >= activeSlides.length ? dataIdx % activeSlides.length : dataIdx
-      const rect2 = activeSlides[adjustedDataIdx]?.getBoundingClientRect()
-      const x1 = rect1.left + rect1.width / 2
-      const x2 = rect2?.left + rect2?.width / 2
-      const y1 = rect1.bottom - rect1.height / 4
-      const y2 = rect2?.top
-      if (y1 > contentContainerY1 && y1 !== 0) lines.push({ x1, x2, y1, y2 })
-    })
-    this.setState({ isCarouselItemHovered: isHovered, lines: lines, linesColor: color })
+    if (!this.state.isEditMode) {
+      const elements = document.querySelectorAll(`.${classNames}`)
+      const lines = []
+      const contentContainerY1 = this.contentContainerRef.current.getBoundingClientRect().top
+      const activeSlides = document.querySelectorAll('.slick-active')
+      elements.forEach(element => {
+        const rect1 = element.getBoundingClientRect()
+        const adjustedDataIdx = dataIdx >= activeSlides.length ? dataIdx % activeSlides.length : dataIdx
+        const rect2 = activeSlides[adjustedDataIdx]?.getBoundingClientRect()
+        const x1 = rect1.left + rect1.width / 2
+        const x2 = rect2?.left + rect2?.width / 2
+        const y1 = rect1.bottom - rect1.height / 4
+        const y2 = rect2?.top
+        if (y1 > contentContainerY1 && y1 !== 0) lines.push({ x1, x2, y1, y2 })
+      })
+      this.setState({ isCarouselItemHovered: isHovered, lines: lines, linesColor: color })
+    }
   }
 
   changeSelectOptions() {
@@ -660,7 +701,7 @@ class RecognitionContainer extends React.Component {
             <h5 className="md:text-lg whitespace-nowrap">{this.props.t('capture_image')}</h5>
           </button>
           <label htmlFor="file-picker" className="btn-import grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 cursor-pointer duration-200">
-            <input type="file" id="file-picker" className="hidden" accept="image/*, application/pdf" onChange={e => this.pickFile(e.target.files)} />
+            <input type="file" id="file-picker" className="hidden" accept="image/*, application/pdf, application/vnd.openxmlformats-officedocument.wordprocessingml.document" onChange={e => this.pickFile(e.target.files)} />
             <img className="h-8 md:h-12 mr-2" src="images/import-icon.svg" alt="Select a File" />
             <h5 className="md:text-lg whitespace-nowrap">{this.props.t('select_file')}</h5>
           </label>
