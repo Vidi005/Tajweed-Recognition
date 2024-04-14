@@ -38,6 +38,7 @@
     "container_title": ["Editor", "Hasil"],
     "generate": "Generate",
     "detail_tajweed": "Lihat Detil",
+    "close_result_prompt": ["Apakah Anda yakin ingin menutup hasil ini?", "Data hasil akan dihapus."],
     "tajweed_list": "Daftar Tadjwid",
     "tajweed_desc": "Deskripsi Tadjwid",
     "tajweed_content_desc": "Ilmu tadjwid adalah ilmu yang digunakan untuk mengetahui kaidah dan cara membaca (membunyikan) huruf-huruf Al-Qur'an secara baik dan benar. Tujuannya adalah untuk memelihara bacaan Al-Qur'an dari kesalahan dan perubahan serta memelihara lisan (mulut) dari kesalahan membaca.\nMempelajari ilmu tadjwid hukumnya Fardlu Kifayah, sedangkan membaca Al-Qur'an dengan baik sesuai dengan ilmu tadjwid hukumnya FardIu 'Ain.",

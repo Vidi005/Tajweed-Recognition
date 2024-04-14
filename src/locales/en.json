@@ -38,6 +38,7 @@
     "container_title": ["Editor", "Result"],
     "generate": "Generate",
     "detail_tajweed": "More Detail",
+    "close_result_prompt": ["Are you sure want to close this result?", "The result data will be removed."],
     "tajweed_list": "Tajweed List",
     "tajweed_desc": "Tajweed Description",
     "tajweed_content_desc": "The science of tajwid is the knowledge used to understand the rules and methods of reciting (pronouncing) the letters of the Qur'an correctly and beautifully. Its purpose is to preserve the recitation of the Qur'an from errors and changes, as well as to safeguard the mouth from reading mistakes. Studying the science of tajwid is a communal obligation (Fardlu Kifayah), while reciting the Qur'an correctly according to the rules of tajwid is an individual obligation (Fardlu 'Ain).",

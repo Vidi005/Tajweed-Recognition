@@ -54,8 +54,8 @@ const MenuBarContainer = ({ t, isEditMode, selectedTajweedIds, filteredTajweeds,
     </Popover>
     <button className="discard-btn flex-none h-10 p-2 hover:bg-green-800/25 dark:hover:bg-gray-500 active:bg-green-800/40 dark:active:bg-gray-300 duration-200 rounded-md" onClick={() => {
       Swal.fire({
-        title: "Are you sure want to close this result?",
-        text: "The result data will be removed.",
+        title: t('close_result_prompt.0'),
+        text: t('close_result_prompt.1'),
         icon: "warning",
         confirmButtonColor: "green",
         showCancelButton: true,
