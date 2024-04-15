@@ -438,18 +438,6 @@ const extractIdghamMimiCharacters = () => [
 ]
 
 const extractIdghamMutamasilainCharacters = () => [
-  /\u0645(?![\u064B-\u065F]|\u0670) \u0645/gm, /مْ م/gm,
-  /\u0645(?![\u064B-\u065F]|\u0670)\u0645/gm, /مْم/gm,
-  /* La Washal Waqof */
-  /\u0645(?![\u064B-\u065F]|\u0670)\u06D9 \u0645/gm, /مْ\u06D9 م/gm,
-  /\u0645(?![\u064B-\u065F]|\u0670)\u06D9\u0645/gm, /مْ\u06D9م/gm,
-  /\u0645(?![\u064B-\u065F]|\u0670) \u06D9 \u0645/gm, /مْ \u06D9 م/gm,
-  /\u0645(?![\u064B-\u065F]|\u0670) \u06D9\u0645/gm, /مْ \u06D9م/gm,
-  /** La Washal Waqof **/
-  /\u0645(?![\u064B-\u065F]|\u0670)\u06D5\u06D9 \u0645/gm, /مْەۙ م/gm,
-  /\u0645(?![\u064B-\u065F]|\u0670)\u06D5\u06D9\u0645/gm, /مْەۙم/gm,
-  /\u0645(?![\u064B-\u065F]|\u0670) \u06D5\u06D9 \u0645/gm, /مْ ەۙ م/gm,
-  /\u0645(?![\u064B-\u065F]|\u0670) \u06D5\u06D9\u0645/gm, /مْ ەۙم/gm,
   // Ta
   /تْ ت/gm, /تْت/gm,
   /\u062A(?![\u064B-\u065F]|\u0670) \u062A/gm,
