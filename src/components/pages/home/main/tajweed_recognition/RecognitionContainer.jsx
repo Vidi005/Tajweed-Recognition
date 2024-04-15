@@ -1,6 +1,6 @@
 import React from "react"
 import Swal from "sweetalert2"
-import { alternativeUrls, buildRegExp, checkParamEvent, colorizeChars, isStorageExist, loadFileAsArrayBuffer, removeNonArabic, tajweedLaws, twTextSizes } from "../../../../../utils/data"
+import { alternativeUrls, buildRegExp, checkParamEvent, colorizeChars, isStorageExist, loadFileAsArrayBuffer, removeNonArabic, tajweedLaws, twLineHeights, twTextSizes } from "../../../../../utils/data"
 import Tesseract from "tesseract.js"
 import ResultContainer from "./ResultContainer"
 import DropZoneContainer from "./import_mode/DropZoneContainer"
@@ -33,6 +33,7 @@ class RecognitionContainer extends React.Component {
       RESULT_CONTENT_STORAGE_KEY: 'RESULT_CONTENT_STORE_KEY',
       facingMode: 'environment',
       recognizedText: '',
+      twLineHeight: '3rem',
       twTextSize: '1.5rem',
       tooltipContent: '',
       tooltipColor: '',
@@ -51,6 +52,8 @@ class RecognitionContainer extends React.Component {
       isCameraPermissionGranted: false,
       isBtnCaptureClicked: false,
       isRecognizing: false,
+      isIncreaseLineHeightDisabled: false,
+      isDecreaseLineHeightDisabled: false,
       isIncreaseTextDisabled: false,
       isDecreaseTextDisabled: false,
       isEditMode: false,
@@ -109,6 +112,7 @@ class RecognitionContainer extends React.Component {
     if (getResultContentTempData) {
       const {
         recognizedText,
+        twLineHeight,
         twTextSize,
         coloredTajweeds,
         filteredTajweeds,
@@ -118,6 +122,7 @@ class RecognitionContainer extends React.Component {
       } = JSON.parse(getResultContentTempData)
       this.setState({
         recognizedText,
+        twLineHeight,
         twTextSize,
         coloredTajweeds,
         filteredTajweeds,
@@ -127,6 +132,20 @@ class RecognitionContainer extends React.Component {
         isEditMode: true
       })
     }
+  }
+
+  increaseLineHeight() {
+    const currentIndex = twLineHeights().indexOf(this.state.twLineHeight)
+    if (currentIndex < twLineHeights().length - 1) {
+      this.setState({ twLineHeight: twLineHeights()[currentIndex + 1], isDecreaseLineHeightDisabled: false })
+    } else this.setState({ isIncreaseLineHeightDisabled: true })
+  }
+
+  decreaseLineHeight() {
+    const currentIndex = twLineHeights().indexOf(this.state.twLineHeight)
+    if (currentIndex > 0) {
+      this.setState({ twLineHeight: twLineHeights()[currentIndex - 1], isIncreaseLineHeightDisabled: false })
+    } else this.setState({ isDecreaseLineHeightDisabled: true })
   }
 
   increaseTextSize() {
@@ -177,6 +196,7 @@ class RecognitionContainer extends React.Component {
     if (isStorageExist(this.props.t('browser_warning')) && this.state.coloredTajweeds.length > 0) {
       sessionStorage.setItem(this.state.RESULT_CONTENT_STORAGE_KEY, JSON.stringify({
         recognizedText: this.state.recognizedText,
+        twLineHeight: this.state.twLineHeight,
         twTextSize: this.state.twTextSize,
         coloredTajweeds: this.state.coloredTajweeds,
         filteredTajweeds: this.state.filteredTajweeds,
@@ -754,6 +774,8 @@ class RecognitionContainer extends React.Component {
           tooltipRef={this.tooltipRef}
           carouselItemsRefs={this.carouselItemsRefs}
           closeResult={this.closeResult.bind(this)}
+          increaseLineHeight={this.increaseLineHeight.bind(this)}
+          decreaseLineHeight={this.decreaseLineHeight.bind(this)}
           increaseTextSize={this.increaseTextSize.bind(this)}
           decreaseTextSize={this.decreaseTextSize.bind(this)}
           handleTextEditor={this.handleTextEditor.bind(this)}

@@ -1255,6 +1255,8 @@ const checkParamEvent = idParam => {
   }
 }
 
+const twLineHeights = () => ['1.5rem', '1.75rem', '2rem', '2.25rem', '2.5rem', '2.75rem', '3rem', '3.25rem', '3.5rem', '3.75rem', '4rem', '4.25rem', '4.75rem', '5rem']
+
 const twTextSizes = () => ['0.75rem', '0.875rem', '1rem', '1.125rem', '1.25rem', '1.5rem', '1.875rem', '2.25rem', '3rem', '3.75rem', '4.5rem', '6rem', '8rem']
 
 const loadFileAsArrayBuffer = file => {
@@ -1309,4 +1311,4 @@ const findNextTajweedLaw = () => {
   }
 }
 
-export { isStorageExist, removeNonArabic, buildRegExp, colorizeChars, checkParamEvent, twTextSizes, tajweedLaws, loadFileAsArrayBuffer, getSelectedTabByUrl, getDetailTajweed, findPreviousTajweedLaw, findNextTajweedLaw, alternativeUrls, sources }
+export { isStorageExist, removeNonArabic, buildRegExp, colorizeChars, checkParamEvent, twLineHeights, twTextSizes, tajweedLaws, loadFileAsArrayBuffer, getSelectedTabByUrl, getDetailTajweed, findPreviousTajweedLaw, findNextTajweedLaw, alternativeUrls, sources }
