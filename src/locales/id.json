@@ -555,7 +555,7 @@
             "name": "Mad Badal",
             "group": "Ahkämul-madd",
             "category": "Mad",
-            "summary": "Apabila ada Hamzah (ء) bertemu dengan Mad yang berasal dari Hamzah Sukun,kemudian hamzah ini diubah dan diganti dengan Alif (ا), Wau (ﻭ)",
+            "summary": "Apabila ada Hamzah (ء) bertemu dengan Mad yang berasal dari Hamzah Sukun, kemudian hamzah ini diubah dan diganti dengan Alif (ا), Wau (ﻭ)",
             "detail": "Cara membæanya harus dipanjangkan satu alif atau dua harokat seperti Mad Thobi'i.",
             "examples": [
                 "أُوتُوا memanjangkan (أ) seperti Mad Thobi 'ii",
@@ -568,6 +568,49 @@
         },
         {
             "id": 35,
+            "name": "Mad Lazim Harfi Mukhoffaf",
+            "group": "Ahkämul-madd",
+            "category": "Mad",
+            "summary": "Hukum bacaan disebut Mad Lazim Harfi Mukhoffaf yakni, apabila ada permulan surat dari Al-Qur'an terdapat salah satu atau lebih dari huruf-huruf Haa'(ﺡ), Yaa' (ﻱ), Tho' (ط), Ha' (ه), Ro' (ر).",
+            "detail": "Cara membacanya harus dipanjangkan satu Alif atau dua harokat atau Mad Thob'ii.",
+            "examples": [
+                "ختم dibaca HAAMIIM",
+                "يس dibaca YAASIIN",
+                "طة dibaca THOOHAA",
+                "طس dibaca THOOSIIN"
+            ],
+            "page": "/detail/mad_lazim_harfi_mukhoffaf"
+        },
+        {
+            "id": 36,
+            "name": "Mad Lazim Harfi Mutsaqqol",
+            "group": "Ahkämul-madd",
+            "category": "Mad",
+            "summary": "Hukum bacaan disebut Mad Lazim Harfi Mutsaqqol yakni, apabila ada permulan surat dari Al-Qur'an terdapat salah satu atau lebih dari huruf-huruf Nun'(ن), Qof' (ﻕ), Shod' (ص), Ain' (ع), Sin (س), Lam (ل), Kaf (ك), dan Mim (م).",
+            "detail": "Cara membacanya harus dipanjangkan, yaitu tiga Alif atau enam harokat.",
+            "examples": [
+                "الم dibaca ALIFLAAAAAAMIIIIIIMM",
+                "المص dibaca ALIFLAAAAAAMMIIIIIIMSHOOOOOOD",
+                "طسم dibaca THOOSIIIIIIMMIIIIIIM",
+                "المر dibaca ALIFLAAAAAAMMIIIIIIMROO"
+            ],
+            "page": "/detail/mad_lazim_harfi_mutsaqqol"
+        },
+        {
+            "id": 37,
+            "name": "Mad Lazim Musyabba'",
+            "group": "Ahkämul-madd",
+            "category": "Mad",
+            "summary": "Hukum bacåan disebut Mad Lazim Musyabaa' adalah seperti Mad Lazim Harfi Mutsaqqol, sesudah Mad terdapat suara hurufmati yang tidak diidghomkan åtau ditasydidkan.",
+            "detail": "Cara membacanya harus dipanjangkan seperti Mad Lazim Harfi Mutsaqqol, yaitu tiga alif.",
+            "examples": [
+                "صٓ‌ dibaca SHOOOOOOD",
+                "قٓ dibaca QOOOOOOF"
+            ],
+            "page": "/detail/mad_lazim_musyabba"
+        },
+        {
+            "id": 38,
             "name": "Mad Tamkin",
             "group": "Ahkämul-madd",
             "category": "Mad",
@@ -582,7 +625,7 @@
             "page": "/detail/mad_tamkin"
         },
         {
-            "id": 36,
+            "id": 39,
             "name": "Mad Farq",
             "group": "Ahkämul-madd",
             "category": "Mad",
