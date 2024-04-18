@@ -747,6 +747,11 @@ class RecognitionContainer extends React.Component {
           }
         </p>
         <h5>Tajweed Recognition @ {new Date().getFullYear()}</h5>
+        <div className="flex md:items-center justify-center text-xs lg:text-sm text-justify lg:text-center px-2 md:px-4">
+          <img className="dark:hidden h-6 mr-2 py-0.5 md:py-0 duration-200" src="images/warning-icon.svg" alt="Warning Icon" />
+          <img className="hidden dark:inline-block h-6 mr-2 py-0.5 md:py-0 duration-200" src="images/warning-icon-dark.svg" alt="Warning Icon" />
+          <p className="text-orange-900 dark:text-orange-200 duration-200">{this.props.t('warning_message')}</p>
+        </div>
         <Dialog open={this.state.isRecognizing} onClose={this.closeResult.bind(this)} className="fixed inset-0 w-screen h-full flex items-center justify-center bg-black/50 backdrop-blur-sm duration-200 animate__animated animate__fadeIn">
           <div className="flex items-center justify-center space-x-2">
             <span className="w-8 h-8 aspect-square border-t-2 border-r-2 border-t-white border-r-white rounded-full bg-transparent animate-spin"></span>
