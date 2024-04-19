@@ -747,7 +747,7 @@ class RecognitionContainer extends React.Component {
           }
         </p>
         <h5>Tajweed Recognition @ {new Date().getFullYear()}</h5>
-        <div className="flex md:items-center justify-center text-xs lg:text-sm text-justify lg:text-center px-2 md:px-4">
+        <div className="flex md:items-center justify-center text-xs lg:text-sm text-justify md:text-center px-2 md:px-4">
           <img className="dark:hidden h-6 mr-2 py-0.5 md:py-0 duration-200" src="images/warning-icon.svg" alt="Warning Icon" />
           <img className="hidden dark:inline-block h-6 mr-2 py-0.5 md:py-0 duration-200" src="images/warning-icon-dark.svg" alt="Warning Icon" />
           <p className="text-orange-900 dark:text-orange-200 duration-200">{this.props.t('warning_message')}</p>
