@@ -6,7 +6,7 @@
     ],
     "app_description": "Selamat datang di Tajweed Recognition - Aplikasi inovatif yang menggunakan teknologi OCR untuk membedakan hukum dan aturan tajwid dalam teks Arab pada gambar, dilengkapi dengan penekanan warna pada tajwid dan penjelasan interaktif untuk memudahkan pembelajaran.",
     "alternative_urls": "Alternatif:",
-    "warning_message": "Hasil mungkin menjadi tidak akurat jika terdapat Tadjwid yang berdekatan/bertumpuk atau harokat yang tidak lengkap. Silakan pelajari Ilmu Tadjwid terlebih dahulu sebelum menggunakan aplikasi ini.",
+    "warning_message": "Hasil mungkin menjadi salah/berbeda jika terdapat Tadjwid yang berdekatan/bertumpuk atau harokat yang tidak lengkap. Silakan pelajari Ilmu Tadjwid terlebih dahulu sebelum menggunakan aplikasi ini.",
     "tab_icons": ["/images/recognition-icon.svg", "/images/list-icon.svg"],
     "tab_icons_dark": ["/images/recognition-icon-dark.svg", "/images/list-icon-dark.svg"],
     "browser_warning": "Browser Anda tidak mendukung Local Storage/Cookies!\nSilakan aktifkan cookies di browser Anda atau matikan mode incognito.\nTerima kasih.",
