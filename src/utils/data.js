@@ -1015,15 +1015,6 @@ const tajweedLaws = () => [
     detailPage: '/detail/mad_lazim_mutsaqqal_kilmi'
   },
   {
-    id: 9,
-    name: 'Gunnah',
-    color: '#ffcc8e',
-    rules: gunnahTajweed,
-    group: 'Ahkämul Al-hurüf',
-    category: 'Nun Tasydid & Mim Tasydid',
-    detailPage: '/detail/gunnah'
-  },
-  {
     id: 7,
     name: 'Ikhfa Syafawi',
     color: '#ffd9e2',
@@ -1031,24 +1022,6 @@ const tajweedLaws = () => [
     group: 'Ahkämul Al-hurüf',
     category: 'Mim Sukun',
     detailPage: '/detail/ikhfa_syafawi'
-  },
-  {
-    id: 13,
-    name: 'Idzhar Qamariyah',
-    color: '#80ff00',
-    rules: idzharQamariyahTajweed,
-    group: 'Ahkämul Al-hurüf',
-    category: 'Lam Ta\'rif',
-    detailPage: '/detail/idzhar_qamariyah'
-  },
-  {
-    id: 14,
-    name: 'Idgham Syamsiyah',
-    color: '#0000ff',
-    rules: idghamSyamsiyahTajweed,
-    group: 'Ahkämul Al-hurüf',
-    category: 'Lam Ta\'rif',
-    detailPage: '/detail/idgham_syamsiyah'
   },
   {
     id: 15,
@@ -1184,6 +1157,33 @@ const tajweedLaws = () => [
     group: 'Ahkämul-madd',
     category: 'Mad',
     detailPage: '/detail/mad_layyin'
+  },
+  {
+    id: 9,
+    name: 'Gunnah',
+    color: '#ffcc8e',
+    rules: gunnahTajweed,
+    group: 'Ahkämul Al-hurüf',
+    category: 'Nun Tasydid & Mim Tasydid',
+    detailPage: '/detail/gunnah'
+  },
+  {
+    id: 13,
+    name: 'Idzhar Qamariyah',
+    color: '#80ff00',
+    rules: idzharQamariyahTajweed,
+    group: 'Ahkämul Al-hurüf',
+    category: 'Lam Ta\'rif',
+    detailPage: '/detail/idzhar_qamariyah'
+  },
+  {
+    id: 14,
+    name: 'Idgham Syamsiyah',
+    color: '#0000ff',
+    rules: idghamSyamsiyahTajweed,
+    group: 'Ahkämul Al-hurüf',
+    category: 'Lam Ta\'rif',
+    detailPage: '/detail/idgham_syamsiyah'
   },
   {
     id: 21,
