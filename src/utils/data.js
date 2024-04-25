@@ -815,8 +815,14 @@ const extractMadShilahThawilahCharacters = () => {
 const extractMadIwadCharacters = () => [
   /(?:[\u0620-\u0628]|[\u062A-\u064A])\u064B\s*(?:\u06E5|\u06F0|\u06DE)/gm,
   /(?:[\u0620-\u0628]|[\u062A-\u064A])\u064B\s*(?:[\u06D6-\u06D8]|\u06D9[\u0660-\u0669]|\u06D5\u06D9[\u0660-\u0669]|\u06D9\u06DD|\u06D5\u06D9\u06DD|\u06D9\s*[\u0660-\u0669]|\u06D5\u06D9\s*[\u0660-\u0669]|\u06D9\s*\u06DD|\u06D5\u06D9\s*\u06DD|[\u06DA-\u06DB]|\u08D6|[\u0660-\u0669]|\u06DD[\u0660-\u0669])/gm,
+  /* Mim Symbols */
+  /(?:[\u0620-\u0628]|[\u062A-\u064A])\u064B\s*(?:\u06E2|\u06ED)\s*(?:\u06E5|\u06F0|\u06DE)/gm,
+  /(?:[\u0620-\u0628]|[\u062A-\u064A])\u064B\s*(?:\u06E2|\u06ED)\s*(?:[\u06D6-\u06D8]|\u06D9[\u0660-\u0669]|\u06D5\u06D9[\u0660-\u0669]|\u06D9\u06DD|\u06D5\u06D9\u06DD|\u06D9\s*[\u0660-\u0669]|\u06D5\u06D9\s*[\u0660-\u0669]|\u06D9\s*\u06DD|\u06D5\u06D9\s*\u06DD|[\u06DA-\u06DB]|\u08D6|[\u0660-\u0669]|\u06DD[\u0660-\u0669])/gm,
   /(?:[\u0620-\u0628]|[\u062A-\u064A])\u064B\u0627\s*(?:\u06E5|\u06F0|\u06DE)/gm,
-  /(?:[\u0620-\u0628]|[\u062A-\u064A])\u064B\u0627\s*(?:[\u06D6-\u06D8]|\u06D9[\u0660-\u0669]|\u06D5\u06D9[\u0660-\u0669]|\u06D9\u06DD|\u06D5\u06D9\u06DD|\u06D9\s*[\u0660-\u0669]|\u06D5\u06D9\s*[\u0660-\u0669]|\u06D9\s*\u06DD|\u06D5\u06D9\s*\u06DD|[\u06DA-\u06DB]|\u08D6|[\u0660-\u0669]|\u06DD[\u0660-\u0669])/gm
+  /(?:[\u0620-\u0628]|[\u062A-\u064A])\u064B\u0627\s*(?:[\u06D6-\u06D8]|\u06D9[\u0660-\u0669]|\u06D5\u06D9[\u0660-\u0669]|\u06D9\u06DD|\u06D5\u06D9\u06DD|\u06D9\s*[\u0660-\u0669]|\u06D5\u06D9\s*[\u0660-\u0669]|\u06D9\s*\u06DD|\u06D5\u06D9\s*\u06DD|[\u06DA-\u06DB]|\u08D6|[\u0660-\u0669]|\u06DD[\u0660-\u0669])/gm,
+  /* Mim Symbols */
+  /(?:[\u0620-\u0628]|[\u062A-\u064A])\u064B(?:\u06E2|\u06ED)\u0627\s*(?:\u06E5|\u06F0|\u06DE)/gm,
+  /(?:[\u0620-\u0628]|[\u062A-\u064A])\u064B(?:\u06E2|\u06ED)\u0627\s*(?:[\u06D6-\u06D8]|\u06D9[\u0660-\u0669]|\u06D5\u06D9[\u0660-\u0669]|\u06D9\u06DD|\u06D5\u06D9\u06DD|\u06D9\s*[\u0660-\u0669]|\u06D5\u06D9\s*[\u0660-\u0669]|\u06D9\s*\u06DD|\u06D5\u06D9\s*\u06DD|[\u06DA-\u06DB]|\u08D6|[\u0660-\u0669]|\u06DD[\u0660-\u0669])/gm
 ]
 
 const extractMadBadalCharacters = () => [
@@ -1063,15 +1069,6 @@ const tajweedLaws = () => [
     detailPage: '/detail/tarqiq'
   },
   {
-    id: 21,
-    name: 'Qalqalah Sughra',
-    color: '#ff8d83',
-    rules: qalqalahSughraTajweed,
-    group: 'Ahkämul Al-hurüf',
-    category: 'Qolqolah',
-    detailPage: '/detail/qalqalah_sughra'
-  },
-  {
     id: 30,
     name: 'Mad Arid Lissukun',
     color: '#ff00ff',
@@ -1187,6 +1184,15 @@ const tajweedLaws = () => [
     group: 'Ahkämul-madd',
     category: 'Mad',
     detailPage: '/detail/mad_layyin'
+  },
+  {
+    id: 21,
+    name: 'Qalqalah Sughra',
+    color: '#ff8d83',
+    rules: qalqalahSughraTajweed,
+    group: 'Ahkämul Al-hurüf',
+    category: 'Qolqolah',
+    detailPage: '/detail/qalqalah_sughra'
   },
   {
     id: 6,
