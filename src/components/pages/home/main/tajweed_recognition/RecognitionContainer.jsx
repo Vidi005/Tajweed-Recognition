@@ -35,12 +35,12 @@ class RecognitionContainer extends React.Component {
       recognizedText: '',
       twLineHeight: '3rem',
       twTextSize: '1.5rem',
+      coloredTajweeds: '',
       tooltipContent: '',
       tooltipColor: '',
       linesColor: '',
       dataFile: null,
       selectedTajweed: {},
-      coloredTajweeds: [],
       filteredTajweeds: [],
       lines: [],
       selectedTajweedIds: [],
@@ -699,7 +699,7 @@ class RecognitionContainer extends React.Component {
   }
 
   closeResult () {
-    this.setState({ isResultClosed: true, coloredTajweeds: [] })
+    this.setState({ isResultClosed: true, coloredTajweeds: '' })
     if (isStorageExist(this.props.t('browser_warning'))) sessionStorage.clear()
   }
 
