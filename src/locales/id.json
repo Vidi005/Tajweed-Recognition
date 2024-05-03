@@ -364,7 +364,7 @@
         },
         {
             "id": 24,
-            "name": "Mad Thabii",
+            "name": "Mad Thabi'i",
             "group": "Ahkämul-madd",
             "category": "Mad",
             "summary": "Hukum bacaan disebut Mad Thobi'i yakni, apabila huruf yang dipanjangkan bunyi suaranya berupa huruf berharokat Dlommah (ُ) dan sesudahnya terdapat huruf Wau Sukun (ﻭْ), Huruf berharokat kasroh dan sesudahnya terdapat huruf Yaa' Sukun (ﻱْ), huruf berharokat fathah (َ) dan sesudahnya terdapat huruf Alif (ا)",
@@ -430,11 +430,11 @@
             "summary": "Hukum bacaan disebut Mad Lazim Mutsaqqol Kilmi yakni, apabila Mad Thobi'i berhadapan dengan huruf yang ber-tasydid di dalam satu perkataan.",
             "detail": "Cara membacannya harus dipanjangkan lebih dahulu sepanjang 3 alif atau 6 harokat baru ditasydidkan.",
             "examples": [
-                "هُمُ الضَّالُّونَ Mad Thobi'i bertemu tasydid dalam satu kata",
-                "وَلَا الضَّالِّينَ Mad Thobi'i bertemu tasydid dalam satu kata",
-                "إِلَّا الضَّالُوْنَ Mad Thobi'i bertemu tasydid dalam satu kata",
-                "جَاءَتِ الطَّامَّةُ Mad Thobi'i bertemu tasydid dalam satu kata",
-                "فِي السِّلْمِ كَافَّةً Mad Thobi'i bertemu tasydid dalam satu kata"
+                "هُمُ الضَّآلُّونَ Mad Thobi'i bertemu tasydid dalam satu kata",
+                "وَلَا الضَّآلِّينَ Mad Thobi'i bertemu tasydid dalam satu kata",
+                "إِلَّا الضَّآلُوْنَ Mad Thobi'i bertemu tasydid dalam satu kata",
+                "جَاءَتِ الطَّآمَّةُ Mad Thobi'i bertemu tasydid dalam satu kata",
+                "فِي السِّلْمِ كَآفَّةً Mad Thobi'i bertemu tasydid dalam satu kata"
             ],
             "page": "/detail/mad_lazim_mutsaqqal_kilmi"
         },
@@ -516,16 +516,16 @@
             "summary": "Hukum bacaan disebut Mad Shilah Thawilah yakni, apabila Mad Shilah Qoshiroh bertemu dengan Hamzah (ء) didahului oleh huruf yang berharokat hidup.",
             "detail": "Cara membacanya seperti bacaan Mad Jaiz Munfashil, artinya boleh dipanjangkan sampai dua setengah Alif atau satu Alif seperti Mad Thobi'i.",
             "examples": [
-                "أَمْرُةَ إِذَا (ه) dipanjangkan seperti Mad Jaiz Munfashil",
-                "مِنْ دُونِ الهَةً (ه) dipanjangkan seperti Mad Jaiz Munfashil",
-                "عَلَى مَوْتِهِ إِلَّا (ه) dipanjangkan seperti Mad Jaiz Munfashil",
-                "وَرَسُولُهُ إِلَّا (ه) dipanjangkan seperti Mad Jaiz Munfashil",
-                "وَأَزْوَاجُهُ أُمَّهْتُهُمْ (ه) dipanjangkan seperti Mad Jaiz Munfashil",
-                "عِنْدَهُ إِلَّا بِإِذْنِهِ (ه) dipanjangkan seperti Mad Jaiz Munfashil",
-                "أَنَّ مَالَةَ أَخْلَدَهُ (ه) dipanjangkan seperti Mad Jaiz Munfashil",
-                "مِنْدُوْنِه إِلها (ه) seperti Mad  Jaiz Munfashil",
-                "ربة أَحَدًا (ه) dipanjangkan seperti Mad Jaiz Munfashil",
-                "عِلْمِهِ إِلَّا (ه) dipanjangkan seperti Mad Jaiz Munfashil"
+                "أَمْرُةَٓ إِذَا (ه) dipanjangkan seperti Mad Jaiz Munfashil",
+                "مِنْ دُونِهِٓ الهَةً (ه) dipanjangkan seperti Mad Jaiz Munfashil",
+                "عَلَى مَوْتِهِٓ إِلَّا (ه) dipanjangkan seperti Mad Jaiz Munfashil",
+                "وَرَسُولُهُٓ إِلَّا (ه) dipanjangkan seperti Mad Jaiz Munfashil",
+                "وَأَزْوَاجُهُٓ أُمَّهْتُهُمْ (ه) dipanjangkan seperti Mad Jaiz Munfashil",
+                "عِنْدَهُٓ إِلَّا بِإِذْنِهِ (ه) dipanjangkan seperti Mad Jaiz Munfashil",
+                "أَنَّ مَالَهُٓ أَخْلَدَهُ (ه) dipanjangkan seperti Mad Jaiz Munfashil",
+                "مِنْدُوْنِهِٓ إِلها (ه) seperti Mad  Jaiz Munfashil",
+                "ربهِٓ أَحَدًا (ه) dipanjangkan seperti Mad Jaiz Munfashil",
+                "عِلْمِهِٓ إِلَّا (ه) dipanjangkan seperti Mad Jaiz Munfashil"
             ],
             "page": "/detail/mad_shilah_thawilah"
         },
@@ -575,10 +575,10 @@
             "summary": "Hukum bacaan disebut Mad Lazim Harfi Mukhoffaf yakni, apabila ada permulan surat dari Al-Qur'an terdapat salah satu atau lebih dari huruf-huruf Haa'(ﺡ), Yaa' (ﻱ), Tho' (ط), Ha' (ه), Ro' (ر).",
             "detail": "Cara membacanya harus dipanjangkan satu Alif atau dua harokat atau Mad Thob'ii.",
             "examples": [
-                "ختم dibaca HAAMIIM",
-                "يس dibaca YAASIIN",
-                "طة dibaca THOOHAA",
-                "طس dibaca THOOSIIN"
+                "حٰمٓ dibaca HAAMIIM",
+                "يٰسٓ dibaca YAASIIN",
+                "طٰهٰ dibaca THOOHAA",
+                "طٰسٓ dibaca THOOSIIN"
             ],
             "page": "/detail/mad_lazim_harfi_mukhoffaf"
         },
@@ -590,10 +590,10 @@
             "summary": "Hukum bacaan disebut Mad Lazim Harfi Mutsaqqol yakni, apabila ada permulan surat dari Al-Qur'an terdapat salah satu atau lebih dari huruf-huruf Nun'(ن), Qof' (ﻕ), Shod' (ص), Ain' (ع), Sin (س), Lam (ل), Kaf (ك), dan Mim (م).",
             "detail": "Cara membacanya harus dipanjangkan, yaitu tiga Alif atau enam harokat.",
             "examples": [
-                "الم dibaca ALIFLAAAAAAMIIIIIIMM",
-                "المص dibaca ALIFLAAAAAAMMIIIIIIMSHOOOOOOD",
-                "طسم dibaca THOOSIIIIIIMMIIIIIIM",
-                "المر dibaca ALIFLAAAAAAMMIIIIIIMROO"
+                "الٓمٓ dibaca ALIFLAAAAAAMIIIIIIMM",
+                "الٓمٓصٓ dibaca ALIFLAAAAAAMMIIIIIIMSHOOOOOOD",
+                "طٰسٓمٓ dibaca THOOSIIIIIIMMIIIIIIM",
+                "الٓمٓرٰ dibaca ALIFLAAAAAAMMIIIIIIMROO"
             ],
             "page": "/detail/mad_lazim_harfi_mutsaqqol"
         },

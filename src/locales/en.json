@@ -364,7 +364,7 @@
         },
         {
             "id": 24,
-            "name": "Mad Thabii",
+            "name": "Mad Thabi'i",
             "group": "Ahkämul-madd",
             "category": "Mad",
             "summary": "The law of reading is called Mad Thobi'i, that is, if the letter whose sound is extended is a letter with the harokat Damma (ُ) and after it there is the letter Wau Sukun (ﻭْ), a letter with the harokat kasroh and after that there is the letter Yaa' Sukun (ﻱْ), a letter with the harokat fathah (َ) and after that there is the letter Alif (ا)",
@@ -430,11 +430,11 @@
             "summary": "Mad Lazim Mutsaqqal Kilmi tajweed law happens if Mad Thobi'i is faced with letters with shaddah within a word.",
             "detail": "The pronunciation should be prolonged first for 3 alif or 6 harakah before shaddah is added.",
             "examples": [
-                "هُمُ الضَّالُّونَ Mad Thobi'i meets shaddah letter within a word",
-                "وَلَا الضَّالِّينَ Mad Thobi'i meets shaddah letter within a word",
-                "إِلَّا الضَّالُوْنَ Mad Thobi'i meets shaddah letter within a word",
-                "جَاءَتِ الطَّامَّةُ Mad Thobi'i meets shaddah letter within a word",
-                "فِي السِّلْمِ كَافَّةً Mad Thobi'i meets shaddah letter within a word"
+                "هُمُ الضَّآلُّونَ Mad Thobi'i meets shaddah letter within a word",
+                "وَلَا الضَّآلِّينَ Mad Thobi'i meets shaddah letter within a word",
+                "إِلَّا الضَّآلُوْنَ Mad Thobi'i meets shaddah letter within a word",
+                "جَاءَتِ الطَّآمَّةُ Mad Thobi'i meets shaddah letter within a word",
+                "فِي السِّلْمِ كَآفَّةً Mad Thobi'i meets shaddah letter within a word"
             ],
             "page": "/detail/mad_lazim_mutsaqqal_kilmi"
         },
@@ -516,16 +516,16 @@
             "summary": "Mad Shilah Thawilah tajweed law happens if Mad Shilah Qoshiroh meets Hamzah (ء) preceded by a vowel-harokat letter.",
             "detail": "The way to read it is like reading Mad Jaiz Munfashil, meaning it can be extended to two and a half Alif or one Alif like Mad Thobi 'ii.",
             "examples": [
-                "أَمْرُةَ إِذَا prolong (ه) like Mad Jaiz Munfashil",
-                "مِنْ دُونِ الهَةً prolong (ه) like Mad Jaiz Munfashil",
-                "عَلَى مَوْتِهِ إِلَّا prolong (ه) like Mad Jaiz Munfashil",
-                "وَرَسُولُهُ إِلَّا prolong (ه) like Mad Jaiz Munfashil",
-                "وَأَزْوَاجُهُ أُمَّهْتُهُمْ prolong (ه) like Mad Jaiz Munfashil",
-                "عِنْدَهُ إِلَّا بِإِذْنِهِ prolong (ه) like Mad Jaiz Munfashil",
-                "أَنَّ مَالَةَ أَخْلَدَهُ prolong (ه) like Mad Jaiz Munfashil",
-                "مِنْدُوْنِه إِلها prolong (ه) like Mad  Jaiz Munfashil",
-                "ربة أَحَدًا prolong (ه) like Mad Jaiz Munfashil",
-                "عِلْمِهِ إِلَّا prolong (ه) like Mad Jaiz Munfashil"
+                "أَمْرُةَٓ إِذَا prolong (ه) like Mad Jaiz Munfashil",
+                "مِنْ دُونِهِٓ الهَةً prolong (ه) like Mad Jaiz Munfashil",
+                "عَلَى مَوْتِهِٓ إِلَّا prolong (ه) like Mad Jaiz Munfashil",
+                "وَرَسُولُهُٓ إِلَّا prolong (ه) like Mad Jaiz Munfashil",
+                "وَأَزْوَاجُهُٓ أُمَّهْتُهُمْ prolong (ه) like Mad Jaiz Munfashil",
+                "عِنْدَهُٓ إِلَّا بِإِذْنِهِ prolong (ه) like Mad Jaiz Munfashil",
+                "أَنَّ مَالَهُٓ أَخْلَدَهُ prolong (ه) like Mad Jaiz Munfashil",
+                "مِنْدُوْنِهِٓ إِلها prolong (ه) like Mad  Jaiz Munfashil",
+                "ربهِٓ أَحَدًا prolong (ه) like Mad Jaiz Munfashil",
+                "عِلْمِهِٓ إِلَّا prolong (ه) like Mad Jaiz Munfashil"
             ],
             "page": "/detail/mad_shilah_thawilah"
         },
@@ -575,10 +575,10 @@
             "summary": "The law of recitation called Mad Lazim Harfi Mukhoffaf is when there is the beginning of a verse in the Quran that contains one or more of the letters: Haa' (ﺡ), Yaa' (ﻱ), Tho' (ط), Ha' (ه), Ro' (ر).",
             "detail": "The way to read it is extended one Alif like Mad Thobi'ii.",
             "examples": [
-                "ختم read HAAMIIM",
-                "يس read YAASIIN",
-                "طة read THOOHAA",
-                "طس read THOOSIIN"
+                "حٰمٓ read HAAMIIM",
+                "يٰسٓ read YAASIIN",
+                "طٰهٰ read THOOHAA",
+                "طٰسٓ read THOOSIIN"
             ],
             "page": "/detail/mad_lazim_harfi_mukhoffaf"
         },
@@ -590,10 +590,10 @@
             "summary": "The law of recitation called Mad Lazim Harfi Mutsaqqal is when there is the beginning of a verse in the Quran that contains one or more of the letters: Nun' (ن), Qof' (ﻕ), Shod' (ص), Ain' (ع), Sin (س), Lam (ل), Kaf (ك), and Mim (م).",
             "detail": "The way to recite it must be prolonged, namely with three Alifs or six vowel counts.",
             "examples": [
-                "الم read ALIFLAAAAAAMIIIIIIMM",
-                "المص read ALIFLAAAAAAMMIIIIIIMSHOOOOOOD",
-                "طسم read THOOSIIIIIIMMIIIIIIM",
-                "المر read ALIFLAAAAAAMMIIIIIIMROO"
+                "الٓمٓ read ALIFLAAAAAAMIIIIIIMM",
+                "الٓمٓصٓ read ALIFLAAAAAAMMIIIIIIMSHOOOOOOD",
+                "طٰسٓمٓ read THOOSIIIIIIMMIIIIIIM",
+                "الٓمٓرٰ read ALIFLAAAAAAMMIIIIIIMROO"
             ],
             "page": "/detail/mad_lazim_harfi_mutsaqqol"
         },
