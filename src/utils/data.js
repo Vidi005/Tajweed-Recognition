@@ -698,23 +698,20 @@ const madThabiiChars = [
 ]
 
 const extractMadWajibCharacters = () => {
-  const madWajib = madThabiiChars.map(regex => new RegExp(regex.source + /\u0621(?:[\u064B-\u065F]|\u0670)/gm.source, 'gm'))
-  const madWajibDiacritic = madThabiiChars.map(regex => new RegExp(regex.source + /\s*(?:\u0605|\u0622|\u0653|\u06E4)\u0621/gm.source, 'gm'))
-  const madWajibDiacritic2 = madThabiiChars.map(regex => new RegExp(regex.source.replace('\u0627', '\u0622') + /\u0621/gm.source, 'gm'))
-  const hamzahDiacritics = madThabiiChars.map(regex => new RegExp(regex.source + /\s*(?:\u0653|\u06E4)(?:[\u0648-\u0649][\u0654-\u0655])/gm.source, 'gm'))
-  const hamzahDiacritics2 = madThabiiChars.map(regex => new RegExp(regex.source + /\s*(?:\u0653|\u06E4)(?:\u0624|\u0626)/gm.source, 'gm'))
-  const hamzahDiacritics3 = madThabiiChars.map(regex => new RegExp(regex.source + /\s*(?:\u0653|\u06E4)\u0640(?:\u0624|\u0626)/gm.source, 'gm'))
+  const madWajib = madThabiiChars.map(regex => new RegExp(regex.source + /(?:[\u0621\u0624\u0626]|[\u0648-\u0649][\u0654-\u0655])\s*(?![\u0651-\u0652]|[\u0620-\u064A]|[\u0660-\u0669]|[\u0671-\u06E0])/gm.source, 'gm'))
+  const madWajibDiacritic = madThabiiChars.map(regex => new RegExp(regex.source + /\s*(?:\u0605|\u0622|\u0653|\u06E4)(?:[\u0621\u0624\u0626]|[\u0648-\u0649][\u0654-\u0655])/gm.source, 'gm'))
+  const madWajibDiacritic2 = madThabiiChars.map(regex => new RegExp(regex.source.replace('\u0627', '\u0622') + /(?:[\u0621\u0624\u0626]|[\u0648-\u0649][\u0654-\u0655])/gm.source, 'gm'))
+  const madWajibDiacritic3 = madThabiiChars.map(regex => new RegExp(regex.source + /\s*(?:\u0605|\u0622|\u0653|\u06E4)\u0640(?:[\u0621\u0624\u0626]|[\u0648-\u0649][\u0654-\u0655])/gm.source, 'gm'))
   const alif = [
-    /[\u0622\u0627](?:\u0621|\u0624|\u0626|[\u0648-\u0649][\u0654-\u0655])/gm,
+    /\u0622(?:\u0621|\u0624|\u0626|[\u0648-\u0649][\u0654-\u0655])/gm,
+    /\u0627(?:\u0621|\u0624|\u0626|[\u0648-\u0649][\u0654-\u0655])\s*(?![\u0651-\u0652]|[\u0620-\u064A]|[\u0660-\u0669]|[\u0671-\u06E0])/gm,
     /\u0627(?:\u0605|\u0653|\u06E4)(?:\u0621|\u0624|\u0626|[\u0648-\u0649][\u0654-\u0655])/gm
   ]
   return [
     ...madWajib,
     ...madWajibDiacritic,
     ...madWajibDiacritic2,
-    ...hamzahDiacritics,
-    ...hamzahDiacritics2,
-    ...hamzahDiacritics3,
+    ...madWajibDiacritic3,
     ...alif
   ]
 }

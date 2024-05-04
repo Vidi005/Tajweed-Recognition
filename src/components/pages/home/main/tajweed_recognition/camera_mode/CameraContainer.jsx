@@ -29,7 +29,7 @@ const CameraContainer = ({ t, cameraRef, canvasRef, isCameraModeSelected, isCame
       </button>
       {
         isCameraPermissionGranted
-          ? <button className="h-14 w-14 p-0.5 border-4 border-double border-white rounded-full shadow-lg" onClick={captureImage}>
+          ? <button className="h-14 w-14 p-0.5 border-4 border-double border-white rounded-full shadow-lg" title="Capture Image" onClick={captureImage}>
               <span className="inline-block w-full h-full rounded-full bg-white active:bg-gray-300"></span>
             </button>
           : <button className="h-14 w-14 p-0.5 border-4 border-double border-gray-500 rounded-full shadow-inner" disabled>

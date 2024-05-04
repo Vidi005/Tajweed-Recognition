@@ -40,24 +40,24 @@ const ResultContainer = ({ t, state, increaseLineHeight, increaseTextSize, conte
           <article className="flex flex-col w-full lg:w-3/4">
             <section className={`content-container grow flex flex-col m-2 px-2 ${state.isContentDarkMode ? "bg-gray-800" : "bg-green-700/25"} rounded-md shadow-md dark:shadow-white/50 duration-200`}>
               <div className={`content-menu flex items-center justify-end border-b ${state.isContentDarkMode ? "border-b-white" : "border-b-black"}`}>
-                <button className={`border ${state.isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 my-2 p-1 rounded duration-200 overflow-hidden`} onClick={increaseLineHeight} disabled={state.isIncreaseLineHeightDisabled}>
+                <button className={`border ${state.isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 my-2 p-1 rounded duration-200 overflow-hidden`} title="Increase Line Height" onClick={increaseLineHeight} disabled={state.isIncreaseLineHeightDisabled}>
                   <img className={`${state.isContentDarkMode ? "invert-0" : "invert"} h-5 duration-200`} src="images/line-height-increase-icon.svg" alt="Increase Space" />
                 </button>
-                <button className={`border ${state.isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 ml-2 p-1 rounded duration-200 overflow-hidden`} onClick={decreaseLineHeight} disabled={state.isDecreaseLineHeightDisabled}>
+                <button className={`border ${state.isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 ml-2 p-1 rounded duration-200 overflow-hidden`} title="Decrease Line Height" onClick={decreaseLineHeight} disabled={state.isDecreaseLineHeightDisabled}>
                   <img className={`${state.isContentDarkMode ? "invert-0" : "invert"} h-5 duration-200`} src="images/line-height-decrease-icon.svg" alt="Decrease Space" />
                 </button>
-                <button className={`border ${state.isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 ml-2 lead p-1 rounded duration-200 overflow-hidden`} onClick={increaseTextSize} disabled={state.isIncreaseTextDisabled}>
+                <button className={`border ${state.isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 ml-2 lead p-1 rounded duration-200 overflow-hidden`} title="Increase Text Size" onClick={increaseTextSize} disabled={state.isIncreaseTextDisabled}>
                   <img className={`${state.isContentDarkMode ? "invert-0" : "invert"} h-5 duration-200`} src="images/text-increase-icon.svg" alt="Increase Text" />
                 </button>
-                <button className={`border ${state.isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 ml-2 p-1 rounded duration-200 overflow-hidden`} onClick={decreaseTextSize} disabled={state.isDecreaseTextDisabled}>
+                <button className={`border ${state.isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 ml-2 p-1 rounded duration-200 overflow-hidden`} title="Decrease Text Size" onClick={decreaseTextSize} disabled={state.isDecreaseTextDisabled}>
                   <img className={`${state.isContentDarkMode ? "invert-0" : "invert"} h-5 duration-200`} src="images/text-decrease-icon.svg" alt="Decrease Text" />
                 </button>
                 {!state.isEditMode && (
-                  <button className={`border ${state.isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 ml-2 p-1 rounded duration-200 overflow-hidden`} onClick={handleTextEditor}>
+                  <button className={`border ${state.isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 ml-2 p-1 rounded duration-200 overflow-hidden`} title="Edit Text" onClick={handleTextEditor}>
                     <img className={`${state.isContentDarkMode ? "invert-0" : "invert"} h-5 duration-200`} src="images/edit-icon.svg" alt="Edit"/>
                   </button>
                 )}
-                <button className={`border ${state.isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 ml-2 p-1 rounded duration-200 overflow-hidden`} onClick={setContentDisplayMode}>
+                <button className={`border ${state.isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 ml-2 p-1 rounded duration-200 overflow-hidden`} title="Dark Mode" onClick={setContentDisplayMode}>
                   <img className={`${state.isContentDarkMode ? "invert-0" : "invert"} h-5 duration-200`} src={`${state.isContentDarkMode ? "images/light-mode-icon.svg" : "images/dark-mode-icon.svg"}`} alt="Dark Mode" />
                 </button>
               </div>
