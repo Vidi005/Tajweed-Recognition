@@ -7,12 +7,13 @@ const HeaderContainer = ({ headerTitle, changeLanguage, setDisplayMode, isDarkMo
       <h2 className="grow font-ramadhan-start text-white">{headerTitle}</h2>
     </section>
     <section className="w-fit flex items-center pl-1">
-      <a href="https://github.com/Vidi005/Tajweed-Recognition">
+      <a href="https://github.com/Vidi005/Tajweed-Recognition" title="Github">
         <img className="h-10 mr-1 md:mr-2 p-2 object-contain hover:bg-black/50 focus-visible:ring-2 focus-visible:ring-white/75 duration-200 rounded-md" src={`${import.meta.env.BASE_URL}images/github-icon.png`} alt="Github" />
       </a>
       <Switch
         checked={isDarkMode}
         onChange={setDisplayMode}
+        title="Dark Mode"
         className={`${
           isDarkMode
             ? "bg-green-900"
@@ -23,7 +24,7 @@ const HeaderContainer = ({ headerTitle, changeLanguage, setDisplayMode, isDarkMo
         <span className={`${isDarkMode ? "translate-x-6" : "translate-x-0"} inline-block h-4 w-4 transform rounded-full bg-white transition duration-300`}></span>
       </Switch>
       <Menu as={"menu"} className={"inline-block h-10 pl-2"}>
-        <Menu.Button className={"inline-flex w-full items-center justify-center h-full p-2 hover:bg-black/50 focus-visible:ring-2 focus-visible:ring-white/75 duration-200 rounded-md"}>
+        <Menu.Button className={"inline-flex w-full items-center justify-center h-full p-2 hover:bg-black/50 focus-visible:ring-2 focus-visible:ring-white/75 duration-200 rounded-md"} title="Languages">
           <img className="h-full object-contain" src={`${import.meta.env.BASE_URL}images/lang-icon.svg`} alt="Languages" />
           <img className="h-full object-contain" src={`${import.meta.env.BASE_URL}images/expand-icon.svg`} alt="Expand" />
         </Menu.Button>
