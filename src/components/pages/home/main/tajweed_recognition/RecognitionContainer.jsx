@@ -637,6 +637,7 @@ class RecognitionContainer extends React.Component {
       const elements = document.querySelectorAll(`.${classNames}`)
       const lines = []
       const contentContainerY1 = this.contentContainerRef.current.getBoundingClientRect().top
+      const contentContainerY2 = this.contentContainerRef.current.getBoundingClientRect().bottom
       const activeSlides = document.querySelectorAll('.slick-active')
       elements.forEach(element => {
         const rect1 = element.getBoundingClientRect()
@@ -646,7 +647,7 @@ class RecognitionContainer extends React.Component {
         const x2 = rect2?.left + rect2?.width / 2
         const y1 = rect1.bottom - rect1.height / 4
         const y2 = rect2?.top
-        if (y1 > contentContainerY1 && y1 !== 0) lines.push({ x1, x2, y1, y2 })
+        if (y1 > contentContainerY1 && y1 !== 0 && y1 < contentContainerY2) lines.push({ x1, x2, y1, y2 })
       })
       this.setState({ isCarouselItemHovered: isHovered, lines: lines, linesColor: color })
     }

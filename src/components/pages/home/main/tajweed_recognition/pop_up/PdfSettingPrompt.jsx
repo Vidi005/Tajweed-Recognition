@@ -22,7 +22,7 @@ const PdfSettingPrompt = ({ t, isPromptOpened, isOCREnabled, enableOCRMode, conf
         leave="ease-in duration-200"
         leaveFrom="opacity-100 translate-y-0 scale-100"
         leaveTo="opacity-0 translate-y-full scale-50"
-        className={"fixed inset-0 md:w-1/3 lg:w-1/2 m-auto h-min"}
+        className={"fixed inset-0 md:w-3/4 lg:w-1/2 m-auto h-min"}
       >
         <Dialog.Panel className={"flex flex-col items-center min-h-full max-w-5xl mx-4 bg-green-800 dark:bg-gray-700 text-green-900 dark:text-white shadow-lg dark:shadow-white/50 rounded-lg overflow-hidden"}>
           <section className="inline-flex w-full justify-between p-4 text-center dark:text-white">
