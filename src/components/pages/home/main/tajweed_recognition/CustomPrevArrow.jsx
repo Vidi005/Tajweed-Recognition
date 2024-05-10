@@ -4,6 +4,7 @@ const CustomPrevArrow = props => {
   const { className, style, onClick } = props
   return (
     <div
+      title="Previous Items"
       className={className}
       style={{ ...style, display: "relative", height: "100%" }}
       onClick={onClick}

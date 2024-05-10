@@ -12,6 +12,10 @@ import CameraContainer from "./camera_mode/CameraContainer"
 import { Dialog } from "@headlessui/react"
 import { Helmet } from "react-helmet"
 import mammoth from "mammoth"
+import SaveFilePrompt from "./pop_up/SaveFilePrompt"
+import jsPDF from "jspdf"
+import autoTable from "jspdf-autotable"
+import html2PDF from "jspdf-html2canvas"
 
 if (import.meta && import.meta.url) {
   pdfjs.GlobalWorkerOptions.workerSrc = new URL(
@@ -39,6 +43,7 @@ class RecognitionContainer extends React.Component {
       tooltipContent: '',
       tooltipColor: '',
       linesColor: '',
+      docTitle: '',
       dataFile: null,
       selectedTajweed: {},
       filteredTajweeds: [],
@@ -46,7 +51,10 @@ class RecognitionContainer extends React.Component {
       selectedTajweedIds: [],
       selectedTajweedLaws: [],
       isPromptOpened: false,
+      isDialogOpened: false,
       isOCREnabled: false,
+      isFocused: false,
+      isBismillahAdded: true,
       isCameraModeSelected: false,
       isScreenSharingModeSelected: false,
       isCameraPermissionGranted: false,
@@ -68,6 +76,7 @@ class RecognitionContainer extends React.Component {
     tajweedLaws().forEach(tajweedLaw => {
       this.carouselItemsRefs[`tajweed-${tajweedLaw.id}`] = React.createRef()
     })
+    this.inputRef = React.createRef()
   }
 
   componentDidMount() {
@@ -339,6 +348,136 @@ class RecognitionContainer extends React.Component {
       if (this.state.isOCREnabled) this.extractImageTextFromPDF(this.state.dataFile)
       else this.extractTextFromPDF(this.state.dataFile)
     })
+  }
+
+  handleTitleChange(event) {
+    if (event.target.value.length <= 100) {
+      this.setState(prevState => ({ ...prevState, docTitle: event.target.value }))
+    }
+  }
+
+  onBlurHandler() {
+    this.setState({ isFocused: false })
+  }
+
+  onFocusHandler() {
+    this.setState({ isFocused: true })
+  }
+
+  addBismillah() {
+    this.setState(prevState => ({ isBismillahAdded: !prevState.isBismillahAdded }))
+  }
+
+  downloadResult() {
+    this.setState({ isDialogOpened: true })
+  }
+
+  saveAsDoc = async() => {
+    try {
+      const getColoredTajweedsDocBismillah = document.querySelector('.colored-tajweeds-doc-bismillah')
+      const getColoredTajweedsDoc = document.querySelector('.colored-tajweeds-doc')
+      const preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>"
+      const postHtml = "</body></html>"
+      const htmlToDoc = `${preHtml}${this.state.isBismillahAdded ? getColoredTajweedsDocBismillah.innerHTML : getColoredTajweedsDoc.innerHTML}${postHtml}`
+      const blob = new Blob(['\ufeff', htmlToDoc], { type: 'application/msword' })
+      const url = `data:application/vnd.ms-word;charset=utf-8,${encodeURIComponent(htmlToDoc)}`
+      const fileName = `${+new Date()}_${this.state.docTitle}.doc`
+      const link = document.createElement('a')
+      document.body.appendChild(link)
+      if (navigator?.msSaveOrOpenBlob) {
+        await navigator?.msSaveOrOpenBlob(blob, fileName)
+      } else {
+        link.href = url
+        link.download = fileName
+        link.click()
+      }
+      document.body.removeChild(link)
+      this.setState({ isDialogOpened: false })
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: `${this.props.t('error_alert')}`,
+        text: error.message,
+        confirmButtonColor: 'green'
+      })
+    }
+  }
+
+  saveAsPdf = async() => {
+    try {
+      const pdf = new jsPDF({ orientation: 'portrait', unit: 'pt', format: 'a4', compress: true })
+      const getColoredTajweedsPdf = document.querySelector('.colored-tajweeds-pdf')
+      getColoredTajweedsPdf.style.display = 'block'
+      await html2PDF(getColoredTajweedsPdf, {
+        jsPDF: pdf,
+        margin: { top: 50, right: 20, bottom: 130, left: 20 },
+        output: `${+new Date()}_${this.state.docTitle}.pdf`,
+        html2canvas: {
+          scrollX: 0,
+          scrollY: -window.scrollY,
+        },
+        success: pdf => {
+          getColoredTajweedsPdf.style.display = 'none'
+          const pageCounter = pdf.getNumberOfPages()
+          for (let index = 1; index <= pageCounter; index++) {
+            pdf.setPage(index)
+            const pageSize = pdf.internal.pageSize
+            const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth()
+            const pageHeight = pageSize.height ? pageSize.height : pageSize.getHeight()
+            if (index === 1) pdf.setFont('times', 'normal').setFontSize(14).text(this.state.docTitle, 300, 50, { align: 'center', maxWidth: 600 })
+            const watermark = location.origin.toString()
+            const header = new Date()
+            const footer = `${this.props.t('page_numbers.0')} ${index} ${this.props.t('page_numbers.1')} ${pageCounter}`
+            pdf.setFont('helvetica', 'normal').setFontSize(8).textWithLink(watermark, 20, 20, { url: location.origin.toString() })
+            pdf.text(header.toLocaleString(), pageWidth - 95, 15, { baseline: 'top', })
+            pdf.text(footer, pageWidth / 2 - (pdf.getTextWidth(footer) / 2), pageHeight - 15, { baseline: 'bottom' })
+            const tableData = []
+            const data = [...this.state.filteredTajweeds.sort((a, b) => a.id - b.id)]
+            for (let i = 0; i < 7; i++) {
+              const rowData = []
+              for (let j = 0; j < Math.ceil(data.length * 2 / 7); j++) {
+                if (j % 2 === 0) {
+                  rowData.push(data[i % data.length + Math.ceil(j / 2) * 7]?.color)
+                } else {
+                  rowData.push(data[i % data.length + Math.floor(j / 2) * 7]?.name)
+                }
+              }
+              tableData.push(rowData)
+            }
+            autoTable(pdf, {
+              body: tableData,
+              margin: { top: 0, bottom: 20, left: 20, right: 20 },
+              theme: 'plain',
+              tableLineWidth: 0,
+              startY: pdf.internal.pageSize.height - (10 * 7) - 50,
+              styles: {
+                valign: 'middle',
+                font: 'times',
+                fontSize: 9,
+                cellPadding: 1,
+                lineWidth: 0,
+                overflow: "linebreak"
+              },
+              didParseCell: (data) => {
+                if (data.cell.text.toString().startsWith('#')) {
+                  data.cell.styles.fillColor = data.cell.text.toString()
+                  data.cell.styles.textColor = data.cell.text.toString()
+                }
+              }
+            })
+          }
+          pdf.save(`${+new Date()}_${this.state.docTitle}.pdf`)
+        }
+      })
+      this.setState({ isDialogOpened: false })
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: `${this.props.t('error_alert')}`,
+        text: error.message,
+        confirmButtonColor: 'green'
+      })
+    }
   }
 
   takeScreenCapture = async() => {
@@ -695,12 +834,16 @@ class RecognitionContainer extends React.Component {
     this.setState({ isPromptOpened: false, isRecognizing: false, dataFile: null })
   }
 
+  cancelSaving() {
+    this.setState({ isDialogOpened: false })
+  }
+
   onCloseSummaryModal() {
     this.setState({ isModalOpened: false })
   }
 
   closeResult () {
-    this.setState({ isResultClosed: true, coloredTajweeds: '' })
+    this.setState({ isResultClosed: true, recognizedText: '', coloredTajweeds: '' })
     if (isStorageExist(this.props.t('browser_warning'))) sessionStorage.clear()
   }
 
@@ -779,6 +922,7 @@ class RecognitionContainer extends React.Component {
           contentContainerRef={this.contentContainerRef}
           tooltipRef={this.tooltipRef}
           carouselItemsRefs={this.carouselItemsRefs}
+          downloadResult={this.downloadResult.bind(this)}
           closeResult={this.closeResult.bind(this)}
           increaseLineHeight={this.increaseLineHeight.bind(this)}
           decreaseLineHeight={this.decreaseLineHeight.bind(this)}
@@ -801,6 +945,21 @@ class RecognitionContainer extends React.Component {
           cancelRecognition={this.cancelRecognition.bind(this)}
           enableOCRMode={this.enableOCRMode.bind(this)}
           confirmSetting={this.confirmSetting.bind(this)}
+        />
+        <SaveFilePrompt
+          t={this.props.t}
+          inputRef={this.inputRef}
+          isDialogOpened={this.state.isDialogOpened}
+          isFocused={this.state.isFocused}
+          isBismillahAdded={this.state.isBismillahAdded}
+          docTitle={this.state.docTitle}
+          handleTitleChange={this.handleTitleChange.bind(this)}
+          onBlurHandler={this.onBlurHandler.bind(this)}
+          onFocusHandler={this.onFocusHandler.bind(this)}
+          addBismillah={this.addBismillah.bind(this)}
+          saveAsDoc={this.saveAsDoc.bind(this)}
+          saveAsPdf={this.saveAsPdf.bind(this)}
+          cancelSaving={this.cancelSaving.bind(this)}
         />
         <TajweedPreview
           t={this.props.t}

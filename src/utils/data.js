@@ -1192,7 +1192,7 @@ const tajweedLaws = () => [
   {
     id: 6,
     name: 'Idzhar Syafawi',
-    color: '#6b7280',
+    color: '#9ca3af',
     rules: idzharSyafawiTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Mim Sukun',
@@ -1201,7 +1201,7 @@ const tajweedLaws = () => [
   {
     id: 1,
     name: 'Idzhar',
-    color: '#6b7280',
+    color: '#9ca3af',
     rules: idzharTajweed,
     group: 'Ahkämul Al-hurüf',
     category: 'Nun Sukun & Tanwin',

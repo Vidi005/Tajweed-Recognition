@@ -4,6 +4,7 @@ const CustomNextArrow = props => {
   const { className, style, onClick } = props
   return (
     <div
+      title="Next Items"
       className={className}
       style={{ ...style, display: "relative", height: "100%" }}
       onClick={onClick}

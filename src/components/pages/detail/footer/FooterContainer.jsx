@@ -8,7 +8,7 @@ const FooterContainer = ({ t }) => (
     {sources.map((source, idx) =>
       (
         <li key={idx}>
-          <a href={source} className="flex items-center text-sm md:text-base  text-blue-700 dark:text-blue-300 hover:text-blue-900 dark:hover:text-blue-50 active:text-violet-700 break-all">{source}</a>
+          <a href={source} className="flex items-center text-sm md:text-base text-blue-700 dark:text-blue-300 hover:text-blue-900 dark:hover:text-blue-50 active:text-violet-700 break-all">{source}</a>
         </li>
       ))}
     </ul>

@@ -31,11 +31,11 @@ const SidebarContainer = ({ t, searchItems, getFilteredTajweeds }) => {
                           leaveFrom="opacity-100 translate-y-0"
                           leaveTo="opacity-50 -translate-y-1/2"
                         >
-                          <li>
-                            {getFilteredTajweeds.filter(tajweedLaw => tajweedLaw.category === category).map(tajweedLaw => <ul className={`max-w-full my-1 ml-4 px-2 py-1 text-base ${location.toString().includes(tajweedLaw.page) ? "font-bold border-l-8" : "hover:border-l-8"} text-green-800 dark:text-gray-200 hover:text-green-700/75 dark:hover:text-gray-50 hover:underline hover:translate-x-2 cursor-pointer duration-300`} key={tajweedLaw.id} style={{ borderLeftColor: tajweedLaws().find(tajweed => tajweed.id === tajweedLaw.id).color }}>
+                          <ul>
+                            {getFilteredTajweeds.filter(tajweedLaw => tajweedLaw.category === category).map(tajweedLaw => <li className={`max-w-full my-1 ml-4 px-2 py-1 text-base ${location.toString().includes(tajweedLaw.page) ? "font-bold border-l-8" : "hover:border-l-8"} text-green-800 dark:text-gray-200 hover:text-green-700/75 dark:hover:text-gray-50 hover:underline hover:translate-x-2 cursor-pointer duration-300`} key={tajweedLaw.id} style={{ borderLeftColor: tajweedLaws().find(tajweed => tajweed.id === tajweedLaw.id).color }}>
                               <a href={`/tajweed-list${tajweedLaw.page}`}>{tajweedLaw.name}</a>
-                            </ul>)}
-                          </li>
+                            </li>)}
+                          </ul>
                         </Transition.Child>
                       </Disclosure.Panel>
                     </Transition>
