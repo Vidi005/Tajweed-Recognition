@@ -7,7 +7,7 @@ const SaveFilePrompt = ({ t, inputRef, isDialogOpened, isFocused, isBismillahAdd
   else charsLimit = `${docTitle.length} / 100`
   return (
     <Transition appear show={isDialogOpened} as={Fragment}>
-      <Dialog initialFocus={inputRef} ref={inputRef} className={"save-file-dialog relative z-10"} onClose={cancelSaving}>
+      <Dialog initialFocus={inputRef} className={"save-file-dialog relative z-10"} onClose={cancelSaving}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"

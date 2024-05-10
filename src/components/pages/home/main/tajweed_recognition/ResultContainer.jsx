@@ -94,7 +94,7 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
                       <ul>
                         {tajweedLaws().sort((a, b) => a.id - b.id).map(tajweedLaw => (
                           <li key={tajweedLaw.id} style={{ display: "flex", alignItems: "center", width: "100%", marginBottom: "4px" }}>
-                            <span style={{ border: "1px solid black", fontSize: "12pt", color: tajweedLaw.color, backgroundColor: tajweedLaw.color }}>____</span>&emsp;&emsp;:&emsp;
+                            <span style={{ border: "1px solid black", fontSize: "12pt", color: tajweedLaw.color, backgroundColor: tajweedLaw.color }}>_____</span>&emsp;&emsp;:&emsp;
                             <span style={{ flexGrow: 1, fontSize: "12pt", fontFamily: "'Times New Roman', 'Serif'", textAlign: "justify" }}>{tajweedLaw.name}&emsp;<i>({tajweedLaw.category})</i></span>
                           </li>
                         ))}
@@ -112,7 +112,7 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
                       <ul>
                         {tajweedLaws().sort((a, b) => a.id - b.id).map(tajweedLaw => (
                           <li key={tajweedLaw.id} style={{ display: "flex", alignItems: "center", width: "100%", marginBottom: "4px" }}>
-                            <span style={{ border: "1px solid black", fontSize: "12pt", color: tajweedLaw.color, backgroundColor: tajweedLaw.color }}>____</span>&emsp;&emsp;:&emsp;
+                            <span style={{ border: "1px solid black", fontSize: "12pt", color: tajweedLaw.color, backgroundColor: tajweedLaw.color }}>_____</span>&emsp;&emsp;:&emsp;
                             <span style={{ flexGrow: 1, fontSize: "12pt", fontFamily: "'Times New Roman', 'Serif'", textAlign: "justify" }}>{tajweedLaw.name}&emsp;<i>({tajweedLaw.category})</i></span>
                           </li>
                         ))}
