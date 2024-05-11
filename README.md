@@ -7,9 +7,9 @@ Recognizing Arabic Characters from an image and generating Tajweed Colors from r
 
 ### Screenshots:
 <p align="center">
-  <img src="https://github.com/Vidi005/Tajweed-Recognition/blob/master/Screenshots/TajweedRecognitionSplitted1-ezgif.com-speed.gif" width="100%"> 
-  <img src="https://github.com/Vidi005/Tajweed-Recognition/blob/master/Screenshots/TajweedRecognitionSplitted2-ezgif.com-speed.gif" width="100%">
-  <img src="https://github.com/Vidi005/Tajweed-Recognition/blob/master/Screenshots/TajweedRecognitionSplitted3-ezgif.com-speed.gif" width="100%">
+  <img src="https://github.com/Vidi005/Tajweed-Recognition/blob/main/Screenshots/TajweedRecognitionSplitted1-ezgif.com-speed.gif" width="100%"> 
+  <img src="https://github.com/Vidi005/Tajweed-Recognition/blob/main/Screenshots/TajweedRecognitionSplitted2-ezgif.com-speed.gif" width="100%">
+  <img src="https://github.com/Vidi005/Tajweed-Recognition/blob/main/Screenshots/TajweedRecognitionSplitted3-ezgif.com-speed.gif" width="100%">
 </p>
 
 ### Features:
