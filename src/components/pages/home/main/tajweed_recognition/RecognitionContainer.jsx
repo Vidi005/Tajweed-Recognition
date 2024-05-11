@@ -428,18 +428,20 @@ class RecognitionContainer extends React.Component {
             const watermark = location.origin.toString()
             const header = new Date()
             const footer = `${this.props.t('page_numbers.0')} ${index} ${this.props.t('page_numbers.1')} ${pageCounter}`
-            pdf.setFont('helvetica', 'normal').setFontSize(8).textWithLink(watermark, 20, 20, { url: location.origin.toString() })
-            pdf.text(header.toLocaleString(), pageWidth - 95, 15, { baseline: 'top', })
+            pdf.setFont('helvetica', 'normal').setFontSize(10).textWithLink(watermark, 30, 25, { url: location.origin.toString() })
+            pdf.text(header.toLocaleString(), pageWidth - 130, 15, { baseline: 'top', })
             pdf.text(footer, pageWidth / 2 - (pdf.getTextWidth(footer) / 2), pageHeight - 15, { baseline: 'bottom' })
             const tableData = []
             const data = [...this.state.filteredTajweeds.sort((a, b) => a.id - b.id)]
             for (let i = 0; i < 7; i++) {
               const rowData = []
-              for (let j = 0; j < Math.ceil(data.length * 2 / 7); j++) {
+              for (let j = 0; j <= Math.ceil(data.length * 2 / 7); j++) {
                 if (j % 2 === 0) {
-                  rowData.push(data[i % data.length + Math.ceil(j / 2) * 7]?.color)
+                  const colorData = data[i % data.length + Math.ceil(j / 2) * 7]?.color
+                  rowData.push(colorData ? colorData : '')
                 } else {
-                  rowData.push(data[i % data.length + Math.floor(j / 2) * 7]?.name)
+                  const nameData = data[i % data.length + Math.floor(j / 2) * 7]?.name
+                  rowData.push(nameData ? ` :  ${nameData}`: '')
                 }
               }
               tableData.push(rowData)
