@@ -16,12 +16,12 @@ Recognizing Arabic Characters from an image and generating Tajweed Colors from r
 - Recognize Arabic Characters from captured image
 - Recognize Arabic Characters from screenshot with Share Screen
 - Read Arabic Text from imported image, docx, and PDF formats
-- Colorize Tajweed Laws
+- Colorize Tajweed Laws from Arabic Characters
 - Show tooltip and detail info about selected Tajweed
 - Show colored guidelines of generated Tajweed Laws
 - Edit and Manually Input for Arabic Text
 - Dark Mode
-- Localization (English and Indonesia)
+- Localization to change App Languages (English and Indonesia)
 - Tajweed display setting
 - Change displayed font size and line spacing
 - Download generated Tajweed Laws into a DOC or PDF file
@@ -40,6 +40,7 @@ Recognizing Arabic Characters from an image and generating Tajweed Colors from r
 - React Dropzone
 - React PDF.js Reader
 - React Slick Carousel
+- React Router
 - Sweet Alert 2
 - Tesseract JS
 - Vite Plugin PWA
