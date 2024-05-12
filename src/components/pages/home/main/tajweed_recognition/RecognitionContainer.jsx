@@ -410,7 +410,7 @@ class RecognitionContainer extends React.Component {
       getColoredTajweedsPdf.style.display = 'block'
       await html2PDF(getColoredTajweedsPdf, {
         jsPDF: pdf,
-        margin: { top: 50, right: 20, bottom: 130, left: 20 },
+        margin: { top: 45, right: 20, bottom: 135, left: 20 },
         output: `${+new Date()}_${this.state.docTitle}.pdf`,
         html2canvas: {
           scrollX: 0,
@@ -433,14 +433,14 @@ class RecognitionContainer extends React.Component {
             pdf.text(footer, pageWidth / 2 - (pdf.getTextWidth(footer) / 2), pageHeight - 15, { baseline: 'bottom' })
             const tableData = []
             const data = [...this.state.filteredTajweeds.sort((a, b) => a.id - b.id)]
-            for (let i = 0; i < 7; i++) {
+            for (let i = 0; i < 9; i++) {
               const rowData = []
-              for (let j = 0; j <= Math.ceil(data.length * 2 / 7); j++) {
+              for (let j = 0; j <= Math.ceil(data.length * 2 / 9); j++) {
                 if (j % 2 === 0) {
-                  const colorData = data[i % data.length + Math.ceil(j / 2) * 7]?.color
+                  const colorData = data[i % data.length + Math.ceil(j / 2) * 9]?.color
                   rowData.push(colorData ? colorData : '')
                 } else {
-                  const nameData = data[i % data.length + Math.floor(j / 2) * 7]?.name
+                  const nameData = data[i % data.length + Math.floor(j / 2) * 9]?.name
                   rowData.push(nameData ? ` :  ${nameData}`: '')
                 }
               }
@@ -452,7 +452,7 @@ class RecognitionContainer extends React.Component {
               theme: 'plain',
               tableLineWidth: 1,
               tableLineColor: 'white',
-              startY: pdf.internal.pageSize.height - (10 * 7) - 50,
+              startY: pdf.internal.pageSize.height - (10 * 7) - 60,
               styles: {
                 valign: 'middle',
                 font: 'times',
