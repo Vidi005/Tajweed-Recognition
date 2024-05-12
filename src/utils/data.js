@@ -822,8 +822,6 @@ const extractMadJaizCharacters = () => {
 const extractMadLazimMutsaqqalKilmiCharacters = () => {
   const madLazimMutsaqqalKilmi = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)\s*(?:[\u0628-\u064A])\u0651/gm.source, 'gm'))
   const madLazimMutsaqqalKilmi2 = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)\s*(?:[\u0628-\u064A])(?:[\u064B-\u065F]|\u0670)\u0651/gm.source, 'gm'))
-  const madLazimMutsaqqalKilmi3 = madThabiiChars.map(regex => new RegExp(regex.source.includes('\u0627') ? regex.source.replace('\u0627', '\u0622') + /\s*(?:[\u0628-\u064A])\u0651/gm.source : null, 'gm'))
-  const madLazimMutsaqqalKilmi4 = madThabiiChars.map(regex => new RegExp(regex.source.includes('\u0627') ? regex.source.replace('\u0627', '\u0622') + /\s*(?:[\u0628-\u064A])(?:[\u064B-\u065F]|\u0670)\u0651/gm.source : null, 'gm'))
   const alif = [
     /\u0622\s*(?:[\u0628-\u064A])\u0651/gm,
     /\u0622\s*(?:[\u0628-\u064A])(?:[\u064B-\u065F]|\u0670)\u0651/gm
@@ -831,17 +829,14 @@ const extractMadLazimMutsaqqalKilmiCharacters = () => {
   return [
     ...madLazimMutsaqqalKilmi,
     ...madLazimMutsaqqalKilmi2,
-    ...madLazimMutsaqqalKilmi3,
-    ...madLazimMutsaqqalKilmi4,
     ...alif
   ]
 }
 
 const extractMadLazimMukhaffafKilmiCharacters = () => {
   const madLazimMukhaffafKilmi = madThabiiChars.map(regex => new RegExp(regex.source + /(?:\u0605|\u0622|\u0653|\u06E4)\s*(?:[\u0628-\u064A])[\u0652\u06DF]/gm.source, 'gm'))
-  const madLazimMukhaffafKilmi2 = madThabiiChars.map(regex => new RegExp(regex.source.endsWith('\u0627') ? regex.source.replace('\u0627', '\u0622') + /\s*(?:[\u0628-\u064A])[\u0652\u06DF]/gm.source : null, 'gm'))
   const alif = [/\u0622\s*(?:[\u0628-\u064A])[\u0652\u06DF]/gm]
-  return [ ...madLazimMukhaffafKilmi, ...madLazimMukhaffafKilmi2, ...alif ]
+  return [ ...madLazimMukhaffafKilmi, ...alif ]
 }
 
 const extractMadLayyinCharacters = () => [

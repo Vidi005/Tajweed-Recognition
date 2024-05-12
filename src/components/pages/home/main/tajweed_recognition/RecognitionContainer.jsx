@@ -450,15 +450,17 @@ class RecognitionContainer extends React.Component {
               body: tableData,
               margin: { top: 0, bottom: 20, left: 20, right: 20 },
               theme: 'plain',
-              tableLineWidth: 0,
+              tableLineWidth: 1,
+              tableLineColor: 'white',
               startY: pdf.internal.pageSize.height - (10 * 7) - 50,
               styles: {
                 valign: 'middle',
                 font: 'times',
-                fontSize: 9,
+                fontSize: 8,
                 cellPadding: 1,
-                lineWidth: 0,
-                overflow: "linebreak"
+                lineWidth: 1,
+                lineColor: 'white',
+                overflow: "ellipsize"
               },
               didParseCell: (data) => {
                 if (data.cell.text.toString().startsWith('#')) {

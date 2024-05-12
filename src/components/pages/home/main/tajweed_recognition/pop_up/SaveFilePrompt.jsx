@@ -47,6 +47,7 @@ const SaveFilePrompt = ({ t, inputRef, isDialogOpened, isFocused, isBismillahAdd
                 onChange={handleTitleChange}
                 onFocus={onFocusHandler}
                 onBlur={onBlurHandler}
+                autoFocus
                 required
               />
               {isFocused
