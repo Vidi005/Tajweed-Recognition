@@ -48,13 +48,12 @@ const SaveFilePrompt = ({ t, inputRef, isDialogOpened, isFocused, isBismillahAdd
                 onFocus={onFocusHandler}
                 onBlur={onBlurHandler}
                 autoFocus
-                required
               />
               {isFocused
                 ? docTitle.length >= 100
                   ? <label className="w-full pl-1 text-justify leading-tight text-sm text-red-700 dark:text-red-500" htmlFor="input-title">{charsLimit}</label>
                   : <label className="w-full pl-1 text-justify leading-tight text-sm text-green-800 dark:text-green-500" htmlFor="input-title">{charsLimit}</label>
-                : <label className="w-full pl-0.5 text-justify leading-tight text-sm text-red-600 dark:text-red-400">* {t('input_title_required')}</label>
+                : <br />
               }
               <br />
               <p className="text-center text-sm text-green-700 dark:text-gray-200">
@@ -74,8 +73,8 @@ const SaveFilePrompt = ({ t, inputRef, isDialogOpened, isFocused, isBismillahAdd
                 </Listbox.Options>
               </Listbox>
               <div className="flex w-full items-center justify-evenly text-sm md:text-base">
-                <button className="m-2 px-4 py-2 bg-green-800 hover:bg-green-900 active:bg-green-500 text-center text-white rounded-md shadow-md dark:shadow-white/50 duration-200" onClick={saveAsDoc} disabled={docTitle.length < 1}>{t('save_as_doc')}</button>
-                <button className="m-2 px-4 py-2 bg-green-800 hover:bg-green-900 active:bg-green-500 text-center text-white rounded-md shadow-md dark:shadow-white/50 duration-200" onClick={saveAsPdf} disabled={docTitle.length < 1}>{t('save_as_pdf')}</button>
+                <button className="m-2 px-4 py-2 bg-green-800 hover:bg-green-900 active:bg-green-500 text-center text-white rounded-md shadow-md dark:shadow-white/50 duration-200" onClick={saveAsDoc}>{t('save_as_doc')}</button>
+                <button className="m-2 px-4 py-2 bg-green-800 hover:bg-green-900 active:bg-green-500 text-center text-white rounded-md shadow-md dark:shadow-white/50 duration-200" onClick={saveAsPdf}>{t('save_as_pdf')}</button>
               </div>
             </section>
           </Dialog.Panel>

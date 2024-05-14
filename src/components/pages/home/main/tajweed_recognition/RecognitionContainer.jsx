@@ -381,7 +381,7 @@ class RecognitionContainer extends React.Component {
       const htmlToDoc = `${preHtml}${this.state.isBismillahAdded ? getColoredTajweedsDocBismillah.innerHTML : getColoredTajweedsDoc.innerHTML}${postHtml}`
       const blob = new Blob(['\ufeff', htmlToDoc], { type: 'application/msword' })
       const url = `data:application/vnd.ms-word;charset=utf-8,${encodeURIComponent(htmlToDoc)}`
-      const fileName = `${+new Date()}_${this.state.docTitle}.doc`
+      const fileName = `${+new Date()}_${this.state.docTitle.length > 0 ? this.state.docTitle : 'Untitled'}.doc`
       const link = document.createElement('a')
       document.body.appendChild(link)
       if (navigator?.msSaveOrOpenBlob) {
@@ -411,7 +411,7 @@ class RecognitionContainer extends React.Component {
       await html2PDF(getColoredTajweedsPdf, {
         jsPDF: pdf,
         margin: { top: 45, right: 20, bottom: 135, left: 20 },
-        output: `${+new Date()}_${this.state.docTitle}.pdf`,
+        output: `${+new Date()}_${this.state.docTitle.length > 0 ? this.state.docTitle : 'Untitled'}.pdf`,
         html2canvas: {
           scrollX: 0,
           scrollY: -window.scrollY,
@@ -470,7 +470,7 @@ class RecognitionContainer extends React.Component {
               }
             })
           }
-          pdf.save(`${+new Date()}_${this.state.docTitle}.pdf`)
+          pdf.save(`${+new Date()}_${this.state.docTitle.length > 0 ? this.state.docTitle : 'Untitled'}.pdf`)
         }
       })
       this.setState({ isDialogOpened: false })
