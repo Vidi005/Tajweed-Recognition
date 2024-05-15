@@ -20,9 +20,15 @@ class ListContainer extends React.Component {
     this.setState({ getFilteredTajweeds: this.loadTajweedData() })
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.t !== this.props.t) {
+      this.setState({ getFilteredTajweeds: this.loadTajweedData() })
+    }
+  }
+
   loadTajweedData() {
     const tajweedData = []
-    tajweedLaws().forEach((_tajweedLaw, index) => {
+    tajweedLaws().sort((a, b) => a.id - b.id).forEach((_tajweedLaw, index) => {
       tajweedData.push({
         id: this.props.t(`tajweed_laws.${index}.id`),
         group: this.props.t(`tajweed_laws.${index}.group`),

@@ -116,6 +116,22 @@ class RecognitionContainer extends React.Component {
     }
   }
 
+  loadTajweedData() {
+    const tajweedData = []
+    tajweedLaws().sort((a, b) => a.id - b.id).forEach((tajweedLaw, index) => {
+      tajweedData.push({
+        id: this.props.t(`tajweed_laws.${index}.id`),
+        name: this.props.t(`tajweed_laws.${index}.name`),
+        color: tajweedLaw.color,
+        group: this.props.t(`tajweed_laws.${index}.group`),
+        category: this.props.t(`tajweed_laws.${index}.category`),
+        rules: tajweedLaw.rules,
+        detailPage: this.props.t(`tajweed_laws.${index}.page`)
+      })
+    })
+    return tajweedData
+  }
+
   checkResultContentState() {
     const getResultContentTempData = sessionStorage.getItem(this.state.RESULT_CONTENT_STORAGE_KEY)
     if (getResultContentTempData) {
@@ -717,37 +733,40 @@ class RecognitionContainer extends React.Component {
     event.returnValue = this.props.t('unsaved_warning')
   }
 
-  showTooltip(event) {
-    const matchedTajweed = tajweedLaws().filter(tajweedLaw => {
-      const regex = buildRegExp(tajweedLaw.rules)
-      return regex.test(event.target.innerHTML)
-    })
-    if (matchedTajweed.length === 1) {
-      const tooltipColor = `${matchedTajweed[0].color}80`
-      this.setState({
-        tooltipContent: matchedTajweed[0].name,
-        tooltipColor: tooltipColor,
-      })
-      setTimeout(() => {
-        const contentContainerRect = this.contentContainerRef.current.getBoundingClientRect()
-        const tooltip = this.tooltipRef.current
-        const tooltipWidth = tooltip?.offsetWidth
-        const tooltipHeight = tooltip?.offsetHeight
-        const containerHalfWidth = contentContainerRect.width / 2
-        const leftPosition = event.clientX
-        if (tooltip) {
-          if (leftPosition < containerHalfWidth) {
-            tooltip.style.left = `${leftPosition}px`
-            tooltip.style.right = 'auto'
-          } else {
-            tooltip.style.left = `${leftPosition - tooltipWidth}px`
-            tooltip.style.right = 'auto'
+  showTooltip (event) {
+    const tajweedData = this.loadTajweedData()
+    setTimeout(() => {
+      const matchedTajweed = tajweedData.filter(tajweedLaw => {
+        const regex = buildRegExp(tajweedLaw.rules)
+        return regex.test(event.target.innerHTML)
+      })  
+      if (matchedTajweed.length === 1) {
+        const tooltipColor = `${matchedTajweed[0].color}80`
+        this.setState({
+          tooltipContent: matchedTajweed[0].name,
+          tooltipColor: tooltipColor,
+        })  
+        setTimeout(() => {
+          const contentContainerRect = this.contentContainerRef.current.getBoundingClientRect()
+          const tooltip = this.tooltipRef.current
+          const tooltipWidth = tooltip?.offsetWidth
+          const tooltipHeight = tooltip?.offsetHeight
+          const containerHalfWidth = contentContainerRect.width / 2
+          const leftPosition = event.clientX
+          if (tooltip) {
+            if (leftPosition < containerHalfWidth) {
+              tooltip.style.left = `${leftPosition}px`
+              tooltip.style.right = 'auto'
+            } else {
+              tooltip.style.left = `${leftPosition - tooltipWidth}px`
+              tooltip.style.right = 'auto'
+            }
+            tooltip.style.top = `${event.clientY - tooltipHeight - 10}px`
+            tooltip.style.backgroundColor = tooltipColor
           }
-          tooltip.style.top = `${event.clientY - tooltipHeight - 10}px`
-          tooltip.style.backgroundColor = tooltipColor
-        }
-      }, 10)
-    }
+        }, 10)
+      }
+    }, 0)
   }
 
   hideTooltip() {
@@ -756,7 +775,7 @@ class RecognitionContainer extends React.Component {
 
   showSummaryModal(idParam) {
     if (checkParamEvent(idParam)?.length > 0) {
-      const tajweedName = checkParamEvent(idParam)[0].name
+      const tajweedName = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === checkParamEvent(idParam)[0].id)}.name`)
       const summary = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === checkParamEvent(idParam)[0].id)}.summary`)
       const detailPage = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === checkParamEvent(idParam)[0].id)}.page`)
       this.setState({ isModalOpened: true, selectedTajweed: { tajweedName, summary, detailPage } })
@@ -764,7 +783,7 @@ class RecognitionContainer extends React.Component {
   }
 
   filterColorizedTajweeds(coloredTajweeds) {
-    const colorizedTajweeds = tajweedLaws().filter(tajweedLaw => {
+    const colorizedTajweeds = this.loadTajweedData().filter(tajweedLaw => {
       const styleRegex = new RegExp(`class="tajweed-${tajweedLaw.id}" `)
       return styleRegex.test(coloredTajweeds)
     }).sort((a, b) => a.id - b.id)

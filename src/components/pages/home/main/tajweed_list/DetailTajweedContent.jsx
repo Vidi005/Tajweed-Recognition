@@ -58,7 +58,7 @@ const DetailTajweedContent = ({ t }) => {
             <a href={`/tajweed-list${findPreviousTajweedLaw().prevPage}`}>
               <button className="flex items-center border border-green-900 dark:border-white hover:bg-green-800/25 dark:hover:bg-gray-100/25 px-4 py-2 text-green-900 hover:text-green-700 dark:text-white dark:hover:text-gray-200 hover:underline rounded-lg shadow-lg dark:shadow-white/50 duration-300">
                 <img className="max-h-8 mr-2 invert dark:invert-0" src={`${import.meta.env.BASE_URL}images/backward-icon.svg`} alt="Prev Page" />
-                <h4 className="font-normal">{findPreviousTajweedLaw().prevName}</h4>
+                <h4 className="font-normal">{t(`tajweed_laws.${findPreviousTajweedLaw().prevIdx}.name`)}</h4>
               </button>
             </a>
           ): <button disabled></button>}
@@ -66,7 +66,7 @@ const DetailTajweedContent = ({ t }) => {
           {findNextTajweedLaw() ? (
             <a href={`/tajweed-list${findNextTajweedLaw().nextPage}`}>
               <button className="flex items-center ml-auto border border-green-900 dark:border-white hover:bg-green-800/25 dark:hover:bg-gray-100/25 px-4 py-2 text-green-900 hover:text-green-700 dark:text-white dark:hover:text-gray-200 hover:underline rounded-lg shadow-lg dark:shadow-white/50 duration-300">
-                <h4 className="font-normal">{findNextTajweedLaw().nextName}</h4>
+                <h4 className="font-normal">{t(`tajweed_laws.${findNextTajweedLaw().nextIdx}.name`)}</h4>
                 <img className="max-h-8 ml-2 invert dark:invert-0 scale-[-1]" src={`${import.meta.env.BASE_URL}images/backward-icon.svg`} alt="Next Page" />
               </button>
             </a>

@@ -56,7 +56,7 @@
     "tajweed_content_desc": "Ilmu tadjwid adalah ilmu yang digunakan untuk mengetahui kaidah dan cara membaca (membunyikan) huruf-huruf Al-Qur'an secara baik dan benar. Tujuannya adalah untuk memelihara bacaan Al-Qur'an dari kesalahan dan perubahan serta memelihara lisan (mulut) dari kesalahan membaca.\nMempelajari ilmu tadjwid hukumnya Fardlu Kifayah, sedangkan membaca Al-Qur'an dengan baik sesuai dengan ilmu tadjwid hukumnya FardIu 'Ain.",
     "learn_tajweed": "Pelajari Tadjwid",
     "search_items": "Cari Tadjwid",
-    "filter_tajweeds": ["Semua Kategori", "Sukun & Tanwin", "Mim Mukun", "Mim & Nun Tasydid", "Idghom", "Lam Ta'rif", "Tafkhim & Tarqiq", "Qolqolah", "Mad", "Ahkämul Al-hurüf"],
+    "filter_tajweeds": ["Semua Kategori", "Sukun & Tanwin", "Mim Sukun", "Mim Tasydid & Nun Tasydid", "Idghom", "Lam Ta'rif", "Tafkhim & Tarqiq", "Qolqolah", "Mad", "Ahkämul Al-hurüf"],
     "empty_list": "Tidak Ada Tajwid Yang Ditemukan!",
     "group": "Kelompok",
     "category": "Kategori",
@@ -102,7 +102,7 @@
                 "رَقَبَةٍ مِنْ قَبْلِ Tanwin bertemu dengan م",
                 "مِنْ خَيْلٍ وَلَا رِكَابٍ Tanwin bertemu dengan و"
             ],
-            "page": "/detail/idgham_bigunnah"
+            "page": "/detail/idgham-bigunnah"
         },
         {
             "id": 3,
@@ -117,7 +117,7 @@
                 "لَا تَجْعَلْنَا فِتْنَةً لِلَّذِينَ Tanwin bertemu dengan ل",
                 "سَيَقُولُونَ ثَلَاثَةٌ رَابِعُهُمْ Tanwin bertemu dengan ر"
             ],
-            "page": "/detail/idgham_bilagunnah"
+            "page": "/detail/idgham-bilagunnah"
         },
         {
             "id": 4,
@@ -169,7 +169,7 @@
                 "أَنَّ لَهُمْ جَنَّاتٍ Mim mati bertemu dengan ج",
                 "يَمْحَقُ اللَّهُ الرِّبَا Mim mati bertemu dengan ح"
             ],
-            "page": "/detail/idzhar_syafawi"
+            "page": "/detail/idzhar-syafawi"
         },
         {
             "id": 7,
@@ -183,7 +183,7 @@
                 "وَهُمْ بِالْآَخِرَةِ Mim mati bertemu dengan huruf ب",
                 "عَلَيْهِمْ بِعِلْمٍ Mim mati bertemu dengan huruf ب"
             ],
-            "page": "/detail/ikhfa_syafawi"
+            "page": "/detail/ikhfa-syafawi"
         },
         {
             "id": 8,
@@ -197,13 +197,13 @@
                 "كُلَّمَا أَضَاءَ لَهُمْ مَشَوْا فِيهِ Mim mati bertemu dengan م",
                 "إِلَيْكُمْ مِنْ رَبِّكُمْ Mim mati bertemu dengan م"
             ],
-            "page": "/detail/idgham_mimi"
+            "page": "/detail/idgham-mimi"
         },
         {
             "id": 9,
             "name": "Gunnah",
             "group": "Ahkämul Al-hurüf",
-            "category": "Nun Tasydid & Mim Tasydid",
+            "category": "Mim Tasydid & Nun Tasydid",
             "summary": "Hukum bacaan Gunnah terjadi apabila ada mim yang bertasydid (مّ) dan nun yang bertasydid (نّ), maka dibaca dengan mendengung dan disebut dengan bacaan Ghunnah.",
             "detail": "Ghunnah artinya mendengung (di pangkal hidung). Jadi cara membacanya dengan mendengungkan huruf mim dan nun bertasydid di pangkal hidung selama 2 - 3 harokat.",
             "examples": [
@@ -231,7 +231,7 @@
                 "َأَنْتُمْ مُسْلِمُوْنَ Mim mati bertemu م",
                 "مِنْ نَفْعِهِمَا Nun mati bertemu ن"
             ],
-            "page": "/detail/idgham_mutamasilain"
+            "page": "/detail/idgham-mutamasilain"
         },
         {
             "id": 11,
@@ -248,7 +248,7 @@
                 "لَئِنْ بَسَطْتَ Tho mati bertemu ت",
                 "ُلْ رَّبِّي Lam mati bertemu ر"
             ],
-            "page": "/detail/idgham_mutajaanisain"
+            "page": "/detail/idgham-mutajaanisain"
         },
         {
             "id": 12,
@@ -263,7 +263,7 @@
                 "يَلْهَثْ ذَلِكَ Tsa mati bertemu ذ",
                 "نَخْلُقُكُمْ Qaf mati bertemu ك"
             ],
-            "page": "/detail/idgham_mutaqooribain"
+            "page": "/detail/idgham-mutaqooribain"
         },
         {
             "id": 13,
@@ -279,7 +279,7 @@
                 "خَلَقَ الْمَوْتَ وَالْحَيَاةَ Alif lam bertemu dengan ح",
                 "وَهُوَ اللَّطِيفُ الْخَبِيرُ Alif lam bertemu dengan خ"
             ],
-            "page": "/detail/idzhar_qamariyah"
+            "page": "/detail/idzhar-qamariyah"
         },
         {
             "id": 14,
@@ -295,7 +295,7 @@
                 "وَالذَّاكِرِينَ Alif lam bertemu dengan ذ",
                 "الرَّحْمَنِ Alif lam bertemu dengan ر"
             ],
-            "page": "/detail/idgham_syamsiyah"
+            "page": "/detail/idgham-syamsiyah"
         },
         {
             "id": 15,
@@ -355,7 +355,7 @@
                 "فَعَلَيَّ إِجْرَامِي Ada huruf Ja mati di tengah kata",
                 "يَدْعُو مِنْ دُونِ اللَّهِ  Ada huruf Da mati di tengah kata"
             ],
-            "page": "/detail/qalqalah_sughra"
+            "page": "/detail/qalqalah-sughra"
         },
         {
             "id": 22,
@@ -371,7 +371,7 @@
                 "قَائِمًا بِالْقِسْطِ Ada huruf Tho di akhir kalimat",
                 "وَالسَّمَاءِ وَالطَّارِقِ Ada huruf Qaf di akhir kalimat"
             ],
-            "page": "/detail/qalqalah_kubra"
+            "page": "/detail/qalqalah-kubra"
         },
         {
             "id": 24,
@@ -395,7 +395,7 @@
                 "أَمْوَالِكُمْ Fathah bertemu ا",
                 "مَا بِصَاحِبِكُمْ Fathah bertemu ا"
             ],
-            "page": "/detail/mad_thabii"
+            "page": "/detail/mad-thabii"
         },
         {
             "id": 25,
@@ -416,7 +416,7 @@
                 "شُهَدَاءَ Mad Thobi'i bertemu Hamzah (ء) dalam satu kata/kalimat",
                 "وَلَوْ شَاءَ Mad Thobi'i bertemu Hamzah (ء) dalam satu kata/kalimat"
             ],
-            "page": "/detail/mad_wajib_muttasil"
+            "page": "/detail/mad-wajib-muttasil"
         },
         {
             "id": 26,
@@ -431,7 +431,7 @@
                 "وَمَا أُنْزِلَ Mad Thobi'i bertemu Hamzah (ء) di perkataan lain",
                 "ذُرِّيَّتِنَا أُمُّةً Mad Thobi'i bertemu Hamzah (ء) di perkataan lain"
             ],
-            "page": "/detail/mad_jaiz_munfassil"
+            "page": "/detail/mad-jaiz-munfassil"
         },
         {
             "id": 27,
@@ -447,7 +447,7 @@
                 "جَاءَتِ الطَّآمَّةُ Mad Thobi'i bertemu tasydid dalam satu kata",
                 "فِي السِّلْمِ كَآفَّةً Mad Thobi'i bertemu tasydid dalam satu kata"
             ],
-            "page": "/detail/mad_lazim_mutsaqqal_kilmi"
+            "page": "/detail/mad-lazim-mutsaqqal-kilmi"
         },
         {
             "id": 28,
@@ -457,7 +457,7 @@
             "summary": "Hukum bacaan disebut Mad Lazim Mukhaffaf Kilmi yakni, apabila Mad Thobi'i bertemu dengan huruf yang berharokat Sukun tidak di akhir perkataan. (dipanjangkan sampai tiga alif atau enam harokat).",
             "detail": "Cara membacanya sepert Mad Lazim Mutsaqqol Kilmi (dipanjangkan sampai tiga alif atau enam harokat).",
             "examples": ["آلان hanya terdapat di Surat Yunus"],
-            "page": "/detail/mad_lazim_mukhaffaf_kilmi"
+            "page": "/detail/mad-lazim-mukhaffaf-kilmi"
         },
         {
             "id": 29,
@@ -477,7 +477,7 @@
                 "يَوْمَ Fathah bertemu وْ",
                 "قَوْمًا Fathah bertemu وْ"
             ],
-            "page": "/detail/mad_layyin"
+            "page": "/detail/mad-layyin"
         },
         {
             "id": 30,
@@ -496,7 +496,7 @@
                 "عَدُوٌّ مُّبِينٌ . Mad Thobi'i di akhir kalimat/bertemu waqof",
                 "شَاكِرٌ عَلِيمٌ . Mad Thobi'i di akhir kalimat/bertemu waqof"
             ],
-            "page": "/detail/mad_arid_lissukun"
+            "page": "/detail/mad-arid-lissukun"
         },
         {
             "id": 31,
@@ -517,7 +517,7 @@
                 "وَرَحْمَتُهُ لَكُنْتُمْ (ه) dipanjangkan seperti Mad Thobi 'ii",
                 "ِنَّهُ هُوَ  (ه) dipanjangkan seperti Mad Thobi 'ii"
             ],
-            "page": "/detail/mad_shilah_qashirah"
+            "page": "/detail/mad-shilah-qashirah"
         },
         {
             "id": 32,
@@ -538,7 +538,7 @@
                 "ربهِٓ أَحَدًا (ه) dipanjangkan seperti Mad Jaiz Munfashil",
                 "عِلْمِهِٓ إِلَّا (ه) dipanjangkan seperti Mad Jaiz Munfashil"
             ],
-            "page": "/detail/mad_shilah_thawilah"
+            "page": "/detail/mad-shilah-thawilah"
         },
         {
             "id": 33,
@@ -560,7 +560,7 @@
                 ".رَبُّهُمْ رَشَدًا memanjangkan (دً) seperti Mad Thobi 'ii",
                 ".ذلِكَ سَبِيلاً memanjangkan (لاً) seperti Mad Thobi 'ii"
             ],
-            "page": "/detail/mad_iwad"
+            "page": "/detail/mad-iwad"
         },
         {
             "id": 34,
@@ -576,7 +576,7 @@
                 "إِيْمَانُ memanjangkan (أ) seperti Mad Thobi 'ii",
                 "أَتُوا memanjangkan (أ) seperti Mad Thobi 'ii"
             ],
-            "page": "/detail/mad_badal"
+            "page": "/detail/mad-badal"
         },
         {
             "id": 35,
@@ -591,7 +591,7 @@
                 "طٰهٰ dibaca THOOHAA",
                 "طٰسٓ dibaca THOOSIIN"
             ],
-            "page": "/detail/mad_lazim_harfi_mukhoffaf"
+            "page": "/detail/mad-lazim-harfi-mukhoffaf"
         },
         {
             "id": 36,
@@ -606,7 +606,7 @@
                 "طٰسٓمٓ dibaca THOOSIIIIIIMMIIIIIIM",
                 "الٓمٓرٰ dibaca ALIFLAAAAAAMMIIIIIIMROO"
             ],
-            "page": "/detail/mad_lazim_harfi_mutsaqqol"
+            "page": "/detail/mad-lazim-harfi-mutsaqqol"
         },
         {
             "id": 37,
@@ -619,7 +619,7 @@
                 "صٓ‌ dibaca SHOOOOOOD",
                 "قٓ dibaca QOOOOOOF"
             ],
-            "page": "/detail/mad_lazim_musyabba"
+            "page": "/detail/mad-lazim-musyabba"
         },
         {
             "id": 38,
@@ -634,7 +634,7 @@
                 "رَبَّانِيِّينَ Yaa' taysdid bertemu (يْ)",
                 "في الْأُمِّيِّينَ Yaa' taysdid bertemu (يْ)"
             ],
-            "page": "/detail/mad_tamkin"
+            "page": "/detail/mad-tamkin"
         },
         {
             "id": 39,
@@ -648,7 +648,7 @@
                 "قُلْ اللَّهُ أَذِنَ لَكُمْ pada Surat Yunus",
                 "اللَّهُ خَيْرٌ أَمَّا يُشْرِكُونَ pada Surat An-Naml"
             ],
-            "page": "/detail/mad_farq"
+            "page": "/detail/mad-farq"
         }
     ]
 }

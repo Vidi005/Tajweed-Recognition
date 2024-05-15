@@ -53,10 +53,10 @@
     "close_result_prompt": ["Are you sure want to close this result?", "The result data will be removed."],
     "tajweed_list": "Tajweed List",
     "tajweed_desc": "Tajweed Description",
-    "tajweed_content_desc": "The science of tajwid is the knowledge used to understand the rules and methods of reciting (pronouncing) the letters of the Qur'an correctly and beautifully. Its purpose is to preserve the recitation of the Qur'an from errors and changes, as well as to safeguard the mouth from reading mistakes. Studying the science of tajwid is a communal obligation (Fardlu Kifayah), while reciting the Qur'an correctly according to the rules of tajwid is an individual obligation (Fardlu 'Ain).",
+    "tajweed_content_desc": "The science of tajweed is the knowledge used to understand the rules and methods of reciting (pronouncing) the letters of the Qur'an correctly and beautifully. Its purpose is to preserve the recitation of the Qur'an from errors and changes, as well as to safeguard the mouth from reading mistakes. Studying the science of tajweed is a communal obligation (Fardlu Kifayah), while reciting the Qur'an correctly according to the rules of tajweed is an individual obligation (Fardlu 'Ain).",
     "learn_tajweed": "Learn Tajweed",
     "search_items": "Search Tajweed",
-    "filter_tajweeds": ["All Categories", "Sukun & Tanween", "Mim Sukun", "Mim & Nun Shaddah", "Idgham", "Lam Ta'rif", "Tafkhim & Tarqiq", "Qalqalah", "Mad", "Ahkämul Al-hurüf"],
+    "filter_tajweeds": ["All Categories", "Sukun & Tanween", "Mim Sukun", "Mim Shaddah & Nun Shaddah", "Idgham", "Lam Ta'rif", "Tafkhim & Tarqiq", "Qalqalah", "Mad", "Ahkämul Al-hurüf"],
     "empty_list": "No Tajweed Found!",
     "group": "Group",
     "category": "Category",
@@ -73,13 +73,13 @@
             "name": "Idzhar",
             "group": "Ahkämul Al-hurüf",
             "category": "Sukun & Tanween",
-            "summary": "Idzhar/Idzhar Halqi tajweed law happens when a nun sukun or tanween meets the letters of idzhar (ا ع غ ح خ ها), it is pronounced clearly and distinctly.",
+            "summary": "Idzhar/Idzhar Halqi tajweed law happens when a nun sakinah or tanween meets the letters of idzhar (ا ع غ ح خ ها), it is pronounced clearly and distinctly.",
             "detail": "The letters of idzhar are pronounced clearly because their point of articulation is the mouth and they are in the throat.",
             "examples": [
-                "مِنْ آَلِ فِرْعَوْنَ  Nun sukun meets أ",
-                "فَكُلُوا مِنْهَا حَيْثُ Nun sukun meets هـ",
-                "بِغَافِلٍ عَمَّا تَعْمَلُونَ Nun sukun meets ع",
-                "مِنْ غَفُورٍ رَحِيم Nun sukun meets غ",
+                "مِنْ آَلِ فِرْعَوْنَ  Nun sakinah meets أ",
+                "فَكُلُوا مِنْهَا حَيْثُ Nun sakinah meets هـ",
+                "بِغَافِلٍ عَمَّا تَعْمَلُونَ Nun sakinah meets ع",
+                "مِنْ غَفُورٍ رَحِيم Nun sakinah meets غ",
                 "أَنَّ اللَّهَ عَزِيزٌ حَكِيمٌ Tanween meets ح",
                 "كُونُوا قِرَدَةً خَاسِئِينَ Tanween meets خ"
             ],
@@ -90,43 +90,43 @@
             "name": "Idgham Bigunnah",
             "group": "Ahkämul Al-hurüf",
             "category": "Sukun & Tanween",
-            "summary": "Idgham Bigunnah tajweed law happens when a nun sukun or tanween meets the letters of idgham bigunnah (ي ن م و), it is pronounced with a nasal sound.",
+            "summary": "Idgham Bigunnah tajweed law happens when a nun sakinah or tanween meets the letters of idgham bigunnah (ي ن م و), it is pronounced with a nasal sound.",
             "detail": "Idgham means to merge, and bigunnah means nasal sound. So the letters of idgham bigunnah are pronounced with a nasal sound.",
             "examples": [
-                "مِنْ قَبْلِ أَنْ يَتَمَاسَّا Nun sukun meets ي",
-                "إِلَّا سَاعَةً مِنْ نَهَارٍ Nun sukun meets ن",
-                "وَأَنْفِقُوا مِنْ مَا رَزَقْنَاكُمْ Nun sukun meets م",
-                "مِنْ دُونِهِ مِنْ وَالٍ Nun sukun meets و",
+                "مِنْ قَبْلِ أَنْ يَتَمَاسَّا Nun sakinah meets ي",
+                "إِلَّا سَاعَةً مِنْ نَهَارٍ Nun sakinah meets ن",
+                "وَأَنْفِقُوا مِنْ مَا رَزَقْنَاكُمْ Nun sakinah meets م",
+                "مِنْ دُونِهِ مِنْ وَالٍ Nun sakinah meets و",
                 "بِبُهْتَانٍ يَفْتَرِينَهُ Tanween meets ي",
                 "حِطَّةٌ نَغْفِرْ لَكُمْ Tanween meets ن",
                 "رَقَبَةٍ مِنْ قَبْلِ Tanween meets م",
                 "مِنْ خَيْلٍ وَلَا رِكَابٍ Tanween meets و"
             ],
-            "page": "/detail/idgham_bigunnah"
+            "page": "/detail/idgham-bigunnah"
         },
         {
             "id": 3,
             "name": "Idgham Bilagunnah",
             "group": "Ahkämul Al-hurüf",
             "category": "Sukun & Tanween",
-            "summary": "Idgham Bilagunnah tajweed law happens when a nun sukun or tanween meets the letters of idgham bilagunnah (ل ر), it is pronounced by merging without nasal sound.",
+            "summary": "Idgham Bilagunnah tajweed law happens when a nun sakinah or tanween meets the letters of idgham bilagunnah (ل ر), it is pronounced by merging without nasal sound.",
             "detail": "Idgham means to merge, and bilagunnah means without nasal sound. So the letters of idgham bilagunnah are pronounced by merging without a nasal sound.",
             "examples": [
-                "فَضْلًا مِنْ رَبِّكَ Nun sukun meets ر",
-                "قَالَ لَمْ أَكُنْ لِأَسْجُدَ Nun sukun meets ل",
+                "فَضْلًا مِنْ رَبِّكَ Nun sakinah meets ر",
+                "قَالَ لَمْ أَكُنْ لِأَسْجُدَ Nun sakinah meets ل",
                 "لَا تَجْعَلْنَا فِتْنَةً لِلَّذِينَ Tanween meets ل",
                 "سَيَقُولُونَ ثَلَاثَةٌ رَابِعُهُمْ Tanween meets ر"
             ],
-            "page": "/detail/idgham_bilagunnah"
+            "page": "/detail/idgham-bilagunnah"
         },
         {
             "id": 4,
             "name": "Iqlab",
             "group": "Ahkämul Al-hurüf",
             "category": "Sukun & Tanween",
-            "summary": "Iqlab tajweed law happens when a nun sukun or tanween meets the letter of iqlab (ب), it is pronounced by replacing it with the letter mim.",
+            "summary": "Iqlab tajweed law happens when a nun sakinah or tanween meets the letter of iqlab (ب), it is pronounced by replacing it with the letter mim.",
             "detail": "Iqlab means to merge or, in simpler terms, to replace the letter with the letter mim.",
-            "examples": ["أَنْ تُنْبِتُوا Nun sukun meets ب", "كُلُّ حِزْبٍ بِمَا Tanween meets ب"],
+            "examples": ["أَنْ تُنْبِتُوا Nun sakinah meets ب", "كُلُّ حِزْبٍ بِمَا Tanween meets ب"],
             "page": "/detail/iqlab"
         },
         {
@@ -134,17 +134,17 @@
             "name": "Ikhfa",
             "group": "Ahkämul Al-hurüf",
             "category": "Sukun & Tanween",
-            "summary": "Ikhfa/Ikhfa Haqiqi tajweed law happens when a nun sukun or tanween meets the letters of ikhfa haqiqi (ت ث ج د ذ ز س ش ص ض ط ظ ف ق ك), it is pronounced softly.",
+            "summary": "Ikhfa/Ikhfa Haqiqi tajweed law happens when a nun sakinah or tanween meets the letters of ikhfa haqiqi (ت ث ج د ذ ز س ش ص ض ط ظ ف ق ك), it is pronounced softly.",
             "detail": "Ikhfa means to conceal or hide, while haqiqi means real or true. So the letters of ikhfa haqiqi are pronounced softly.",
             "examples": [
-                "أَنْتُمْ Nun sukun meets ت ",
-                "مَنْثُورًا Nun sukun meets ث ",
-                "فَأَنْجَيْنَاه Nun sukun meets ج",
-                "عِنْدَهُ Nun sukun meets د",
-                "لِيُنْذِرَكُمْ Nun sukun meets ذ",
-                "أُنْزِلَ Nun sukun meets ز",
-                "نَنْسَخْ Nun sukun meets س",
-                "مَنْشُورً Nun sukun meets ش",
+                "أَنْتُمْ Nun sakinah meets ت ",
+                "مَنْثُورًا Nun sakinah meets ث ",
+                "فَأَنْجَيْنَاه Nun sakinah meets ج",
+                "عِنْدَهُ Nun sakinah meets د",
+                "لِيُنْذِرَكُمْ Nun sakinah meets ذ",
+                "أُنْزِلَ Nun sakinah meets ز",
+                "نَنْسَخْ Nun sakinah meets س",
+                "مَنْشُورً Nun sakinah meets ش",
                 "رِيحًا صَرْصَرًا Tanween meets ص",
                 "وَكُلًّا ضَرَبْنَا Tanween meets ض",
                 "صَعِيدًا طَيِّبًا Tanween meets ط",
@@ -157,54 +157,54 @@
         },
         {
             "id": 6,
-            "name": "Idzhar Syafawi",
+            "name": "Idzhar Syafawy",
             "group": "Ahkämul Al-hurüf",
             "category": "Mim Sukun",
-            "summary": "Idzhar Syafawi tajweed law happens when a mim sukun meets the letters of idzhar syafawi (ا ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل ن و ه ي), it must be pronounced clearly even with closed lips.",
-            "detail": "The letters of idzhar syafawi are so many, except for mim and ba, because the two letters are owned by ikhfa syafawi and idgham mimi.",
+            "summary": "Idzhar Syafawy tajweed law happens when a mim sakinah meets the letters of idzhar shafawy (ا ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل ن و ه ي), it must be pronounced clearly even with closed lips.",
+            "detail": "The letters of idzhar shafawy are so many, except for mim and ba, because the two letters are owned by ikhfa shafawy and idgham mimi.",
             "examples": [
-                "أَأَنْذَرْتَهُمْ أَم Mim sukun meets ا",
-                "أَنْعَمْتَ Mim sukun meets ت",
-                "ثُمَّ يُمِيتُكُمْ ثُمَّ يُحْيِيكُمْ Mim sukun meets ث",
-                "أَنَّ لَهُمْ جَنَّاتٍ Mim sukun meets ج",
-                "يَمْحَقُ اللَّهُ الرِّبَا Mim sukun meets ح"
+                "أَأَنْذَرْتَهُمْ أَم Mim sakinah meets ا",
+                "أَنْعَمْتَ Mim sakinah meets ت",
+                "ثُمَّ يُمِيتُكُمْ ثُمَّ يُحْيِيكُمْ Mim sakinah meets ث",
+                "أَنَّ لَهُمْ جَنَّاتٍ Mim sakinah meets ج",
+                "يَمْحَقُ اللَّهُ الرِّبَا Mim sakinah meets ح"
             ],
-            "page": "/detail/idzhar_syafawi"
+            "page": "/detail/idzhar-syafawi"
         },
         {
             "id": 7,
-            "name": "Ikhfa Syafawi",
+            "name": "Ikhfa Syafawy",
             "group": "Ahkämul Al-hurüf",
             "category": "Mim Sukun",
-            "summary": "Ikhfa Syafawi tajweed law happens when a mim sukun meets the letters of ikhfa syafawi (ب), it is pronounced softly by disguising the sound with a nasal tone.",
-            "detail": "Although the nasal sound isn't very clear because the letters Mim Sukun and Ba have the same exit point, namely two lips. There is only one letter for Ikhfa Syafawi. The letters are the same as iqlab, but the way to read them is not merged like iqlab.",
+            "summary": "Ikhfa Syafawy tajweed law happens when a mim sakinah meets the letters of ikhfa shafawy (ب), it is pronounced softly by disguising the sound with a nasal tone.",
+            "detail": "Although the nasal sound isn't very clear because the letters Mim Sukun and Ba have the same exit point, namely two lips. There is only one letter for Ikhfa Syafawy. The letters are the same as iqlab, but the way to read them is not merged like iqlab.",
             "examples": [
-                "وَمَا هُمْ بِمُؤْمِنِينَ Mim sukun meets the letter of ب",
-                "وَهُمْ بِالْآَخِرَةِ Mim sukun meets the letter of ب",
-                "عَلَيْهِمْ بِعِلْمٍ Mim sukun meets the letter of ب"
+                "وَمَا هُمْ بِمُؤْمِنِينَ Mim sakinah meets the letter of ب",
+                "وَهُمْ بِالْآَخِرَةِ Mim sakinah meets the letter of ب",
+                "عَلَيْهِمْ بِعِلْمٍ Mim sakinah meets the letter of ب"
             ],
-            "page": "/detail/ikhfa_syafawi"
+            "page": "/detail/ikhfa-syafawi"
         },
         {
             "id": 8,
             "name": "Idgham Mimi",
             "group": "Ahkämul Al-hurüf",
             "category": "Mim Sukun",
-            "summary": "Idgham Mimi tajweed law happens when mim sukun meets the letters of idgham mimi (م), it is pronounced in the same way as mim shaddah.",
-            "detail": "The letter of Idgham Mimi is only one. The letter is mim. So, Idgham Mimi is the meeting of two mim letters. The way to pronounce it is the same as pronouncing the mim with shaddah. Because, mim shaddah is a combination of mim sukun and mim with harakah.",
+            "summary": "Idgham Mimi tajweed law happens when mim sakinah meets the letters of idgham mimi (م), it is pronounced in the same way as mim shaddah.",
+            "detail": "The letter of Idgham Mimi is only one. The letter is mim. So, Idgham Mimi is the meeting of two mim letters. The way to pronounce it is the same as pronouncing the mim with shaddah. Because, mim shaddah is a combination of mim sakinah and mim with harakah.",
             "examples": [
-                "وَكَمْ مِنْ قَرْيَةٍ Mim sukun meets م",
-                "كُلَّمَا أَضَاءَ لَهُمْ مَشَوْا فِيهِ Mim sukun meets م",
-                "إِلَيْكُمْ مِنْ رَبِّكُمْ Mim sukun meets م"
+                "وَكَمْ مِنْ قَرْيَةٍ Mim sakinah meets م",
+                "كُلَّمَا أَضَاءَ لَهُمْ مَشَوْا فِيهِ Mim sakinah meets م",
+                "إِلَيْكُمْ مِنْ رَبِّكُمْ Mim sakinah meets م"
             ],
-            "page": "/detail/idgham_mimi"
+            "page": "/detail/idgham-mimi"
         },
         {
             "id": 9,
-            "name": "Gunnah",
+            "name": "Ghunnah",
             "group": "Ahkämul Al-hurüf",
-            "category": "Nun Shaddah & Mim Shaddah",
-            "summary": "Gunnah tajweed law happens if there is a shaddah on the letter mim (مّ) and nun (ن), it is pronounced with a nasal sound and is called Ghunnah.",
+            "category": "Mim Shaddah & Nun Shaddah",
+            "summary": "Ghunnah tajweed law happens if there is a shaddah on the letter mim (مّ) and nun (ن), it is pronounced with a nasal sound and is called Ghunnah.",
             "detail": "Ghunnah means: nasaling (at the bridge of the nose). So the way to read it is by humming the letters mim and nun taysdid on the bridge of the nose for 2 - 3 harakah.",
             "examples": [
                 "امَّةٌ Mim Shaddah",
@@ -222,16 +222,16 @@
             "summary": "Idgham Mutamasilain tajweed law happens when a letter meets a similar letter, with the same makhraj and characteristic, where the first letter is sukun (silent) and the second letter has a harakah.",
             "detail": "The way to read it is by inserting the first sukun letter into the second harokah letter. And being pressured, he was detained for no more than one harokah.\nThe rule of Idgham Mutamasilain has exceptions. If the letter Wawu with sukun meets the letter (و) or if the letter Ya' with sukun meets the letter (ي), then it should not be pronounced with Idgham (merging) into the second letter, but it should be read with a long pronunciation or MAD as it is supposed to be. An additional exception is that if the letter before the Wawu (و) or Ya (ي) has a fathah harakat, then Idgham can be applied (https://www.khudzilkitab.com/2019/01/idgham-mutamatsilain-lengkap.html).",
             "examples": [
-                "فَلْيَكْتُبْ بَيْنَكُمْ Ba sukun meets ب",
-                "طَلَعَتْ تَزَاوَرُ Ta sukun meets ت",
-                "وَقَدْ دَخَلُوا Da sukun meets د",
-                "إِذْ ذَهَبَ Dza sukun meets ذ",
-                "يُدْرِكُكُمْ Ka sukun meets ك",
-                "الَمْ أَقُلْ لَكَ Lam sukun meets ل",
-                "َأَنْتُمْ مُسْلِمُوْنَ Mim sukun meets م",
-                "مِنْ نَفْعِهِمَا Nun sukun meets ن"
+                "فَلْيَكْتُبْ بَيْنَكُمْ Ba sakinah meets ب",
+                "طَلَعَتْ تَزَاوَرُ Ta sakinah meets ت",
+                "وَقَدْ دَخَلُوا Da sakinah meets د",
+                "إِذْ ذَهَبَ Dza sakinah meets ذ",
+                "يُدْرِكُكُمْ Ka sakinah meets ك",
+                "الَمْ أَقُلْ لَكَ Lam sakinah meets ل",
+                "َأَنْتُمْ مُسْلِمُوْنَ Mim sakinah meets م",
+                "مِنْ نَفْعِهِمَا Nun sakinah meets ن"
             ],
-            "page": "/detail/idgham_mutamasilain"
+            "page": "/detail/idgham-mutamasilain"
         },
         {
             "id": 11,
@@ -241,14 +241,14 @@
             "summary": "Idgham Mutajaanisain tajweed law happens if there is a letter with the meaning of sukun opposite a letter with the meaning of harakah, both have the same makhroj but have different characteristics.",
             "detail": "The way to read it is by inserting or idghom the first letter in the second letter.",
             "examples": [
-                "إِذْ مَمَّتْ طَائِفَتْنِ Ta sukun meets ط",
-                "اثْقَلَتْ دَعَوَا اللهَ Ta sukun meets د",
-                "لَقَدْ تَابَ Da sukun meets ت",
-                "إِذْ ظَلَمُوا Dzal sukun meets ظ",
-                "لَئِنْ بَسَطْتَ Tho sukun meets ت",
-                "ُلْ رَّبِّي Lam sukun meets رَ"
+                "إِذْ مَمَّتْ طَائِفَتْنِ Ta sakinah meets ط",
+                "اثْقَلَتْ دَعَوَا اللهَ Ta sakinah meets د",
+                "لَقَدْ تَابَ Da sakinah meets ت",
+                "إِذْ ظَلَمُوا Dzal sakinah meets ظ",
+                "لَئِنْ بَسَطْتَ Tho sakinah meets ت",
+                "ُلْ رَّبِّي Lam sakinah meets رَ"
             ],
-            "page": "/detail/idgham_mutajaanisain"
+            "page": "/detail/idgham-mutajaanisain"
         },
         {
             "id": 12,
@@ -258,12 +258,12 @@
             "summary": "Idgham Mutaqooribain tajweed law happens if a letter with a sukun meets a letter with a harakah, the two letters are close to each other, makhroj and its properties.",
             "detail": "The way to read it is by inserting or adding the first letter to the second letter.",
             "examples": [
-                "ارْ كَيْمَعَنَا Ba sukun meets م",
-                "َذَّبَتْ ثَمُود Ta sukun meets ث",
-                "يَلْهَثْ ذَلِكَ Tsa sukun meets ذ",
-                "نَخْلُقُكُمْ Qaf sukun meets ك"
+                "ارْ كَيْمَعَنَا Ba sakinah meets م",
+                "َذَّبَتْ ثَمُود Ta sakinah meets ث",
+                "يَلْهَثْ ذَلِكَ Tsa sakinah meets ذ",
+                "نَخْلُقُكُمْ Qaf sakinah meets ك"
             ],
-            "page": "/detail/idgham_mutaqooribain"
+            "page": "/detail/idgham-mutaqooribain"
         },
         {
             "id": 13,
@@ -279,7 +279,7 @@
                 "خَلَقَ الْمَوْتَ وَالْحَيَاةَ Alif lam meets ح",
                 "وَهُوَ اللَّطِيفُ الْخَبِيرُ Alif lam meets خ"
             ],
-            "page": "/detail/idzhar_qamariyah"
+            "page": "/detail/idzhar-qamariyah"
         },
         {
             "id": 14,
@@ -295,7 +295,7 @@
                 "وَالذَّاكِرِينَ Alif lam meets ذ",
                 "الرَّحْمَنِ Alif lam meets ر"
             ],
-            "page": "/detail/idgham_syamsiyah"
+            "page": "/detail/idgham-syamsiyah"
         },
         {
             "id": 15,
@@ -349,13 +349,13 @@
             "summary": "Qalqalah Sughra tajweed law happens if there is a silent qalqalah letter (ب ج د ط ق) in the middle of a sentence, it is pronounced with a bounce. It is read as qalqalah sughra.",
             "detail": "Qalqalah sughra is read thinner, like the meaning of sughra itself which means small.",
             "examples": [
-                "ثُمَّ لِيَقْطَعْ فَلْيَنْظُرْ There is a Qaf sukun letter in the middle of the word",
-                "ثَانِيَ عِطْفِهِ  There is a Tho sukun letter in the middle of the word",
-                "وَقَوْمُ إِبْرَاهِيمَ There is a Ba sukun letter in the middle of the word",
-                "فَعَلَيَّ إِجْرَامِي There is a Ja sukun letter in the middle of the word",
-                "يَدْعُو مِنْ دُونِ اللَّهِ  There is a Da sukun letter in the meiddle of the word"
+                "ثُمَّ لِيَقْطَعْ فَلْيَنْظُرْ There is a Qaf sakinah letter in the middle of the word",
+                "ثَانِيَ عِطْفِهِ  There is a Tho sakinah letter in the middle of the word",
+                "وَقَوْمُ إِبْرَاهِيمَ There is a Ba sakinah letter in the middle of the word",
+                "فَعَلَيَّ إِجْرَامِي There is a Ja sakinah letter in the middle of the word",
+                "يَدْعُو مِنْ دُونِ اللَّهِ  There is a Da sakinah letter in the meiddle of the word"
             ],
-            "page": "/detail/qalqalah_sughra"
+            "page": "/detail/qalqalah-sughra"
         },
         {
             "id": 22,
@@ -371,7 +371,7 @@
                 "قَائِمًا بِالْقِسْطِ There is a Tho letter in the end of the sentence",
                 "وَالسَّمَاءِ وَالطَّارِقِ There is a Qaf letter in the end of the sentence"
             ],
-            "page": "/detail/qalqalah_kubra"
+            "page": "/detail/qalqalah-kubra"
         },
         {
             "id": 24,
@@ -395,7 +395,7 @@
                 "أَمْوَالِكُمْ Fatha meets ا",
                 "مَا بِصَاحِبِكُمْ Fatha meets ا"
             ],
-            "page": "/detail/mad_thabii"
+            "page": "/detail/mad-thabii"
         },
         {
             "id": 25,
@@ -416,7 +416,7 @@
                 "شُهَدَاءَ Mad Thobi'i meets Hamzah (ء) within a word/sentence",
                 "وَلَوْ شَاءَ Mad Thobi'i meets Hamzah (ء) within a word/sentence"
             ],
-            "page": "/detail/mad_wajib_muttasil"
+            "page": "/detail/mad-wajib-muttasil"
         },
         {
             "id": 26,
@@ -431,7 +431,7 @@
                 "وَمَا أُنْزِلَ Mad Thobi'i meets Hamzah (ء) in different word",
                 "ذُرِّيَّتِنَا أُمُّةً Mad Thobi'i meets Hamzah (ء) in different word"
             ],
-            "page": "/detail/mad_jaiz_munfassil"
+            "page": "/detail/mad-jaiz-munfassil"
         },
         {
             "id": 27,
@@ -447,7 +447,7 @@
                 "جَاءَتِ الطَّآمَّةُ Mad Thobi'i meets shaddah letter within a word",
                 "فِي السِّلْمِ كَآفَّةً Mad Thobi'i meets shaddah letter within a word"
             ],
-            "page": "/detail/mad_lazim_mutsaqqal_kilmi"
+            "page": "/detail/mad-lazim-mutsaqqal-kilmi"
         },
         {
             "id": 28,
@@ -457,7 +457,7 @@
             "summary": "Mad Lazim Mukhaffaf Kilmi tajweed law happens if Mad Thobi'i meets a sukun-harokat letter not at the end of a word. (prolonged up to three alif or six harakah).",
             "detail": "The way to read it is like Mad Lazim Mutsaqqol Kilmi (extended to three alif or six harakah).",
             "examples": ["آلان only in Surah Yunus"],
-            "page": "/detail/mad_lazim_mukhaffaf_kilmi"
+            "page": "/detail/mad-lazim-mukhaffaf-kilmi"
         },
         {
             "id": 29,
@@ -477,26 +477,26 @@
                 "يَوْمَ Fatha meets وْ",
                 "قَوْمًا Fatha meets وْ"
             ],
-            "page": "/detail/mad_layyin"
+            "page": "/detail/mad-layyin"
         },
         {
             "id": 30,
             "name": "Mad Arid Lissukun",
             "group": "Ahkämul-madd",
             "category": "Mad",
-            "summary": "Mad Arid Lissukun tajweed law happens if there is Mad Thobi'i or Mad Layyin followed by a waqof (stopping place).",
+            "summary": "Mad Arid Lissukun tajweed law happens if there is Mad Thobi'i or Mad Layyin followed by a waqf (stopping place).",
             "detail": "There are 3 ways to read it:\na. What is more important is that it is read long, the same as Mad Wajib Mutashil (three alif or six harakah).\nb. The middle (medium) one can only be read as two Alif or four harokats (twice Mad Thobi'i).\nc. The sortest one may be only read as Mad Thobi'i (two harakah).",
             "examples": [
-                "ِغَيْرِ حِسَابٍ . Mad Thobi'i in the end of a sentence/meet waqofs",
-                "شَدِيدُ الْعِقَابِ . Mad Thobi'i in the end of a sentence/meet waqofs",
-                "ِهِمُ الْأَسْبَابُ . Mad Thobi'i in the end of a sentence/meet waqofs",
-                "مِنَ النَّارِ . Mad Thobi'i in the end of a sentence/meet waqofs",
-                "شَدِيدُ الْعَذَابِ . Mad Thobi'i in the end of a sentence/meet waqofs",
-                "إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ . Mad Thobi'i in the end of a sentence/meet waqofs",
-                "عَدُوٌّ مُّبِينٌ . Mad Thobi'i in the end of a sentence/meet waqofs",
-                "شَاكِرٌ عَلِيمٌ . Mad Thobi'i in the end of a sentence/meet waqofs"
+                "ِغَيْرِ حِسَابٍ . Mad Thobi'i in the end of a sentence/meet waqfs",
+                "شَدِيدُ الْعِقَابِ . Mad Thobi'i in the end of a sentence/meet waqfs",
+                "ِهِمُ الْأَسْبَابُ . Mad Thobi'i in the end of a sentence/meet waqfs",
+                "مِنَ النَّارِ . Mad Thobi'i in the end of a sentence/meet waqfs",
+                "شَدِيدُ الْعَذَابِ . Mad Thobi'i in the end of a sentence/meet waqfs",
+                "إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ . Mad Thobi'i in the end of a sentence/meet waqfs",
+                "عَدُوٌّ مُّبِينٌ . Mad Thobi'i in the end of a sentence/meet waqfs",
+                "شَاكِرٌ عَلِيمٌ . Mad Thobi'i in the end of a sentence/meet waqfs"
             ],
-            "page": "/detail/mad_arid_lissukun"
+            "page": "/detail/mad-arid-lissukun"
         },
         {
             "id": 31,
@@ -517,7 +517,7 @@
                 "وَرَحْمَتُهُ لَكُنْتُمْ prolong (ه) like Mad Thobi 'ii",
                 "ِنَّهُ هُوَ  prolong (ه) like Mad Thobi 'ii"
             ],
-            "page": "/detail/mad_shilah_qashirah"
+            "page": "/detail/mad-shilah-qashirah"
         },
         {
             "id": 32,
@@ -538,14 +538,14 @@
                 "ربهِٓ أَحَدًا prolong (ه) like Mad Jaiz Munfashil",
                 "عِلْمِهِٓ إِلَّا prolong (ه) like Mad Jaiz Munfashil"
             ],
-            "page": "/detail/mad_shilah_thawilah"
+            "page": "/detail/mad-shilah-thawilah"
         },
         {
             "id": 33,
             "name": "Mad Iwad",
             "group": "Ahkämul-madd",
             "category": "Mad",
-            "summary": "Mad Iwad tajweed law happens if there is fathatain vowels (ً) falling on waqof (pause), at the end of a sentence (except for ta' marbuthoh), or mentioned as a replacement for tanween so that it is no longer pronounced.",
+            "summary": "Mad Iwad tajweed law happens if there is fathatain vowels (ً) falling on waqf (pause), at the end of a sentence (except for ta' marbuthoh), or mentioned as a replacement for tanween so that it is no longer pronounced.",
             "detail": "The way to read it is extended one Alif like Mad Thobi'ii.",
             "examples": [
                 ".عَذَابًا أَلِيمًا prolong (مً) like Mad Thobi 'ii",
@@ -560,7 +560,7 @@
                 ".رَبُّهُمْ رَشَدًا prolong (دً) like Mad Thobi 'ii",
                 ".ذلِكَ سَبِيلاً prolong (لاً) like Mad Thobi 'ii"
             ],
-            "page": "/detail/mad_iwad"
+            "page": "/detail/mad-iwad"
         },
         {
             "id": 34,
@@ -576,7 +576,7 @@
                 "إِيْمَانُ prolong (أ) like Mad Thobi 'ii",
                 "أَتُوا prolong (أ) like Mad Thobi 'ii"
             ],
-            "page": "/detail/mad_badal"
+            "page": "/detail/mad-badal"
         },
         {
             "id": 35,
@@ -591,7 +591,7 @@
                 "طٰهٰ read THOOHAA",
                 "طٰسٓ read THOOSIIN"
             ],
-            "page": "/detail/mad_lazim_harfi_mukhoffaf"
+            "page": "/detail/mad-lazim-harfi-mukhoffaf"
         },
         {
             "id": 36,
@@ -606,7 +606,7 @@
                 "طٰسٓمٓ read THOOSIIIIIIMMIIIIIIM",
                 "الٓمٓرٰ read ALIFLAAAAAAMMIIIIIIMROO"
             ],
-            "page": "/detail/mad_lazim_harfi_mutsaqqol"
+            "page": "/detail/mad-lazim-harfi-mutsaqqol"
         },
         {
             "id": 37,
@@ -619,7 +619,7 @@
                 "صٓ‌ read SHOOOOOOD",
                 "قٓ read QOOOOOOF"
             ],
-            "page": "/detail/mad_lazim_musyabba"
+            "page": "/detail/mad-lazim-musyabba"
         },
         {
             "id": 38,
@@ -634,7 +634,7 @@
                 "رَبَّانِيِّينَ Yaa' shaddah meets (يْ)",
                 "في الْأُمِّيِّينَ Yaa' shaddah meets (يْ)"
             ],
-            "page": "/detail/mad_tamkin"
+            "page": "/detail/mad-tamkin"
         },
         {
             "id": 39,
@@ -648,7 +648,7 @@
                 "قُلْ اللَّهُ أَذِنَ لَكُمْ on Surah Yunus",
                 "اللَّهُ خَيْرٌ أَمَّا يُشْرِكُونَ on Surah An-Naml"
             ],
-            "page": "/detail/mad_farq"
+            "page": "/detail/mad-farq"
         }
     ]    
 }
