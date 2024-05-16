@@ -1,7 +1,7 @@
 {
     "app_name": "Tajweed Recognition",
     "tab_list": [
-        { "tab_name": "Mengenali Tadjwid", "tab_path": "/recognition"},
+        { "tab_name": "Recognize Tajweed", "tab_path": "/recognition"},
         { "tab_name": "Daftar Tadjwid", "tab_path": "/tajweed-list"}
     ],
     "app_description": "Selamat datang di Tajweed Recognition - Aplikasi inovatif yang menggunakan teknologi OCR untuk membedakan hukum dan aturan tajwid dalam teks Arab pada gambar, dilengkapi dengan penekanan warna pada tajwid dan penjelasan interaktif untuk memudahkan pembelajaran.",

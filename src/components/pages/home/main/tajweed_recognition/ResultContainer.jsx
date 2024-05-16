@@ -52,7 +52,7 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
             <article className="flex flex-col w-full lg:w-3/4">
               <section className={`content-container grow flex flex-col m-2 px-2 ${state.isContentDarkMode ? "bg-gray-800" : "bg-green-700/25"} rounded-md shadow-md dark:shadow-white/50 duration-200`}>
                 <div className={`content-menu flex items-center justify-end border-b ${state.isContentDarkMode ? "border-b-white" : "border-b-black"}`}>
-                  <button className={`border ${state.isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 my-2 p-1 rounded duration-200 overflow-hidden`} title="Download Result" onClick={downloadResult} disabled={state.coloredTajweeds.length === 0 || state.isEditMode}>
+                  <button className={`border ${state.isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 my-2 p-1 rounded duration-200 overflow-hidden`} title="Download Result" onClick={downloadResult} disabled={state.coloredTajweeds?.length === 0 || state.isEditMode}>
                     <img className={`${state.isContentDarkMode ? "invert-0" : "invert"} h-5 duration-200`} src="images/download-icon.svg" alt="Download Result" />
                   </button>
                   <button className={`border ${state.isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 ml-2 p-1 rounded duration-200 overflow-hidden`} title="Increase Line Height" onClick={increaseLineHeight} disabled={state.isIncreaseLineHeightDisabled}>

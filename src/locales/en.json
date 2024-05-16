@@ -73,10 +73,10 @@
             "name": "Idzhar",
             "group": "Ahkämul Al-hurüf",
             "category": "Sukun & Tanween",
-            "summary": "Idzhar tajweed law happens when a nun sakinah or tanween meets the letters of idzhar (ا ع غ ح خ ها), it is pronounced clearly and distinctly.",
+            "summary": "Idzhar tajweed law happens when a noon sakinah or tanween meets the letters of idzhar (ا ع غ ح خ ها), it is pronounced clearly and distinctly.",
             "detail": "The letters of idzhar are pronounced clearly because their point of articulation is the mouth and they are in the throat.",
             "examples": [
-                "مِنْ آَلِ فِرْعَوْنَ  Noon sakinah meets أ",
+                "مِنْ آَلِ فِرْعَوْنَ Noon sakinah meets أ",
                 "فَكُلُوا مِنْهَا حَيْثُ Noon sakinah meets هـ",
                 "بِغَافِلٍ عَمَّا تَعْمَلُونَ Noon sakinah meets ع",
                 "مِنْ غَفُورٍ رَحِيم Noon sakinah meets غ",
@@ -90,7 +90,7 @@
             "name": "Idgham Bighunnah",
             "group": "Ahkämul Al-hurüf",
             "category": "Sukun & Tanween",
-            "summary": "Idgham Bighunnah tajweed law happens when a nun sakinah or tanween meets the letters of idgham bighunnah (ي ن م و), it is pronounced with a nasal sound.",
+            "summary": "Idgham Bighunnah tajweed law happens when a noon sakinah or tanween meets the letters of idgham bighunnah (ي ن م و), it is pronounced with a nasal sound.",
             "detail": "Idgham means to merge, and bighunnah means nasal sound. So the letters of idgham bighunnah are pronounced with a nasal sound.",
             "examples": [
                 "مِنْ قَبْلِ أَنْ يَتَمَاسَّا Noon sakinah meets ي",
@@ -109,7 +109,7 @@
             "name": "Idgham Bilaghunnah",
             "group": "Ahkämul Al-hurüf",
             "category": "Sukun & Tanween",
-            "summary": "Idgham Bilaghunnah tajweed law happens when a nun sakinah or tanween meets the letters of idgham bilaghunnah (ل ر), it is pronounced by merging without nasal sound.",
+            "summary": "Idgham Bilaghunnah tajweed law happens when a noon sakinah or tanween meets the letters of idgham bilaghunnah (ل ر), it is pronounced by merging without nasal sound.",
             "detail": "Idgham means to merge, and bilaghunnah means without nasal sound. So the letters of idgham bilaghunnah are pronounced by merging without a nasal sound.",
             "examples": [
                 "فَضْلًا مِنْ رَبِّكَ Noon sakinah meets ر",
@@ -124,8 +124,8 @@
             "name": "Iqlab",
             "group": "Ahkämul Al-hurüf",
             "category": "Sukun & Tanween",
-            "summary": "Iqlab tajweed law happens when a nun sakinah or tanween meets the letter of iqlab (ب), it is pronounced by replacing it with the letter mim.",
-            "detail": "Iqlab means to merge or, in simpler terms, to replace the letter with the letter mim.",
+            "summary": "Iqlab tajweed law happens when a noon sakinah or tanween meets the letter of iqlab (ب), it is pronounced by replacing it with the letter meem.",
+            "detail": "Iqlab means to merge or, in simpler terms, to replace the letter with the letter meem.",
             "examples": ["أَنْ تُنْبِتُوا Noon sakinah meets ب", "كُلُّ حِزْبٍ بِمَا Tanween meets ب"],
             "page": "/detail/iqlab"
         },
@@ -134,7 +134,7 @@
             "name": "Ikhfaa",
             "group": "Ahkämul Al-hurüf",
             "category": "Sukun & Tanween",
-            "summary": "Ikhfaa tajweed law happens when a nun sakinah or tanween meets the letters of ikhfa haqiqi (ت ث ج د ذ ز س ش ص ض ط ظ ف ق ك), it is pronounced softly.",
+            "summary": "Ikhfaa tajweed law happens when a noon sakinah or tanween meets the letters of ikhfa haqiqi (ت ث ج د ذ ز س ش ص ض ط ظ ف ق ك), it is pronounced softly.",
             "detail": "Ikhfaa means to conceal or hide, while haqiqi means real or true. So the letters of ikhfa haqiqi are pronounced softly.",
             "examples": [
                 "أَنْتُمْ Noon sakinah meets ت ",
@@ -160,8 +160,8 @@
             "name": "Idzhar Shafawy",
             "group": "Ahkämul Al-hurüf",
             "category": "Meem Sukun",
-            "summary": "Idzhar Shafawy tajweed law happens when a mim sakinah meets the letters of idzhar shafawy (ا ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل ن و ه ي), it must be pronounced clearly even with closed lips.",
-            "detail": "The letters of idzhar shafawy are so many, except for mim and ba, because the two letters are owned by ikhfa shafawy and idgham mimi.",
+            "summary": "Idzhar Shafawy tajweed law happens when a meem sakinah meets the letters of idzhar shafawy (ا ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل ن و ه ي), it must be pronounced clearly even with closed lips.",
+            "detail": "The letters of idzhar shafawy are so many, except for meem and ba, because the two letters are owned by ikhfa shafawy and idgham meemi.",
             "examples": [
                 "أَأَنْذَرْتَهُمْ أَم Meem sakinah meets ا",
                 "أَنْعَمْتَ Meem sakinah meets ت",
@@ -176,7 +176,7 @@
             "name": "Ikhfaa Shafawy",
             "group": "Ahkämul Al-hurüf",
             "category": "Meem Sukun",
-            "summary": "Ikhfaa Shafawy tajweed law happens when a mim sakinah meets the letters of ikhfa shafawy (ب), it is pronounced softly by disguising the sound with a nasal tone.",
+            "summary": "Ikhfaa Shafawy tajweed law happens when a meem sakinah meets the letters of ikhfa shafawy (ب), it is pronounced softly by disguising the sound with a nasal tone.",
             "detail": "Although the nasal sound isn't very clear because the letters Meem Sukun and Ba have the same exit point, namely two lips. There is only one letter for Ikhfaa Shafawy. The letters are the same as iqlab, but the way to read them is not merged like iqlab.",
             "examples": [
                 "وَمَا هُمْ بِمُؤْمِنِينَ Meem sakinah meets the letter of ب",
@@ -190,8 +190,8 @@
             "name": "Idgham Mimi",
             "group": "Ahkämul Al-hurüf",
             "category": "Meem Sukun",
-            "summary": "Idgham Mimi tajweed law happens when mim sakinah meets the letters of idgham mimi (م), it is pronounced in the same way as mim shaddah.",
-            "detail": "The letter of Idgham Mimi is only one. The letter is mim. So, Idgham Mimi is the meeting of two mim letters. The way to pronounce it is the same as pronouncing the mim with shaddah. Because, mim shaddah is a combination of mim sakinah and mim with harakah.",
+            "summary": "Idgham Mimi tajweed law happens when meem sakinah meets the letters of idgham meemi (م), it is pronounced in the same way as meem shaddah.",
+            "detail": "The letter of Idgham Mimi is only one. The letter is meem. So, Idgham Mimi is the meeting of two meem letters. The way to pronounce it is the same as pronouncing the meem with shaddah. Because, meem shaddah is a combination of meem sakinah and meem with harakah.",
             "examples": [
                 "وَكَمْ مِنْ قَرْيَةٍ Meem sakinah meets م",
                 "كُلَّمَا أَضَاءَ لَهُمْ مَشَوْا فِيهِ Meem sakinah meets م",
@@ -204,8 +204,8 @@
             "name": "Ghunnah",
             "group": "Ahkämul Al-hurüf",
             "category": "Meem Shaddah & Noon Shaddah",
-            "summary": "Ghunnah tajweed law happens if there is a shaddah on the letter mim (مّ) and nun (ن), it is pronounced with a nasal sound and is called Ghunnah.",
-            "detail": "Ghunnah means: nasaling (at the bridge of the nose). So the way to read it is by humming the letters mim and nun taysdid on the bridge of the nose for 2 - 3 harakah.",
+            "summary": "Ghunnah tajweed law happens if there is a shaddah on the letter meem (مّ) and noon (ن), it is pronounced with a nasal sound and is called Ghunnah.",
+            "detail": "Ghunnah means: nasaling (at the bridge of the nose). So the way to read it is by humming the letters meem and noon taysdid on the bridge of the nose for 2 - 3 harakah.",
             "examples": [
                 "امَّةٌ Meem Shaddah",
                 "النَّارِ Noon Shaddah",
@@ -598,7 +598,7 @@
             "name": "Mad Lazim Harfi Mutsaqqol",
             "group": "Ahkämul-madd",
             "category": "Madd",
-            "summary": "The law of recitation called Madd Laazim Harfi Mutsaqqal is when there is the beginning of a verse in the Quran that contains one or more of the letters: Nun' (ن), Qof' (ﻕ), Shod' (ص), Ain' (ع), Sin (س), Lam (ل), Kaf (ك), and Meem (م).",
+            "summary": "The law of recitation called Madd Laazim Harfi Mutsaqqal is when there is the beginning of a verse in the Quran that contains one or more of the letters: Noon' (ن), Qof' (ﻕ), Shod' (ص), Ain' (ع), Sin (س), Lam (ل), Kaf (ك), and Meem (م).",
             "detail": "The way to recite it must be prolonged, namely with three Alifs or six vowel counts.",
             "examples": [
                 "الٓمٓ read ALIFLAAAAAAMIIIIIIMM",

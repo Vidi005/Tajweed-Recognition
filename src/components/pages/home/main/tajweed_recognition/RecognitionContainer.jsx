@@ -1,6 +1,6 @@
 import React from "react"
 import Swal from "sweetalert2"
-import { alternativeUrls, buildRegExp, checkParamEvent, colorizeChars, isStorageExist, loadFileAsArrayBuffer, removeNonArabic, tajweedLaws, twLineHeights, twTextSizes } from "../../../../../utils/data"
+import { alternativeUrls, checkParamEvent, colorizeChars, isStorageExist, loadFileAsArrayBuffer, removeNonArabic, tajweedLaws, twLineHeights, twTextSizes } from "../../../../../utils/data"
 import Tesseract from "tesseract.js"
 import ResultContainer from "./ResultContainer"
 import DropZoneContainer from "./import_mode/DropZoneContainer"
@@ -16,6 +16,7 @@ import SaveFilePrompt from "./pop_up/SaveFilePrompt"
 import jsPDF from "jspdf"
 import autoTable from "jspdf-autotable"
 import html2PDF from "jspdf-html2canvas"
+import { createColorizeWorker, createTooltipWorker } from "../../../../../utils/worker"
 
 if (import.meta && import.meta.url) {
   pdfjs.GlobalWorkerOptions.workerSrc = new URL(
@@ -191,9 +192,18 @@ class RecognitionContainer extends React.Component {
     this.setState(prevState => ({ isEditMode: !prevState.isEditMode }), () => {
       scrollTo(0, 0)
       if (!this.state.isEditMode) {
-        this.setState({ coloredTajweeds: colorizeChars(this.state.recognizedText, tajweedLaws()) }, () => {
-          this.filterColorizedTajweeds(this.state.coloredTajweeds)
+        const worker = createColorizeWorker()
+        worker.postMessage({
+          recognizedText: this.state.recognizedText,
+          tajweedLaws: tajweedLaws()
         })
+        worker.onmessage = workerEvent => {
+          const coloredTajweeds = workerEvent.data
+          this.setState({ coloredTajweeds: coloredTajweeds }, () => {
+            this.filterColorizedTajweeds(coloredTajweeds)
+          })
+          worker.terminate()
+        }
       }
     })
   }
@@ -735,11 +745,10 @@ class RecognitionContainer extends React.Component {
 
   showTooltip (event) {
     const tajweedData = this.loadTajweedData()
-    setTimeout(() => {
-      const matchedTajweed = tajweedData.filter(tajweedLaw => {
-        const regex = buildRegExp(tajweedLaw.rules)
-        return regex.test(event.target.innerHTML)
-      })  
+    const worker = createTooltipWorker()
+    worker.postMessage({ tajweedData: tajweedData, innerHTML: event.target.innerHTML })
+    worker.onmessage = workerEvent => {
+      const matchedTajweed = workerEvent.data
       if (matchedTajweed.length === 1) {
         const tooltipColor = `${matchedTajweed[0].color}80`
         this.setState({
@@ -764,9 +773,10 @@ class RecognitionContainer extends React.Component {
             tooltip.style.top = `${event.clientY - tooltipHeight - 10}px`
             tooltip.style.backgroundColor = tooltipColor
           }
-        }, 10)
+        }, 1)
       }
-    }, 0)
+      worker.terminate()
+    }
   }
 
   hideTooltip() {
@@ -817,10 +827,19 @@ class RecognitionContainer extends React.Component {
 
   changeSelectOptions() {
     const filteredTajweeds = [...this.state.filteredTajweeds]
-    this.setState({
-      selectedTajweedLaws: filteredTajweeds.filter(tajweedLaw => this.state.selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id)),
-      coloredTajweeds: colorizeChars(this.state.recognizedText, tajweedLaws().filter(tajweedLaw => this.state.selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id)))
+    const worker = createColorizeWorker()
+    worker.postMessage({
+      recognizedText: this.state.recognizedText,
+      tajweedLaws: tajweedLaws().filter(tajweedLaw => this.state.selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id))
     })
+    worker.onmessage = workerEvent => {
+      const coloredTajweeds = workerEvent.data
+      this.setState({
+        selectedTajweedLaws: filteredTajweeds.filter(tajweedLaw => this.state.selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id)),
+        coloredTajweeds: coloredTajweeds
+      })
+      worker.terminate()
+    }
   }
 
   toggleOption(optionId) {
@@ -880,7 +899,7 @@ class RecognitionContainer extends React.Component {
           <link rel="canonical" href={location.toString()}/>
         </Helmet>
         <DropZoneContainer t={this.props.t} pickFile={this.pickFile.bind(this)}/>
-        <h2>Recognize Tajweed</h2>
+        <h2>Tajweed Recognition</h2>
         <p className="relative text-justify lg:text-lg lg:text-center md:mx-8 lg:mx-16">{this.props.t('app_description')}</p>
         <div className="btn-container relative flex flex-wrap items-center justify-center">
           <button className="btn-capture grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 duration-200" onClick={this.setUpCamera.bind(this)}>
