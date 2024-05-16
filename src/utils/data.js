@@ -1014,6 +1014,7 @@ const madLazimMusyabbaTajweed = extractMadLazimMusyabbaCharacters()
 const madTamkinTajweed = extractMadTamkinCharacters()
 const madFarqTajweed = extractMadFarqCharacters()
 
+// These Tajweed Law items array are sorted based on its priority and its exceptions for generating Tajweed Colors on certain characters
 const tajweedLaws = () => [
   {
     id: 5,

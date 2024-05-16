@@ -819,7 +819,7 @@ class RecognitionContainer extends React.Component {
     const filteredTajweeds = [...this.state.filteredTajweeds]
     this.setState({
       selectedTajweedLaws: filteredTajweeds.filter(tajweedLaw => this.state.selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id)),
-      coloredTajweeds: colorizeChars(this.state.recognizedText, filteredTajweeds.filter(tajweedLaw => this.state.selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id)))
+      coloredTajweeds: colorizeChars(this.state.recognizedText, tajweedLaws().filter(tajweedLaw => this.state.selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id)))
     })
   }
 

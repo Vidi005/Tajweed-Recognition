@@ -2,10 +2,13 @@ import { Menu, Transition } from "@headlessui/react"
 import React, { Fragment } from "react"
 import en from "../../../../../locales/en.json"
 
-const ListFilter = ({ t, filterItems }) => (
+const ListFilter = ({ t, filterBy, filterItems }) => (
   <Menu as={"menu"} className={"list-filter relative inline-block z-10"}>
     <Menu.Button className={"bg-green-100 dark:bg-gray-300 md:mx-1 p-1 hover:bg-green-800/40 dark:hover:bg-gray-50 rounded-lg shadow dark:shadow-white/50 duration-200"}>
-      <img className="h-7 aspect-square" src="images/filter-icon.svg" alt="Filter" />
+      {filterBy === t('filter_tajweeds.0')
+        ? <img className="h-7 aspect-square" src="images/filter-inactive-icon.svg" alt="Unfiltered" />
+        : <img className="h-7 aspect-square" src="images/filter-active-icon.svg" alt="Filtered" />
+      }
     </Menu.Button>
     <Transition
       as={Fragment}

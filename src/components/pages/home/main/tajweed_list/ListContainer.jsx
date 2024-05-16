@@ -78,6 +78,7 @@ class ListContainer extends React.Component {
         </Helmet>
         <ListToolbar
           t={this.props.t}
+          filterBy={this.state.filterBy}
           searchItems={this.searchHandler.bind(this)}
           filterItems={this.filterHandler.bind(this)}
         />
