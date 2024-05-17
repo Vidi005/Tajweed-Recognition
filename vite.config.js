@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import legacy from '@vitejs/plugin-legacy'
 import { VitePWA } from 'vite-plugin-pwa'
+import terser from '@rollup/plugin-terser'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -41,5 +42,12 @@ export default defineConfig({
       },
       registerType: 'autoUpdate'
     })
-  ]
+  ],
+  build: {
+    rollupOptions: {
+      plugins: [
+        terser()
+      ]
+    }
+  }
 })

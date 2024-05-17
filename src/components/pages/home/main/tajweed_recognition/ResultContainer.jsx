@@ -7,7 +7,7 @@ import TajweedGuidelines from "./TajweedGuidelines"
 import SidebarContainer from "./SidebarContainer"
 import { tajweedLaws } from "../../../../../utils/data"
 
-const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increaseTextSize, contentContainerRef, tooltipRef, decreaseLineHeight, decreaseTextSize, handleTextEditor, onContentChangeHandler, setContentDisplayMode, showTooltip, showSummaryModal, hideTooltip, carouselItemsRefs, calculateLines, toggleOption, toggleSelectAllGroup, closeResult }) => {
+const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increaseTextSize, contentContainerRef, tooltipRef, decreaseLineHeight, decreaseTextSize, handleTextEditor, onContentChangeHandler, setContentDisplayMode, showTooltip, showSummaryModal, hideTooltip, carouselItemsRefs, calculateLines, handleDisclosurePanels, handleAllColorization, toggleOption, toggleSelectAllGroup, closeResult }) => {
   const loadTajweedData = () => {
     const tajweedData = []
     tajweedLaws().sort((a, b) => a.id - b.id).forEach((tajweedLaw, index) => {
@@ -45,14 +45,17 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
           <main className="flex-auto h-0 flex flex-nowrap w-full">
             <SidebarContainer
               t={t}
+              areAllPanelsExpanded={state.areAllPanelsExpanded}
               filteredTajweeds={state.filteredTajweeds}
               selectedTajweedIds={state.selectedTajweedIds}
+              handleDisclosurePanels={handleDisclosurePanels}
+              handleAllColorization={handleAllColorization}
               toggleOption={toggleOption}
               toggleSelectAllGroup={toggleSelectAllGroup} />
-            <article className="flex flex-col w-full lg:w-3/4">
+            <article className="flex flex-col w-full lg:w-3/4 overflow-hidden">
               <section className={`content-container grow flex flex-col m-2 px-2 ${state.isContentDarkMode ? "bg-gray-800" : "bg-green-700/25"} rounded-md shadow-md dark:shadow-white/50 duration-200`}>
                 <div className={`content-menu flex items-center justify-end border-b ${state.isContentDarkMode ? "border-b-white" : "border-b-black"}`}>
-                  <button className={`border ${state.isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 my-2 p-1 rounded duration-200 overflow-hidden`} title="Download Result" onClick={downloadResult} disabled={state.coloredTajweeds?.length === 0 || state.isEditMode}>
+                  <button className={`border ${state.isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 my-2 p-1 rounded duration-200 overflow-hidden`} title="Download Result" onClick={downloadResult} disabled={!state.coloredTajweeds?.includes('color') || state.isEditMode}>
                     <img className={`${state.isContentDarkMode ? "invert-0" : "invert"} h-5 duration-200`} src="images/download-icon.svg" alt="Download Result" />
                   </button>
                   <button className={`border ${state.isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 ml-2 p-1 rounded duration-200 overflow-hidden`} title="Increase Line Height" onClick={increaseLineHeight} disabled={state.isIncreaseLineHeightDisabled}>
@@ -80,7 +83,7 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
                   ? (
                     <React.Fragment>
                       <textarea dir="rtl" className={`border-4 border-double grow w-full p-1 font-lpmq-isep-misbah ${state.isContentDarkMode ? "border-white bg-black text-white" : "border-green-900 bg-white text-black"} overflow-y-auto rounded-md duration-200`} placeholder="Enter an arabic text here" style={{ lineHeight: `${state.twLineHeight}`, fontSize: `${state.twTextSize}` }} required onChange={onContentChangeHandler}>{state.recognizedText}</textarea>
-                      <button className="generate-btn flex items-center justify-center mx-auto my-2 py-1 pl-2 pr-3 border border-green-900 bg-green-800 hover:bg-green-900 active:bg-green-700  dark:hover:bg-green-700 dark:active:bg-green-500 text-center text-lg text-white shadow dark:shadow-white/50 duration-300 rounded-md" onClick={handleTextEditor}>
+                      <button className="generate-btn flex items-center justify-center mx-auto my-2 py-1 pl-2 pr-3 border border-green-900 bg-green-800 hover:bg-green-900 active:bg-green-700  dark:hover:bg-green-700 dark:active:bg-green-500 text-center text-lg text-white shadow dark:shadow-white/50 duration-300 rounded-md" onClick={handleTextEditor} disabled={state.recognizedText.length === 0}>
                         <img className="h-7 mr-2 object-contain" src="images/generate-icon.svg" alt="Generate Result" />
                         {t('generate')}
                       </button>
@@ -148,6 +151,14 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
                 carouselItemsRefs={carouselItemsRefs}
                 calculateLines={calculateLines}
                 showSummaryModal={showSummaryModal} />
+              {state.isLoading &&
+                <section className="absolute top-0 right-0 w-full lg:w-3/4 h-full flex items-center justify-center bg-black/50 backdrop-blur-sm duration-75 animate__animated animate__fadeIn">
+                  <div className="flex items-center justify-center space-x-2">
+                    <span className="w-8 h-8 aspect-square border-t-2 border-r-2 border-t-white border-r-white rounded-full bg-transparent animate-spin"></span>
+                    <span className="text-white text-xl">{t('loading')}</span>
+                  </div>
+                </section>
+              }
             </article>
           </main>
         </Dialog>

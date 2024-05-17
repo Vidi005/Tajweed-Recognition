@@ -19,7 +19,7 @@ const ListFilter = ({ t, filterBy, filterItems }) => (
       leaveFrom="transform opacity-100 scale-100 translate-y-0"
       leaveTo="transform opacity-0 scale-90 -translate-y-1/3"
     >
-      <Menu.Items className={"absolute -right-1 mt-2 w-max px-2 py-1 origin-top-right grid grid-flow-row gap-1 items-center bg-green-100 dark:bg-gray-800 text-sm text-center shadow-lg dark:shadow-md dark:shadow-white/50 rounded-lg overflow-hidden"}>
+      <Menu.Items className={"absolute -right-1 mt-2 w-max px-2 py-1 origin-top-right grid grid-flow-row gap-1 items-center bg-green-100 dark:bg-gray-800 text-sm md:text-base text-center shadow-lg dark:shadow-md dark:shadow-white/50 rounded-lg overflow-hidden"}>
         {en.filter_tajweeds.map((_, index) => (
           <Menu.Item
             key={index}

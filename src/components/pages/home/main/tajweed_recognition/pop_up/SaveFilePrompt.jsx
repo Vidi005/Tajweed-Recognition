@@ -53,7 +53,7 @@ const SaveFilePrompt = ({ t, inputRef, isDialogOpened, isFocused, isBismillahAdd
                 ? docTitle.length >= 100
                   ? <label className="w-full pl-1 text-justify leading-tight text-sm text-red-700 dark:text-red-500" htmlFor="input-title">{charsLimit}</label>
                   : <label className="w-full pl-1 text-justify leading-tight text-sm text-green-800 dark:text-green-500" htmlFor="input-title">{charsLimit}</label>
-                : <br />
+                : <label className="text-sm text-transparent">_</label>
               }
               <br />
               <p className="text-center text-sm text-green-700 dark:text-gray-200">

@@ -1,11 +1,25 @@
 import { Disclosure, Transition } from "@headlessui/react"
 import React, { Fragment } from "react"
 
-const SidebarContainer = ({ t, selectedTajweedIds, filteredTajweeds, toggleOption, toggleSelectAllGroup }) => (
+const SidebarContainer = ({ t, areAllPanelsExpanded, selectedTajweedIds, filteredTajweeds, handleDisclosurePanels, handleAllColorization, toggleOption, toggleSelectAllGroup }) => (
   <aside className="hidden w-0 lg:inline-block lg:w-1/4 bg-green-50 dark:bg-gray-700 shadow-lg dark:shadow-white/50 overflow-y-auto">
     <h4 className="px-3 py-2 text-green-900 dark:text-white">{t("sidebar_title")}</h4>
+    <div className="p-2 grid grid-cols-2 items-center gap-2 text-xs">
+      <button className="flex items-center justify-center border border-green-900 dark:border-white px-2 py-1 bg-green-800 dark:bg-gray-700 hover:bg-green-600 dark:hover:bg-gray-500 text-white rounded-lg shadow-md dark:shadow-white/50 duration-200" onClick={handleDisclosurePanels} title="Panels Configuration">
+        <img src="images/expand-all-icon.svg" className={areAllPanelsExpanded ? "hidden" : "inline-flex max-h-6 mr-1 object-contain object-center animate__animated animate__flipInX"} alt="Expand All" />
+        <img src="images/collapse-all-icon.svg" className={areAllPanelsExpanded ? "inline-flex max-h-6 mr-1 object-contain object-center animate__animated animate__flipInX" : "hidden"} alt="Collapse All" />
+        <span className={areAllPanelsExpanded ? "hidden" : "inline-flex animate__animated animate__fadeIn"}>{t("expand_all")}</span>
+        <span className={areAllPanelsExpanded ? "inline-flex animate__animated animate__fadeIn" : "hidden"}>{t("collapse_all")}</span>
+      </button>
+      <button className="flex items-center justify-center border border-green-900 dark:border-white px-2 py-1 bg-green-800 dark:bg-gray-700 hover:bg-green-600 dark:hover:bg-gray-500 text-white rounded-lg shadow-md dark:shadow-white/50 duration-200" onClick={handleAllColorization} title="Colorization">
+        <img src="images/clear-all-icon.svg" className={selectedTajweedIds.length === filteredTajweeds.length ? "inline-flex max-h-6 mr-1 object-contain object-center animate__animated animate__flipInX" : "hidden"} alt="Clear All" />
+        <img src="images/colorize-all-icon.svg" className={selectedTajweedIds.length !== filteredTajweeds.length ? "inline-flex max-h-6 mr-1 object-contain object-center animate__animated animate__flipInX" : "hidden"} alt="Colorize All" />
+        <span className={selectedTajweedIds.length === filteredTajweeds.length ? "inline-flex animate__animated animate__fadeIn" : "hidden"}>{t("clear_all")}</span>
+        <span className={selectedTajweedIds.length !== filteredTajweeds.length ? "inline-flex animate__animated animate__fadeIn" : "hidden"}>{t("colorize_all")}</span>
+      </button>
+    </div>
     {Array.from(new Set(filteredTajweeds.map(tajweedLaw => tajweedLaw.category))).map(category => (
-      <Disclosure as={"menu"} key={category} className={"px-2"}>
+      <Disclosure as={"menu"} key={category} className={"px-2"} defaultOpen={areAllPanelsExpanded}>
         {({ open }) => (
           <>
             <Disclosure.Button className={"flex w-full items-center justify-between border border-green-100 dark:border-white m-1 px-3 py-2 bg-green-800/75 hover:bg-green-700 dark:bg-black dark:hover:bg-gray-500 text-white rounded-lg shadow-md dark:shadow-white/50 duration-200"}>

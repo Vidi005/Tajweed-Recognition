@@ -61,11 +61,13 @@ class RecognitionContainer extends React.Component {
       isCameraPermissionGranted: false,
       isBtnCaptureClicked: false,
       isRecognizing: false,
+      areAllPanelsExpanded: false,
       isIncreaseLineHeightDisabled: false,
       isDecreaseLineHeightDisabled: false,
       isIncreaseTextDisabled: false,
       isDecreaseTextDisabled: false,
       isEditMode: false,
+      isLoading: false,
       isContentDarkMode: false,
       isResultClosed: true,
       isCarouselItemHovered: false,
@@ -192,6 +194,7 @@ class RecognitionContainer extends React.Component {
     this.setState(prevState => ({ isEditMode: !prevState.isEditMode }), () => {
       scrollTo(0, 0)
       if (!this.state.isEditMode) {
+        this.setState({ isLoading: true })
         const worker = createColorizeWorker()
         worker.postMessage({
           recognizedText: this.state.recognizedText,
@@ -199,7 +202,7 @@ class RecognitionContainer extends React.Component {
         })
         worker.onmessage = workerEvent => {
           const coloredTajweeds = workerEvent.data
-          this.setState({ coloredTajweeds: coloredTajweeds }, () => {
+          this.setState({ coloredTajweeds: coloredTajweeds, isLoading: false }, () => {
             this.filterColorizedTajweeds(coloredTajweeds)
           })
           worker.terminate()
@@ -825,8 +828,13 @@ class RecognitionContainer extends React.Component {
     }
   }
 
+  handleDisclosurePanels() {
+    this.setState(prevState => ({ areAllPanelsExpanded: !prevState.areAllPanelsExpanded }))
+  }
+
   changeSelectOptions() {
     const filteredTajweeds = [...this.state.filteredTajweeds]
+    this.setState({ isLoading: true })
     const worker = createColorizeWorker()
     worker.postMessage({
       recognizedText: this.state.recognizedText,
@@ -836,7 +844,8 @@ class RecognitionContainer extends React.Component {
       const coloredTajweeds = workerEvent.data
       this.setState({
         selectedTajweedLaws: filteredTajweeds.filter(tajweedLaw => this.state.selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id)),
-        coloredTajweeds: coloredTajweeds
+        coloredTajweeds: coloredTajweeds,
+        isLoading: false
       })
       worker.terminate()
     }
@@ -865,6 +874,20 @@ class RecognitionContainer extends React.Component {
         this.changeSelectOptions()
       })
     } else this.setState({ selectedTajweedIds: [...selectedTajweedIds, ...groupOptions] }, () => this.changeSelectOptions())
+  }
+
+  handleAllColorization() {
+    const { selectedTajweedIds } = this.state
+    const { filteredTajweeds } = this.state
+    if (selectedTajweedIds.length === filteredTajweeds.length) {
+      this.setState({ selectedTajweedIds: [] }, () => {
+        this.changeSelectOptions()
+      })
+    } else {
+      this.setState({ selectedTajweedIds: filteredTajweeds.map(tajweedLaw => tajweedLaw.id) }, () => {
+        this.changeSelectOptions()
+      })
+    }
   }
 
   onCloseCamera() {
@@ -977,6 +1000,8 @@ class RecognitionContainer extends React.Component {
           showSummaryModal={this.showSummaryModal.bind(this)}
           hideTooltip={this.hideTooltip.bind(this)}
           calculateLines={this.calculateLines.bind(this)}
+          handleDisclosurePanels={this.handleDisclosurePanels.bind(this)}
+          handleAllColorization={this.handleAllColorization.bind(this)}
           toggleOption={this.toggleOption.bind(this)}
           toggleSelectAllGroup={this.toggleSelectAllGroup.bind(this)}
         />

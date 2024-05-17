@@ -3,7 +3,7 @@ import React, { Fragment } from "react"
 import Swal from "sweetalert2"
 
 const MenuBarContainer = ({ t, isEditMode, selectedTajweedIds, filteredTajweeds, toggleOption, toggleSelectAllGroup, closeResult }) => (
-  <header className="menu-bar__container flex flex-nowrap items-center w-full p-1 bg-green-50 dark:bg-gray-700 shadow-lg">
+  <header className="menu-bar__container flex flex-nowrap items-center w-full p-1 bg-green-50 dark:bg-gray-700 shadow-lg z-10">
     <h3 className="title-bar flex-1 pl-2 text-green-900 dark:text-white">{isEditMode ? t('container_title.0') : t('container_title.1')}</h3>
     <Popover className={"menu-btn flex-none inline-block lg:hidden h-10"}>
       <Popover.Button className={"p-2 hover:bg-green-800/25 dark:hover:bg-gray-500 active:bg-green-800/40 dark:active:bg-gray-300 duration-200 rounded-md"} title="Tajweed Settings" disabled={filteredTajweeds.length === 0}>
