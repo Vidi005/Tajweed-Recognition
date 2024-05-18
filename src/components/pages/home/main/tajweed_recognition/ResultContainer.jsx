@@ -39,6 +39,7 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
             isEditMode={state.isEditMode}
             filteredTajweeds={state.filteredTajweeds}
             selectedTajweedIds={state.selectedTajweedIds}
+            handleAllColorization={handleAllColorization}
             toggleOption={toggleOption}
             toggleSelectAllGroup={toggleSelectAllGroup}
             closeResult={closeResult} />

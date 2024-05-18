@@ -1236,8 +1236,8 @@ const sources = [
 const removeNonArabic = text => {
   const arabicRegex = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]/gm
   if (arabicRegex.test(text)) {
-    /* (2nd) replace is used to replace all madd "\u0653" diacritics which is not working after alif in regex as an alternative solution */
-    return text.replace(/[^\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\s]/gm, '').replace(/\u0627\u0653/gm, '\u0627\u06E4')
+    /* (2nd) replace is used to replace certain madd "\u0653" diacritics which is not working after alif in regex as an alternative solution */
+    return text.replace(/[^\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\s]/gm, '').replace(/\u0627\u0653(?!\s*[\u0621-\u0627]|\s*[\u0648\u0649][\u0654\u0655])/gm, '\u0627\u06E4')
   } else {
     return ''
   }
@@ -1253,8 +1253,8 @@ const buildRegExp = rules => {
 }
 
 const colorizeChars = (recognizedText, tajweedLaws) => {
-  /* Replace is used to replace all madd "\u0653" diacritics which is not working after alif in regex as an alternative solution */
-  let colorizedChars = recognizedText.replace(/\u0627\u0653/gm, '\u0627\u06E4')
+  /* Replace is used to replace certain madd "\u0653" diacritics which is not working after alif in regex as an alternative solution */
+  let colorizedChars = recognizedText.replace(/\u0627\u0653(?!\s*[\u0621-\u0627]|\s*[\u0648\u0649][\u0654\u0655])/gm, '\u0627\u06E4')
   const applyColor = (regex, id, color) => {
     colorizedChars = colorizedChars.replace(regex, (match) => {
       return `<span class="tajweed-${id}" style="color: ${color}; cursor: pointer;">${match}</span>`

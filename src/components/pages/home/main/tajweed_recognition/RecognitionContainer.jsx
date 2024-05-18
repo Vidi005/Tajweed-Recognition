@@ -777,7 +777,7 @@ class RecognitionContainer extends React.Component {
             tooltip.style.backgroundColor = tooltipColor
           }
         }, 1)
-      }
+      } else this.hideTooltip()
       worker.terminate()
     }
   }
