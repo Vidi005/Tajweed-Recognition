@@ -23,7 +23,7 @@ const createColorizeWorker = () => {
   const workerScript = `
     self.onmessage = function(event) {
       const { recognizedText, tajweedLaws } = event.data
-      let colorizedChars = recognizedText.replace(/\\u0627\\u0653/gm, '\\u0627\\u06E4')
+      let colorizedChars = recognizedText.replace(/\\u0627\\u0653(?!\\s*[\\u0621-\\u0627]|\\s*[\\u0648\\u0649][\\u0654\\u0655])/gm, '\\u0627\\u06E4')
       const applyColor = (regex, id, color) => {
         colorizedChars = colorizedChars.replace(regex, (match) => {
           return '<span class="tajweed-' + id + '" style="color: ' + color + '; cursor: pointer;">' + match + '</span>'

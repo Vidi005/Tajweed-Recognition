@@ -4,7 +4,7 @@ import React, { Fragment } from "react"
 const SidebarContainer = ({ t, areAllPanelsExpanded, selectedTajweedIds, filteredTajweeds, handleDisclosurePanels, handleAllColorization, toggleOption, toggleSelectAllGroup }) => (
   <aside className="hidden w-0 lg:inline-block lg:w-1/4 bg-green-50 dark:bg-gray-700 shadow-lg dark:shadow-white/50 overflow-y-auto">
     <h4 className="px-3 py-2 text-green-900 dark:text-white">{t("sidebar_title")}</h4>
-    <div className="p-2 grid grid-cols-2 items-center gap-2 text-xs">
+    <div className={filteredTajweeds.length > 0 ? "p-2 grid grid-cols-2 items-center gap-2 text-xs" : "hidden"}>
       <button className="flex items-center justify-center border border-green-900 dark:border-white px-2 py-1 bg-green-800 dark:bg-gray-700 hover:bg-green-600 dark:hover:bg-gray-500 text-white rounded-lg shadow-md dark:shadow-white/50 duration-200" onClick={handleDisclosurePanels} title="Panels Configuration">
         <img src="images/expand-all-icon.svg" className={areAllPanelsExpanded ? "hidden" : "inline-flex max-h-6 mr-1 object-contain object-center animate__animated animate__flipInX"} alt="Expand All" />
         <img src="images/collapse-all-icon.svg" className={areAllPanelsExpanded ? "inline-flex max-h-6 mr-1 object-contain object-center animate__animated animate__flipInX" : "hidden"} alt="Collapse All" />

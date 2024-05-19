@@ -56,7 +56,7 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
             <article className="flex flex-col w-full lg:w-3/4 overflow-hidden">
               <section className={`content-container grow flex flex-col m-2 px-2 ${state.isContentDarkMode ? "bg-gray-800" : "bg-green-700/25"} rounded-md shadow-md dark:shadow-white/50 duration-200`}>
                 <div className={`content-menu flex items-center justify-end border-b ${state.isContentDarkMode ? "border-b-white" : "border-b-black"}`}>
-                  <button className={`border ${state.isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 my-2 p-1 rounded duration-200 overflow-hidden`} title="Download Result" onClick={downloadResult} disabled={!state.coloredTajweeds?.includes('color') || state.isEditMode}>
+                  <button className={`border ${state.isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 my-2 p-1 rounded duration-200 overflow-hidden`} title="Download Result" onClick={downloadResult} disabled={(!state.coloredTajweeds?.includes('style="color: #') && state.selectedTajweedIds.length === 0) || state.isEditMode}>
                     <img className={`${state.isContentDarkMode ? "invert-0" : "invert"} h-5 duration-200`} src="images/download-icon.svg" alt="Download Result" />
                   </button>
                   <button className={`border ${state.isContentDarkMode ? "border-white bg-gray-700" : "border-black bg-gray-200"} hover:bg-gray-400 active:bg-gray-500 ml-2 p-1 rounded duration-200 overflow-hidden`} title="Increase Line Height" onClick={increaseLineHeight} disabled={state.isIncreaseLineHeightDisabled}>
@@ -90,58 +90,58 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
                       </button>
                     </React.Fragment>
                   )
-                  : (
-                    <div ref={contentContainerRef} className={`flex-auto h-0 w-full my-2 p-2 ${state.isContentDarkMode ? "text-white bg-black" : "text-black bg-white"} overflow-y-auto rounded-md`} onMouseOut={hideTooltip}>
-                      <p dangerouslySetInnerHTML={{ __html: state.coloredTajweeds }} dir="rtl" className="font-lpmq-isep-misbah duration-200" style={{ lineHeight: `${state.twLineHeight}`, fontSize: `${state.twTextSize}` }} onMouseMove={e => showTooltip(e)} onClick={e => showSummaryModal(e)}></p>
-                      {state.tooltipContent && (
-                        <span
-                          ref={tooltipRef}
-                          className={`absolute p-2 ${state.isContentDarkMode ? "text-white shadow-white/50" : "text-black"} backdrop-blur-sm bg-opacity-25 rounded shadow-md z-10`}
-                        >
-                          {state.tooltipContent}
-                        </span>
-                      )}
-                      <article className="colored-tajweeds-doc-bismillah hidden">
-                        <h1 style={{ fontFamily: "'Times New Roman', 'Serif'", fontSize: "14pt", textAlign: "center" }}>{t('color_index')}</h1>
-                        <p style={{ width: "100%", textAlign: "center" }}>
-                          <a style={{ fontFamily: "'Helvetica', 'Arial'", fontSize: "10pt" }} href={location.origin.toString()}>{location.origin.toString()}</a>
-                        </p>
-                        <ul>
-                          {loadTajweedData().map(tajweedLaw => (
-                            <li key={tajweedLaw.id} style={{ display: "flex", alignItems: "center", width: "100%", marginBottom: "4px" }}>
-                              <span style={{ border: "1px solid black", fontSize: "12pt", color: tajweedLaw.color, backgroundColor: tajweedLaw.color }}>_____</span>&emsp;&emsp;:&emsp;
-                              <span style={{ flexGrow: 1, fontSize: "12pt", fontFamily: "'Times New Roman', 'Serif'", textAlign: "justify" }}>{tajweedLaw.name}&emsp;<i>({tajweedLaw.category})</i></span>
-                            </li>
-                          ))}
-                        </ul>
-                        <hr />
-                        <h1 style={{ fontFamily: "'Times New Roman', 'Serif'", fontSize: "14pt", fontWeight: "bold", textAlign: "center" }}>{state.docTitle}</h1>
-                        <h2 style={{ display: "flex", alignItems: "center", justifyContent: "center", direction: "rtl", fontFamily: "'LPMQ Isep Misbah', 'Times New Roman', 'Arial'", fontSize: `${Number(state.twTextSize.replace('rem', '')) * 12}pt`, lineHeight: `${Number(state.twLineHeight.replace('rem', '')) * 12}pt`, textAlign: "center", width: "100%" }}>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h2>
-                        <p dangerouslySetInnerHTML={{ __html: state.coloredTajweeds }} style={{ direction: "rtl", width: "100%", fontFamily: "'LPMQ Isep Misbah', 'Times New Roman', 'Arial'", fontSize: `${Number(state.twTextSize.replace('rem', '')) * 12}pt`, textAlign: "right", lineHeight: `${Number(state.twLineHeight.replace('rem', '')) * 12}pt` }}></p>
-                      </article>
-                      <article className="colored-tajweeds-doc hidden">
-                        <h1 style={{ fontFamily: "'Times New Roman', 'Serif'", fontSize: "14pt", textAlign: "center" }}>{t('color_index')}</h1>
-                        <p style={{ width: "100%", textAlign: "center" }}>
-                          <a style={{ fontFamily: "'Helvetica', 'Arial'", fontSize: "10pt" }} href={location.origin.toString()}>{location.origin.toString()}</a>
-                        </p>
-                        <ul>
-                          {loadTajweedData().map(tajweedLaw => (
-                            <li key={tajweedLaw.id} style={{ display: "flex", alignItems: "center", width: "100%", marginBottom: "4px" }}>
-                              <span style={{ border: "1px solid black", fontSize: "12pt", color: tajweedLaw.color, backgroundColor: tajweedLaw.color }}>_____</span>&emsp;&emsp;:&emsp;
-                              <span style={{ flexGrow: 1, fontSize: "12pt", fontFamily: "'Times New Roman', 'Serif'", textAlign: "justify" }}>{tajweedLaw.name}&emsp;<i>({tajweedLaw.category})</i></span>
-                            </li>
-                          ))}
-                        </ul>
-                        <hr />
-                        <h1 style={{ fontFamily: "'Times New Roman', 'Serif'", fontSize: "14pt", fontWeight: "bold", textAlign: "center" }}>{state.docTitle}</h1>
-                        <p dangerouslySetInnerHTML={{ __html: state.coloredTajweeds }} style={{ direction: "rtl", width: "100%", textAlign: "right", fontFamily: "'LPMQ Isep Misbah', 'Times New Roman', 'Arial'", fontSize: `${Number(state.twTextSize.replace('rem', '')) * 12}pt`, lineHeight: `${Number(state.twLineHeight.replace('rem', '')) * 12}pt` }}></p>
-                      </article>
-                      <article className="colored-tajweeds-pdf hidden w-[595.28px] font-amiri-regular text-black text-xl" dir="rtl">
-                        {state.isBismillahAdded && <h2 className="text-xl text-center w-full leading-[4rem]">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h2>}
-                        <p dangerouslySetInnerHTML={{ __html: state.coloredTajweeds }} dir="rtl" className="w-full text-right leading-[4rem]"></p>
-                      </article>
-                    </div>
-                  )}
+                : (
+                  <div ref={contentContainerRef} className={`flex-auto h-0 w-full my-2 p-2 ${state.isContentDarkMode ? "text-white bg-black" : "text-black bg-white"} overflow-y-auto rounded-md`} onMouseOut={hideTooltip}>
+                    <p dangerouslySetInnerHTML={{ __html: state.coloredTajweeds }} dir="rtl" className="font-lpmq-isep-misbah duration-200" style={{ lineHeight: `${state.twLineHeight}`, fontSize: `${state.twTextSize}` }} onMouseMove={e => showTooltip(e)} onClick={e => showSummaryModal(e)}></p>
+                    {state.tooltipContent && (
+                      <span
+                        ref={tooltipRef}
+                        className={`absolute p-2 ${state.isContentDarkMode ? "text-white shadow-white/50" : "text-black"} backdrop-blur-sm bg-opacity-25 rounded shadow-md z-10`}
+                      >
+                        {state.tooltipContent}
+                      </span>
+                    )}
+                    <article className="colored-tajweeds-doc-bismillah hidden">
+                      <h1 style={{ fontFamily: "'Times New Roman', 'Serif'", fontSize: "14pt", textAlign: "center" }}>{t('color_index')}</h1>
+                      <p style={{ width: "100%", textAlign: "center" }}>
+                        <a style={{ fontFamily: "'Helvetica', 'Arial'", fontSize: "10pt" }} href={location.origin.toString()}>{location.origin.toString()}</a>
+                      </p>
+                      <ul>
+                        {loadTajweedData().map(tajweedLaw => (
+                          <li key={tajweedLaw.id} style={{ display: "flex", alignItems: "center", width: "100%", marginBottom: "4px" }}>
+                            <span style={{ border: "1px solid black", fontSize: "12pt", color: tajweedLaw.color, backgroundColor: tajweedLaw.color }}>_____</span>&emsp;&emsp;:&emsp;
+                            <span style={{ flexGrow: 1, fontSize: "12pt", fontFamily: "'Times New Roman', 'Serif'", textAlign: "justify" }}>{tajweedLaw.name}&emsp;<i>({tajweedLaw.category})</i></span>
+                          </li>
+                        ))}
+                      </ul>
+                      <hr />
+                      <h1 style={{ fontFamily: "'Times New Roman', 'Serif'", fontSize: "14pt", fontWeight: "bold", textAlign: "center" }}>{state.docTitle}</h1>
+                      <h2 style={{ display: "flex", alignItems: "center", justifyContent: "center", direction: "rtl", fontFamily: "'LPMQ Isep Misbah', 'Times New Roman', 'Arial'", fontSize: `${Number(state.twTextSize.replace('rem', '')) * 12}pt`, lineHeight: `${Number(state.twLineHeight.replace('rem', '')) * 12}pt`, textAlign: "center", width: "100%" }}>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h2>
+                      <p dangerouslySetInnerHTML={{ __html: state.coloredTajweeds }} style={{ direction: "rtl", width: "100%", fontFamily: "'LPMQ Isep Misbah', 'Times New Roman', 'Arial'", fontSize: `${Number(state.twTextSize.replace('rem', '')) * 12}pt`, textAlign: "right", lineHeight: `${Number(state.twLineHeight.replace('rem', '')) * 12}pt` }}></p>
+                    </article>
+                    <article className="colored-tajweeds-doc hidden">
+                      <h1 style={{ fontFamily: "'Times New Roman', 'Serif'", fontSize: "14pt", textAlign: "center" }}>{t('color_index')}</h1>
+                      <p style={{ width: "100%", textAlign: "center" }}>
+                        <a style={{ fontFamily: "'Helvetica', 'Arial'", fontSize: "10pt" }} href={location.origin.toString()}>{location.origin.toString()}</a>
+                      </p>
+                      <ul>
+                        {loadTajweedData().map(tajweedLaw => (
+                          <li key={tajweedLaw.id} style={{ display: "flex", alignItems: "center", width: "100%", marginBottom: "4px" }}>
+                            <span style={{ border: "1px solid black", fontSize: "12pt", color: tajweedLaw.color, backgroundColor: tajweedLaw.color }}>_____</span>&emsp;&emsp;:&emsp;
+                            <span style={{ flexGrow: 1, fontSize: "12pt", fontFamily: "'Times New Roman', 'Serif'", textAlign: "justify" }}>{tajweedLaw.name}&emsp;<i>({tajweedLaw.category})</i></span>
+                          </li>
+                        ))}
+                      </ul>
+                      <hr />
+                      <h1 style={{ fontFamily: "'Times New Roman', 'Serif'", fontSize: "14pt", fontWeight: "bold", textAlign: "center" }}>{state.docTitle}</h1>
+                      <p dangerouslySetInnerHTML={{ __html: state.coloredTajweeds }} style={{ direction: "rtl", width: "100%", textAlign: "right", fontFamily: "'LPMQ Isep Misbah', 'Times New Roman', 'Arial'", fontSize: `${Number(state.twTextSize.replace('rem', '')) * 12}pt`, lineHeight: `${Number(state.twLineHeight.replace('rem', '')) * 12}pt` }}></p>
+                    </article>
+                    <article className="colored-tajweeds-pdf hidden w-[595.28px] font-amiri-regular text-black text-xl" dir="rtl">
+                      {state.isBismillahAdded && <h2 className="text-xl text-center w-full leading-[4rem]">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h2>}
+                      <p dangerouslySetInnerHTML={{ __html: state.coloredTajweeds }} dir="rtl" className="w-full text-right leading-[4rem]"></p>
+                    </article>
+                  </div>
+                )}
               </section>
               <TajweedGuidelines
                 isCarouselItemHovered={state.isCarouselItemHovered}
