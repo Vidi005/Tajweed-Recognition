@@ -747,7 +747,7 @@ class RecognitionContainer extends React.Component {
   }
 
   showTooltip (event) {
-    const tajweedData = this.loadTajweedData()
+    const tajweedData = this.state.selectedTajweedLaws
     const worker = createTooltipWorker()
     worker.postMessage({ tajweedData: tajweedData, innerHTML: event.target.innerHTML })
     worker.onmessage = workerEvent => {
