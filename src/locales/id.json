@@ -275,7 +275,7 @@
             "name": "Idzhar Qamariyah",
             "group": "Ahkämul Al-hurüf",
             "category": "Lam Ta'rif",
-            "summary": "Hukum bacaan Idzhar Qamariyah terjadi apabila ada lam ta’rief bertemu dengan huruf-huruf idzhar qamariyah (ء ب ج ح خ ع غ ف ق ك م و ه ي), maka cara membacanya harus jelas.",
+            "summary": "Hukum bacaan Idzhar Qamariyah/Alif Lam Qamariyah terjadi apabila ada lam ta’rief bertemu dengan huruf-huruf idzhar qamariyah (ء ب ج ح خ ع غ ف ق ك م و ه ي), maka cara membacanya harus jelas.",
             "detail": "Qamar dalam bahasa arab memiliki arti bulan. Sedangkan lam ta’rief diumpamakan dengan bintang. Hal ini karena bintang tetap terlihat meskipun bertemu dengan bulan.",
             "examples": [
                 "لَكُمُ الْأَرْضَ ذَلُولً Alif lam bertemu dengan ء",
@@ -291,7 +291,7 @@
             "name": "Idgham Syamsiyah",
             "group": "Ahkämul Al-hurüf",
             "category": "Lam Ta'rif",
-            "summary": "Hukum bacaan Idgham Syamsiyah terjadi apabila ada lam ta’rief bertemu dengan huruf-huruf qamariyah lainnya, selain huruf idzhar qamariyah (ت ث د ذ ر ز س ش ص ض ط ظ ل ن), maka disebut dengan idhgam.",
+            "summary": "Hukum bacaan Idgham Syamsiyah/Alif Lam Syamsiyah terjadi apabila ada lam ta’rief bertemu dengan huruf-huruf qamariyah lainnya, selain huruf idzhar qamariyah (ت ث د ذ ر ز س ش ص ض ط ظ ل ن), maka disebut dengan idhgam.",
             "detail": "Syamsiyah memiliki arti matahari, maka jika alif lam yang diumpakan bintang, bertemu dengan matahari, maka jadi tidak terlalu kelihatan. Karena tidak terbaca ini, maka alif lam yang bertemu dengan huruf syamsiyah, seperti ditasydidkan, atau dimasukkan ke huruf berikutnya.",
             "examples": [
                 "وَأَنْزَلَ التَّوْرَاةَ Alif lam bertemu dengan ت",
