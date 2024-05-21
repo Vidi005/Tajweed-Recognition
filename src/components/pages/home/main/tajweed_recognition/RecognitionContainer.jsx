@@ -156,8 +156,7 @@ class RecognitionContainer extends React.Component {
         filteredTajweeds,
         selectedTajweedIds,
         selectedTajweedLaws,
-        isResultClosed,
-        isEditMode: true
+        isResultClosed
       })
     }
   }
@@ -747,7 +746,7 @@ class RecognitionContainer extends React.Component {
   }
 
   showTooltip (event) {
-    const tajweedData = this.state.selectedTajweedLaws
+    const tajweedData = this.loadTajweedData()
     const worker = createTooltipWorker()
     worker.postMessage({ tajweedData: tajweedData, innerHTML: event.target.innerHTML })
     worker.onmessage = workerEvent => {
@@ -787,10 +786,10 @@ class RecognitionContainer extends React.Component {
   }
 
   showSummaryModal(idParam) {
-    if (checkParamEvent(idParam)?.length > 0) {
-      const tajweedName = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === checkParamEvent(idParam)[0].id)}.name`)
-      const summary = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === checkParamEvent(idParam)[0].id)}.summary`)
-      const detailPage = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === checkParamEvent(idParam)[0].id)}.page`)
+    if (checkParamEvent(idParam, tajweedLaws())?.length > 0) {
+      const tajweedName = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === checkParamEvent(idParam, tajweedLaws())[0].id)}.name`)
+      const summary = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === checkParamEvent(idParam, tajweedLaws())[0].id)}.summary`)
+      const detailPage = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === checkParamEvent(idParam, tajweedLaws())[0].id)}.page`)
       this.setState({ isModalOpened: true, selectedTajweed: { tajweedName, summary, detailPage } })
     }
   }

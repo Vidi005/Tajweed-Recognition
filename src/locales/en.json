@@ -380,10 +380,10 @@
         },
         {
             "id": 24,
-            "name": "Madd Thabi'i",
+            "name": "Madd Tabee'ee",
             "group": "Ahkämul-madd",
             "category": "Madd",
-            "summary": "The law of reading is called Madd Thabi'i, that is, if the letter whose sound is extended is a letter with the harokat Damma (ُ) and after it there is the letter Wau Sukun (ﻭْ), a letter with the harokat kasroh and after that there is the letter Yaa' Sukun (ﻱْ), a letter with the harokat fathah (َ) and after that there is the letter Alif (ا)",
+            "summary": "The law of reading is called Madd Tabee'ee, that is, if the letter whose sound is extended is a letter with the harokat Damma (ُ) and after it there is the letter Wau Sukun (ﻭْ), a letter with the harokat kasroh and after that there is the letter Yaa' Sukun (ﻱْ), a letter with the harokat fathah (َ) and after that there is the letter Alif (ا)",
             "detail": "",
             "examples": [
                 "يَسْتَبْشِرُونَ Damma meets و sukun",
@@ -407,19 +407,19 @@
             "name": "Madd Wajib Muttasil",
             "group": "Ahkämul-madd",
             "category": "Madd",
-            "summary": "Madd Wajib Muttasil tajweed law happens if Madd Thabi'i meets a living Hamzah (ء) within a word/sentence, it is mandatory to prolong it.",
-            "detail": "The way to read it must be extended to two and a half Alif or five harokat or two and a half times the length of Madd Thabi'i.",
+            "summary": "Madd Wajib Muttasil tajweed law happens if Madd Tabee'ee meets a living Hamzah (ء) within a word/sentence, it is mandatory to prolong it.",
+            "detail": "The way to read it must be extended to two and a half Alif or five harokat or two and a half times the length of Madd Tabee'ee.",
             "examples": [
-                "مِنْهُ الْمَاءُ Madd Thabi'i meets Hamzah (ء) within a word/sentence",
-                "صَفْرَاءُ Madd Thabi'i meets Hamzah (ء) within a word/sentence",
-                "دُعَاءً Madd Thabi'i meets Hamzah (ء) within a word/sentence",
-                "مَنْ يَشَاءُ Madd Thabi'i meets Hamzah (ء) within a word/sentence",
-                "فَبَاءُ Madd Thabi'i meets Hamzah (ء) within a word/sentence",
-                "أَحْيَاء Madd Thabi'i meets Hamzah (ء) within a word/sentence",
-                "سَوَاء Madd Thabi'i meets Hamzah (ء) within a word/sentence",
-                "امَنَ السُّفَهَاءُ Madd Thabi'i meets Hamzah (ء) within a word/sentence",
-                "شُهَدَاءَ Madd Thabi'i meets Hamzah (ء) within a word/sentence",
-                "وَلَوْ شَاءَ Madd Thabi'i meets Hamzah (ء) within a word/sentence"
+                "مِنْهُ الْمَاءُ Madd Tabee'ee meets Hamzah (ء) within a word/sentence",
+                "صَفْرَاءُ Madd Tabee'ee meets Hamzah (ء) within a word/sentence",
+                "دُعَاءً Madd Tabee'ee meets Hamzah (ء) within a word/sentence",
+                "مَنْ يَشَاءُ Madd Tabee'ee meets Hamzah (ء) within a word/sentence",
+                "فَبَاءُ Madd Tabee'ee meets Hamzah (ء) within a word/sentence",
+                "أَحْيَاء Madd Tabee'ee meets Hamzah (ء) within a word/sentence",
+                "سَوَاء Madd Tabee'ee meets Hamzah (ء) within a word/sentence",
+                "امَنَ السُّفَهَاءُ Madd Tabee'ee meets Hamzah (ء) within a word/sentence",
+                "شُهَدَاءَ Madd Tabee'ee meets Hamzah (ء) within a word/sentence",
+                "وَلَوْ شَاءَ Madd Tabee'ee meets Hamzah (ء) within a word/sentence"
             ],
             "page": "/detail/mad-wajib-muttasil"
         },
@@ -428,13 +428,13 @@
             "name": "Madd Ja'eez Munfasil",
             "group": "Ahkämul-madd",
             "category": "Madd",
-            "summary": "The recitation rule is called Madd Ja'eez Munfasil when Madd Thabi'i (ء) is in a different word.",
-            "detail": "The way to read it is better to extend it like the length of Madd Wajib Muttashil, but also may be extended like the length of Madd Thabi'i.",
+            "summary": "The recitation rule is called Madd Ja'eez Munfasil when Madd Tabee'ee (ء) is in a different word.",
+            "detail": "The way to read it is better to extend it like the length of Madd Wajib Muttashil, but also may be extended like the length of Madd Tabee'ee.",
             "examples": [
-                "فِيهَا أَبَدًا Madd Thabi'i meets Hamzah (ء) in different word",
-                "بِمَا أُنْزِلَ Madd Thabi'i meets Hamzah (ء) in different word",
-                "وَمَا أُنْزِلَ Madd Thabi'i meets Hamzah (ء) in different word",
-                "ذُرِّيَّتِنَا أُمُّةً Madd Thabi'i meets Hamzah (ء) in different word"
+                "فِيهَا أَبَدًا Madd Tabee'ee meets Hamzah (ء) in different word",
+                "بِمَا أُنْزِلَ Madd Tabee'ee meets Hamzah (ء) in different word",
+                "وَمَا أُنْزِلَ Madd Tabee'ee meets Hamzah (ء) in different word",
+                "ذُرِّيَّتِنَا أُمُّةً Madd Tabee'ee meets Hamzah (ء) in different word"
             ],
             "page": "/detail/mad-jaiz-munfassil"
         },
@@ -443,14 +443,14 @@
             "name": "Mad Lazim Kilmi Muthaqqal",
             "group": "Ahkämul-madd",
             "category": "Madd",
-            "summary": "Madd Laazim Kalimee Muthaqqal tajweed law happens if Madd Thabi'i is faced with letters with shaddah within a word.",
+            "summary": "Madd Laazim Kalimee Muthaqqal tajweed law happens if Madd Tabee'ee is faced with letters with shaddah within a word.",
             "detail": "The pronunciation should be prolonged first for 3 alif or 6 harakah before shaddah is added.",
             "examples": [
-                "هُمُ الضَّآلُّونَ Madd Thabi'i meets shaddah letter within a word",
-                "وَلَا الضَّآلِّينَ Madd Thabi'i meets shaddah letter within a word",
-                "إِلَّا الضَّآلُوْنَ Madd Thabi'i meets shaddah letter within a word",
-                "جَاءَتِ الطَّآمَّةُ Madd Thabi'i meets shaddah letter within a word",
-                "فِي السِّلْمِ كَآفَّةً Madd Thabi'i meets shaddah letter within a word"
+                "هُمُ الضَّآلُّونَ Madd Tabee'ee meets shaddah letter within a word",
+                "وَلَا الضَّآلِّينَ Madd Tabee'ee meets shaddah letter within a word",
+                "إِلَّا الضَّآلُوْنَ Madd Tabee'ee meets shaddah letter within a word",
+                "جَاءَتِ الطَّآمَّةُ Madd Tabee'ee meets shaddah letter within a word",
+                "فِي السِّلْمِ كَآفَّةً Madd Tabee'ee meets shaddah letter within a word"
             ],
             "page": "/detail/mad-lazim-mutsaqqal-kilmi"
         },
@@ -459,7 +459,7 @@
             "name": "Mad Lazim Kilmi Mukhaffaf",
             "group": "Ahkämul-madd",
             "category": "Madd",
-            "summary": "Madd Laazim Kalimee Mukhaffaf tajweed law happens if Madd Thabi'i meets a sukun-harokat letter not at the end of a word. (prolonged up to three alif or six harakah).",
+            "summary": "Madd Laazim Kalimee Mukhaffaf tajweed law happens if Madd Tabee'ee meets a sukun-harokat letter not at the end of a word. (prolonged up to three alif or six harakah).",
             "detail": "The way to read it is like Madd Laazim Muthaqqal Kilmi (extended to three alif or six harakah).",
             "examples": ["آلان only in Surah Yunus"],
             "page": "/detail/mad-lazim-mukhaffaf-kilmi"
@@ -489,17 +489,17 @@
             "name": "Madd Aridh Lissukun",
             "group": "Ahkämul-madd",
             "category": "Madd",
-            "summary": "Madd Aridh Lissukun tajweed law happens if there is Madd Thabi'i or Madd Al-Leen followed by a waqf (stopping place).",
-            "detail": "There are 3 ways to read it:\na. What is more important is that it is read long, the same as Madd Wajib Mutashil (three alif or six harakah).\nb. The middle (medium) one can only be read as two Alif or four harokats (twice Madd Thabi'i).\nc. The sortest one may be only read as Madd Thabi'i (two harakah).",
+            "summary": "Madd Aridh Lissukun tajweed law happens if there is Madd Tabee'ee or Madd Al-Leen followed by a waqf (stopping place).",
+            "detail": "There are 3 ways to read it:\na. What is more important is that it is read long, the same as Madd Wajib Mutashil (three alif or six harakah).\nb. The middle (medium) one can only be read as two Alif or four harokats (twice Madd Tabee'ee).\nc. The sortest one may be only read as Madd Tabee'ee (two harakah).",
             "examples": [
-                "ِغَيْرِ حِسَابٍ . Madd Thabi'i in the end of a sentence/meet waqfs",
-                "شَدِيدُ الْعِقَابِ . Madd Thabi'i in the end of a sentence/meet waqfs",
-                "ِهِمُ الْأَسْبَابُ . Madd Thabi'i in the end of a sentence/meet waqfs",
-                "مِنَ النَّارِ . Madd Thabi'i in the end of a sentence/meet waqfs",
-                "شَدِيدُ الْعَذَابِ . Madd Thabi'i in the end of a sentence/meet waqfs",
-                "إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ . Madd Thabi'i in the end of a sentence/meet waqfs",
-                "عَدُوٌّ مُّبِينٌ . Madd Thabi'i in the end of a sentence/meet waqfs",
-                "شَاكِرٌ عَلِيمٌ . Madd Thabi'i in the end of a sentence/meet waqfs"
+                "ِغَيْرِ حِسَابٍ . Madd Tabee'ee in the end of a sentence/meet waqfs",
+                "شَدِيدُ الْعِقَابِ . Madd Tabee'ee in the end of a sentence/meet waqfs",
+                "ِهِمُ الْأَسْبَابُ . Madd Tabee'ee in the end of a sentence/meet waqfs",
+                "مِنَ النَّارِ . Madd Tabee'ee in the end of a sentence/meet waqfs",
+                "شَدِيدُ الْعَذَابِ . Madd Tabee'ee in the end of a sentence/meet waqfs",
+                "إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ . Madd Tabee'ee in the end of a sentence/meet waqfs",
+                "عَدُوٌّ مُّبِينٌ . Madd Tabee'ee in the end of a sentence/meet waqfs",
+                "شَاكِرٌ عَلِيمٌ . Madd Tabee'ee in the end of a sentence/meet waqfs"
             ],
             "page": "/detail/mad-arid-lissukun"
         },
@@ -509,18 +509,18 @@
             "group": "Ahkämul-madd",
             "category": "Madd",
             "summary": "Madd Shilah Qashirah tajweed law happens if the letter Haa Dlomir/third person pronoun (noun) comes (ه) after a vowel-harokat letter and is not connected to a sukun or shaddah letter or the letter alif.",
-            "detail": "The way to read it is extended to one Alif or two harokat or like the length of Madd Thabi'i.",
+            "detail": "The way to read it is extended to one Alif or two harokat or like the length of Madd Tabee'ee.",
             "examples": [
-                "بِهِ عِنْدَ prolong (ه) like Madd Thabi'i",
-                "وَرَسُولِهِ كُنتُمْ prolong (ه) like Madd Thabi'i",
-                "بِيَدِهِ عُقْدَةُ prolong (ه) like Madd Thabi'i",
-                "ايْتِهِ لَعَلَّكُمْ prolong (ه) like Madd Thabi'i",
-                "جُنُودِهِ قَالُو prolong (ه) like Madd Thabi'i",
-                "لَهُ مُلْكُ prolong (ه) like Madd Thabi'i",
-                "أَجْرُهُ عِنْدَ prolong (ه) like Madd Thabi'i",
-                "وَعَدَّدَهُ يَحْسِبُ prolong (ه) like Madd Thabi'i",
-                "وَرَحْمَتُهُ لَكُنْتُمْ prolong (ه) like Madd Thabi'i",
-                "ِنَّهُ هُوَ  prolong (ه) like Madd Thabi'i"
+                "بِهِ عِنْدَ prolong (ه) like Madd Tabee'ee",
+                "وَرَسُولِهِ كُنتُمْ prolong (ه) like Madd Tabee'ee",
+                "بِيَدِهِ عُقْدَةُ prolong (ه) like Madd Tabee'ee",
+                "ايْتِهِ لَعَلَّكُمْ prolong (ه) like Madd Tabee'ee",
+                "جُنُودِهِ قَالُو prolong (ه) like Madd Tabee'ee",
+                "لَهُ مُلْكُ prolong (ه) like Madd Tabee'ee",
+                "أَجْرُهُ عِنْدَ prolong (ه) like Madd Tabee'ee",
+                "وَعَدَّدَهُ يَحْسِبُ prolong (ه) like Madd Tabee'ee",
+                "وَرَحْمَتُهُ لَكُنْتُمْ prolong (ه) like Madd Tabee'ee",
+                "ِنَّهُ هُوَ  prolong (ه) like Madd Tabee'ee"
             ],
             "page": "/detail/mad-shilah-qashirah"
         },
@@ -530,7 +530,7 @@
             "group": "Ahkämul-madd",
             "category": "Madd",
             "summary": "Madd Shilah Thawilah tajweed law happens if Madd Shilah Qashirah meets Hamzah (ء) preceded by a vowel-harokat letter.",
-            "detail": "The way to read it is like reading Madd Ja'eez Munfasil, meaning it can be extended to two and a half Alif or one Alif like Madd Thabi'i.",
+            "detail": "The way to read it is like reading Madd Ja'eez Munfasil, meaning it can be extended to two and a half Alif or one Alif like Madd Tabee'ee.",
             "examples": [
                 "أَمْرُةَٓ إِذَا prolong (ه) like Madd Ja'eez Munfasil",
                 "مِنْ دُونِهِٓ الهَةً prolong (ه) like Madd Ja'eez Munfasil",
@@ -547,23 +547,23 @@
         },
         {
             "id": 33,
-            "name": "Madd Iwadh",
+            "name": "Madd 'Ewadh",
             "group": "Ahkämul-madd",
             "category": "Madd",
-            "summary": "Madd Iwadh tajweed law happens if there is fathatain vowels (ً) falling on waqf (pause), at the end of a sentence (except for ta' marbuthoh), or mentioned as a replacement for tanween so that it is no longer pronounced.",
-            "detail": "The way to read it is extended one Alif like Madd Thabi'i.",
+            "summary": "Madd 'Ewadh tajweed law happens if there is fathatain vowels (ً) falling on waqf (pause), at the end of a sentence (except for ta' marbuthoh), or mentioned as a replacement for tanween so that it is no longer pronounced.",
+            "detail": "The way to read it is extended one Alif like Madd Tabee'ee.",
             "examples": [
-                ".عَذَابًا أَلِيمًا prolong (مً) like Madd Thabi'i",
-                ".عَلِيمًا حَكِيمًا prolong (مً) like Madd Thabi'i",
-                ".هَجْرًا جَمِيلاً prolong (لاً) like Madd Thabi'i",
-                ".كَانَ مِيْقَاتًا prolong (تً) like Madd Thabi'i",
-                ".شَيْءٍ عَدَدًا prolong (دً) like Madd Thabi'i",
-                ".مَسْرُورًا prolong (رً) like Madd Thabi'i",
-                ".سَبْعًا شِدَادًا prolong (دً) like Madd Thabi'i",
-                ".نَهَا تَفْجِيرًا prolong (رً) like Madd Thabi'i",
-                ".سَمِيعًا بَصِيرًا prolong (رً) like Madd Thabi'i",
-                ".رَبُّهُمْ رَشَدًا prolong (دً) like Madd Thabi'i",
-                ".ذلِكَ سَبِيلاً prolong (لاً) like Madd Thabi'i"
+                ".عَذَابًا أَلِيمًا prolong (مً) like Madd Tabee'ee",
+                ".عَلِيمًا حَكِيمًا prolong (مً) like Madd Tabee'ee",
+                ".هَجْرًا جَمِيلاً prolong (لاً) like Madd Tabee'ee",
+                ".كَانَ مِيْقَاتًا prolong (تً) like Madd Tabee'ee",
+                ".شَيْءٍ عَدَدًا prolong (دً) like Madd Tabee'ee",
+                ".مَسْرُورًا prolong (رً) like Madd Tabee'ee",
+                ".سَبْعًا شِدَادًا prolong (دً) like Madd Tabee'ee",
+                ".نَهَا تَفْجِيرًا prolong (رً) like Madd Tabee'ee",
+                ".سَمِيعًا بَصِيرًا prolong (رً) like Madd Tabee'ee",
+                ".رَبُّهُمْ رَشَدًا prolong (دً) like Madd Tabee'ee",
+                ".ذلِكَ سَبِيلاً prolong (لاً) like Madd Tabee'ee"
             ],
             "page": "/detail/mad-iwad"
         },
@@ -573,13 +573,13 @@
             "group": "Ahkämul-madd",
             "category": "Madd",
             "summary": "Madd Al-Badal tajweed law happens if Hamzah (ء) meets Madd from a sukun-hamzah, and this hamzah is changed and replaced with Alif (ا), Wau (ﻭ).",
-            "detail": "It is pronounced by prolonging it for one alif or two harakah, like Madd Thabi'i.",
+            "detail": "It is pronounced by prolonging it for one alif or two harakah, like Madd Tabee'ee.",
             "examples": [
-                "أُوتُوا prolong (أ) like Madd Thabi'i",
-                "إِيْتُونِي prolong (أ) like Madd Thabi'i",
-                "أَدَمُ prolong (أ) like Madd Thabi'i",
-                "إِيْمَانُ prolong (أ) like Madd Thabi'i",
-                "أَتُوا prolong (أ) like Madd Thabi'i"
+                "أُوتُوا prolong (أ) like Madd Tabee'ee",
+                "إِيْتُونِي prolong (أ) like Madd Tabee'ee",
+                "أَدَمُ prolong (أ) like Madd Tabee'ee",
+                "إِيْمَانُ prolong (أ) like Madd Tabee'ee",
+                "أَتُوا prolong (أ) like Madd Tabee'ee"
             ],
             "page": "/detail/mad-badal"
         },
@@ -589,7 +589,7 @@
             "group": "Ahkämul-madd",
             "category": "Madd",
             "summary": "The law of recitation called Madd Laazim Harfi Mukhaffaf is when there is the beginning of a verse in the Quran that contains one or more of the letters: Haa' (ﺡ), Yaa' (ﻱ), Tho' (ط), Ha' (ه), Ro' (ر).",
-            "detail": "The way to read it is extended one Alif like Madd Thabi'i.",
+            "detail": "The way to read it is extended one Alif like Madd Tabee'ee.",
             "examples": [
                 "حٰمٓ read HAAMIIM",
                 "يٰسٓ read YAASIIN",
@@ -643,10 +643,10 @@
         },
         {
             "id": 39,
-            "name": "Madd Farq'i",
+            "name": "Madd Farq'ee",
             "group": "Ahkämul-madd",
             "category": "Madd",
-            "summary": "The reading rule called Madd Farq'i is a Madd that in the Quran only occurs in four places.",
+            "summary": "The reading rule called Madd Farq'ee is a Madd that in the Quran only occurs in four places.",
             "detail": "The reading must be elongated to distinguish between a question or not, so the elongation makes it clear that the sentence is in the form of a question.",
             "examples": [
                 "الأُنْثَيَيْنِ الذَّكَرَيْنِ حَرَّمَ أَما on Surah Al-An'am",
