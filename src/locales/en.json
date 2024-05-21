@@ -78,7 +78,7 @@
             "name": "Idzhar",
             "group": "Ahkämul Al-hurüf",
             "category": "Sukun & Tanween",
-            "summary": "Idzhar tajweed law happens when a noon sakinah or tanween meets the letters of idzhar (ا ع غ ح خ ها), it is pronounced clearly and distinctly.",
+            "summary": "Idzhar/Idzhar Halqy tajweed law happens when a noon sakinah or tanween meets the letters of idzhar (ا ع غ ح خ ها), it is pronounced clearly and distinctly.",
             "detail": "The letters of idzhar are pronounced clearly because their point of articulation is the mouth and they are in the throat.",
             "examples": [
                 "مِنْ آَلِ فِرْعَوْنَ Noon sakinah meets أ",
@@ -139,7 +139,7 @@
             "name": "Ikhfaa",
             "group": "Ahkämul Al-hurüf",
             "category": "Sukun & Tanween",
-            "summary": "Ikhfaa tajweed law happens when a noon sakinah or tanween meets the letters of ikhfa haqiqi (ت ث ج د ذ ز س ش ص ض ط ظ ف ق ك), it is pronounced softly.",
+            "summary": "Ikhfaa/Ikhfaa Haqiqi tajweed law happens when a noon sakinah or tanween meets the letters of ikhfa haqiqi (ت ث ج د ذ ز س ش ص ض ط ظ ف ق ك), it is pronounced softly.",
             "detail": "Ikhfaa means to conceal or hide, while haqiqi means real or true. So the letters of ikhfa haqiqi are pronounced softly.",
             "examples": [
                 "أَنْتُمْ Noon sakinah meets ت ",
@@ -221,11 +221,11 @@
         },
         {
             "id": 10,
-            "name": "Idgham Mutamasilain",
+            "name": "Idgham Mutamathelyne",
             "group": "Ahkämul Al-hurüf",
             "category": "Idgham",
-            "summary": "Idgham Mutamasilain tajweed law happens when a letter meets a similar letter, with the same makhraj and characteristic, where the first letter is sukun (silent) and the second letter has a harakah.",
-            "detail": "The way to read it is by inserting the first sukun letter into the second harokah letter. And being pressured, he was detained for no more than one harokah.\nThe rule of Idgham Mutamasilain has exceptions. If the letter Wawu with sukun meets the letter (و) or if the letter Ya' with sukun meets the letter (ي), then it should not be pronounced with Idgham (merging) into the second letter, but it should be read with a long pronunciation or MAD as it is supposed to be. An additional exception is that if the letter before the Wawu (و) or Ya (ي) has a fathah harakat, then Idgham can be applied (https://www.khudzilkitab.com/2019/01/idgham-mutamatsilain-lengkap.html).",
+            "summary": "Idgham Mutamathelyne tajweed law happens when a letter meets a similar letter, with the same makhraj and characteristic, where the first letter is sukun (silent) and the second letter has a harakah.",
+            "detail": "The way to read it is by inserting the first sukun letter into the second harokah letter. And being pressured, he was detained for no more than one harokah.\nThe rule of Idgham Mutamathelyne has exceptions. If the letter Wawu with sukun meets the letter (و) or if the letter Ya' with sukun meets the letter (ي), then it should not be pronounced with Idgham (merging) into the second letter, but it should be read with a long pronunciation or MAD as it is supposed to be. An additional exception is that if the letter before the Wawu (و) or Ya (ي) has a fathah harakat, then Idgham can be applied (https://www.khudzilkitab.com/2019/01/idgham-mutamatsilain-lengkap.html).",
             "examples": [
                 "فَلْيَكْتُبْ بَيْنَكُمْ Ba sakinah meets ب",
                 "طَلَعَتْ تَزَاوَرُ Ta sakinah meets ت",
@@ -425,10 +425,10 @@
         },
         {
             "id": 26,
-            "name": "Madd Jaiz Munfassil",
+            "name": "Madd Ja'eez Munfasil",
             "group": "Ahkämul-madd",
             "category": "Madd",
-            "summary": "The recitation rule is called Madd Jaiz Munfashil when Madd Thabi'i (ء) is in a different word.",
+            "summary": "The recitation rule is called Madd Ja'eez Munfasil when Madd Thabi'i (ء) is in a different word.",
             "detail": "The way to read it is better to extend it like the length of Madd Wajib Muttashil, but also may be extended like the length of Madd Thabi'i.",
             "examples": [
                 "فِيهَا أَبَدًا Madd Thabi'i meets Hamzah (ء) in different word",
@@ -440,10 +440,10 @@
         },
         {
             "id": 27,
-            "name": "Mad Lazim Mutsaqqal Kilmi",
+            "name": "Mad Lazim Kilmi Muthaqqal",
             "group": "Ahkämul-madd",
             "category": "Madd",
-            "summary": "Madd Laazim Mutsaqqal Kilmi tajweed law happens if Madd Thabi'i is faced with letters with shaddah within a word.",
+            "summary": "Madd Laazim Kalimee Muthaqqal tajweed law happens if Madd Thabi'i is faced with letters with shaddah within a word.",
             "detail": "The pronunciation should be prolonged first for 3 alif or 6 harakah before shaddah is added.",
             "examples": [
                 "هُمُ الضَّآلُّونَ Madd Thabi'i meets shaddah letter within a word",
@@ -456,11 +456,11 @@
         },
         {
             "id": 28,
-            "name": "Mad Lazim Mukhaffaf Kilmi",
+            "name": "Mad Lazim Kilmi Mukhaffaf",
             "group": "Ahkämul-madd",
             "category": "Madd",
-            "summary": "Madd Laazim Mukhaffaf Kilmi tajweed law happens if Madd Thabi'i meets a sukun-harokat letter not at the end of a word. (prolonged up to three alif or six harakah).",
-            "detail": "The way to read it is like Madd Laazim Mutsaqqol Kilmi (extended to three alif or six harakah).",
+            "summary": "Madd Laazim Kalimee Mukhaffaf tajweed law happens if Madd Thabi'i meets a sukun-harokat letter not at the end of a word. (prolonged up to three alif or six harakah).",
+            "detail": "The way to read it is like Madd Laazim Muthaqqal Kilmi (extended to three alif or six harakah).",
             "examples": ["آلان only in Surah Yunus"],
             "page": "/detail/mad-lazim-mukhaffaf-kilmi"
         },
@@ -530,18 +530,18 @@
             "group": "Ahkämul-madd",
             "category": "Madd",
             "summary": "Madd Shilah Thawilah tajweed law happens if Madd Shilah Qashirah meets Hamzah (ء) preceded by a vowel-harokat letter.",
-            "detail": "The way to read it is like reading Madd Jaiz Munfashil, meaning it can be extended to two and a half Alif or one Alif like Madd Thabi'i.",
+            "detail": "The way to read it is like reading Madd Ja'eez Munfasil, meaning it can be extended to two and a half Alif or one Alif like Madd Thabi'i.",
             "examples": [
-                "أَمْرُةَٓ إِذَا prolong (ه) like Madd Jaiz Munfashil",
-                "مِنْ دُونِهِٓ الهَةً prolong (ه) like Madd Jaiz Munfashil",
-                "عَلَى مَوْتِهِٓ إِلَّا prolong (ه) like Madd Jaiz Munfashil",
-                "وَرَسُولُهُٓ إِلَّا prolong (ه) like Madd Jaiz Munfashil",
-                "وَأَزْوَاجُهُٓ أُمَّهْتُهُمْ prolong (ه) like Madd Jaiz Munfashil",
-                "عِنْدَهُٓ إِلَّا بِإِذْنِهِ prolong (ه) like Madd Jaiz Munfashil",
-                "أَنَّ مَالَهُٓ أَخْلَدَهُ prolong (ه) like Madd Jaiz Munfashil",
-                "مِنْدُوْنِهِٓ إِلها prolong (ه) like Madd  Jaiz Munfashil",
-                "ربهِٓ أَحَدًا prolong (ه) like Madd Jaiz Munfashil",
-                "عِلْمِهِٓ إِلَّا prolong (ه) like Madd Jaiz Munfashil"
+                "أَمْرُةَٓ إِذَا prolong (ه) like Madd Ja'eez Munfasil",
+                "مِنْ دُونِهِٓ الهَةً prolong (ه) like Madd Ja'eez Munfasil",
+                "عَلَى مَوْتِهِٓ إِلَّا prolong (ه) like Madd Ja'eez Munfasil",
+                "وَرَسُولُهُٓ إِلَّا prolong (ه) like Madd Ja'eez Munfasil",
+                "وَأَزْوَاجُهُٓ أُمَّهْتُهُمْ prolong (ه) like Madd Ja'eez Munfasil",
+                "عِنْدَهُٓ إِلَّا بِإِذْنِهِ prolong (ه) like Madd Ja'eez Munfasil",
+                "أَنَّ مَالَهُٓ أَخْلَدَهُ prolong (ه) like Madd Ja'eez Munfasil",
+                "مِنْدُوْنِهِٓ إِلها prolong (ه) like Madd  Ja'eez Munfasil",
+                "ربهِٓ أَحَدًا prolong (ه) like Madd Ja'eez Munfasil",
+                "عِلْمِهِٓ إِلَّا prolong (ه) like Madd Ja'eez Munfasil"
             ],
             "page": "/detail/mad-shilah-thawilah"
         },
@@ -585,10 +585,10 @@
         },
         {
             "id": 35,
-            "name": "Madd Lazim Harfi Mukhoffaf",
+            "name": "Madd Lazim Harfi Mukhaffaf",
             "group": "Ahkämul-madd",
             "category": "Madd",
-            "summary": "The law of recitation called Madd Laazim Harfi Mukhoffaf is when there is the beginning of a verse in the Quran that contains one or more of the letters: Haa' (ﺡ), Yaa' (ﻱ), Tho' (ط), Ha' (ه), Ro' (ر).",
+            "summary": "The law of recitation called Madd Laazim Harfi Mukhaffaf is when there is the beginning of a verse in the Quran that contains one or more of the letters: Haa' (ﺡ), Yaa' (ﻱ), Tho' (ط), Ha' (ه), Ro' (ر).",
             "detail": "The way to read it is extended one Alif like Madd Thabi'i.",
             "examples": [
                 "حٰمٓ read HAAMIIM",
@@ -600,10 +600,10 @@
         },
         {
             "id": 36,
-            "name": "Mad Lazim Harfi Mutsaqqol",
+            "name": "Mad Lazim Harfi Muthaqqal",
             "group": "Ahkämul-madd",
             "category": "Madd",
-            "summary": "The law of recitation called Madd Laazim Harfi Mutsaqqal is when there is the beginning of a verse in the Quran that contains one or more of the letters: Noon' (ن), Qof' (ﻕ), Shod' (ص), Ain' (ع), Sin (س), Lam (ل), Kaf (ك), and Meem (م).",
+            "summary": "The law of recitation called Madd Laazim Harfi Muthaqqal is when there is the beginning of a verse in the Quran that contains one or more of the letters: Noon' (ن), Qof' (ﻕ), Shod' (ص), Ain' (ع), Sin (س), Lam (ل), Kaf (ك), and Meem (م).",
             "detail": "The way to recite it must be prolonged, namely with three Alifs or six vowel counts.",
             "examples": [
                 "الٓمٓ read ALIFLAAAAAAMIIIIIIMM",
@@ -618,8 +618,8 @@
             "name": "Madd Laazim Musyabba'",
             "group": "Ahkämul-madd",
             "category": "Madd",
-            "summary": "The law of recitation called Madd Laazim Musyabaa' is similar to Madd Laazim Harfi Mutsaqqal, after the prolongation there is a silent letter which is not assimilated or doubled.",
-            "detail": "The way to recite it must be prolonged like Madd Laazim Harfi Mutsaqqal, which is with three Alifs.",
+            "summary": "The law of recitation called Madd Laazim Musyabaa' is similar to Madd Laazim Harfi Muthaqqal, after the prolongation there is a silent letter which is not assimilated or doubled.",
+            "detail": "The way to recite it must be prolonged like Madd Laazim Harfi Muthaqqal, which is with three Alifs.",
             "examples": [
                 "صٓ‌ read SHOOOOOOD",
                 "قٓ read QOOOOOOF"
