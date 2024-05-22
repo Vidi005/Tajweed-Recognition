@@ -38,7 +38,7 @@ const MenuBarContainer = ({ t, isEditMode, selectedWaqfIds, selectedTajweedIds, 
               ))}
             </Listbox.Options>
           </Listbox>
-          <h5 className={filteredWaqfs.length > 0 ? "p-2 text-green-700 dark:text-gray-200 animate__animated animate__fadeInRight animate__faster" : "hidden"}>{t("tajweed_setting")}:</h5>
+          <h5 className={filteredTajweeds.length > 0 ? "p-2 text-green-700 dark:text-gray-200 animate__animated animate__fadeInRight animate__faster" : "hidden"}>{t("tajweed_setting")}:</h5>
           <button className={filteredTajweeds.length === 0 ? "hidden" : "flex items-center justify-center border border-green-900 dark:border-white w-full mb-2 px-2 py-1 bg-green-800 dark:bg-gray-700 hover:bg-green-600 dark:hover:bg-gray-500 text-sm text-white rounded-lg shadow-md dark:shadow-white/50 duration-200 animate__animated animate__fadeInRight animate__faster"} onClick={handleAllColorization} title="Colorization">
             <img src="images/clear-all-icon.svg" className={selectedTajweedIds.length === filteredTajweeds.length ? "inline-flex max-h-6 mr-1 object-contain object-center animate__animated animate__flipInY" : "hidden"} alt="Clear All" />
             <img src="images/colorize-all-icon.svg" className={selectedTajweedIds.length !== filteredTajweeds.length ? "inline-flex max-h-6 mr-1 object-contain object-center animate__animated animate__flipInY" : "hidden"} alt="Colorize All" />

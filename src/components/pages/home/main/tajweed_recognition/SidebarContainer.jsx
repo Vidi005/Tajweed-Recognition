@@ -22,7 +22,7 @@ const SidebarContainer = ({ t, areAllPanelsExpanded, selectedWaqfIds, selectedTa
         ))}
       </Listbox.Options>
     </Listbox>
-    <h5 className={filteredWaqfs.length > 0 ? "px-3 py-1 text-green-700 dark:text-gray-200" : "hidden"}>{t("tajweed_setting")}:</h5>
+    <h5 className={filteredTajweeds.length > 0 ? "px-3 py-1 text-green-700 dark:text-gray-200" : "hidden"}>{t("tajweed_setting")}:</h5>
     <div className={filteredTajweeds.length > 0 ? "p-2 grid grid-cols-2 items-center gap-2 text-xs" : "hidden"}>
       <button className="flex items-center justify-center border border-green-900 dark:border-white px-2 py-1 bg-green-800 dark:bg-gray-700 hover:bg-green-600 dark:hover:bg-gray-500 text-white rounded-lg shadow-md dark:shadow-white/50 duration-200" onClick={handleDisclosurePanels} title="Panels Configuration">
         <img src="images/expand-all-icon.svg" className={areAllPanelsExpanded ? "hidden" : "inline-flex max-h-6 mr-1 object-contain object-center animate__animated animate__flipInX"} alt="Expand All" />
