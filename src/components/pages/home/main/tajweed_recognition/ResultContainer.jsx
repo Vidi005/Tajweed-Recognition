@@ -7,7 +7,7 @@ import TajweedGuidelines from "./TajweedGuidelines"
 import SidebarContainer from "./SidebarContainer"
 import { tajweedLaws } from "../../../../../utils/data"
 
-const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increaseTextSize, contentContainerRef, tooltipRef, decreaseLineHeight, decreaseTextSize, handleTextEditor, onContentChangeHandler, setContentDisplayMode, showTooltip, showSummaryModal, hideTooltip, carouselItemsRefs, calculateLines, handleDisclosurePanels, handleAllColorization, toggleOption, toggleSelectAllGroup, closeResult }) => {
+const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increaseTextSize, contentContainerRef, tooltipRef, decreaseLineHeight, decreaseTextSize, handleTextEditor, onContentChangeHandler, setContentDisplayMode, showTooltip, showSummaryModal, hideTooltip, carouselItemsRefs, calculateLines, handleDisclosurePanels, handleAllColorization, selectWaqf, toggleOption, toggleSelectAllGroup, closeResult }) => {
   const loadTajweedData = () => {
     const tajweedData = []
     tajweedLaws().sort((a, b) => a.id - b.id).forEach((tajweedLaw, index) => {
@@ -37,9 +37,12 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
           <MenuBarContainer
             t={t}
             isEditMode={state.isEditMode}
+            filteredWaqfs={state.filteredWaqfs}
             filteredTajweeds={state.filteredTajweeds}
+            selectedWaqfIds={state.selectedWaqfIds}
             selectedTajweedIds={state.selectedTajweedIds}
             handleAllColorization={handleAllColorization}
+            selectWaqf={selectWaqf}
             toggleOption={toggleOption}
             toggleSelectAllGroup={toggleSelectAllGroup}
             closeResult={closeResult} />
@@ -47,10 +50,13 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
             <SidebarContainer
               t={t}
               areAllPanelsExpanded={state.areAllPanelsExpanded}
+              filteredWaqfs={state.filteredWaqfs}
               filteredTajweeds={state.filteredTajweeds}
+              selectedWaqfIds={state.selectedWaqfIds}
               selectedTajweedIds={state.selectedTajweedIds}
               handleDisclosurePanels={handleDisclosurePanels}
               handleAllColorization={handleAllColorization}
+              selectWaqf={selectWaqf}
               toggleOption={toggleOption}
               toggleSelectAllGroup={toggleSelectAllGroup} />
             <article className="flex flex-col w-full lg:w-3/4 overflow-hidden">

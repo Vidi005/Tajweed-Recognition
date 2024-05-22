@@ -1,9 +1,28 @@
-import { Disclosure, Transition } from "@headlessui/react"
+import { Disclosure, Listbox, Transition } from "@headlessui/react"
 import React, { Fragment } from "react"
 
-const SidebarContainer = ({ t, areAllPanelsExpanded, selectedTajweedIds, filteredTajweeds, handleDisclosurePanels, handleAllColorization, toggleOption, toggleSelectAllGroup }) => (
+const SidebarContainer = ({ t, areAllPanelsExpanded, selectedWaqfIds, selectedTajweedIds, filteredWaqfs, filteredTajweeds, handleDisclosurePanels, handleAllColorization, selectWaqf, toggleOption, toggleSelectAllGroup }) => (
   <aside className="hidden w-0 lg:inline-block lg:w-1/4 bg-green-50 dark:bg-gray-700 shadow-lg dark:shadow-white/50 overflow-y-auto">
     <h4 className="px-3 py-2 text-green-900 dark:text-white">{t("sidebar_title")}</h4>
+    <h5 className={filteredWaqfs.length > 0 ? "px-3 py-1 text-green-700 dark:text-gray-200" : "hidden"}>{t("waqf_setting")}:</h5>
+    <Listbox value={selectedWaqfIds} multiple>
+      <Listbox.Options static className="border border-green-900 dark:border-white bg-green-700/50 dark:bg-gray-800 mx-3 my-2 rounded-lg shadow-md dark:shadow-white/50 overflow-hidden">
+        {filteredWaqfs.sort((a, b) => b.id - a.id).map(waqf => (
+          <Listbox.Label key={waqf.id} className="flex items-center flex-nowrap cursor-pointer px-3 hover:translate-x-2 duration-300">
+            <input
+              type="checkbox"
+              className="form-checkbox h-5 w-5 mr-4 duration-200"
+              style={{ accentColor: waqf.color }}
+              checked={selectedWaqfIds.includes(waqf.id)}
+              onChange={() => selectWaqf(waqf.id)}
+            />
+            <span className="text-base brightness-150 dark:brightness-100" style={{ color: waqf.color }}>{waqf.name}</span>
+            <span className="grow pl-3 text-4xl brightness-150 dark:brightness-100" style={{ color: waqf.color }}>{waqf.unicode}</span>
+          </Listbox.Label>
+        ))}
+      </Listbox.Options>
+    </Listbox>
+    <h5 className={filteredWaqfs.length > 0 ? "px-3 py-1 text-green-700 dark:text-gray-200" : "hidden"}>{t("tajweed_setting")}:</h5>
     <div className={filteredTajweeds.length > 0 ? "p-2 grid grid-cols-2 items-center gap-2 text-xs" : "hidden"}>
       <button className="flex items-center justify-center border border-green-900 dark:border-white px-2 py-1 bg-green-800 dark:bg-gray-700 hover:bg-green-600 dark:hover:bg-gray-500 text-white rounded-lg shadow-md dark:shadow-white/50 duration-200" onClick={handleDisclosurePanels} title="Panels Configuration">
         <img src="images/expand-all-icon.svg" className={areAllPanelsExpanded ? "hidden" : "inline-flex max-h-6 mr-1 object-contain object-center animate__animated animate__flipInX"} alt="Expand All" />

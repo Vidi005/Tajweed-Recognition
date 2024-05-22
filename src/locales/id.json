@@ -23,6 +23,8 @@
     "empty_arabic_text": ["Tidak ada teks Arab ditemukan!", "Silakan coba dengan teks yang terdapat huruf Arab."],
     "recognition_failed": "Gagal Mengenali Teks!",
     "sidebar_title": "Pengaturan Tampilan Tadjwid",
+    "waqf_setting": "Pengaturan Waqof",
+    "tajweed_setting": "Pengaturan Tadjwid",
     "expand_all": "Perluas Semua",
     "collapse_all": "Ciutkan Semua",
     "colorize_all": "Pilih Semua",
@@ -72,6 +74,20 @@
     "not_found": "Tidak Ditemukan",
     "page_not_found": "Halaman Tidak Ditemukan!",
     "back_to_home": "Kembali ke Halaman Utama",
+    "waqfs": [
+        {
+            "id": 1,
+            "name": "Al-Washlu Aula"
+        },
+        {
+            "id": 2,
+            "name": "Waqof Jaiz"
+        },
+        {
+            "id": 3,
+            "name": "Al-Waqfu Aula"
+        }
+    ],
     "tajweed_laws": [
         {
             "id": 1,

@@ -1,6 +1,6 @@
 import React from "react"
 import Swal from "sweetalert2"
-import { alternativeUrls, checkParamEvent, colorizeChars, isStorageExist, loadFileAsArrayBuffer, removeNonArabic, tajweedLaws, twLineHeights, twTextSizes } from "../../../../../utils/data"
+import { alternativeUrls, checkParamEvent, colorizeChars, isStorageExist, loadFileAsArrayBuffer, removeNonArabic, tajweedLaws, twLineHeights, twTextSizes, waqfAulaContinuityTajweedLaws, waqfJaizContinuityTajweedLaws, waqfs, washalAulaContinuityTajweedLaws } from "../../../../../utils/data"
 import Tesseract from "tesseract.js"
 import ResultContainer from "./ResultContainer"
 import DropZoneContainer from "./import_mode/DropZoneContainer"
@@ -38,6 +38,7 @@ class RecognitionContainer extends React.Component {
       RESULT_CONTENT_STORAGE_KEY: 'RESULT_CONTENT_STORE_KEY',
       facingMode: 'environment',
       recognizedText: '',
+      tajweedLawRules: tajweedLaws(),
       twLineHeight: '3rem',
       twTextSize: '1.5rem',
       coloredTajweeds: '',
@@ -47,9 +48,11 @@ class RecognitionContainer extends React.Component {
       docTitle: '',
       dataFile: null,
       selectedTajweed: {},
+      filteredWaqfs: [],
       filteredTajweeds: [],
       lines: [],
       selectedTajweedIds: [],
+      selectedWaqfIds: [],
       selectedTajweedLaws: [],
       isPromptOpened: false,
       isDialogOpened: false,
@@ -119,9 +122,22 @@ class RecognitionContainer extends React.Component {
     }
   }
 
+  loadWaqfData() {
+    const waqfData = []
+    waqfs().sort((a, b) => a.id - b.id).forEach((waqf, index) => {
+      waqfData.push({
+        id: this.props.t(`waqfs.${index}.id`),
+        name: this.props.t(`waqfs.${index}.name`),
+        color: waqf.color,
+        unicode: waqf.unicode
+      })
+    })
+    return waqfData
+  }
+
   loadTajweedData() {
     const tajweedData = []
-    tajweedLaws().sort((a, b) => a.id - b.id).forEach((tajweedLaw, index) => {
+    this.state.tajweedLawRules.sort((a, b) => a.id - b.id).forEach((tajweedLaw, index) => {
       tajweedData.push({
         id: this.props.t(`tajweed_laws.${index}.id`),
         name: this.props.t(`tajweed_laws.${index}.name`),
@@ -143,6 +159,8 @@ class RecognitionContainer extends React.Component {
         twLineHeight,
         twTextSize,
         coloredTajweeds,
+        filteredWaqfs,
+        selectedWaqfIds,
         filteredTajweeds,
         selectedTajweedIds,
         selectedTajweedLaws,
@@ -153,6 +171,8 @@ class RecognitionContainer extends React.Component {
         twLineHeight,
         twTextSize,
         coloredTajweeds,
+        filteredWaqfs,
+        selectedWaqfIds,
         filteredTajweeds,
         selectedTajweedIds,
         selectedTajweedLaws,
@@ -197,7 +217,7 @@ class RecognitionContainer extends React.Component {
         const worker = createColorizeWorker()
         worker.postMessage({
           recognizedText: this.state.recognizedText,
-          tajweedLaws: tajweedLaws()
+          tajweedLaws: this.state.tajweedLawRules
         })
         worker.onmessage = workerEvent => {
           const coloredTajweeds = workerEvent.data
@@ -237,6 +257,8 @@ class RecognitionContainer extends React.Component {
         twTextSize: this.state.twTextSize,
         coloredTajweeds: this.state.coloredTajweeds,
         filteredTajweeds: this.state.filteredTajweeds,
+        filteredWaqfs: this.state.filteredWaqfs,
+        selectedWaqfIds: this.state.selectedWaqfIds,
         selectedTajweedIds: this.state.selectedTajweedIds,
         selectedTajweedLaws: this.state.selectedTajweedLaws,
         isResultClosed: this.state.isResultClosed
@@ -565,7 +587,7 @@ class RecognitionContainer extends React.Component {
           isRecognizing: false,
           isEditMode: false,
           recognizedText: removeNonArabic(data.text.split('\n').join(' ').trim().replace(/\s+/g, ' ')),
-          coloredTajweeds: colorizeChars(removeNonArabic(data.text.trim()), tajweedLaws()),
+          coloredTajweeds: colorizeChars(removeNonArabic(data.text.trim()), this.state.tajweedLawRules),
           isResultClosed: false }, () => this.filterColorizedTajweeds(this.state.coloredTajweeds))
       } else {
         this.setState({ isRecognizing: false }, () => {
@@ -621,7 +643,7 @@ class RecognitionContainer extends React.Component {
             this.setState({
               isRecognizing: false,
               isEditMode: false,
-              coloredTajweeds: colorizeChars(removeNonArabic(recognizedTextArray.join('\n').trim()), tajweedLaws()),
+              coloredTajweeds: colorizeChars(removeNonArabic(recognizedTextArray.join('\n').trim()), this.state.tajweedLawRules),
               isResultClosed: false }, () => this.filterColorizedTajweeds(this.state.coloredTajweeds))
             return
           } else {
@@ -688,7 +710,7 @@ class RecognitionContainer extends React.Component {
       }
       this.setState({
         recognizedText: removeNonArabic(text.trim()),
-        coloredTajweeds: colorizeChars(removeNonArabic(text.trim()), tajweedLaws()),
+        coloredTajweeds: colorizeChars(removeNonArabic(text.trim()), this.state.tajweedLawRules),
         isRecognizing: false,
         isEditMode: false,
         isResultClosed: false,
@@ -713,7 +735,7 @@ class RecognitionContainer extends React.Component {
       if (text.value.length > 0) {
         this.setState({
           recognizedText: removeNonArabic(text.value.trim()),
-          coloredTajweeds: colorizeChars(removeNonArabic(text.value.trim()), tajweedLaws()),
+          coloredTajweeds: colorizeChars(removeNonArabic(text.value.trim()), this.state.tajweedLawRules),
           isRecognizing: false,
           isEditMode: false,
           isResultClosed: false,
@@ -786,10 +808,10 @@ class RecognitionContainer extends React.Component {
   }
 
   showSummaryModal(idParam) {
-    if (checkParamEvent(idParam, tajweedLaws())?.length > 0) {
-      const tajweedName = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === checkParamEvent(idParam, tajweedLaws())[0].id)}.name`)
-      const summary = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === checkParamEvent(idParam, tajweedLaws())[0].id)}.summary`)
-      const detailPage = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === checkParamEvent(idParam, tajweedLaws())[0].id)}.page`)
+    if (checkParamEvent(idParam, this.state.tajweedLawRules)?.length > 0) {
+      const tajweedName = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === checkParamEvent(idParam, this.state.tajweedLawRules)[0].id)}.name`)
+      const summary = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === checkParamEvent(idParam, this.state.tajweedLawRules)[0].id)}.summary`)
+      const detailPage = this.props.t(`tajweed_laws.${en.tajweed_laws.findIndex(tajweedLaw => tajweedLaw.id === checkParamEvent(idParam, this.state.tajweedLawRules)[0].id)}.page`)
       this.setState({ isModalOpened: true, selectedTajweed: { tajweedName, summary, detailPage } })
     }
   }
@@ -799,7 +821,10 @@ class RecognitionContainer extends React.Component {
       const styleRegex = new RegExp(`class="tajweed-${tajweedLaw.id}" `)
       return styleRegex.test(coloredTajweeds)
     }).sort((a, b) => a.id - b.id)
+    const selectedWaqfs = this.loadWaqfData().filter(waqf => coloredTajweeds.includes(waqf.unicode))
     this.setState({
+      filteredWaqfs: selectedWaqfs,
+      selectedWaqfIds: selectedWaqfs.map(waqf => waqf.id),
       filteredTajweeds: colorizedTajweeds,
       selectedTajweedLaws: colorizedTajweeds,
       selectedTajweedIds: colorizedTajweeds.map(tajweedLaw => tajweedLaw.id)
@@ -837,7 +862,7 @@ class RecognitionContainer extends React.Component {
     const worker = createColorizeWorker()
     worker.postMessage({
       recognizedText: this.state.recognizedText,
-      tajweedLaws: tajweedLaws().filter(tajweedLaw => this.state.selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id))
+      tajweedLaws: this.state.tajweedLawRules.filter(tajweedLaw => this.state.selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id))
     })
     worker.onmessage = workerEvent => {
       const coloredTajweeds = workerEvent.data
@@ -848,6 +873,30 @@ class RecognitionContainer extends React.Component {
       })
       worker.terminate()
     }
+  }
+
+  selectWaqf(waqfId) {
+    const { selectedWaqfIds, filteredWaqfs } = this.state
+    let newSelectedWaqfIds = [...selectedWaqfIds]
+    if (selectedWaqfIds.includes(waqfId)) {
+      newSelectedWaqfIds = newSelectedWaqfIds.filter(id => id !== waqfId && id > waqfId)
+    } else {
+      newSelectedWaqfIds.push(waqfId)
+      newSelectedWaqfIds = [...new Set([...newSelectedWaqfIds, ...filteredWaqfs.filter(waqf => waqf.id > waqfId).map(waqf => waqf.id)])]
+    }
+    this.setState({ selectedWaqfIds: newSelectedWaqfIds }, () => {
+      if (newSelectedWaqfIds.length === filteredWaqfs.length) {
+        this.setState({ tajweedLawRules: tajweedLaws() }, () => this.changeSelectOptions())
+      } else if (newSelectedWaqfIds.length === 0) {
+        this.setState({ tajweedLawRules: waqfAulaContinuityTajweedLaws() }, () => this.changeSelectOptions())
+      } else if (newSelectedWaqfIds.includes(2) && !newSelectedWaqfIds.includes(1)) {
+        this.setState({ tajweedLawRules: washalAulaContinuityTajweedLaws() }, () => this.changeSelectOptions())
+      } else if (newSelectedWaqfIds.includes(3) && newSelectedWaqfIds.length === 1) {
+        this.setState({ tajweedLawRules: waqfJaizContinuityTajweedLaws() }, () => this.changeSelectOptions())
+      } else {
+          this.setState({ tajweedLawRules: tajweedLaws() }, () => this.changeSelectOptions())
+      }
+    })
   }
 
   toggleOption(optionId) {
@@ -864,8 +913,7 @@ class RecognitionContainer extends React.Component {
   }
 
   toggleSelectAllGroup(group) {
-    const { selectedTajweedIds } = this.state
-    const { filteredTajweeds } = this.state
+    const { selectedTajweedIds, filteredTajweeds } = this.state
     const groupOptions = filteredTajweeds.filter(tajweedLaw => tajweedLaw.category === group).map(tajweedLaw => tajweedLaw.id)
     if (selectedTajweedIds.some(optionId => groupOptions.some(groupOption => groupOption === optionId))) {
       this.setState({
@@ -876,8 +924,7 @@ class RecognitionContainer extends React.Component {
   }
 
   handleAllColorization() {
-    const { selectedTajweedIds } = this.state
-    const { filteredTajweeds } = this.state
+    const { selectedTajweedIds, filteredTajweeds } = this.state
     if (selectedTajweedIds.length === filteredTajweeds.length) {
       this.setState({ selectedTajweedIds: [] }, () => {
         this.changeSelectOptions()
@@ -907,7 +954,16 @@ class RecognitionContainer extends React.Component {
   }
 
   closeResult () {
-    this.setState({ isResultClosed: true, recognizedText: '', coloredTajweeds: '' })
+    this.setState({
+      isResultClosed: true,
+      recognizedText: '',
+      coloredTajweeds: '',
+      selectedWaqfIds: [],
+      selectedTajweedIds: [],
+      filteredWaqfs: [],
+      filteredTajweeds: [],
+      selectedTajweedLaws: [],
+    })
     if (isStorageExist(this.props.t('browser_warning'))) sessionStorage.clear()
   }
 
@@ -1001,6 +1057,7 @@ class RecognitionContainer extends React.Component {
           calculateLines={this.calculateLines.bind(this)}
           handleDisclosurePanels={this.handleDisclosurePanels.bind(this)}
           handleAllColorization={this.handleAllColorization.bind(this)}
+          selectWaqf={this.selectWaqf.bind(this)}
           toggleOption={this.toggleOption.bind(this)}
           toggleSelectAllGroup={this.toggleSelectAllGroup.bind(this)}
         />

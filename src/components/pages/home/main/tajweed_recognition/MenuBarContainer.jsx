@@ -2,7 +2,7 @@ import { Listbox, Popover, Transition } from "@headlessui/react"
 import React, { Fragment } from "react"
 import Swal from "sweetalert2"
 
-const MenuBarContainer = ({ t, isEditMode, selectedTajweedIds, filteredTajweeds, toggleOption, handleAllColorization, toggleSelectAllGroup, closeResult }) => (
+const MenuBarContainer = ({ t, isEditMode, selectedWaqfIds, selectedTajweedIds, filteredWaqfs, filteredTajweeds, selectWaqf, toggleOption, handleAllColorization, toggleSelectAllGroup, closeResult }) => (
   <header className="menu-bar__container flex flex-nowrap items-center w-full p-1 bg-green-50 dark:bg-gray-700 shadow-lg z-10">
     <h3 className="title-bar flex-1 pl-2 text-green-900 dark:text-white">{isEditMode ? t('container_title.0') : t('container_title.1')}</h3>
     <Popover className={"menu-btn flex-none inline-block lg:hidden h-10"}>
@@ -20,7 +20,26 @@ const MenuBarContainer = ({ t, isEditMode, selectedTajweedIds, filteredTajweeds,
         leaveTo="transform opacity-0 scale-95 -translate-y-1/4"
       >
         <Popover.Panel className={"absolute right-2 mt-2 max-w-full w-max max-h-[83%] p-2 origin-top-right bg-green-50 dark:bg-gray-700 shadow-xl dark:shadow-md dark:shadow-white/50 rounded-lg overflow-x-hidden z-10"}>
-          <button className={filteredTajweeds.length === 0 ? "hidden" : "flex items-center justify-center border border-green-900 dark:border-white w-full mb-2 px-2 py-1 bg-green-800 dark:bg-gray-700 hover:bg-green-600 dark:hover:bg-gray-500 text-sm text-white rounded-lg shadow-md dark:shadow-white/50 duration-200"} onClick={handleAllColorization} title="Colorization">
+          <h5 className={filteredWaqfs.length > 0 ? "p-2 text-green-700 dark:text-gray-200 animate__animated animate__fadeInRight animate__faster" : "hidden"}>{t("waqf_setting")}:</h5>
+          <Listbox value={selectedWaqfIds} multiple>
+            <Listbox.Options static className="border border-green-900 dark:border-white bg-green-700/50 dark:bg-gray-800 m-1 rounded-lg shadow-md dark:shadow-white/50 overflow-hidden animate__animated animate__fadeInRight animate__faster">
+              {filteredWaqfs.sort((a, b) => b.id - a.id).map(waqf => (
+                <Listbox.Label key={waqf.id} className="flex items-center flex-nowrap cursor-pointer px-2">
+                  <input
+                    type="checkbox"
+                    className="form-checkbox h-5 w-5 mr-4 duration-200"
+                    style={{ accentColor: waqf.color }}
+                    checked={selectedWaqfIds.includes(waqf.id)}
+                    onChange={() => selectWaqf(waqf.id)}
+                  />
+                  <span className="text-sm md:text-base brightness-150 dark:brightness-100" style={{ color: waqf.color }}>{waqf.name}</span>
+                  <span className="grow pl-3 text-3xl md:text-4xl brightness-150 dark:brightness-100" style={{ color: waqf.color }}>{waqf.unicode}</span>
+                </Listbox.Label>
+              ))}
+            </Listbox.Options>
+          </Listbox>
+          <h5 className={filteredWaqfs.length > 0 ? "p-2 text-green-700 dark:text-gray-200 animate__animated animate__fadeInRight animate__faster" : "hidden"}>{t("tajweed_setting")}:</h5>
+          <button className={filteredTajweeds.length === 0 ? "hidden" : "flex items-center justify-center border border-green-900 dark:border-white w-full mb-2 px-2 py-1 bg-green-800 dark:bg-gray-700 hover:bg-green-600 dark:hover:bg-gray-500 text-sm text-white rounded-lg shadow-md dark:shadow-white/50 duration-200 animate__animated animate__fadeInRight animate__faster"} onClick={handleAllColorization} title="Colorization">
             <img src="images/clear-all-icon.svg" className={selectedTajweedIds.length === filteredTajweeds.length ? "inline-flex max-h-6 mr-1 object-contain object-center animate__animated animate__flipInY" : "hidden"} alt="Clear All" />
             <img src="images/colorize-all-icon.svg" className={selectedTajweedIds.length !== filteredTajweeds.length ? "inline-flex max-h-6 mr-1 object-contain object-center animate__animated animate__flipInY" : "hidden"} alt="Colorize All" />
             <span className={selectedTajweedIds.length === filteredTajweeds.length ? "inline-flex animate__animated animate__fadeIn" : "hidden"}>{t("clear_all")}</span>
