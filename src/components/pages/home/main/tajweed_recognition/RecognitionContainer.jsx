@@ -16,7 +16,7 @@ import SaveFilePrompt from "./pop_up/SaveFilePrompt"
 import jsPDF from "jspdf"
 import autoTable from "jspdf-autotable"
 import html2PDF from "jspdf-html2canvas"
-import { createColorizeWorker, createTooltipWorker } from "../../../../../utils/worker"
+import { createColorizationWorker, createTooltipWorker } from "../../../../../utils/worker"
 
 if (import.meta && import.meta.url) {
   pdfjs.GlobalWorkerOptions.workerSrc = new URL(
@@ -158,6 +158,7 @@ class RecognitionContainer extends React.Component {
         recognizedText,
         twLineHeight,
         twTextSize,
+        tajweedLawRules,
         coloredTajweeds,
         filteredWaqfs,
         selectedWaqfIds,
@@ -170,6 +171,7 @@ class RecognitionContainer extends React.Component {
         recognizedText,
         twLineHeight,
         twTextSize,
+        tajweedLawRules,
         coloredTajweeds,
         filteredWaqfs,
         selectedWaqfIds,
@@ -210,11 +212,11 @@ class RecognitionContainer extends React.Component {
   }
 
   handleTextEditor() {
-    this.setState(prevState => ({ isEditMode: !prevState.isEditMode }), () => {
+    this.setState(prevState => ({ isEditMode: !prevState.isEditMode, tajweedLawRules: tajweedLaws() }), () => {
       scrollTo(0, 0)
       if (!this.state.isEditMode) {
         this.setState({ isLoading: true })
-        const worker = createColorizeWorker()
+        const worker = createColorizationWorker()
         worker.postMessage({
           recognizedText: this.state.recognizedText,
           tajweedLaws: this.state.tajweedLawRules
@@ -255,6 +257,7 @@ class RecognitionContainer extends React.Component {
         recognizedText: this.state.recognizedText,
         twLineHeight: this.state.twLineHeight,
         twTextSize: this.state.twTextSize,
+        tajweedLawRules: this.state.tajweedLawRules,
         coloredTajweeds: this.state.coloredTajweeds,
         filteredTajweeds: this.state.filteredTajweeds,
         filteredWaqfs: this.state.filteredWaqfs,
@@ -831,6 +834,18 @@ class RecognitionContainer extends React.Component {
     })
   }
 
+  regenerateTajweedColors(coloredTajweeds) {
+    const colorizedTajweeds = this.loadTajweedData().filter(tajweedLaw => {
+      const styleRegex = new RegExp(`class="tajweed-${tajweedLaw.id}" `)
+      return styleRegex.test(coloredTajweeds)
+    }).sort((a, b) => a.id - b.id)
+    this.setState({
+      filteredTajweeds: colorizedTajweeds,
+      selectedTajweedLaws: colorizedTajweeds,
+      selectedTajweedIds: colorizedTajweeds.map(tajweedLaw => tajweedLaw.id)
+    })
+  }
+
   calculateLines(classNames, isHovered, dataIdx, color) {
     if (!this.state.isEditMode) {
       const elements = document.querySelectorAll(`.${classNames}`)
@@ -856,10 +871,26 @@ class RecognitionContainer extends React.Component {
     this.setState(prevState => ({ areAllPanelsExpanded: !prevState.areAllPanelsExpanded }))
   }
 
-  changeSelectOptions() {
+  changeWaqfSelections() {
+    this.setState({ isLoading: true })
+    const worker = createColorizationWorker()
+    worker.postMessage({
+      recognizedText: this.state.recognizedText,
+      tajweedLaws: this.state.tajweedLawRules
+    })
+    worker.onmessage = workerEvent => {
+      const coloredTajweeds = workerEvent.data
+      this.setState({ coloredTajweeds: coloredTajweeds, isLoading: false }, () => {
+        this.regenerateTajweedColors(coloredTajweeds)
+      })
+      worker.terminate()
+    }
+  }
+
+  changeTajweedSelections() {
     const filteredTajweeds = [...this.state.filteredTajweeds]
     this.setState({ isLoading: true })
-    const worker = createColorizeWorker()
+    const worker = createColorizationWorker()
     worker.postMessage({
       recognizedText: this.state.recognizedText,
       tajweedLaws: this.state.tajweedLawRules.filter(tajweedLaw => this.state.selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id))
@@ -886,16 +917,14 @@ class RecognitionContainer extends React.Component {
     }
     this.setState({ selectedWaqfIds: newSelectedWaqfIds }, () => {
       if (newSelectedWaqfIds.length === filteredWaqfs.length) {
-        this.setState({ tajweedLawRules: tajweedLaws() }, () => this.changeSelectOptions())
+        this.setState({ tajweedLawRules: tajweedLaws() }, () => this.changeWaqfSelections())
       } else if (newSelectedWaqfIds.length === 0) {
-        this.setState({ tajweedLawRules: waqfAulaContinuityTajweedLaws() }, () => this.changeSelectOptions())
+        this.setState({ tajweedLawRules: waqfAulaContinuityTajweedLaws() }, () => this.changeWaqfSelections())
       } else if (newSelectedWaqfIds.includes(2) && !newSelectedWaqfIds.includes(1)) {
-        this.setState({ tajweedLawRules: washalAulaContinuityTajweedLaws() }, () => this.changeSelectOptions())
+        this.setState({ tajweedLawRules: washalAulaContinuityTajweedLaws() }, () => this.changeWaqfSelections())
       } else if (newSelectedWaqfIds.includes(3) && newSelectedWaqfIds.length === 1) {
-        this.setState({ tajweedLawRules: waqfJaizContinuityTajweedLaws() }, () => this.changeSelectOptions())
-      } else {
-          this.setState({ tajweedLawRules: tajweedLaws() }, () => this.changeSelectOptions())
-      }
+        this.setState({ tajweedLawRules: waqfJaizContinuityTajweedLaws() }, () => this.changeWaqfSelections())
+      } else this.setState({ tajweedLawRules: tajweedLaws() }, () => this.changeWaqfSelections())
     })
   }
 
@@ -903,11 +932,11 @@ class RecognitionContainer extends React.Component {
     const { selectedTajweedIds } = this.state
     if (selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === optionId)) {
       this.setState({ selectedTajweedIds: selectedTajweedIds.filter(id => id !== optionId) }, () => {
-        this.changeSelectOptions()
+        this.changeTajweedSelections()
       })
     } else {
       this.setState({ selectedTajweedIds: [...selectedTajweedIds, optionId] }, () => {
-        this.changeSelectOptions()
+        this.changeTajweedSelections()
       })
     }
   }
@@ -918,20 +947,20 @@ class RecognitionContainer extends React.Component {
     if (selectedTajweedIds.some(optionId => groupOptions.some(groupOption => groupOption === optionId))) {
       this.setState({
         selectedTajweedIds: selectedTajweedIds.filter(optionId => !groupOptions.some(groupOption => groupOption === optionId))}, () => {
-        this.changeSelectOptions()
+        this.changeTajweedSelections()
       })
-    } else this.setState({ selectedTajweedIds: [...selectedTajweedIds, ...groupOptions] }, () => this.changeSelectOptions())
+    } else this.setState({ selectedTajweedIds: [...selectedTajweedIds, ...groupOptions] }, () => this.changeTajweedSelections())
   }
 
   handleAllColorization() {
     const { selectedTajweedIds, filteredTajweeds } = this.state
     if (selectedTajweedIds.length === filteredTajweeds.length) {
       this.setState({ selectedTajweedIds: [] }, () => {
-        this.changeSelectOptions()
+        this.changeTajweedSelections()
       })
     } else {
       this.setState({ selectedTajweedIds: filteredTajweeds.map(tajweedLaw => tajweedLaw.id) }, () => {
-        this.changeSelectOptions()
+        this.changeTajweedSelections()
       })
     }
   }
@@ -957,6 +986,7 @@ class RecognitionContainer extends React.Component {
     this.setState({
       isResultClosed: true,
       recognizedText: '',
+      tajweedLawRules: tajweedLaws(),
       coloredTajweeds: '',
       selectedWaqfIds: [],
       selectedTajweedIds: [],
@@ -980,20 +1010,22 @@ class RecognitionContainer extends React.Component {
         <h2>Tajweed Recognition</h2>
         <p className="relative text-justify lg:text-lg lg:text-center md:mx-8 lg:mx-16">{this.props.t('app_description')}</p>
         <div className="btn-container relative flex flex-wrap items-center justify-center">
-          <button className="btn-capture grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 duration-200" onClick={this.setUpCamera.bind(this)}>
+          <button className="btn-capture w-60 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 duration-200" onClick={this.setUpCamera.bind(this)}>
             <img className="h-8 md:h-12 mr-2" src="images/camera-icon.svg" alt="Capture Image" />
             <h5 className="md:text-lg whitespace-nowrap">{this.props.t('capture_image')}</h5>
           </button>
-          <label htmlFor="file-picker" className="btn-import grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 cursor-pointer duration-200">
+          <label htmlFor="file-picker" className="btn-import w-60 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 cursor-pointer duration-200">
             <input type="file" id="file-picker" className="hidden" accept="image/*, application/pdf, application/vnd.openxmlformats-officedocument.wordprocessingml.document" onChange={e => this.pickFile(e.target.files)} />
             <img className="h-8 md:h-12 mr-2" src="images/import-icon.svg" alt="Select a File" />
             <h5 className="md:text-lg whitespace-nowrap">{this.props.t('select_file')}</h5>
           </label>
-          <button className="btn-screenshot grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 duration-200" onClick={this.takeScreenCapture.bind(this)}>
-            <img className="h-8 md:h-12 mr-2" src="images/share-screen-icon.svg" alt="Screen Capture" />
-            <h5 className="md:text-lg whitespace-nowrap">{this.props.t('screen_capture')}</h5>
-          </button>
-          <button className="btn-manual-input grow-[9999] basis-52 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 duration-200" onClick={this.editTextInput.bind(this)}>
+          {navigator.mediaDevices &&
+            <button className="btn-screenshot w-60 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 duration-200" onClick={this.takeScreenCapture.bind(this)}>
+              <img className="h-8 md:h-12 mr-2" src="images/share-screen-icon.svg" alt="Screen Capture" />
+              <h5 className="md:text-lg whitespace-nowrap">{this.props.t('screen_capture')}</h5>
+            </button>
+          }
+          <button className="btn-manual-input w-60 my-2 mx-16 md:m-4 flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-800 dark:bg-green-700 hover:bg-green-900 dark:hover:bg-green-600 text-white rounded-lg shadow-lg dark:shadow-white/50 duration-200" onClick={this.editTextInput.bind(this)}>
             <img className="h-8 md:h-12 mr-2" src="images/input-text-icon.svg" alt="Manual Input" />
             <h5 className="md:text-lg whitespace-nowrap">{this.props.t('manual_input')}</h5>
           </button>

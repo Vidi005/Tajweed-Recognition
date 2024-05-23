@@ -19,7 +19,7 @@ const createTooltipWorker = () => {
   return new Worker(URL.createObjectURL(blob))
 }
 
-const createColorizeWorker = () => {
+const createColorizationWorker = () => {
   const workerScript = `
     self.onmessage = function(event) {
       const { recognizedText, tajweedLaws } = event.data
@@ -44,4 +44,4 @@ const createColorizeWorker = () => {
   return new Worker(URL.createObjectURL(blob))
 }
 
-export { createTooltipWorker, createColorizeWorker }
+export { createTooltipWorker, createColorizationWorker }
