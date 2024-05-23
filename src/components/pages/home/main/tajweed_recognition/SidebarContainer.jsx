@@ -6,7 +6,7 @@ const SidebarContainer = ({ t, areAllPanelsExpanded, selectedWaqfIds, selectedTa
     <h4 className="px-3 py-2 text-green-900 dark:text-white">{t("sidebar_title")}</h4>
     <h5 className={filteredWaqfs.length > 0 ? "px-3 py-1 text-green-700 dark:text-gray-200" : "hidden"}>{t("waqf_setting")}:</h5>
     <Listbox value={selectedWaqfIds} multiple>
-      <Listbox.Options static className="border border-green-900 dark:border-white bg-green-700/50 dark:bg-gray-800 mx-3 my-2 rounded-lg shadow-md dark:shadow-white/50 overflow-hidden">
+      <Listbox.Options static className={filteredWaqfs.length > 0 ? "border border-green-900 dark:border-white bg-green-700/50 dark:bg-gray-800 mx-3 my-2 rounded-lg shadow-md dark:shadow-white/50 overflow-hidden" : "hidden"}>
         {filteredWaqfs.sort((a, b) => b.id - a.id).map(waqf => (
           <Listbox.Label key={waqf.id} className="flex items-center flex-nowrap cursor-pointer px-3 hover:translate-x-2 duration-300">
             <input

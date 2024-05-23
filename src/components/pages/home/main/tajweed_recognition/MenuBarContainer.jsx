@@ -22,7 +22,7 @@ const MenuBarContainer = ({ t, isEditMode, selectedWaqfIds, selectedTajweedIds, 
         <Popover.Panel className={"absolute right-2 mt-2 max-w-full w-max max-h-[83%] p-2 origin-top-right bg-green-50 dark:bg-gray-700 shadow-xl dark:shadow-md dark:shadow-white/50 rounded-lg overflow-x-hidden z-10"}>
           <h5 className={filteredWaqfs.length > 0 ? "p-2 text-green-700 dark:text-gray-200 animate__animated animate__fadeInRight animate__faster" : "hidden"}>{t("waqf_setting")}:</h5>
           <Listbox value={selectedWaqfIds} multiple>
-            <Listbox.Options static className="border border-green-900 dark:border-white bg-green-700/50 dark:bg-gray-800 m-1 rounded-lg shadow-md dark:shadow-white/50 overflow-hidden animate__animated animate__fadeInRight animate__faster">
+            <Listbox.Options static className={filteredWaqfs.length > 0 ? "border border-green-900 dark:border-white bg-green-700/50 dark:bg-gray-800 m-1 rounded-lg shadow-md dark:shadow-white/50 overflow-hidden animate__animated animate__fadeInRight animate__faster" : "hidden"}>
               {filteredWaqfs.sort((a, b) => b.id - a.id).map(waqf => (
                 <Listbox.Label key={waqf.id} className="flex items-center flex-nowrap cursor-pointer px-2">
                   <input
