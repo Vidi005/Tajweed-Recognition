@@ -673,20 +673,25 @@ const extractIdghamSyamsiyahCharacters = () => [
   /ٱٱلْت/gm, /ٱٱلْث/gm, /ٱٱلْد/gm, /ٱٱلْذ/gm, /ٱٱلْر/gm, /ٱٱلْز/gm, /ٱٱلْس/gm, /ٱٱلْش/gm, /ٱٱلْص/gm, /ٱٱلْض/gm, /ٱٱلْط/gm, /ٱٱلْظ/gm, /ٱٱلْل/gm, /ٱٱلْن/
 ]
 
-const extractTafkhimCharacters = () => [
-  /\u0627[\u064E-\u064F]\u0644\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm,
-  /[\u064E-\u064F]\u0644\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm,
+const extractLamTafkhimCharacters = () => [
+  /\u0627[\u064E-\u064F]\s*\u0644\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm,
+  /[\u064E-\u064F]\s*\u0644\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm,
   /(?:[\u064E-\u064F])\s*(?:\u0627|\u0671)\s*\u0644\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm,
   /(?:[\u064E-\u064F])\s*(?:\u0627|[\u0648-\u0649]|\u0671)\s*(?:\u0627|\u0671)\s*\u0644\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm,
-  /(?:[\u064E-\u064F])\s*(?:\u0627|[\u0648-\u0649]|\u0671)\s*(?:\u0627|\u0671)\s*(?:\u0627|\u0671)\s*\u0644\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm
+  /(?:[\u064E-\u064F])\s*(?:\u0627|[\u0648-\u0649]|\u0671)\s*(?:\u0627|\u0671)\s*(?:\u0627|\u0671)\s*\u0644\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm,
+  /\u0644[\u064E-\u064F]\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm,
+  /\u0644\u0651[\u064E-\u064F]\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm,
+  /\u0644[\u064E-\u064F]\u0651\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm
 ]
 
-const extractTarqiqCharacters = () => [
+const extractLamTarqiqCharacters = () => [
   /\u0650\s*(?:\u0627|\u0671)\s*\u0644\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm,
   /\u0650\s*(?:\u0627|[\u0648-\u0649]|\u0671)\s*(?:\u0627|\u0671)\s*\u0644\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm,
   /\u0650\s*(?:\u0627|[\u0648-\u0649]|\u0671)\s*(?:\u0627|\u0671)\s*(?:\u0627|\u0671)\s*\u0644\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm,
-  /\u0650\u0644\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm,
-  /\u0644\u0650\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm
+  /\u0650\s*\u0644\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm,
+  /\u0644\u0650\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm,
+  /\u0644\u0651\u0650\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm,
+  /\u0644\u0650\u0651\u0644(?:\u0651|\u0670|\u064E)(?:\u0651|\u0670|\u064E)\u0647/gm
 ]
 
 const extractQalqalahSughraCharacters = () => [
@@ -1010,8 +1015,8 @@ const idghamMutaqooribainTajweed = extractIdghamMutaqooribainCharacters()
 const gunnahTajweed = extractGunnahCharacters()
 const idzharQamariyahTajweed = extractIdzharQamariyahCharacters()
 const idghamSyamsiyahTajweed = extractIdghamSyamsiyahCharacters()
-const tafkhimTajweed = extractTafkhimCharacters()
-const tarqiqTajweed = extractTarqiqCharacters()
+const lamTafkhimTajweed = extractLamTafkhimCharacters()
+const lamTarqiqTajweed = extractLamTarqiqCharacters()
 const qalqalahSughraTajweed = extractQalqalahSughraCharacters()
 const qalqalahKubraTajweed = extractQalqalahKubraCharacters()
 const madThabiiTajweed = extractMadThabiiCharacters()
@@ -1034,6 +1039,12 @@ const madFarqTajweed = extractMadFarqCharacters()
 // These Tajweed Law items array are sorted based on its priority and its exceptions for generating Tajweed Colors on certain characters
 const tajweedLaws = () => [
   {
+    id: 2,
+    color: '#4ecab6',
+    rules: idghamBigunnahTajweed,
+    detailPage: '/detail/idgham-bigunnah'
+  },
+  {
     id: 5,
     color: '#00d5ef',
     rules: ikhfaTajweed,
@@ -1044,36 +1055,6 @@ const tajweedLaws = () => [
     color: '#0040ff',
     rules: iqlabTajweed,
     detailPage: '/detail/iqlab'
-  },
-  {
-    id: 2,
-    color: '#4ecab6',
-    rules: idghamBigunnahTajweed,
-    detailPage: '/detail/idgham-bigunnah'
-  },
-  {
-    id: 3,
-    color: '#ff0000',
-    rules: idghamBilagunnahTajweed,
-    detailPage: '/detail/idgham-bilagunnah'
-  },
-  {
-    id: 10,
-    color: '#ff0040',
-    rules: idghamMutamasilainTajweed,
-    detailPage: '/detail/idgham-mutamasilain'
-  },
-  {
-    id: 11,
-    color: '#ff8000',
-    rules: idghamMutajaanisainTajweed,
-    detailPage: '/detail/idgham-mutajaanisain'
-  },
-  {
-    id: 12,
-    color: '#ffbf00',
-    rules: idghamMutaqooribainTajweed,
-    detailPage: '/detail/idgham-mutaqooribain'
   },
   {
     id: 8,
@@ -1114,14 +1095,38 @@ const tajweedLaws = () => [
   {
     id: 15,
     color: '#ffbf00',
-    rules: tafkhimTajweed,
-    detailPage: '/detail/tafkhim'
+    rules: lamTafkhimTajweed,
+    detailPage: '/detail/lam-tafkhim'
   },
   {
     id: 16,
     color: '#8000ff',
-    rules: tarqiqTajweed,
-    detailPage: '/detail/tarqiq'
+    rules: lamTarqiqTajweed,
+    detailPage: '/detail/lam-tarqiq'
+  },
+  {
+    id: 3,
+    color: '#ff0000',
+    rules: idghamBilagunnahTajweed,
+    detailPage: '/detail/idgham-bilagunnah'
+  },
+  {
+    id: 10,
+    color: '#ff0040',
+    rules: idghamMutamasilainTajweed,
+    detailPage: '/detail/idgham-mutamasilain'
+  },
+  {
+    id: 11,
+    color: '#ff8000',
+    rules: idghamMutajaanisainTajweed,
+    detailPage: '/detail/idgham-mutajaanisain'
+  },
+  {
+    id: 12,
+    color: '#ffbf00',
+    rules: idghamMutaqooribainTajweed,
+    detailPage: '/detail/idgham-mutaqooribain'
   },
   {
     id: 30,
@@ -1239,22 +1244,47 @@ const tajweedLaws = () => [
   },
 ]
 
-const waqfs = () => [
+const waqfSigns = () => [
   {
-    id: 1,
+    id: 40,
+    unicode: '\u06D9',
+    color: '#02e524'
+  },
+  {
+    id: 41,
     unicode: '\u06D6',
     color: '#84cc16'
   },
   {
-    id: 2,
+    id: 42,
     unicode: '\u06DA',
     color: '#fbf804'
   },
   {
-    id: 3,
+    id: 43,
     unicode: '\u06D7',
     color: '#f69c2b'
   },
+  {
+    id: 44,
+    unicode: '\u06DB',
+    color: '#ef4444'
+  },
+  {
+    id: 45,
+    unicode: '\u06DC',
+    color: '#ef4444'
+  },
+  {
+    id: 46,
+    unicode: '\u06D8',
+    color: '#ef4444'
+  },
+  {
+    id: 47,
+    unicode: '\u08D6',
+    color: 'blue'
+  }
 ]
 
 const washalAulaReplacements = [
@@ -1290,8 +1320,33 @@ const waqfAulaReplacements = [
   ['|\\s*[\\u0628-\\u0647][\\u064C-\\u0651]\\s*\\u06D5\\u06DA', '']
 ]
 
-const replaceMultipleRegexParts = replacements => {
-  return tajweedLaws().map(tajweedLaw => {
+const waqfMuanaqohReplacements = [
+  ['(?:\\u06D9|\\u06D5\\u06D9)', '(?:[\\u06DB\\u06D9]|\\u06D5\\u06DB|\\u06D5\\u06D9)'],
+  ['\\u06D9\\s*', '[\\u06DB\\u06D9]\\s*'],
+  ['[\\u06D9\\u06E2\\u06ED]', '[\\u06DB\\u06D9\\u06E2\\u06ED]'],
+  // with washalAula
+  ['(?:[\\u06D6\\u06D9]|\\u06D5\\u06D6|\\u06D5\\u06D9)', '(?:[\\u06D6\\u06D9\\u06DB]|\\u06D5\\u06D6|\\u06D5\\u06D9|\\u06D5\\u06DB)'],
+  ['[\\u06D6\\u06D9]\\s*', '[\\u06D6\\u06D9\\u06DB]\\s*'],
+  ['[\\u06D6\\u06D9\\u06E2\\u06ED]', '[\\u06D6\\u06D9\\u06DB\\u06E2\\u06ED]'],
+  // with waqfJaiz
+  ['(?:[\\u06D6\\u06D9\\u06DA]|\\u06D5\\u06D6|\\u06D5\\u06D9|\\u06D5\\u06DA)', '(?:[\\u06D6\\u06D9\\u06DA\\u06DB]|\\u06D5\\u06D6|\\u06D5\\u06D9|\\u06D5\\u06DA||\\u06D5\\u06DB)'],
+  ['[\\u06D6\\u06D9\\u06DA]\\s*', '[\\u06D6\\u06D9\\u06DA\\u06DB]\\s*'],
+  ['[\\u06D6\\u06D9\\u06DA\\u06E2\\u06ED]', '[\\u06D6\\u06D9\\u06DA\\u06DB\\u06E2\\u06ED]'],
+  // with waqfAula
+  ['(?:[\\u06D6\\u06D7\\u06D9\\u06DA]|\\u06D5\\u06D6|\\u06D5\\u06D7|\\u06D5\\u06D9|\\u06D5\\u06DA)', '(?:[\\u06D6\\u06D7\\u06D9\\u06DA\\u06DB]|\\u06D5\\u06D6|\\u06D5\\u06D7|\\u06D5\\u06D9|\\u06D5\\u06DA|\\u06D5\\u06DB)'],
+  ['[\\u06D6\\u06D7\\u06D9\\u06DA]\\s*', '[\\u06D6\\u06D7\\u06D9\\u06DA\\u06DB]\\s*'],
+  ['[\\u06D6\\u06D7\\u06D9\\u06DA\\u06E2\\u06ED]', '[\\u06D6\\u06D7\\u06D9\\u06DA\\u06DB\\u06E2\\u06ED]'],
+  // for Exceptions 
+  ['|\\s*\\u06D5\\u06DB', ''],
+  ['|\\s*\\u06DB', ''],
+  ['|\\u06DB', ''],
+  ['|\\u06D5\\u06DB', ''],
+  ['|\\s*[\\u0628-\\u0647][\\u064C-\\u0651]\\s*\\u06DB', ''],
+  ['|\\s*[\\u0628-\\u0647][\\u064C-\\u0651]\\s*\\u06D5\\u06DB', '']
+]
+
+const replaceMultipleRegexParts = (tajweedLaws, replacements) => {
+  return tajweedLaws.map(tajweedLaw => {
     const updatedRules = tajweedLaw.rules.map(rule => {
       if (rule instanceof RegExp) {
         let ruleSource = rule.source.toString()
@@ -1306,9 +1361,10 @@ const replaceMultipleRegexParts = replacements => {
   })
 }
 
-const washalAulaContinuityTajweedLaws = () => replaceMultipleRegexParts(washalAulaReplacements)
-const waqfJaizContinuityTajweedLaws = () => replaceMultipleRegexParts(waqfJaizReplacements)
-const waqfAulaContinuityTajweedLaws = () => replaceMultipleRegexParts(waqfAulaReplacements)
+const washalAulaContinuityTajweedLaws = () => replaceMultipleRegexParts(tajweedLaws(), washalAulaReplacements)
+const waqfJaizContinuityTajweedLaws = () => replaceMultipleRegexParts(tajweedLaws(), waqfJaizReplacements)
+const waqfAulaContinuityTajweedLaws = () => replaceMultipleRegexParts(tajweedLaws(), waqfAulaReplacements)
+const waqfMuanaqohContinuityTajweedLaws = tajweedLaws => replaceMultipleRegexParts(tajweedLaws, waqfMuanaqohReplacements)
 
 const alternativeUrls = [
   "https://tajweed-recognition.vercel.app",
@@ -1340,22 +1396,37 @@ const buildRegExp = rules => {
   }
 }
 
-const colorizeChars = (recognizedText, tajweedLaws) => {
+const colorizeChars = (recognizedText, tajweedLaws, isOddPosition) => {
   /* Replace is used to replace certain madd "\u0653" diacritics which is not working after alif in regex as an alternative solution */
   let colorizedChars = recognizedText.replace(/\u0627\u0653(?!\s*[\u0621-\u0627]|\s*[\u0648\u0649][\u0654\u0655])/gm, '\u0627\u06E4')
-  const applyColor = (regex, id, color) => {
-    colorizedChars = colorizedChars.replace(regex, (match) => {
-      return `<span class="tajweed-${id}" style="color: ${color}; cursor: pointer;">${match}</span>`
+  if (colorizedChars.includes('\u06DB')) {
+    const applyOptionalColor = (part, regex, id, color) => {
+      return part.replace(regex, match => `<span class="tajweed-${id}" style="color: ${color}; cursor: pointer;">${match}</span>`)
+    }
+    const parts = colorizedChars.split('\u06DB')
+    const waqfTajweedLaws = waqfMuanaqohContinuityTajweedLaws(tajweedLaws)    
+    colorizedChars = parts.map((part, i) => {
+      let relevantLaws = (i % 2 === 0) ? waqfTajweedLaws : tajweedLaws
+      isOddPosition ? relevantLaws = (i % 2 !== 0) ? waqfTajweedLaws : tajweedLaws : relevantLaws = (i % 2 === 0) ? waqfTajweedLaws : tajweedLaws
+      relevantLaws.forEach(tajweedLaw => {
+        tajweedLaw.rules.forEach(rule => {
+          const regex = (typeof rule === 'string') ? new RegExp(`(${rule})`, 'gm') : rule
+          part = applyOptionalColor(i >= parts.length - 1 ? part : `${part}\u06DB`, regex, tajweedLaw.id, tajweedLaw.color)
+        })
+      })      
+      return part.replace(/\u06DB+/gm, '\u06DB')
+    }).join('')
+  } else {
+    const applyColor = (regex, id, color) => {
+      colorizedChars = colorizedChars.replace(regex, match => `<span class="tajweed-${id}" style="color: ${color}; cursor: pointer;">${match}</span>`)
+    }
+    tajweedLaws.forEach(tajweedLaw => {
+      tajweedLaw.rules.forEach(rule => {
+        const regex = (typeof rule === 'string') ? new RegExp(`(${rule})`, 'gm') : rule
+        applyColor(regex, tajweedLaw.id, tajweedLaw.color)
+      })
     })
   }
-  tajweedLaws.forEach(tajweedLaw => {
-    tajweedLaw.rules.forEach(rule => {
-      if (typeof rule === 'string') {
-        const regex = new RegExp(`(${rule})`, 'gm')
-        applyColor(regex, tajweedLaw.id, tajweedLaw.color)
-      } else applyColor(rule, tajweedLaw.id, tajweedLaw.color)
-    })
-  })
   return colorizedChars
 }
 
@@ -1431,4 +1502,4 @@ const findNextTajweedLaw = () => {
   }
 }
 
-export { isStorageExist, removeNonArabic, buildRegExp, colorizeChars, checkParamEvent, twLineHeights, twTextSizes, tajweedLaws, waqfs, washalAulaContinuityTajweedLaws, waqfJaizContinuityTajweedLaws, waqfAulaContinuityTajweedLaws, loadFileAsArrayBuffer, getSelectedTabByUrl, getDetailTajweed, findPreviousTajweedLaw, findNextTajweedLaw, alternativeUrls, sources }
+export { isStorageExist, removeNonArabic, buildRegExp, colorizeChars, checkParamEvent, twLineHeights, twTextSizes, tajweedLaws, waqfSigns, washalAulaContinuityTajweedLaws, waqfJaizContinuityTajweedLaws, waqfAulaContinuityTajweedLaws, waqfMuanaqohContinuityTajweedLaws, loadFileAsArrayBuffer, getSelectedTabByUrl, getDetailTajweed, findPreviousTajweedLaw, findNextTajweedLaw, alternativeUrls, sources }

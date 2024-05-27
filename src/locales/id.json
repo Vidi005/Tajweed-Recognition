@@ -24,6 +24,8 @@
     "recognition_failed": "Gagal Mengenali Teks!",
     "sidebar_title": "Pengaturan Tampilan Tajwid",
     "waqf_setting": "Pengaturan Waqof",
+    "odd_position": "Pertama",
+    "even_position": "Kedua",
     "tajweed_setting": "Pengaturan Tajwid",
     "expand_all": "Perluas Semua",
     "collapse_all": "Ciutkan Semua",
@@ -74,18 +76,38 @@
     "not_found": "Tidak Ditemukan",
     "page_not_found": "Halaman Tidak Ditemukan!",
     "back_to_home": "Kembali ke Halaman Utama",
-    "waqfs": [
+    "waqf_signs": [
         {
-            "id": 1,
+            "id": 40,
+            "name": "Laa Washol"
+        },
+        {
+            "id": 41,
             "name": "Al-Washlu Aula"
         },
         {
-            "id": 2,
+            "id": 42,
             "name": "Waqof Jaiz"
         },
         {
-            "id": 3,
+            "id": 43,
             "name": "Al-Waqfu Aula"
+        },
+        {
+            "id": 44,
+            "name": "Waqof Mu'anaqoh"
+        },
+        {
+            "id": 45,
+            "name": "Saktah"
+        },
+        {
+            "id": 46,
+            "name": "Waqof Lazim"
+        },
+        {
+            "id": 47,
+            "name": "Ruku'"
         }
     ],
     "tajweed_laws": [
@@ -320,11 +342,11 @@
         },
         {
             "id": 15,
-            "name": "Tafkhim",
+            "name": "Lam Tafkhim",
             "group": "Shifatul Huruf",
             "category": "Tafkhim & Tarqiq",
-            "summary": "Hukum bacaan Tafkhim terjadi apabila ada huruf lam (ل) yang terdapat dalam perkataan Allah (اللّه) dan didahului oleh huruf yang berharokat Fathah atau Dlommah.",
-            "detail": "Cara membacanya harus dibaca tebal atau Tafkhim yakni dengan cara mengangkat semua lidah dan menekannya ke langit-langit atas sambil menekankan suara yang cukup kuat.",
+            "summary": "Hukum bacaan Lam Tafkhim terjadi apabila ada huruf lam (ل) yang terdapat dalam perkataan Allah (اللّه) dan didahului oleh huruf yang berharokat Fathah atau Dlommah.",
+            "detail": "Cara membacanya harus dibaca tebal atau Lam Tafkhim yakni dengan cara mengangkat semua lidah dan menekannya ke langit-langit atas sambil menekankan suara yang cukup kuat.",
             "examples": [
                 "َلَوْ شَاءَ اللهُ Fathah bertemu اللهُ",
                 "هَدْنَا اللهُ Fathah bertemu اللهُ",
@@ -340,15 +362,15 @@
                 "انْ لَعْنَةُ اللهِ Dammah bertemu اللهُ",
                 "رَزَقَكُمُ اللهُ Dammah bertemu اللهُ"
             ],
-            "page": "/detail/tafkhim"
+            "page": "/detail/lam-tafkhim"
         },
         {
             "id": 16,
-            "name": "Tarqiq",
+            "name": "Lam Tarqiq",
             "group": "Shifatul Huruf",
             "category": "Tafkhim & Tarqiq",
-            "summary": "Hukum bacaan Tarqiq terjadi apabila ada huruf lam (ل) yang terdapat dalam semua perkataan Allah (اللّه) dan didahului oleh huruf yang berharokat Kasroh.",
-            "detail": "Cara membacanya harus dibaca tipis atau Tarqiq.",
+            "summary": "Hukum bacaan Lam Tarqiq terjadi apabila ada huruf lam (ل) yang terdapat dalam semua perkataan Allah (اللّه) dan didahului oleh huruf yang berharokat Kasroh.",
+            "detail": "Cara membacanya harus dibaca tipis atau Lam Tarqiq.",
             "examples": [
                 "مِنْ دُونِ اللهِ Kasrah bertemu اللهُ",
                 "سَبِيلِ اللَّهِ Kasrah bertemu اللهُ",
@@ -360,7 +382,7 @@
                 "وَلْيَتَّقِ الله Kasrah bertemu اللهُ",
                 "وَجْهِ اللهِ Kasrah bertemu اللهُ"
             ],
-            "page": "/detail/tarqiq"
+            "page": "/detail/lam-tarqiq"
         },
         {
             "id": 21,

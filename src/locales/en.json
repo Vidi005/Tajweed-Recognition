@@ -24,6 +24,8 @@
     "recognition_failed": "Failed to Recognize Text!",
     "sidebar_title": "Tajweed Display Settings",
     "waqf_setting": "Waqf Setting",
+    "odd_position": "1st Position",
+    "even_position": "2nd Position",
     "tajweed_setting": "Tajweed Setting",
     "expand_all": "Expand All",
     "collapse_all": "Collapse All",
@@ -74,18 +76,38 @@
     "not_found": "Not Found",
     "page_not_found": "Page Not Found!",
     "back_to_home": "Back to Home",
-    "waqfs": [
+    "waqf_signs": [
         {
-            "id": 1,
+            "id": 40,
+            "name": "Waqf Mamnu'"
+        },
+        {
+            "id": 41,
             "name": "Wasl Awla"
         },
         {
-            "id": 2,
+            "id": 42,
             "name": "Waqf Ja'iz"
         },
         {
-            "id": 3,
+            "id": 43,
             "name": "Waqf Awla"
+        },
+        {
+            "id": 44,
+            "name": "Ta'anuq Al-Waqf"
+        },
+        {
+            "id": 45,
+            "name": "Saktah"
+        },
+        {
+            "id": 46,
+            "name": "Waqf Lazim"
+        },
+        {
+            "id": 47,
+            "name": "Ruku'"
         }
     ],
     "tajweed_laws": [
@@ -320,11 +342,11 @@
         },
         {
             "id": 15,
-            "name": "Tafkhim",
+            "name": "Lam Tafkhim",
             "group": "Shifatul Huruf",
             "category": "Tafkhim & Tarqiq",
-            "summary": "Tafkhim tajweed law happens when there is the letter lam (ل) in the word Allah (اللّه) preceded by a letter with a Fatha or Damma vowel.",
-            "detail": "It must be recited thickly or with Tafkhim, which is done by lifting the entire tongue and pressing it against the upper palate while emphasizing the sound strongly.",
+            "summary": "Lam Tafkhim tajweed law happens when there is the letter lam (ل) in the word Allah (اللّه) preceded by a letter with a Fatha or Damma vowel.",
+            "detail": "It must be recited thickly or with Lam Tafkhim, which is done by lifting the entire tongue and pressing it against the upper palate while emphasizing the sound strongly.",
             "examples": [
                 "َلَوْ شَاءَ اللهُ Fatha meets اللهُ",
                 "هَدْنَا اللهُ Fatha meets اللهُ",
@@ -340,15 +362,15 @@
                 "انْ لَعْنَةُ اللهِ Damma meets اللهُ",
                 "رَزَقَكُمُ اللهُ Damma meets اللهُ"
             ],
-            "page": "/detail/tafkhim"
+            "page": "/detail/lam-tafkhim"
         },
         {
             "id": 16,
-            "name": "Tarqiq",
+            "name": "Lam Tarqiq",
             "group": "Shifatul Huruf",
             "category": "Tafkhim & Tarqiq",
-            "summary": "Tarqiq tajweed law happens when there is the letter lam (ل) in the word Allah (اللّه) preceded by a letter with a Kasra vowel.",
-            "detail": "It must be recited thinly or with Tarqiq",
+            "summary": "Lam Tarqiq tajweed law happens when there is the letter lam (ل) in the word Allah (اللّه) preceded by a letter with a Kasra vowel.",
+            "detail": "It must be recited thinly or with Lam Tarqiq",
             "examples": [
                 "مِنْ دُونِ اللهِ Kasra meets اللهُ",
                 "سَبِيلِ اللَّهِ Kasra meets اللهُ",
@@ -360,7 +382,7 @@
                 "وَلْيَتَّقِ الله Kasra meets اللهُ",
                 "وَجْهِ اللهِ Kasra meets اللهُ"
             ],
-            "page": "/detail/tarqiq"
+            "page": "/detail/lam-tarqiq"
         },
         {
             "id": 21,

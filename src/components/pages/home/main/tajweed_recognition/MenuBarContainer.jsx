@@ -1,8 +1,8 @@
-import { Listbox, Popover, Transition } from "@headlessui/react"
+import { Listbox, Popover, RadioGroup, Transition } from "@headlessui/react"
 import React, { Fragment } from "react"
 import Swal from "sweetalert2"
 
-const MenuBarContainer = ({ t, isEditMode, selectedWaqfIds, selectedTajweedIds, filteredWaqfs, filteredTajweeds, selectWaqf, toggleOption, handleAllColorization, toggleSelectAllGroup, closeResult }) => (
+const MenuBarContainer = ({ t, isEditMode, isOddPosition, waqfMuanaqohContent, selectedWaqfIds, selectedTajweedIds, filteredWaqfs, filteredTajweeds, changeWaqfMuanaqohStops, selectWaqf, toggleOption, handleAllColorization, toggleSelectAllGroup, closeResult }) => (
   <header className="menu-bar__container flex flex-nowrap items-center w-full p-1 bg-green-50 dark:bg-gray-700 shadow-lg z-10">
     <h3 className="title-bar flex-1 pl-2 text-green-900 dark:text-white">{isEditMode ? t('container_title.0') : t('container_title.1')}</h3>
     <Popover className={"menu-btn flex-none inline-block lg:hidden h-10"}>
@@ -21,6 +21,68 @@ const MenuBarContainer = ({ t, isEditMode, selectedWaqfIds, selectedTajweedIds, 
       >
         <Popover.Panel className={"absolute right-2 mt-2 max-w-full w-max max-h-[83%] p-2 origin-top-right bg-green-50 dark:bg-gray-700 shadow-xl dark:shadow-md dark:shadow-white/50 rounded-lg overflow-x-hidden z-10"}>
           <h5 className={filteredWaqfs.length > 0 ? "p-2 text-green-700 dark:text-gray-200 animate__animated animate__fadeInRight animate__faster" : "hidden"}>{t("waqf_setting")}:</h5>
+          <RadioGroup value={isOddPosition} onChange={changeWaqfMuanaqohStops} className={waqfMuanaqohContent?.id === 44 ? "mx-1 mb-2 animate__animated animate__fadeInRight animate__faster" : "hidden"}>
+            <RadioGroup.Description className="flex items-center flex-nowrap px-1">
+              <span className="text-sm md:text-base brightness-100 dark:brightness-200" style={{ color: waqfMuanaqohContent.color }}>{waqfMuanaqohContent.name}</span>
+              <span className="grow pl-3 font-lpmq-isep-misbah text-2xl md:text-3xl brightness-100 dark:brightness-200" style={{ color: waqfMuanaqohContent.color }}>{waqfMuanaqohContent.unicode} ‾ {waqfMuanaqohContent.unicode}</span>
+            </RadioGroup.Description>
+            <div className="grid grid-cols-2 gap-2 text-xs md:text-sm">
+              <RadioGroup.Option value={true} className={({ active, checked }) => `${active ? 'ring-2 ring-red-300 rounded-lg' : ''} ${checked ? 'border border-red-900 dark:border-red-400 text-white rounded-lg' : 'border bg-green-200/50 dark:bg-gray-700 rounded-lg'} border-red-900 dark:border-red-400 text-red-900 dark:text-white hover:-translate-y-1 shadow-md dark:shadow-white/50 cursor-pointer duration-200`}>
+                {({ checked }) => (
+                  checked ? (
+                    <div className="flex items-center flex-nowrap p-1.5 cursor-pointer rounded-lg duration-300" style={{ backgroundColor: waqfMuanaqohContent.color }}>
+                      <input
+                        type="radio"
+                        id="odd-pos"
+                        className="form-radio h-5 w-5 mr-4 cursor-pointer duration-300"
+                        style={{ accentColor: waqfMuanaqohContent.color }}
+                        checked={isOddPosition}
+                      />
+                      <RadioGroup.Label htmlFor="odd-pos" className="cursor-pointer">{t("odd_position")}</RadioGroup.Label>
+                    </div>
+                  ) : (
+                    <div className="flex items-center flex-nowrap p-1.5 cursor-pointer rounded-lg duration-300">
+                      <input
+                        type="radio"
+                        id="odd-pos"
+                        className="form-radio h-5 w-5 mr-4 cursor-pointer duration-300"
+                        style={{ accentColor: waqfMuanaqohContent.color }}
+                        checked={isOddPosition}
+                      />
+                      <RadioGroup.Label htmlFor="odd-pos" className="cursor-pointer">{t("odd_position")}</RadioGroup.Label>
+                    </div>
+                  )
+                )}
+              </RadioGroup.Option>
+              <RadioGroup.Option value={false} className={({ active, checked }) => `${active ? 'ring-2 ring-red-300 rounded-lg' : ''} ${checked ? 'border border-red-900 dark:border-red-400 text-white rounded-lg' : 'border bg-green-200/50 dark:bg-gray-700 rounded-lg'} border-red-900 dark:border-red-400 text-red-900 dark:text-white hover:-translate-y-1 shadow-md dark:shadow-white/50 cursor-pointer duration-200`}>
+                {({ checked }) => (
+                  checked ? (
+                    <div className="flex items-center flex-nowrap p-1.5 cursor-pointer rounded-lg duration-300" style={{ backgroundColor: waqfMuanaqohContent.color }}>
+                      <input
+                        type="radio"
+                        id="even-pos"
+                        className="form-radio h-5 w-5 mr-4 cursor-pointer duration-300"
+                        style={{ accentColor: waqfMuanaqohContent.color }}
+                        checked={!isOddPosition}
+                      />
+                      <RadioGroup.Label htmlFor="even-pos" className="cursor-pointer">{t("even_position")}</RadioGroup.Label>
+                    </div>
+                  ) : (
+                    <div className="flex items-center flex-nowrap p-1.5 cursor-pointer rounded-lg duration-300">
+                      <input
+                        type="radio"
+                        id="even-pos"
+                        className="form-radio h-5 w-5 mr-4 cursor-pointer duration-300"
+                        style={{ accentColor: waqfMuanaqohContent.color }}
+                        checked={!isOddPosition}
+                      />
+                      <RadioGroup.Label htmlFor="even-pos" className="cursor-pointer">{t("even_position")}</RadioGroup.Label>
+                    </div>
+                  )
+                )}
+              </RadioGroup.Option>
+            </div>
+          </RadioGroup>
           <Listbox value={selectedWaqfIds} multiple>
             <Listbox.Options static className={filteredWaqfs.length > 0 ? "border border-green-900 dark:border-white bg-green-700/50 dark:bg-gray-800 m-1 rounded-lg shadow-md dark:shadow-white/50 overflow-hidden animate__animated animate__fadeInRight animate__faster" : "hidden"}>
               {filteredWaqfs.sort((a, b) => b.id - a.id).map(waqf => (

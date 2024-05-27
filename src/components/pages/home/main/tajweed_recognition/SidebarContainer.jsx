@@ -1,10 +1,72 @@
-import { Disclosure, Listbox, Transition } from "@headlessui/react"
+import { Disclosure, Listbox, RadioGroup, Transition } from "@headlessui/react"
 import React, { Fragment } from "react"
 
-const SidebarContainer = ({ t, areAllPanelsExpanded, selectedWaqfIds, selectedTajweedIds, filteredWaqfs, filteredTajweeds, handleDisclosurePanels, handleAllColorization, selectWaqf, toggleOption, toggleSelectAllGroup }) => (
+const SidebarContainer = ({ t, areAllPanelsExpanded, isOddPosition, waqfMuanaqohContent, selectedWaqfIds, selectedTajweedIds, filteredWaqfs, filteredTajweeds, handleDisclosurePanels, handleAllColorization, changeWaqfMuanaqohStops, selectWaqf, toggleOption, toggleSelectAllGroup }) => (
   <aside className="hidden w-0 lg:inline-block lg:w-1/4 bg-green-50 dark:bg-gray-700 shadow-lg dark:shadow-white/50 overflow-y-auto">
     <h4 className="px-3 py-2 text-green-900 dark:text-white">{t("sidebar_title")}</h4>
     <h5 className={filteredWaqfs.length > 0 ? "px-3 py-1 text-green-700 dark:text-gray-200" : "hidden"}>{t("waqf_setting")}:</h5>
+    <RadioGroup value={isOddPosition} onChange={changeWaqfMuanaqohStops} className={waqfMuanaqohContent?.id === 44 ? "mx-3" : "hidden"}>
+      <RadioGroup.Description className="flex items-center flex-nowrap px-1">
+        <span className="text-base brightness-100 dark:brightness-200" style={{ color: waqfMuanaqohContent.color }}>{waqfMuanaqohContent.name}</span>
+        <span className="grow pl-3 font-lpmq-isep-misbah text-3xl brightness-100 dark:brightness-200" style={{ color: waqfMuanaqohContent.color }}>{waqfMuanaqohContent.unicode} ‾ {waqfMuanaqohContent.unicode}</span>
+      </RadioGroup.Description>
+      <div className="grid grid-cols-2 gap-2 text-sm">
+        <RadioGroup.Option value={true} className={({ active, checked }) => `${active ? 'ring-2 ring-red-300 rounded-lg' : ''} ${checked ? 'border border-red-900 dark:border-red-400 text-white rounded-lg' : 'border bg-green-200/50 dark:bg-gray-700 rounded-lg'} border-red-900 dark:border-red-400 text-red-900 dark:text-white hover:-translate-y-1 shadow-md dark:shadow-white/50 cursor-pointer duration-200`}>
+          {({ checked }) => (
+            checked ? (
+              <div className="flex items-center flex-nowrap p-2 cursor-pointer rounded-lg duration-300" style={{ backgroundColor: waqfMuanaqohContent.color }}>
+                <input
+                  type="radio"
+                  id="odd-pos"
+                  className="form-radio h-5 w-5 mr-4 cursor-pointer duration-300"
+                  style={{ accentColor: waqfMuanaqohContent.color }}
+                  checked={isOddPosition}
+                />
+                <RadioGroup.Label htmlFor="odd-pos" className="cursor-pointer">{t("odd_position")}</RadioGroup.Label>
+              </div>
+            ) : (
+              <div className="flex items-center flex-nowrap p-2 cursor-pointer rounded-lg duration-300">
+                <input
+                  type="radio"
+                  id="odd-pos"
+                  className="form-radio h-5 w-5 mr-4 cursor-pointer duration-300"
+                  style={{ accentColor: waqfMuanaqohContent.color }}
+                  checked={isOddPosition}
+                />
+                <RadioGroup.Label htmlFor="odd-pos" className="cursor-pointer">{t("odd_position")}</RadioGroup.Label>
+              </div>
+            )
+          )}
+        </RadioGroup.Option>
+        <RadioGroup.Option value={false} className={({ active, checked }) => `${active ? 'ring-2 ring-red-300 rounded-lg' : ''} ${checked ? 'border border-red-900 dark:border-red-400 text-white rounded-lg' : 'border bg-green-200/50 dark:bg-gray-700 rounded-lg'} border-red-900 dark:border-red-400 text-red-900 dark:text-white hover:-translate-y-1 shadow-md dark:shadow-white/50 cursor-pointer duration-200`}>
+          {({ checked }) => (
+            checked ? (
+              <div className="flex items-center flex-nowrap p-2 cursor-pointer rounded-lg duration-300" style={{ backgroundColor: waqfMuanaqohContent.color }}>
+                <input
+                  type="radio"
+                  id="even-pos"
+                  className="form-radio h-5 w-5 mr-4 cursor-pointer duration-300"
+                  style={{ accentColor: waqfMuanaqohContent.color }}
+                  checked={!isOddPosition}
+                />
+                <RadioGroup.Label htmlFor="even-pos" className="cursor-pointer">{t("even_position")}</RadioGroup.Label>
+              </div>
+            ) : (
+              <div className="flex items-center flex-nowrap p-2 cursor-pointer rounded-lg duration-300">
+                <input
+                  type="radio"
+                  id="even-pos"
+                  className="form-radio h-5 w-5 mr-4 cursor-pointer duration-300"
+                  style={{ accentColor: waqfMuanaqohContent.color }}
+                  checked={!isOddPosition}
+                />
+                <RadioGroup.Label htmlFor="even-pos" className="cursor-pointer">{t("even_position")}</RadioGroup.Label>
+              </div>
+            )
+          )}
+        </RadioGroup.Option>
+      </div>
+    </RadioGroup>
     <Listbox value={selectedWaqfIds} multiple>
       <Listbox.Options static className={filteredWaqfs.length > 0 ? "border border-green-900 dark:border-white bg-green-700/50 dark:bg-gray-800 mx-3 my-2 rounded-lg shadow-md dark:shadow-white/50 overflow-hidden" : "hidden"}>
         {filteredWaqfs.sort((a, b) => b.id - a.id).map(waqf => (
@@ -14,8 +76,7 @@ const SidebarContainer = ({ t, areAllPanelsExpanded, selectedWaqfIds, selectedTa
               className="form-checkbox h-5 w-5 mr-4 duration-200"
               style={{ accentColor: waqf.color }}
               checked={selectedWaqfIds.includes(waqf.id)}
-              onChange={() => selectWaqf(waqf.id)}
-            />
+              onChange={() => selectWaqf(waqf.id)} />
             <span className="text-base brightness-150 dark:brightness-100" style={{ color: waqf.color }}>{waqf.name}</span>
             <span className="grow pl-3 text-4xl brightness-150 dark:brightness-100" style={{ color: waqf.color }}>{waqf.unicode}</span>
           </Listbox.Label>
@@ -62,8 +123,7 @@ const SidebarContainer = ({ t, areAllPanelsExpanded, selectedWaqfIds, selectedTa
                       id={category}
                       className="form-checkbox accent-green-600 dark:accent-gray-600 h-5 w-5 mr-4 duration-200"
                       checked={filteredTajweeds.filter(tajweedLaw => tajweedLaw.category === category).every(tajweedLaw => selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id))}
-                      onChange={() => toggleSelectAllGroup(category)}
-                    />
+                      onChange={() => toggleSelectAllGroup(category)} />
                     <span className="grow text-base">{t('select_all')}</span>
                   </label>
                   {filteredTajweeds.filter(tajweedLaw => tajweedLaw.category === category).map(tajweedLaw => (
@@ -75,8 +135,7 @@ const SidebarContainer = ({ t, areAllPanelsExpanded, selectedWaqfIds, selectedTa
                         className="form-checkbox h-5 w-5 ml-6 mr-3 duration-200"
                         style={{ accentColor: tajweedLaw.color }}
                         checked={selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id)}
-                        onChange={() => toggleOption(tajweedLaw.id)}
-                      />
+                        onChange={() => toggleOption(tajweedLaw.id)} />
                       <span className="grow text-base brightness-75 dark:brightness-110" style={{ color: tajweedLaw.color }}>{tajweedLaw.name}</span>
                     </label>
                   ))}

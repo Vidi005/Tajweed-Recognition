@@ -7,7 +7,7 @@ import TajweedGuidelines from "./TajweedGuidelines"
 import SidebarContainer from "./SidebarContainer"
 import { tajweedLaws } from "../../../../../utils/data"
 
-const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increaseTextSize, contentContainerRef, tooltipRef, decreaseLineHeight, decreaseTextSize, handleTextEditor, onContentChangeHandler, setContentDisplayMode, showTooltip, showSummaryModal, hideTooltip, carouselItemsRefs, calculateLines, handleDisclosurePanels, handleAllColorization, selectWaqf, toggleOption, toggleSelectAllGroup, closeResult }) => {
+const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increaseTextSize, contentContainerRef, tooltipRef, decreaseLineHeight, decreaseTextSize, handleTextEditor, onContentChangeHandler, setContentDisplayMode, showTooltip, showSummaryModal, hideTooltip, carouselItemsRefs, calculateLines, handleDisclosurePanels, handleAllColorization, changeWaqfMuanaqohStops, selectWaqf, toggleOption, toggleSelectAllGroup, closeResult }) => {
   const loadTajweedData = () => {
     const tajweedData = []
     tajweedLaws().sort((a, b) => a.id - b.id).forEach((tajweedLaw, index) => {
@@ -37,11 +37,15 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
           <MenuBarContainer
             t={t}
             isEditMode={state.isEditMode}
+            isOddPosition={state.isOddPosition}
+            waqfMuanaqohContent={state.waqfMuanaqohContent}
             filteredWaqfs={state.filteredWaqfs}
+            coloredTajweeds={state.coloredTajweeds}
             filteredTajweeds={state.filteredTajweeds}
             selectedWaqfIds={state.selectedWaqfIds}
             selectedTajweedIds={state.selectedTajweedIds}
             handleAllColorization={handleAllColorization}
+            changeWaqfMuanaqohStops={changeWaqfMuanaqohStops}
             selectWaqf={selectWaqf}
             toggleOption={toggleOption}
             toggleSelectAllGroup={toggleSelectAllGroup}
@@ -50,12 +54,16 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
             <SidebarContainer
               t={t}
               areAllPanelsExpanded={state.areAllPanelsExpanded}
+              isOddPosition={state.isOddPosition}
+              waqfMuanaqohContent={state.waqfMuanaqohContent}
               filteredWaqfs={state.filteredWaqfs}
+              coloredTajweeds={state.coloredTajweeds}
               filteredTajweeds={state.filteredTajweeds}
               selectedWaqfIds={state.selectedWaqfIds}
               selectedTajweedIds={state.selectedTajweedIds}
               handleDisclosurePanels={handleDisclosurePanels}
               handleAllColorization={handleAllColorization}
+              changeWaqfMuanaqohStops={changeWaqfMuanaqohStops}
               selectWaqf={selectWaqf}
               toggleOption={toggleOption}
               toggleSelectAllGroup={toggleSelectAllGroup} />
@@ -122,7 +130,7 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
                       </ul>
                       <hr />
                       <h1 style={{ fontFamily: "'Times New Roman', 'Serif'", fontSize: "14pt", fontWeight: "bold", textAlign: "center" }}>{state.docTitle}</h1>
-                      <h2 style={{ display: "flex", alignItems: "center", justifyContent: "center", direction: "rtl", fontFamily: "'LPMQ Isep Misbah', 'Times New Roman', 'Arial'", fontSize: `${Number(state.twTextSize.replace('rem', '')) * 12}pt`, lineHeight: `${Number(state.twLineHeight.replace('rem', '')) * 12}pt`, textAlign: "center", width: "100%" }}>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h2>
+                      <h2 style={{ display: "flex", alignItems: "center", justifyContent: "center", direction: "rtl", fontFamily: "'LPMQ Isep Misbah', 'Times New Roman', 'Arial'", fontSize: `${Number(state.twTextSize.replace('rem', '')) * 12}pt`, lineHeight: `${Number(state.twLineHeight.replace('rem', '')) * 12}pt`, textAlign: "center", width: "100%" }}>بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</h2>
                       <p dangerouslySetInnerHTML={{ __html: state.coloredTajweeds }} style={{ direction: "rtl", width: "100%", fontFamily: "'LPMQ Isep Misbah', 'Times New Roman', 'Arial'", fontSize: `${Number(state.twTextSize.replace('rem', '')) * 12}pt`, textAlign: "right", lineHeight: `${Number(state.twLineHeight.replace('rem', '')) * 12}pt` }}></p>
                     </article>
                     <article className="colored-tajweeds-doc hidden">
@@ -143,7 +151,7 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
                       <p dangerouslySetInnerHTML={{ __html: state.coloredTajweeds }} style={{ direction: "rtl", width: "100%", textAlign: "right", fontFamily: "'LPMQ Isep Misbah', 'Times New Roman', 'Arial'", fontSize: `${Number(state.twTextSize.replace('rem', '')) * 12}pt`, lineHeight: `${Number(state.twLineHeight.replace('rem', '')) * 12}pt` }}></p>
                     </article>
                     <article className="colored-tajweeds-pdf hidden w-[595.28px] font-amiri-regular text-black text-xl" dir="rtl">
-                      {state.isBismillahAdded && <h2 className="text-xl text-center w-full leading-[4rem]">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h2>}
+                      {state.isBismillahAdded && <h2 className="text-xl text-center w-full leading-[4rem]">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</h2>}
                       <p dangerouslySetInnerHTML={{ __html: state.coloredTajweeds }} dir="rtl" className="w-full text-right leading-[4rem]"></p>
                     </article>
                   </div>
