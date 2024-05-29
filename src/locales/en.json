@@ -65,7 +65,7 @@
     "tajweed_content_desc": "The science of tajweed is the knowledge used to understand the rules and methods of reciting (pronouncing) the letters of the Qur'an correctly and beautifully. Its purpose is to preserve the recitation of the Qur'an from errors and changes, as well as to safeguard the mouth from reading mistakes. Studying the science of tajweed is a communal obligation (Fardlu Kifayah), while reciting the Qur'an correctly according to the rules of tajweed is an individual obligation (Fardlu 'Ain).",
     "learn_tajweed": "Learn Tajweed",
     "search_items": "Search Tajweed",
-    "filter_tajweeds": ["All Categories", "Sukun & Tanween", "Meem Sukun", "Meem Shaddah & Noon Shaddah", "Idgham", "Lam Ta'rif", "Tafkhim & Tarqiq", "Qalqalah", "Madd", "Ahkämul Al-hurüf", "Shifatul Huruf"],
+    "filter_tajweeds": ["All Categories", "Sukun & Tanween", "Meem Sukun", "Meem Shaddah & Noon Shaddah", "Idgham", "Lam Ta'rif", "Tafkhim & Tarqiq", "Qalqalah", "Madd", "Ahkämul Al-hurüf", "Shifatul Huruf", "Waqf Signs"],
     "empty_list": "No Tajweed Found!",
     "group": "Group",
     "category": "Category",
@@ -79,35 +79,83 @@
     "waqf_signs": [
         {
             "id": 40,
-            "name": "Waqf Mamnu'"
+            "name": "Waqf Mamnu'",
+            "group": "",
+            "category": "Waqf Signs",
+            "summary": "",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/laa-washal"
         },
         {
             "id": 41,
-            "name": "Wasl Awla"
+            "name": "Wasl Awla",
+            "group": "",
+            "category": "Waqf Signs",
+            "summary": "",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/washlu-aula"
         },
         {
             "id": 42,
-            "name": "Waqf Ja'iz"
+            "name": "Waqf Ja'iz",
+            "group": "",
+            "category": "Waqf Signs",
+            "summary": "",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/waqf-jaiz"
         },
         {
             "id": 43,
-            "name": "Waqf Awla"
+            "name": "Waqf Awla",
+            "group": "",
+            "category": "Waqf Signs",
+            "summary": "",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/waqf-aula"
         },
         {
             "id": 44,
-            "name": "Ta'anuq Al-Waqf"
+            "name": "Ta'anuq Al-Waqf",
+            "group": "",
+            "category": "Waqf Signs",
+            "summary": "",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/waqf-muanaqah"
         },
         {
             "id": 45,
-            "name": "Saktah"
+            "name": "Saktah",
+            "group": "",
+            "category": "Waqf Signs",
+            "summary": "",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/saktah"
         },
         {
             "id": 46,
-            "name": "Waqf Lazim"
+            "name": "Waqf Lazim",
+            "group": "",
+            "category": "Waqf Signs",
+            "summary": "",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/waqf-lazim"
         },
         {
             "id": 47,
-            "name": "Ruku'"
+            "name": "Ruku'",
+            "group": "",
+            "category": "Waqf Signs",
+            "summary": "",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/ruku"
         }
     ],
     "tajweed_laws": [

@@ -27,7 +27,7 @@ const MenuBarContainer = ({ t, isEditMode, isOddPosition, waqfMuanaqohContent, s
               <span className="grow pl-3 font-lpmq-isep-misbah text-2xl md:text-3xl brightness-100 dark:brightness-200" style={{ color: waqfMuanaqohContent.color }}>{waqfMuanaqohContent.unicode} ‾ {waqfMuanaqohContent.unicode}</span>
             </RadioGroup.Description>
             <div className="grid grid-cols-2 gap-2 text-xs md:text-sm">
-              <RadioGroup.Option value={true} className={({ active, checked }) => `${active ? 'ring-2 ring-red-300 rounded-lg' : ''} ${checked ? 'border border-red-900 dark:border-red-400 text-white rounded-lg' : 'border bg-green-200/50 dark:bg-gray-700 rounded-lg'} border-red-900 dark:border-red-400 text-red-900 dark:text-white hover:-translate-y-1 shadow-md dark:shadow-white/50 cursor-pointer duration-200`}>
+              <RadioGroup.Option value={true} className={({ active, checked }) => `${active ? 'ring-2 ring-red-300 rounded-lg' : ''} ${checked ? 'border border-red-900 dark:border-red-400 text-white rounded-lg' : 'border bg-green-200/50 dark:bg-gray-700 rounded-lg'} border-red-900 dark:border-red-400 text-red-900 dark:text-white shadow-md dark:shadow-white/50 cursor-pointer duration-200`}>
                 {({ checked }) => (
                   checked ? (
                     <div className="flex items-center flex-nowrap p-1.5 cursor-pointer rounded-lg duration-300" style={{ backgroundColor: waqfMuanaqohContent.color }}>
@@ -54,7 +54,7 @@ const MenuBarContainer = ({ t, isEditMode, isOddPosition, waqfMuanaqohContent, s
                   )
                 )}
               </RadioGroup.Option>
-              <RadioGroup.Option value={false} className={({ active, checked }) => `${active ? 'ring-2 ring-red-300 rounded-lg' : ''} ${checked ? 'border border-red-900 dark:border-red-400 text-white rounded-lg' : 'border bg-green-200/50 dark:bg-gray-700 rounded-lg'} border-red-900 dark:border-red-400 text-red-900 dark:text-white hover:-translate-y-1 shadow-md dark:shadow-white/50 cursor-pointer duration-200`}>
+              <RadioGroup.Option value={false} className={({ active, checked }) => `${active ? 'ring-2 ring-red-300 rounded-lg' : ''} ${checked ? 'border border-red-900 dark:border-red-400 text-white rounded-lg' : 'border bg-green-200/50 dark:bg-gray-700 rounded-lg'} border-red-900 dark:border-red-400 text-red-900 dark:text-white shadow-md dark:shadow-white/50 cursor-pointer duration-200`}>
                 {({ checked }) => (
                   checked ? (
                     <div className="flex items-center flex-nowrap p-1.5 cursor-pointer rounded-lg duration-300" style={{ backgroundColor: waqfMuanaqohContent.color }}>

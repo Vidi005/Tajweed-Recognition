@@ -65,7 +65,7 @@
     "tajweed_content_desc": "Ilmu tajwid adalah ilmu yang digunakan untuk mengetahui kaidah dan cara membaca (membunyikan) huruf-huruf Al-Qur'an secara baik dan benar. Tujuannya adalah untuk memelihara bacaan Al-Qur'an dari kesalahan dan perubahan serta memelihara lisan (mulut) dari kesalahan membaca.\nMempelajari ilmu tajwid hukumnya Fardlu Kifayah, sedangkan membaca Al-Qur'an dengan baik sesuai dengan ilmu tajwid hukumnya FardIu 'Ain.",
     "learn_tajweed": "Pelajari Tajwid",
     "search_items": "Cari Tajwid",
-    "filter_tajweeds": ["Semua Kategori", "Sukun & Tanwin", "Mim Sukun", "Mim Tasydid & Nun Tasydid", "Idghom", "Lam Ta'rif", "Tafkhim & Tarqiq", "Qolqolah", "Mad", "Ahkämul Al-hurüf", "Shifatul Huruf"],
+    "filter_tajweeds": ["Semua Kategori", "Sukun & Tanwin", "Mim Sukun", "Mim Tasydid & Nun Tasydid", "Idghom", "Lam Ta'rif", "Tafkhim & Tarqiq", "Qolqolah", "Mad", "Ahkämul Al-hurüf", "Shifatul Huruf", "Tanda Waqof"],
     "empty_list": "Tidak Ada Tajwid Yang Ditemukan!",
     "group": "Kelompok",
     "category": "Kategori",
@@ -79,35 +79,83 @@
     "waqf_signs": [
         {
             "id": 40,
-            "name": "Laa Washol"
+            "name": "Laa Washol",
+            "group": "",
+            "category": "Tanda Waqof",
+            "summary": "",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/laa-washal"
         },
         {
             "id": 41,
-            "name": "Al-Washlu Aula"
+            "name": "Al-Washlu Aula",
+            "group": "",
+            "category": "Tanda Waqof",
+            "summary": "",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/washlu-aula"
         },
         {
             "id": 42,
-            "name": "Waqof Jaiz"
+            "name": "Waqof Jaiz",
+            "group": "",
+            "category": "Tanda Waqof",
+            "summary": "",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/waqf-jaiz"
         },
         {
             "id": 43,
-            "name": "Al-Waqfu Aula"
+            "name": "Al-Waqfu Aula",
+            "group": "",
+            "category": "Tanda Waqof",
+            "summary": "",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/waqf-aula"
         },
         {
             "id": 44,
-            "name": "Waqof Mu'anaqoh"
+            "name": "Waqof Mu'anaqoh",
+            "group": "",
+            "category": "Tanda Waqof",
+            "summary": "",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/waqf-muanaqah"
         },
         {
             "id": 45,
-            "name": "Saktah"
+            "name": "Saktah",
+            "group": "",
+            "category": "Tanda Waqof",
+            "summary": "",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/saktah"
         },
         {
             "id": 46,
-            "name": "Waqof Lazim"
+            "name": "Waqof Lazim",
+            "group": "",
+            "category": "Tanda Waqof",
+            "summary": "",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/waqf-lazim"
         },
         {
             "id": 47,
-            "name": "Ruku'"
+            "name": "Ruku'",
+            "group": "",
+            "category": "Tanda Waqof",
+            "summary": "",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/ruku"
         }
     ],
     "tajweed_laws": [
