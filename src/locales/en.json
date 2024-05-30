@@ -278,11 +278,11 @@
         },
         {
             "id": 8,
-            "name": "Idgham Mimi",
+            "name": "Idgham Meem Saakin",
             "group": "Ahkämul Al-hurüf",
             "category": "Meem Sukun",
-            "summary": "Idgham Mimi tajweed law happens when meem sakinah meets the letters of idgham meemi (م), it is pronounced in the same way as meem shaddah.",
-            "detail": "The letter of Idgham Mimi is only one. The letter is meem. So, Idgham Mimi is the meeting of two meem letters. The way to pronounce it is the same as pronouncing the meem with shaddah. Because, meem shaddah is a combination of meem sakinah and meem with harakah.",
+            "summary": "Idgham Meem Saakin tajweed law happens when meem sakinah meets the letters of idgham meemi (م), it is pronounced in the same way as meem shaddah.",
+            "detail": "The letter of Idgham Meem Saakin is only one. The letter is meem. So, Idgham Meem Saakin is the meeting of two meem letters. The way to pronounce it is the same as pronouncing the meem with shaddah. Because, meem shaddah is a combination of meem sakinah and meem with harakah.",
             "examples": [
                 "وَكَمْ مِنْ قَرْيَةٍ Meem sakinah meets م",
                 "كُلَّمَا أَضَاءَ لَهُمْ مَشَوْا فِيهِ Meem sakinah meets م",
@@ -343,10 +343,10 @@
         },
         {
             "id": 12,
-            "name": "Idgham Mutaqooribain",
+            "name": "Idgham Mutaqaaribain",
             "group": "Ahkämul Al-hurüf",
             "category": "Idgham",
-            "summary": "Idgham Mutaqooribain tajweed law happens if a letter with a sukun meets a letter with a harakah, the two letters are close to each other, makhroj and its properties.",
+            "summary": "Idgham Mutaqaaribain tajweed law happens if a letter with a sukun meets a letter with a harakah, the two letters are close to each other, makhroj and its properties.",
             "detail": "The way to read it is by inserting or adding the first letter to the second letter.",
             "examples": [
                 "ارْ كَيْمَعَنَا Ba sakinah meets م",
