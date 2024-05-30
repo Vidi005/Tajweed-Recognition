@@ -502,14 +502,21 @@ class RecognitionContainer extends React.Component {
             pdf.setFont('helvetica', 'normal').setFontSize(10).textWithLink(watermark, 30, 25, { url: location.origin.toString() })
             pdf.text(header.toLocaleString(), pageWidth - 130, 15, { baseline: 'top', })
             pdf.text(footer, pageWidth / 2 - (pdf.getTextWidth(footer) / 2), pageHeight - 15, { baseline: 'bottom' })
+            const tableData = []
             const data = [...this.state.filteredTajweeds.sort((a, b) => a.id - b.id)]
-            const tableData = Array.from({ length: 9 }, (_, i) => 
-              Array.from({ length: Math.ceil(data.length * 2 / 9) + 1 }, (_, j) => 
-                j % 2 === 0 
-                  ? data[i % data.length + Math.ceil(j / 2) * 9]?.color || '' 
-                  : ` :  ${data[i % data.length + Math.floor(j / 2) * 9]?.name || ''}`
-              )
-            )          
+            for (let i = 0; i < 9; i++) {
+              const rowData = []
+              for (let j = 0; j <= Math.ceil(data.length * 2 / 9); j++) {
+                if (j % 2 === 0) {
+                  const colorData = data[i % data.length + Math.ceil(j / 2) * 9]?.color
+                  rowData.push(colorData ? colorData : '')
+                } else {
+                  const nameData = data[i % data.length + Math.floor(j / 2) * 9]?.name
+                  rowData.push(nameData ? ` :  ${nameData}`: '')
+                }
+              }
+              tableData.push(rowData)
+            }
             autoTable(pdf, {
               body: tableData,
               margin: { top: 0, bottom: 20, left: 20, right: 20 },
