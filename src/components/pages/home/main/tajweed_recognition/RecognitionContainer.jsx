@@ -495,7 +495,10 @@ class RecognitionContainer extends React.Component {
           const pageCounter = pdf.getNumberOfPages()
           for (let index = 1; index <= pageCounter; index++) {
             pdf.setPage(index)
-            const { width: pageWidth, height: pageHeight } = pdf.internal.pageSize
+            const pageSize = pdf.internal.pageSize
+            const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth()
+            const pageHeight = pageSize.height ? pageSize.height : pageSize.getHeight()
+            if (index === 1) pdf.setFont('times', 'normal').setFontSize(14).text(this.state.docTitle, 300, 50, { align: 'center', maxWidth: 600 })
             const watermark = location.origin.toString()
             const header = new Date()
             const footer = `${this.props.t('page_numbers.0')} ${index} ${this.props.t('page_numbers.1')} ${pageCounter}`
@@ -523,7 +526,7 @@ class RecognitionContainer extends React.Component {
               theme: 'plain',
               tableLineWidth: 1,
               tableLineColor: 'white',
-              startY: pageHeight - (10 * 7) - 60,
+              startY: pdf.internal.pageSize.height - (10 * 7) - 60,
               styles: {
                 valign: 'middle',
                 font: 'times',
@@ -540,7 +543,7 @@ class RecognitionContainer extends React.Component {
                 }
               }
             })
-          }          
+          }  
           pdf.save(`${+new Date()}_${this.state.docTitle.length > 0 ? this.state.docTitle : 'Untitled'}.pdf`)
         }
       })
