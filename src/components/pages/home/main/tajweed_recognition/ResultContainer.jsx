@@ -5,12 +5,12 @@ import MenuBarContainer from "./MenuBarContainer"
 import SliderContainer from "./SliderContainer"
 import TajweedGuidelines from "./TajweedGuidelines"
 import SidebarContainer from "./SidebarContainer"
-import { tajweedLaws } from "../../../../../utils/data"
+import { getTajweedLaws } from "../../../../../utils/data"
 
-const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increaseTextSize, contentContainerRef, tooltipRef, decreaseLineHeight, decreaseTextSize, handleTextEditor, onContentChangeHandler, setContentDisplayMode, showTooltip, showSummaryModal, hideTooltip, carouselItemsRefs, calculateLines, handleDisclosurePanels, handleAllColorization, changeWaqfMuanaqohStops, selectWaqf, toggleOption, toggleSelectAllGroup, closeResult }) => {
+const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increaseTextSize, waqfSettingInfoRef, contentContainerRef, tooltipRef, decreaseLineHeight, decreaseTextSize, handleTextEditor, onContentChangeHandler, setContentDisplayMode, showWaqfSettingInfo, showTooltip, showSummaryModal, hideTooltip, carouselItemsRefs, calculateLines, handleDisclosurePanels, handleAllColorization, changeWaqfMuanaqohStops, selectWaqf, toggleOption, toggleSelectAllGroup, closeResult }) => {
   const loadTajweedData = () => {
     const tajweedData = []
-    tajweedLaws().sort((a, b) => a.id - b.id).forEach((tajweedLaw, index) => {
+    getTajweedLaws().sort((a, b) => a.id - b.id).forEach((tajweedLaw, index) => {
       tajweedData.push({
         id: t(`tajweed_laws.${index}.id`),
         name: t(`tajweed_laws.${index}.name`),
@@ -54,11 +54,13 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
             <SidebarContainer
               t={t}
               areAllPanelsExpanded={state.areAllPanelsExpanded}
+              waqfSettingInfoRef={waqfSettingInfoRef}
               isOddPosition={state.isOddPosition}
               waqfMuanaqohContent={state.waqfMuanaqohContent}
               filteredWaqfs={state.filteredWaqfs}
               coloredTajweeds={state.coloredTajweeds}
               filteredTajweeds={state.filteredTajweeds}
+              showWaqfSettingInfo={showWaqfSettingInfo}
               selectedWaqfIds={state.selectedWaqfIds}
               selectedTajweedIds={state.selectedTajweedIds}
               handleDisclosurePanels={handleDisclosurePanels}

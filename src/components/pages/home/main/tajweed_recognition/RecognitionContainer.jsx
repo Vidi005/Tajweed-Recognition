@@ -1,6 +1,6 @@
 import React from "react"
 import Swal from "sweetalert2"
-import { alternativeUrls, checkParamEvent, colorizeChars, isStorageExist, loadFileAsArrayBuffer, removeNonArabic, tajweedLaws, twLineHeights, twTextSizes, waqfAulaContinuityTajweedLaws, waqfJaizContinuityTajweedLaws, waqfMuanaqohContinuityTajweedLaws, waqfSigns, washalAulaContinuityTajweedLaws } from "../../../../../utils/data"
+import { alternativeUrls, checkParamEvent, colorizeChars, getTajweedLaws, getCertainWaqfSigns, isStorageExist, loadFileAsArrayBuffer, removeNonArabic, twLineHeights, twTextSizes, waqfAulaContinuityTajweedLaws, waqfJaizContinuityTajweedLaws, waqfMuanaqohContinuityTajweedLaws, washalAulaContinuityTajweedLaws, tajweedLaws } from "../../../../../utils/data"
 import Tesseract from "tesseract.js"
 import ResultContainer from "./ResultContainer"
 import DropZoneContainer from "./import_mode/DropZoneContainer"
@@ -38,7 +38,7 @@ class RecognitionContainer extends React.Component {
       RESULT_CONTENT_STORAGE_KEY: 'RESULT_CONTENT_STORE_KEY',
       facingMode: 'environment',
       recognizedText: '',
-      tajweedLawRules: tajweedLaws(),
+      tajweedLawRules: getTajweedLaws(),
       twLineHeight: '3rem',
       twTextSize: '1.5rem',
       coloredTajweeds: '',
@@ -78,10 +78,11 @@ class RecognitionContainer extends React.Component {
       isCarouselItemHovered: false,
       isModalOpened: false
     }
+    this.waqfSettingInfoRef = React.createRef()
     this.tooltipRef = React.createRef()
     this.contentContainerRef = React.createRef()
     this.carouselItemsRefs = {}
-    tajweedLaws().forEach(tajweedLaw => {
+    getTajweedLaws().forEach(tajweedLaw => {
       this.carouselItemsRefs[`tajweed-${tajweedLaw.id}`] = React.createRef()
     })
     this.inputRef = React.createRef()
@@ -125,10 +126,10 @@ class RecognitionContainer extends React.Component {
   }
 
   loadWaqfMuanaqohData = () => {
-    const waqfData = waqfSigns().sort((a, b) => a.id - b.id).find(waqf => waqf.id === 44)
+    const waqfData = tajweedLaws().sort((a, b) => a.id - b.id).find(waqf => waqf.id === 44)
     return {
-      id: this.props.t('waqf_signs.4.id'),
-      name: this.props.t('waqf_signs.4.name'),
+      id: this.props.t('tajweed_laws.38.id'),
+      name: this.props.t('tajweed_laws.38.name'),
       color: waqfData.color,
       unicode: waqfData.unicode
     }
@@ -136,10 +137,10 @@ class RecognitionContainer extends React.Component {
 
   loadCertainWaqfData() {
     const waqfData = []
-    waqfSigns().sort((a, b) => a.id - b.id).slice(1, 4).forEach((waqf, index) => {
+    getCertainWaqfSigns().slice(1, 4).forEach((waqf, index) => {
       waqfData.push({
-        id: this.props.t(`waqf_signs.${index + 1}.id`),
-        name: this.props.t(`waqf_signs.${index + 1}.name`),
+        id: this.props.t(`tajweed_laws.${index + getTajweedLaws().length + 1}.id`),
+        name: this.props.t(`tajweed_laws.${index + getTajweedLaws().length + 1}.name`),
         color: waqf.color,
         unicode: waqf.unicode
       })
@@ -229,7 +230,7 @@ class RecognitionContainer extends React.Component {
   }
 
   handleTextEditor() {
-    this.setState(prevState => ({ isEditMode: !prevState.isEditMode, tajweedLawRules: tajweedLaws() }), () => {
+    this.setState(prevState => ({ isEditMode: !prevState.isEditMode, tajweedLawRules: getTajweedLaws() }), () => {
       scrollTo(0, 0)
       if (!this.state.isEditMode) {
         this.setState({ isLoading: true })
@@ -791,6 +792,25 @@ class RecognitionContainer extends React.Component {
     event.returnValue = this.props.t('unsaved_warning')
   }
 
+  showWaqfSettingInfo (event, isHovered) {
+    setTimeout(() => {
+      const waqfSettingInfo = this.waqfSettingInfoRef.current
+      const tooltipWidth = waqfSettingInfo?.offsetWidth
+      const tooltipHeight = waqfSettingInfo?.offsetHeight
+      const leftPosition = event.clientX
+      if (waqfSettingInfo) {
+        if (isHovered) {
+          waqfSettingInfo.style.display = 'block'
+          waqfSettingInfo.style.left = `${leftPosition + 8}px`
+          waqfSettingInfo.style.right = 'auto'
+          waqfSettingInfo.style.top = `${event.clientY - tooltipHeight - 80}px`
+        } else {
+          waqfSettingInfo.style.display = 'none'
+        }
+      }
+    }, 1)
+  }
+
   showTooltip (event) {
     const tajweedData = this.loadTajweedData()
     const worker = createTooltipWorker()
@@ -969,14 +989,14 @@ class RecognitionContainer extends React.Component {
     }
     this.setState({ selectedWaqfIds: newSelectedWaqfIds }, () => {
       if (newSelectedWaqfIds.length === filteredWaqfs.length) {
-        this.setState({ tajweedLawRules: tajweedLaws() }, () => this.changeCertainWaqfSelections())
+        this.setState({ tajweedLawRules: getTajweedLaws() }, () => this.changeCertainWaqfSelections())
       } else if (newSelectedWaqfIds.length === 0) {
         this.setState({ tajweedLawRules: waqfAulaContinuityTajweedLaws() }, () => this.changeCertainWaqfSelections())
       } else if (newSelectedWaqfIds.includes(42) && !newSelectedWaqfIds.includes(41)) {
         this.setState({ tajweedLawRules: washalAulaContinuityTajweedLaws() }, () => this.changeCertainWaqfSelections())
       } else if (newSelectedWaqfIds.includes(43) && newSelectedWaqfIds.length === 1) {
         this.setState({ tajweedLawRules: waqfJaizContinuityTajweedLaws() }, () => this.changeCertainWaqfSelections())
-      } else this.setState({ tajweedLawRules: tajweedLaws() }, () => this.changeCertainWaqfSelections())
+      } else this.setState({ tajweedLawRules: getTajweedLaws() }, () => this.changeCertainWaqfSelections())
     })
   }
 
@@ -1039,7 +1059,7 @@ class RecognitionContainer extends React.Component {
       isResultClosed: true,
       isOddPosition: false,
       recognizedText: '',
-      tajweedLawRules: tajweedLaws(),
+      tajweedLawRules: getTajweedLaws(),
       coloredTajweeds: '',
       waqfMuanaqohContent: {},
       selectedWaqfIds: [],
@@ -1125,6 +1145,7 @@ class RecognitionContainer extends React.Component {
         <ResultContainer
           t={this.props.t}
           state={this.state}
+          waqfSettingInfoRef={this.waqfSettingInfoRef}
           contentContainerRef={this.contentContainerRef}
           tooltipRef={this.tooltipRef}
           carouselItemsRefs={this.carouselItemsRefs}
@@ -1137,6 +1158,7 @@ class RecognitionContainer extends React.Component {
           handleTextEditor={this.handleTextEditor.bind(this)}
           onContentChangeHandler={this.onContentChangeEventHandler.bind(this)}
           setContentDisplayMode={this.setContentDisplayMode.bind(this)}
+          showWaqfSettingInfo={this.showWaqfSettingInfo.bind(this)}
           showTooltip={this.showTooltip.bind(this)}
           showSummaryModal={this.showSummaryModal.bind(this)}
           hideTooltip={this.hideTooltip.bind(this)}

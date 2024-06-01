@@ -24,6 +24,7 @@
     "recognition_failed": "Gagal Mengenali Teks!",
     "sidebar_title": "Pengaturan Tampilan Tajwid",
     "waqf_setting": "Pengaturan Waqof",
+    "waqf_setting_info": "Tandai atau berikan centang untuk berhenti pada waqof yang dipilih, sebaliknya untuk melanjutkan. Pengaturan waqof ini akan diterapkan pada semua tajwid.",
     "odd_position": "Pertama",
     "even_position": "Kedua",
     "tajweed_setting": "Pengaturan Tajwid",
@@ -76,88 +77,6 @@
     "not_found": "Tidak Ditemukan",
     "page_not_found": "Halaman Tidak Ditemukan!",
     "back_to_home": "Kembali ke Halaman Utama",
-    "waqf_signs": [
-        {
-            "id": 40,
-            "name": "Laa Washol",
-            "group": "",
-            "category": "Tanda Waqof",
-            "summary": "",
-            "detail": "",
-            "examples": [],
-            "page": "/detail/laa-washal"
-        },
-        {
-            "id": 41,
-            "name": "Al-Washlu Aula",
-            "group": "",
-            "category": "Tanda Waqof",
-            "summary": "",
-            "detail": "",
-            "examples": [],
-            "page": "/detail/washlu-aula"
-        },
-        {
-            "id": 42,
-            "name": "Waqof Jaiz",
-            "group": "",
-            "category": "Tanda Waqof",
-            "summary": "",
-            "detail": "",
-            "examples": [],
-            "page": "/detail/waqf-jaiz"
-        },
-        {
-            "id": 43,
-            "name": "Al-Waqfu Aula",
-            "group": "",
-            "category": "Tanda Waqof",
-            "summary": "",
-            "detail": "",
-            "examples": [],
-            "page": "/detail/waqf-aula"
-        },
-        {
-            "id": 44,
-            "name": "Waqof Mu'anaqoh",
-            "group": "",
-            "category": "Tanda Waqof",
-            "summary": "",
-            "detail": "",
-            "examples": [],
-            "page": "/detail/waqf-muanaqah"
-        },
-        {
-            "id": 45,
-            "name": "Saktah",
-            "group": "",
-            "category": "Tanda Waqof",
-            "summary": "",
-            "detail": "",
-            "examples": [],
-            "page": "/detail/saktah"
-        },
-        {
-            "id": 46,
-            "name": "Waqof Lazim",
-            "group": "",
-            "category": "Tanda Waqof",
-            "summary": "",
-            "detail": "",
-            "examples": [],
-            "page": "/detail/waqf-lazim"
-        },
-        {
-            "id": 47,
-            "name": "Ruku'",
-            "group": "",
-            "category": "Tanda Waqof",
-            "summary": "",
-            "detail": "",
-            "examples": [],
-            "page": "/detail/ruku"
-        }
-    ],
     "tajweed_laws": [
         {
             "id": 1,
@@ -740,6 +659,86 @@
                 "اللَّهُ خَيْرٌ أَمَّا يُشْرِكُونَ pada Surat An-Naml"
             ],
             "page": "/detail/mad-farq"
+        },
+        {
+            "id": 40,
+            "name": "Laa Washol",
+            "group": "Waqof",
+            "category": "Tanda Waqof",
+            "summary": "Laa Waqfa Fiihi/Washol: Larangan berhenti, kecuali jika di bawahnya terdapat tanda awal ayat yang membolehkan waqof secaca muthlaq dan kecuali pada akhir ayat.",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/laa-washal"
+        },
+        {
+            "id": 41,
+            "name": "Al-Washlu Aula",
+            "group": "Waqof",
+            "category": "Tanda Waqof",
+            "summary": "Waqof Mustabhabwaslah/Al-Washlu Aula: Disambung lebih utama namun berhenti diperbolehkan.",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/washlu-aula"
+        },
+        {
+            "id": 42,
+            "name": "Waqof Jaiz",
+            "group": "Waqof",
+            "category": "Tanda Waqof",
+            "summary": "Boleh berhenti boleh terus.",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/waqf-jaiz"
+        },
+        {
+            "id": 43,
+            "name": "Al-Waqfu Aula",
+            "group": "Waqof",
+            "category": "Tanda Waqof",
+            "summary": "Berhenti lebih utama tetapi diperbolehkan untuk melanjutkan.",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/waqf-aula"
+        },
+        {
+            "id": 44,
+            "name": "Waqof Mu'anaqoh",
+            "group": "Waqof",
+            "category": "Tanda Waqof",
+            "summary": "Boleh berhenti pada salah satu kata yang ada tanda tersebut.",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/waqf-muanaqah"
+        },
+        {
+            "id": 45,
+            "name": "Saktah",
+            "group": "Waqof",
+            "category": "Tanda Waqof",
+            "summary": "Tanda berhenti sejenak tanpa mengeluarkan nafas (tidak bernafas).",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/saktah"
+        },
+        {
+            "id": 46,
+            "name": "Waqof Lazim",
+            "group": "Waqof",
+            "category": "Tanda Waqof",
+            "summary": "Harus berhenti. Tidak diperbolehkan untuk melanjutkan.",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/waqf-lazim"
+        },
+        {
+            "id": 47,
+            "name": "Ruku'",
+            "group": "Waqof",
+            "category": "Tanda Waqof",
+            "summary": "Isyarat batas tadarusan dan akhir ayat (tanda pembagian berhenti setiap hari untuk orang yang ingin menghafal Al-Qur'an dalam jangka dua tahun).",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/ruku"
         }
     ]
 }

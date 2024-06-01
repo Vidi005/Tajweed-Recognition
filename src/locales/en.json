@@ -24,6 +24,7 @@
     "recognition_failed": "Failed to Recognize Text!",
     "sidebar_title": "Tajweed Display Settings",
     "waqf_setting": "Waqf Setting",
+    "waqf_setting_info": "Give mark or checklist to stop on selected waqfs, otherwise to continue. This waqf setting will be applied for all Tajweed Laws.",
     "odd_position": "1st Position",
     "even_position": "2nd Position",
     "tajweed_setting": "Tajweed Setting",
@@ -76,88 +77,6 @@
     "not_found": "Not Found",
     "page_not_found": "Page Not Found!",
     "back_to_home": "Back to Home",
-    "waqf_signs": [
-        {
-            "id": 40,
-            "name": "Waqf Mamnu'",
-            "group": "",
-            "category": "Waqf Signs",
-            "summary": "",
-            "detail": "",
-            "examples": [],
-            "page": "/detail/laa-washal"
-        },
-        {
-            "id": 41,
-            "name": "Wasl Awla",
-            "group": "",
-            "category": "Waqf Signs",
-            "summary": "",
-            "detail": "",
-            "examples": [],
-            "page": "/detail/washlu-aula"
-        },
-        {
-            "id": 42,
-            "name": "Waqf Ja'iz",
-            "group": "",
-            "category": "Waqf Signs",
-            "summary": "",
-            "detail": "",
-            "examples": [],
-            "page": "/detail/waqf-jaiz"
-        },
-        {
-            "id": 43,
-            "name": "Waqf Awla",
-            "group": "",
-            "category": "Waqf Signs",
-            "summary": "",
-            "detail": "",
-            "examples": [],
-            "page": "/detail/waqf-aula"
-        },
-        {
-            "id": 44,
-            "name": "Ta'anuq Al-Waqf",
-            "group": "",
-            "category": "Waqf Signs",
-            "summary": "",
-            "detail": "",
-            "examples": [],
-            "page": "/detail/waqf-muanaqah"
-        },
-        {
-            "id": 45,
-            "name": "Saktah",
-            "group": "",
-            "category": "Waqf Signs",
-            "summary": "",
-            "detail": "",
-            "examples": [],
-            "page": "/detail/saktah"
-        },
-        {
-            "id": 46,
-            "name": "Waqf Lazim",
-            "group": "",
-            "category": "Waqf Signs",
-            "summary": "",
-            "detail": "",
-            "examples": [],
-            "page": "/detail/waqf-lazim"
-        },
-        {
-            "id": 47,
-            "name": "Ruku'",
-            "group": "",
-            "category": "Waqf Signs",
-            "summary": "",
-            "detail": "",
-            "examples": [],
-            "page": "/detail/ruku"
-        }
-    ],
     "tajweed_laws": [
         {
             "id": 1,
@@ -740,6 +659,86 @@
                 "اللَّهُ خَيْرٌ أَمَّا يُشْرِكُونَ on Surah An-Naml"
             ],
             "page": "/detail/mad-farq"
+        },
+        {
+            "id": 40,
+            "name": "Waqf Mamnu'",
+            "group": "Waqf",
+            "category": "Waqf Signs",
+            "summary": "Prohibition of stopping, except if there is a sign below it indicating the beginning of a verse that allows an absolute stop and except at the end of the verse.",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/laa-washal"
+        },
+        {
+            "id": 41,
+            "name": "Wasl Awla",
+            "group": "Waqf",
+            "category": "Waqf Signs",
+            "summary": "Continuing is preferable but stopping is allowed.",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/washlu-aula"
+        },
+        {
+            "id": 42,
+            "name": "Waqf Ja'iz",
+            "group": "Waqf",
+            "category": "Waqf Signs",
+            "summary": "Stopping or continuing is permissible.",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/waqf-jaiz"
+        },
+        {
+            "id": 43,
+            "name": "Waqf Awla",
+            "group": "Waqf",
+            "category": "Waqf Signs",
+            "summary": "Stopping is preferable but continuing is allowed.",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/waqf-aula"
+        },
+        {
+            "id": 44,
+            "name": "Ta'anuq Al-Waqf",
+            "group": "Waqf",
+            "category": "Waqf Signs",
+            "summary": "It is permissible to stop at any word that has that sign.",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/waqf-muanaqah"
+        },
+        {
+            "id": 45,
+            "name": "Saktah",
+            "group": "Waqf",
+            "category": "Waqf Signs",
+            "summary": "A sign to pause briefly without exhaling (holding the breath).",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/saktah"
+        },
+        {
+            "id": 46,
+            "name": "Waqf Lazim",
+            "group": "Waqf",
+            "category": "Waqf Signs",
+            "summary": "Must stop. Continuing is prohibited.",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/waqf-lazim"
+        },
+        {
+            "id": 47,
+            "name": "Ruku'",
+            "group": "Waqf",
+            "category": "Waqf Signs",
+            "summary": "A sign indicating the limit for daily recitation and the end of a verse (a marker for those who wish to memorize the Qur'an within two years).",
+            "detail": "",
+            "examples": [],
+            "page": "/detail/ruku"
         }
     ]    
 }
