@@ -654,9 +654,9 @@
             "summary": "Hukum bacaan disebut Mad Farq adalah satu Mad yang di dalam Al-Qur'an hanya terdapat di empat tempat.",
             "detail": "Cara membacanya harus dipanjangkan untuk membedakan antara pertanyaan atau bukan, jadi dipanjangkannya itu supaya jelas bahwa kalimat itu berbentuk pertanyaan.",
             "examples": [
-                "الأُنْثَيَيْنِ الذَّكَرَيْنِ حَرَّمَ أَما pada Surat Al-An'am",
-                "قُلْ اللَّهُ أَذِنَ لَكُمْ pada Surat Yunus",
-                "اللَّهُ خَيْرٌ أَمَّا يُشْرِكُونَ pada Surat An-Naml"
+                "قُلْ ءٰۤالذَّكَرَيْنِ حَرَّمَ اَمِ الْاُنْثَيَيْنِ pada Surat Al-An'am",
+                "قُلْ ءٰۤاللّٰهُ اَذِنَ لَكُمْ pada Surat Yunus",
+                "ءٰۤاللّٰهُ خَيْرٌ اَمَّا يُشْرِكُوْنَ pada Surat An-Naml"
             ],
             "page": "/detail/mad-farq"
         },
@@ -667,7 +667,7 @@
             "category": "Tanda Waqof",
             "summary": "Laa Waqfa Fiihi/Washol: Larangan berhenti, kecuali jika di bawahnya terdapat tanda awal ayat yang membolehkan waqof secaca muthlaq dan kecuali pada akhir ayat.",
             "detail": "",
-            "examples": [],
+            "examples": ["قَالُوْٓا اِنَّا مَعَكُمْۙ"],
             "page": "/detail/laa-washal"
         },
         {
@@ -677,7 +677,7 @@
             "category": "Tanda Waqof",
             "summary": "Waqof Mustabhabwaslah/Al-Washlu Aula: Disambung lebih utama namun berhenti diperbolehkan.",
             "detail": "",
-            "examples": [],
+            "examples": ["وَلَقَدْ اٰتَيْنَا مُوْسَى الْكِتٰبَ وَقَفَّيْنَا مِنْۢ بَعْدِهٖ بِالرُّسُلِۖ"],
             "page": "/detail/washlu-aula"
         },
         {
@@ -687,7 +687,7 @@
             "category": "Tanda Waqof",
             "summary": "Boleh berhenti boleh terus.",
             "detail": "",
-            "examples": [],
+            "examples": ["فَزَادَهُمُ اللّٰهُ مَرَضًاۚ"],
             "page": "/detail/waqf-jaiz"
         },
         {
@@ -697,7 +697,7 @@
             "category": "Tanda Waqof",
             "summary": "Berhenti lebih utama tetapi diperbolehkan untuk melanjutkan.",
             "detail": "",
-            "examples": [],
+            "examples": ["وَاِذَآ اَظْلَمَ عَلَيْهِمْ قَامُوْاۗ"],
             "page": "/detail/waqf-aula"
         },
         {
@@ -707,7 +707,7 @@
             "category": "Tanda Waqof",
             "summary": "Boleh berhenti pada salah satu kata yang ada tanda tersebut.",
             "detail": "",
-            "examples": [],
+            "examples": ["بِاَيْدِيْكُمْ اِلَى التَّهْلُكَةِۛ وَاَحْسِنُوْاۛ"],
             "page": "/detail/waqf-muanaqah"
         },
         {
@@ -717,7 +717,7 @@
             "category": "Tanda Waqof",
             "summary": "Tanda berhenti sejenak tanpa mengeluarkan nafas (tidak bernafas).",
             "detail": "",
-            "examples": [],
+            "examples": ["قَالُوْا يٰوَيْلَنَا مَنْۢ بَعَثَنَا مِنْ مَّرْقَدِنَاۜ هٰذَا مَا وَعَدَ الرَّحْمٰنُ وَصَدَقَ الْمُرْسَلُوْنَ"],
             "page": "/detail/saktah"
         },
         {
@@ -727,7 +727,7 @@
             "category": "Tanda Waqof",
             "summary": "Harus berhenti. Tidak diperbolehkan untuk melanjutkan.",
             "detail": "",
-            "examples": [],
+            "examples": ["وَاضْرِبْ لَهُمْ مَّثَلًا اَصْحٰبَ الْقَرْيَةِۘ"],
             "page": "/detail/waqf-lazim"
         },
         {
@@ -737,7 +737,7 @@
             "category": "Tanda Waqof",
             "summary": "Isyarat batas tadarusan dan akhir ayat (tanda pembagian berhenti setiap hari untuk orang yang ingin menghafal Al-Qur'an dalam jangka dua tahun).",
             "detail": "",
-            "examples": [],
+            "examples": ["وَاِنْ كُلٌّ لَّمَّا جَمِيْعٌ لَّدَيْنَا مُحْضَرُوْ\u08D6 ۝٣٢"],
             "page": "/detail/ruku"
         }
     ]

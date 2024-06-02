@@ -13,15 +13,17 @@ const HeaderContainer = ({ headerTitle, changeLanguage, setDisplayMode, isDarkMo
       <Switch
         checked={isDarkMode}
         onChange={setDisplayMode}
-        title="Dark Mode"
+        title="Theme Setting"
         className={`${
           isDarkMode
             ? "bg-green-900"
             : "bg-green-700"
         } relative inline-flex h-6 w-12 px-1 items-center cursor-pointer transition-colors duration-300 focus:outline-none focus:ring-1 focus:ring-white focus:ring-offset-1 rounded-full`}
       >
-        <span className="sr-only">Enable Dark Mode</span>
-        <span className={`${isDarkMode ? "translate-x-6" : "translate-x-0"} inline-block h-4 w-4 transform rounded-full bg-white transition duration-300`}></span>
+        <span className="sr-only">Theme Setting</span>
+        <span className={`${isDarkMode ? "translate-x-6" : "translate-x-0"} inline-block h-4 w-4 transform rounded-full bg-white transition duration-300`}>
+          <img className="h-full p-0.5 object-contain object-center duration-200 animate__animated animate__fadeIn" src={`${isDarkMode ? `${import.meta.env.BASE_URL}images/moon-icon.svg` : `${import.meta.env.BASE_URL}images/sun-icon.svg`}`} alt="Theme Setting" />
+        </span>
       </Switch>
       <Menu as={"menu"} className={"inline-block h-10 pl-2"}>
         <Menu.Button className={"inline-flex w-full items-center justify-center h-full p-2 hover:bg-black/50 focus-visible:ring-2 focus-visible:ring-white/75 duration-200 rounded-md"} title="Languages">

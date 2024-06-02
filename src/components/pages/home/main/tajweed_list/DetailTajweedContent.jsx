@@ -45,7 +45,7 @@ const DetailTajweedContent = ({ t }) => {
                 {findCurrentTajweedLaw().examples.map((example, idx) => (
                   <tr key={idx}>
                     <td className="pr-2 align-top">•</td>
-                    <td>{example}</td>
+                    <td className="font-lpmq-isep-misbah text-xl">{example}</td>
                   </tr>
                 ))}
               </tbody>

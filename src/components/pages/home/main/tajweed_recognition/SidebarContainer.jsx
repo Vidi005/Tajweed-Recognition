@@ -1,16 +1,30 @@
 import { Disclosure, Listbox, RadioGroup, Transition } from "@headlessui/react"
 import React, { Fragment } from "react"
 
-const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, isOddPosition, waqfMuanaqohContent, selectedWaqfIds, selectedTajweedIds, filteredWaqfs, filteredTajweeds, showWaqfSettingInfo, handleDisclosurePanels, handleAllColorization, changeWaqfMuanaqohStops, selectWaqf, toggleOption, toggleSelectAllGroup }) => (
+const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, waqfSettingContentInfoRef, isOddPosition, waqfMuanaqohContent, selectedWaqfIds, selectedTajweedIds, filteredWaqfs, filteredTajweeds, showWaqfSettingInfo, handleDisclosurePanels, handleAllColorization, changeWaqfMuanaqohStops, selectWaqf, toggleOption, toggleSelectAllGroup }) => (
   <aside className="hidden w-0 lg:inline-block lg:w-1/4 bg-green-50 dark:bg-gray-700 shadow-lg dark:shadow-white/50 overflow-y-auto">
     <h4 className="px-3 py-2 text-green-900 dark:text-white">{t("sidebar_title")}</h4>
     <h5 className={filteredWaqfs.length > 0 ? "flex items-center justify-between px-3 py-0.5 text-green-700 dark:text-gray-200" : "hidden"}>
       <span>{t("waqf_setting")}:</span>
-      <img className="dark:hidden max-h-7 mr-1 p-1 object-contain object-center hover:bg-green-800/25 dark:hover:bg-gray-500 duration-200 rounded-full overflow-hidden" src="images/info-icon.svg" alt="Info" onMouseEnter={event => showWaqfSettingInfo(event, true)} onMouseLeave={event => showWaqfSettingInfo(event, false)} />
-      <img className="hidden dark:inline-flex max-h-7 mr-1 p-1 object-contain object-center hover:bg-green-800/25 dark:hover:bg-gray-500 duration-200 rounded-full overflow-hidden" src="images/info-icon-dark.svg" alt="Info" onMouseEnter={event => showWaqfSettingInfo(event, true)} onMouseLeave={event => showWaqfSettingInfo(event, false)} />
+      <img
+        ref={waqfSettingInfoRef}
+        className="dark:hidden max-h-7 mr-1 p-1 object-contain object-center hover:bg-green-800/25 dark:hover:bg-gray-500 duration-200 rounded-full overflow-hidden"
+        src="images/info-icon.svg"
+        alt="Info"
+        onMouseEnter={event => showWaqfSettingInfo(event, true)}
+        onMouseLeave={event => showWaqfSettingInfo(event, false)}
+      />
+      <img
+        ref={waqfSettingInfoRef}
+        className="hidden dark:inline-flex max-h-7 mr-1 p-1 object-contain object-center hover:bg-green-800/25 dark:hover:bg-gray-500 duration-200 rounded-full overflow-hidden"
+        src="images/info-icon-dark.svg"
+        alt="Info"
+        onMouseEnter={event => showWaqfSettingInfo(event, true)}
+        onMouseLeave={event => showWaqfSettingInfo(event, false)}
+      />
     </h5>
     <p
-      ref={waqfSettingInfoRef}
+      ref={waqfSettingContentInfoRef}
       className="hidden absolute border-2 border-green-900 dark:border-white w-1/5 p-1.5 text-sm text-white dark:shadow-white/50 backdrop-blur-sm bg-green-700/50 dark:bg-gray-500/50 rounded-md shadow z-20 animate__animated animate__fadeIn animate__faster"
     >{t("waqf_setting_info")}</p>
     <RadioGroup value={isOddPosition} onChange={changeWaqfMuanaqohStops} className={waqfMuanaqohContent?.id === 44 ? "mx-3" : "hidden"}>

@@ -79,6 +79,7 @@ class RecognitionContainer extends React.Component {
       isModalOpened: false
     }
     this.waqfSettingInfoRef = React.createRef()
+    this.waqfSettingContentInfoRef = React.createRef()
     this.tooltipRef = React.createRef()
     this.contentContainerRef = React.createRef()
     this.carouselItemsRefs = {}
@@ -794,19 +795,24 @@ class RecognitionContainer extends React.Component {
 
   showWaqfSettingInfo (event, isHovered) {
     setTimeout(() => {
-      const waqfSettingInfo = this.waqfSettingInfoRef.current
-      const tooltipWidth = waqfSettingInfo?.offsetWidth
-      const tooltipHeight = waqfSettingInfo?.offsetHeight
+      const waqfSettingInfo = this.waqfSettingInfoRef.current.getBoundingClientRect()
+      const waqfSettingContentInfo = this.waqfSettingContentInfoRef.current
+      const tooltipWidth = waqfSettingContentInfo?.offsetWidth
+      const tooltipHeight = waqfSettingContentInfo?.offsetHeight
       const leftPosition = event.clientX
-      if (waqfSettingInfo) {
+      const containerHalfWidth = document.documentElement.clientWidth / 2
+      if (waqfSettingContentInfo) {
         if (isHovered) {
-          waqfSettingInfo.style.display = 'block'
-          waqfSettingInfo.style.left = `${leftPosition + 8}px`
-          waqfSettingInfo.style.right = 'auto'
-          waqfSettingInfo.style.top = `${event.clientY - tooltipHeight - 80}px`
-        } else {
-          waqfSettingInfo.style.display = 'none'
-        }
+          waqfSettingContentInfo.style.display = 'block'
+          waqfSettingContentInfo.style.right = 'auto'
+          if (leftPosition < containerHalfWidth) {
+            waqfSettingContentInfo.style.left = `${waqfSettingInfo.right + 4}px`
+            waqfSettingContentInfo.style.top = `${tooltipHeight - 4}px`
+          } else {
+            waqfSettingContentInfo.style.left = `${tooltipWidth + 8}px`
+            waqfSettingContentInfo.style.top = `${waqfSettingInfo.top - 16}px`
+          }
+        } else waqfSettingContentInfo.style.display = 'none'
       }
     }, 1)
   }
@@ -1146,6 +1152,7 @@ class RecognitionContainer extends React.Component {
           t={this.props.t}
           state={this.state}
           waqfSettingInfoRef={this.waqfSettingInfoRef}
+          waqfSettingContentInfoRef={this.waqfSettingContentInfoRef}
           contentContainerRef={this.contentContainerRef}
           tooltipRef={this.tooltipRef}
           carouselItemsRefs={this.carouselItemsRefs}

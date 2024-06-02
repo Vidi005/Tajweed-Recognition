@@ -7,7 +7,7 @@ import TajweedGuidelines from "./TajweedGuidelines"
 import SidebarContainer from "./SidebarContainer"
 import { getTajweedLaws } from "../../../../../utils/data"
 
-const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increaseTextSize, waqfSettingInfoRef, contentContainerRef, tooltipRef, decreaseLineHeight, decreaseTextSize, handleTextEditor, onContentChangeHandler, setContentDisplayMode, showWaqfSettingInfo, showTooltip, showSummaryModal, hideTooltip, carouselItemsRefs, calculateLines, handleDisclosurePanels, handleAllColorization, changeWaqfMuanaqohStops, selectWaqf, toggleOption, toggleSelectAllGroup, closeResult }) => {
+const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increaseTextSize, waqfSettingInfoRef, waqfSettingContentInfoRef, contentContainerRef, tooltipRef, decreaseLineHeight, decreaseTextSize, handleTextEditor, onContentChangeHandler, setContentDisplayMode, showWaqfSettingInfo, showTooltip, showSummaryModal, hideTooltip, carouselItemsRefs, calculateLines, handleDisclosurePanels, handleAllColorization, changeWaqfMuanaqohStops, selectWaqf, toggleOption, toggleSelectAllGroup, closeResult }) => {
   const loadTajweedData = () => {
     const tajweedData = []
     getTajweedLaws().sort((a, b) => a.id - b.id).forEach((tajweedLaw, index) => {
@@ -37,9 +37,12 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
           <MenuBarContainer
             t={t}
             isEditMode={state.isEditMode}
+            waqfSettingInfoRef={waqfSettingInfoRef}
+            waqfSettingContentInfoRef={waqfSettingContentInfoRef}
             isOddPosition={state.isOddPosition}
             waqfMuanaqohContent={state.waqfMuanaqohContent}
             filteredWaqfs={state.filteredWaqfs}
+            showWaqfSettingInfo={showWaqfSettingInfo}
             coloredTajweeds={state.coloredTajweeds}
             filteredTajweeds={state.filteredTajweeds}
             selectedWaqfIds={state.selectedWaqfIds}
@@ -55,6 +58,7 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
               t={t}
               areAllPanelsExpanded={state.areAllPanelsExpanded}
               waqfSettingInfoRef={waqfSettingInfoRef}
+              waqfSettingContentInfoRef={waqfSettingContentInfoRef}
               isOddPosition={state.isOddPosition}
               waqfMuanaqohContent={state.waqfMuanaqohContent}
               filteredWaqfs={state.filteredWaqfs}
