@@ -22,7 +22,7 @@ const MenuBarContainer = ({ t, isEditMode, waqfSettingInfoRef, waqfSettingConten
         <Popover.Panel className={"absolute right-2 mt-2 max-w-full w-max max-h-[83%] p-2 origin-top-right bg-green-50 dark:bg-gray-700 shadow-xl dark:shadow-md dark:shadow-white/50 rounded-lg overflow-x-hidden z-10"}>
           <h5 className={"p-2 text-green-700 dark:text-gray-200 animate__animated animate__fadeInRight animate__faster"}>{t("colorization_setting")}:</h5>
           <RadioGroup value={colorizationMode} onChange={changeColorizationMode} className={"grid grid-cols-2 gap-2 mx-1 mb-2 text-xs md:text-sm animate__animated animate__fadeInRight animate__faster"}>
-            <RadioGroup.Option value={"Text Color"} className={({ active, checked }) => `${active ? 'ring-2 ring-green-300 rounded-lg' : ''} ${checked ? 'border border-green-900 dark:border-green-400 text-white rounded-lg' : 'border bg-green-200/50 dark:bg-gray-700 rounded-lg'} border-green-900 dark:border-green-400 text-green-900 dark:text-white hover:-translate-y-1 shadow-md dark:shadow-white/50 cursor-pointer duration-200`}>
+            <RadioGroup.Option value={"Text Color"} className={({ active, checked }) => `${active ? 'ring-2 ring-green-300 rounded-lg' : ''} ${checked ? 'border border-green-900 dark:border-green-400 text-white rounded-lg' : 'border bg-green-200/50 dark:bg-gray-700 rounded-lg'} border-green-900 dark:border-green-400 text-green-900 dark:text-white shadow-md dark:shadow-white/50 cursor-pointer duration-200`}>
               {({ checked }) => (
                 checked ? (
                   <div className="flex items-center flex-nowrap bg-green-800 dark:bg-green-600 p-2 cursor-pointer rounded-lg duration-300">
@@ -31,22 +31,24 @@ const MenuBarContainer = ({ t, isEditMode, waqfSettingInfoRef, waqfSettingConten
                   </div>
                 ) : (
                   <div className="flex items-center flex-nowrap p-2 cursor-pointer rounded-lg duration-300">
-                    <img className="max-h-4 mr-2 object-contain object-center" src="images/text-color-icon.svg" alt="Text Color" />
+                    <img className="hidden dark:inline-block max-h-4 mr-2 object-contain object-center" src="images/text-color-icon.svg" alt="Text Color" />
+                    <img className="dark:hidden max-h-4 mr-2 object-contain object-center" src="images/text-color-icon-dark.svg" alt="Text Color" />
                     <RadioGroup.Label className="cursor-pointer">{t("text_color")}</RadioGroup.Label>
                   </div>
                 )
               )}
             </RadioGroup.Option>
-            <RadioGroup.Option value={"Background Color"} className={({ active, checked }) => `${active ? 'ring-2 ring-green-300 rounded-lg' : ''} ${checked ? 'border border-green-900 dark:border-green-400 text-white rounded-lg' : 'border bg-green-200/50 dark:bg-gray-700 rounded-lg'} border-green-900 dark:border-green-400 text-green-900 dark:text-white hover:-translate-y-1 shadow-md dark:shadow-white/50 cursor-pointer duration-200`}>
+            <RadioGroup.Option value={"Background Color"} className={({ active, checked }) => `${active ? 'ring-2 ring-green-300 rounded-lg' : ''} ${checked ? 'border border-green-900 dark:border-green-400 text-white rounded-lg' : 'border bg-green-200/50 dark:bg-gray-700 rounded-lg'} border-green-900 dark:border-green-400 text-green-900 dark:text-white shadow-md dark:shadow-white/50 cursor-pointer duration-200`}>
               {({ checked }) => (
                 checked ? (
                   <div className="flex items-center flex-nowrap bg-green-800 dark:bg-green-600 p-2 cursor-pointer rounded-lg duration-300">
-                    <img className="max-h-4 mr-2 object-contain object-center" src="images/background-color-icon.svg" alt="Text Color" />
+                    <img className="max-h-4 mr-2 object-contain object-center" src="images/background-color-icon.svg" alt="Background Color" />
                     <RadioGroup.Label className="cursor-pointer">{t("background_color")}</RadioGroup.Label>
                   </div>
                 ) : (
                   <div className="flex items-center flex-nowrap p-2 cursor-pointer rounded-lg duration-300">
-                    <img className="max-h-4 mr-2 object-contain object-center" src="images/background-color-icon.svg" alt="Text Color" />
+                    <img className="hidden dark:inline-block max-h-4 mr-2 object-contain object-center" src="images/background-color-icon.svg" alt="Background Color" />
+                    <img className="dark:hidden max-h-4 mr-2 object-contain object-center" src="images/background-color-icon-dark.svg" alt="Background Color" />
                     <RadioGroup.Label className="cursor-pointer">{t("background_color")}</RadioGroup.Label>
                   </div>
                 )
@@ -65,7 +67,7 @@ const MenuBarContainer = ({ t, isEditMode, waqfSettingInfoRef, waqfSettingConten
             />
             <img
               ref={waqfSettingInfoRef}
-              className="hidden dark:inline-flex max-h-6 mr-1 p-0.5 object-contain object-center hover:bg-green-800/25 dark:hover:bg-gray-500 duration-200 rounded-full overflow-hidden"
+              className="invisible dark:visible max-h-6 mr-1 p-0.5 object-contain object-center hover:bg-green-800/25 dark:hover:bg-gray-500 duration-200 rounded-full overflow-hidden"
               src="images/info-icon-dark.svg"
               alt="Info"
               onMouseEnter={event => showWaqfSettingInfo(event, true)}

@@ -5,7 +5,7 @@ const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, waqfSet
   <aside className="hidden w-0 lg:inline-block lg:w-1/4 bg-green-50 dark:bg-gray-700 shadow-lg dark:shadow-white/50 overflow-y-auto">
     <h4 className="px-3 py-2 text-green-900 dark:text-white">{t("sidebar_title")}</h4>
     <h5 className={"px-3 py-1 text-green-700 dark:text-gray-200"}>{t("colorization_setting")}:</h5>
-    <RadioGroup value={colorizationMode} onChange={changeColorizationMode} className={"grid grid-cols-2 gap-2 mx-3 text-sm"}>
+    <RadioGroup value={colorizationMode} onChange={changeColorizationMode} className={"grid grid-cols-2 gap-2 mx-3 py-2 text-sm"}>
       <RadioGroup.Option value={"Text Color"} className={({ active, checked }) => `${active ? 'ring-2 ring-green-300 rounded-lg' : ''} ${checked ? 'border border-green-900 dark:border-green-400 text-white rounded-lg' : 'border bg-green-200/50 dark:bg-gray-700 rounded-lg'} border-green-900 dark:border-green-400 text-green-900 dark:text-white hover:-translate-y-1 shadow-md dark:shadow-white/50 cursor-pointer duration-200`}>
         {({ checked }) => (
           checked ? (
@@ -15,7 +15,8 @@ const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, waqfSet
             </div>
           ) : (
             <div className="flex items-center flex-nowrap p-2 cursor-pointer rounded-lg duration-300">
-              <img className="max-h-5 mr-2 object-contain object-center" src="images/text-color-icon.svg" alt="Text Color" />
+              <img className="hidden dark:inline-block max-h-5 mr-2 object-contain object-center" src="images/text-color-icon.svg" alt="Text Color" />
+              <img className="dark:hidden max-h-5 mr-2 object-contain object-center" src="images/text-color-icon-dark.svg" alt="Text Color" />
               <RadioGroup.Label className="cursor-pointer">{t("text_color")}</RadioGroup.Label>
             </div>
           )
@@ -25,12 +26,13 @@ const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, waqfSet
         {({ checked }) => (
           checked ? (
             <div className="flex items-center flex-nowrap bg-green-800 dark:bg-green-600 p-2 cursor-pointer rounded-lg duration-300">
-              <img className="max-h-5 mr-2 object-contain object-center" src="images/background-color-icon.svg" alt="Text Color" />
+              <img className="max-h-5 mr-2 object-contain object-center" src="images/background-color-icon.svg" alt="Background Color" />
               <RadioGroup.Label className="cursor-pointer">{t("background_color")}</RadioGroup.Label>
             </div>
           ) : (
             <div className="flex items-center flex-nowrap p-2 cursor-pointer rounded-lg duration-300">
-              <img className="max-h-5 mr-2 object-contain object-center" src="images/background-color-icon.svg" alt="Text Color" />
+              <img className="hidden dark:inline-block max-h-5 mr-2 object-contain object-center" src="images/background-color-icon.svg" alt="Background Color" />
+              <img className="dark:hidden max-h-5 mr-2 object-contain object-center" src="images/background-color-icon-dark.svg" alt="Background Color" />
               <RadioGroup.Label className="cursor-pointer">{t("background_color")}</RadioGroup.Label>
             </div>
           )
@@ -49,7 +51,7 @@ const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, waqfSet
       />
       <img
         ref={waqfSettingInfoRef}
-        className="hidden dark:inline-flex max-h-7 mr-1 p-1 object-contain object-center hover:bg-green-800/25 dark:hover:bg-gray-500 duration-200 rounded-full overflow-hidden"
+        className="invisible dark:visible max-h-7 mr-1 p-1 object-contain object-center hover:bg-green-800/25 dark:hover:bg-gray-500 duration-200 rounded-full overflow-hidden"
         src="images/info-icon-dark.svg"
         alt="Info"
         onMouseEnter={event => showWaqfSettingInfo(event, true)}

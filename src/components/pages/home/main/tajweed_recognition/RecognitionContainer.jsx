@@ -812,7 +812,7 @@ class RecognitionContainer extends React.Component {
           waqfSettingContentInfo.style.right = 'auto'
           if (leftPosition < containerHalfWidth) {
             waqfSettingContentInfo.style.left = `${waqfSettingInfo.right + 4}px`
-            waqfSettingContentInfo.style.top = `${tooltipHeight - 4}px`
+            waqfSettingContentInfo.style.top = `${waqfSettingInfo.top - tooltipHeight}px`
           } else {
             waqfSettingContentInfo.style.left = `${tooltipWidth + 8}px`
             waqfSettingContentInfo.style.top = `${waqfSettingInfo.top - 16}px`
