@@ -41,6 +41,7 @@ class RecognitionContainer extends React.Component {
       tajweedLawRules: getTajweedLaws(),
       twLineHeight: '3rem',
       twTextSize: '1.5rem',
+      colorizationMode: 'Text Color',
       coloredTajweeds: '',
       tooltipContent: '',
       tooltipColor: '',
@@ -174,6 +175,7 @@ class RecognitionContainer extends React.Component {
         twLineHeight,
         twTextSize,
         tajweedLawRules,
+        colorizationMode,
         coloredTajweeds,
         waqfMuanaqohContent,
         filteredWaqfs,
@@ -189,6 +191,7 @@ class RecognitionContainer extends React.Component {
         twLineHeight,
         twTextSize,
         tajweedLawRules,
+        colorizationMode,
         coloredTajweeds,
         waqfMuanaqohContent,
         filteredWaqfs,
@@ -240,6 +243,7 @@ class RecognitionContainer extends React.Component {
           recognizedText: this.state.recognizedText,
           tajweedLaws: this.state.tajweedLawRules,
           waqfMuanaqohContinuityTajweedLaws: waqfMuanaqohContinuityTajweedLaws(this.state.tajweedLawRules),
+          colorizationMode: this.state.colorizationMode,
           isOddPosition: this.state.isOddPosition
         })
         worker.onmessage = workerEvent => {
@@ -279,6 +283,7 @@ class RecognitionContainer extends React.Component {
         twLineHeight: this.state.twLineHeight,
         twTextSize: this.state.twTextSize,
         tajweedLawRules: this.state.tajweedLawRules,
+        colorizationMode: this.state.colorizationMode,
         coloredTajweeds: this.state.coloredTajweeds,
         filteredTajweeds: this.state.filteredTajweeds,
         waqfMuanaqohContent: this.state.waqfMuanaqohContent,
@@ -613,7 +618,7 @@ class RecognitionContainer extends React.Component {
           isRecognizing: false,
           isEditMode: false,
           recognizedText: removeNonArabic(data.text.split('\n').join(' ').trim().replace(/\s+/g, ' ')),
-          coloredTajweeds: colorizeChars(removeNonArabic(data.text.trim()), this.state.tajweedLawRules, this.state.isOddPosition),
+          coloredTajweeds: colorizeChars(removeNonArabic(data.text.trim()), this.state.tajweedLawRules, this.state.colorizationMode, this.state.isOddPosition),
           isResultClosed: false }, () => this.filterColorizedTajweeds(this.state.coloredTajweeds))
       } else {
         this.setState({ isRecognizing: false }, () => {
@@ -669,7 +674,7 @@ class RecognitionContainer extends React.Component {
             this.setState({
               isRecognizing: false,
               isEditMode: false,
-              coloredTajweeds: colorizeChars(removeNonArabic(recognizedTextArray.join('\n').trim()), this.state.tajweedLawRules, this.state.isOddPosition),
+              coloredTajweeds: colorizeChars(removeNonArabic(recognizedTextArray.join('\n').trim()), this.state.tajweedLawRules, this.state.colorizationMode, this.state.isOddPosition),
               isResultClosed: false }, () => this.filterColorizedTajweeds(this.state.coloredTajweeds))
             return
           } else {
@@ -736,7 +741,7 @@ class RecognitionContainer extends React.Component {
       }
       this.setState({
         recognizedText: removeNonArabic(text.trim()),
-        coloredTajweeds: colorizeChars(removeNonArabic(text.trim()), this.state.tajweedLawRules, this.state.isOddPosition),
+        coloredTajweeds: colorizeChars(removeNonArabic(text.trim()), this.state.tajweedLawRules, this.state.colorizationMode, this.state.isOddPosition),
         isRecognizing: false,
         isEditMode: false,
         isResultClosed: false,
@@ -761,7 +766,7 @@ class RecognitionContainer extends React.Component {
       if (text.value.length > 0) {
         this.setState({
           recognizedText: removeNonArabic(text.value.trim()),
-          coloredTajweeds: colorizeChars(removeNonArabic(text.value.trim()), this.state.tajweedLawRules, this.state.isOddPosition),
+          coloredTajweeds: colorizeChars(removeNonArabic(text.value.trim()), this.state.tajweedLawRules, this.state.colorizationMode, this.state.isOddPosition),
           isRecognizing: false,
           isEditMode: false,
           isResultClosed: false,
@@ -922,6 +927,27 @@ class RecognitionContainer extends React.Component {
     this.setState(prevState => ({ areAllPanelsExpanded: !prevState.areAllPanelsExpanded }))
   }
 
+  changeColorizationMode(colorizationMode) {
+    if (colorizationMode !== this.state.colorizationMode) {
+      this.setState({ colorizationMode, isLoading: true })
+      const worker = createColorizationWorker()
+      worker.postMessage({
+        recognizedText: this.state.recognizedText,
+        tajweedLaws: this.state.tajweedLawRules,
+        waqfMuanaqohContinuityTajweedLaws: waqfMuanaqohContinuityTajweedLaws(this.state.tajweedLawRules),
+        colorizationMode,
+        isOddPosition: this.state.isOddPosition
+      })
+      worker.onmessage = workerEvent => {
+        const coloredTajweeds = workerEvent.data
+        this.setState({ coloredTajweeds: coloredTajweeds, isLoading: false }, () => {
+          this.regenerateTajweedColors(coloredTajweeds)
+        })
+        worker.terminate()
+      }
+    }
+  }
+
   changeWaqfMuanaqohStops(isOddPosition) {
     if (isOddPosition !== this.state.isOddPosition) {
       this.setState({ isLoading: true, isOddPosition })
@@ -930,6 +956,7 @@ class RecognitionContainer extends React.Component {
         recognizedText: this.state.recognizedText,
         tajweedLaws: this.state.tajweedLawRules,
         waqfMuanaqohContinuityTajweedLaws: waqfMuanaqohContinuityTajweedLaws(this.state.tajweedLawRules),
+        colorizationMode: this.state.colorizationMode,
         isOddPosition
       })
       worker.onmessage = workerEvent => {
@@ -949,6 +976,7 @@ class RecognitionContainer extends React.Component {
       recognizedText: this.state.recognizedText,
       tajweedLaws: this.state.tajweedLawRules,
       waqfMuanaqohContinuityTajweedLaws: waqfMuanaqohContinuityTajweedLaws(this.state.tajweedLawRules),
+      colorizationMode: this.state.colorizationMode,
       isOddPosition: this.state.isOddPosition
     })
     worker.onmessage = workerEvent => {
@@ -971,6 +999,7 @@ class RecognitionContainer extends React.Component {
       // Still to be fixed
       tajweedLaws: copyOfTajweedLawRules.filter(tajweedLaw => this.state.selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id)),
       waqfMuanaqohContinuityTajweedLaws: copyOfWaqfMuanaqohContinuity.filter(tajweedLaw => this.state.selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id)),
+      colorizationMode: this.state.colorizationMode,
       isOddPosition: this.state.isOddPosition
     })
     worker.onmessage = workerEvent => {
@@ -1172,6 +1201,7 @@ class RecognitionContainer extends React.Component {
           calculateLines={this.calculateLines.bind(this)}
           handleDisclosurePanels={this.handleDisclosurePanels.bind(this)}
           handleAllColorization={this.handleAllColorization.bind(this)}
+          changeColorizationMode={this.changeColorizationMode.bind(this)}
           changeWaqfMuanaqohStops={this.changeWaqfMuanaqohStops.bind(this)}
           selectWaqf={this.selectWaqf.bind(this)}
           toggleOption={this.toggleOption.bind(this)}

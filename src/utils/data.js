@@ -1165,16 +1165,16 @@ const tajweedLaws = () => [
     detailPage: '/detail/mad-farq'
   },
   {
-    id: 35,
-    color: '#00ff80',
-    rules: madLazimHarfiMukhoffafTajweed,
-    detailPage: '/detail/mad-lazim-harfi-mukhoffaf'
-  },
-  {
     id: 36,
     color: '#4000ff',
     rules: madLazimHarfiMutsaqqolTajweed,
     detailPage: '/detail/mad-lazim-harfi-mutsaqqol'
+  },
+  {
+    id: 35,
+    color: '#00ff80',
+    rules: madLazimHarfiMukhoffafTajweed,
+    detailPage: '/detail/mad-lazim-harfi-mukhoffaf'
   },
   {
     id: 37,
@@ -1508,12 +1508,16 @@ const buildRegExp = rules => {
   }
 }
 
-const colorizeChars = (recognizedText, tajweedLaws, isOddPosition) => {
+const colorizeChars = (recognizedText, tajweedLaws, colorizationMode, isOddPosition) => {
   /* Replace is used to replace certain madd "\u0653" diacritics which is not working after alif in regex as an alternative solution */
   let colorizedChars = recognizedText.replace(/\u0627\u0653(?!\s*[\u0621-\u0627]|\s*[\u0648\u0649][\u0654\u0655])/gm, '\u0627\u06E4')
   if (colorizedChars.includes('\u06DB')) {
     const applyOptionalColor = (part, regex, id, color) => {
-      return part.replace(regex, match => `<span class="tajweed-${id}" style="color: ${color}; cursor: pointer;">${match}</span>`)
+      if (colorizationMode === 'Text Color') {
+        return part.replace(regex, match => `<span class="tajweed-${id}" style="color: ${color}; cursor: pointer;">${match}</span>`)
+      } else {
+        return part.replace(regex, match => `<span class="tajweed-${id}" style="background-color: ${color}BF; cursor: pointer;">${match}</span>`)
+      }
     }
     const parts = colorizedChars.split('\u06DB')
     const waqfTajweedLaws = waqfMuanaqohContinuityTajweedLaws(tajweedLaws)    
@@ -1530,7 +1534,11 @@ const colorizeChars = (recognizedText, tajweedLaws, isOddPosition) => {
     }).join('')
   } else {
     const applyColor = (regex, id, color) => {
-      colorizedChars = colorizedChars.replace(regex, match => `<span class="tajweed-${id}" style="color: ${color}; cursor: pointer;">${match}</span>`)
+      if (colorizationMode === 'Text Color') {
+        colorizedChars = colorizedChars.replace(regex, match => `<span class="tajweed-${id}" style="color: ${color}; cursor: pointer;">${match}</span>`)
+      } else {
+        colorizedChars = colorizedChars.replace(regex, match => `<span class="tajweed-${id}" style="background-color: ${color}BF; cursor: pointer;">${match}</span>`)
+      }
     }
     tajweedLaws.forEach(tajweedLaw => {
       tajweedLaw.rules.forEach(rule => {

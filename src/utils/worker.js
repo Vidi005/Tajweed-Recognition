@@ -19,11 +19,15 @@ const createTooltipWorker = () => {
 const createColorizationWorker = () => {
   const workerScript = `
     self.onmessage = function(event) {
-      const { recognizedText, tajweedLaws, waqfMuanaqohContinuityTajweedLaws, isOddPosition } = event.data
+      const { recognizedText, tajweedLaws, waqfMuanaqohContinuityTajweedLaws, colorizationMode, isOddPosition } = event.data
       let colorizedChars = recognizedText.replace(/\\u0627\\u0653(?!\\s*[\\u0621-\\u0627]|\\s*[\\u0648\\u0649][\\u0654\\u0655])/gm, '\\u0627\\u06E4')
       if (colorizedChars.includes('\\u06DB')) {
         const applyOptionalColor = (part, regex, id, color) => {
-          return part.replace(regex, match => '<span class="tajweed-' + id + '" style="color: ' + color + '; cursor: pointer;">' + match + '</span>')
+          if (colorizationMode === 'Text Color') {
+            return part.replace(regex, match => '<span class="tajweed-' + id + '" style="color: ' + color + '; cursor: pointer;">' + match + '</span>')
+          } else {
+            return part.replace(regex, match => '<span class="tajweed-' + id + '" style="background-color: ' + color + 'BF; cursor: pointer;">' + match + '</span>')
+          }
         }
         const parts = colorizedChars.split('\\u06DB')
         const waqfTajweedLaws = waqfMuanaqohContinuityTajweedLaws
@@ -40,7 +44,11 @@ const createColorizationWorker = () => {
         }).join('')
       } else {
         const applyColor = (regex, id, color) => {
-          colorizedChars = colorizedChars.replace(regex, match => '<span class="tajweed-' + id + '" style="color: ' + color + '; cursor: pointer;">' + match + '</span>')
+          if (colorizationMode === 'Text Color') {
+            colorizedChars = colorizedChars.replace(regex, match => '<span class="tajweed-' + id + '" style="color: ' + color + '; cursor: pointer;">' + match + '</span>')
+          } else {
+            colorizedChars = colorizedChars.replace(regex, match => '<span class="tajweed-' + id + '" style="background-color: ' + color + 'BF; cursor: pointer;">' + match + '</span>')
+          }
         }
         tajweedLaws.forEach(tajweedLaw => {
           tajweedLaw.rules.forEach(rule => {

@@ -1,9 +1,42 @@
 import { Disclosure, Listbox, RadioGroup, Transition } from "@headlessui/react"
 import React, { Fragment } from "react"
 
-const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, waqfSettingContentInfoRef, isOddPosition, waqfMuanaqohContent, selectedWaqfIds, selectedTajweedIds, filteredWaqfs, filteredTajweeds, showWaqfSettingInfo, handleDisclosurePanels, handleAllColorization, changeWaqfMuanaqohStops, selectWaqf, toggleOption, toggleSelectAllGroup }) => (
+const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, waqfSettingContentInfoRef, colorizationMode, isOddPosition, waqfMuanaqohContent, selectedWaqfIds, selectedTajweedIds, filteredWaqfs, filteredTajweeds, showWaqfSettingInfo, handleDisclosurePanels, handleAllColorization, changeColorizationMode, changeWaqfMuanaqohStops, selectWaqf, toggleOption, toggleSelectAllGroup }) => (
   <aside className="hidden w-0 lg:inline-block lg:w-1/4 bg-green-50 dark:bg-gray-700 shadow-lg dark:shadow-white/50 overflow-y-auto">
     <h4 className="px-3 py-2 text-green-900 dark:text-white">{t("sidebar_title")}</h4>
+    <h5 className={"px-3 py-1 text-green-700 dark:text-gray-200"}>{t("colorization_setting")}:</h5>
+    <RadioGroup value={colorizationMode} onChange={changeColorizationMode} className={"grid grid-cols-2 gap-2 mx-3 text-sm"}>
+      <RadioGroup.Option value={"Text Color"} className={({ active, checked }) => `${active ? 'ring-2 ring-green-300 rounded-lg' : ''} ${checked ? 'border border-green-900 dark:border-green-400 text-white rounded-lg' : 'border bg-green-200/50 dark:bg-gray-700 rounded-lg'} border-green-900 dark:border-green-400 text-green-900 dark:text-white hover:-translate-y-1 shadow-md dark:shadow-white/50 cursor-pointer duration-200`}>
+        {({ checked }) => (
+          checked ? (
+            <div className="flex items-center flex-nowrap bg-green-800 dark:bg-green-600 p-2 cursor-pointer rounded-lg duration-300">
+              <img className="max-h-5 mr-2 object-contain object-center" src="images/text-color-icon.svg" alt="Text Color" />
+              <RadioGroup.Label className="cursor-pointer">{t("text_color")}</RadioGroup.Label>
+            </div>
+          ) : (
+            <div className="flex items-center flex-nowrap p-2 cursor-pointer rounded-lg duration-300">
+              <img className="max-h-5 mr-2 object-contain object-center" src="images/text-color-icon.svg" alt="Text Color" />
+              <RadioGroup.Label className="cursor-pointer">{t("text_color")}</RadioGroup.Label>
+            </div>
+          )
+        )}
+      </RadioGroup.Option>
+      <RadioGroup.Option value={"Background Color"} className={({ active, checked }) => `${active ? 'ring-2 ring-green-300 rounded-lg' : ''} ${checked ? 'border border-green-900 dark:border-green-400 text-white rounded-lg' : 'border bg-green-200/50 dark:bg-gray-700 rounded-lg'} border-green-900 dark:border-green-400 text-green-900 dark:text-white hover:-translate-y-1 shadow-md dark:shadow-white/50 cursor-pointer duration-200`}>
+        {({ checked }) => (
+          checked ? (
+            <div className="flex items-center flex-nowrap bg-green-800 dark:bg-green-600 p-2 cursor-pointer rounded-lg duration-300">
+              <img className="max-h-5 mr-2 object-contain object-center" src="images/background-color-icon.svg" alt="Text Color" />
+              <RadioGroup.Label className="cursor-pointer">{t("background_color")}</RadioGroup.Label>
+            </div>
+          ) : (
+            <div className="flex items-center flex-nowrap p-2 cursor-pointer rounded-lg duration-300">
+              <img className="max-h-5 mr-2 object-contain object-center" src="images/background-color-icon.svg" alt="Text Color" />
+              <RadioGroup.Label className="cursor-pointer">{t("background_color")}</RadioGroup.Label>
+            </div>
+          )
+        )}
+      </RadioGroup.Option>
+    </RadioGroup>
     <h5 className={filteredWaqfs.length > 0 ? "flex items-center justify-between px-3 py-0.5 text-green-700 dark:text-gray-200" : "hidden"}>
       <span>{t("waqf_setting")}:</span>
       <img
