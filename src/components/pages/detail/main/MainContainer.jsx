@@ -45,7 +45,7 @@ const MainContainer = ({ t }) => {
                 {findTajweedLaw().examples.map((example, idx) => (
                   <tr key={idx}>
                     <td className="pr-2 align-top">•</td>
-                    <td className="font-lpmq-isep-misbah text-xl">{example}</td>
+                    <td className="font-lpmq-isep-misbah text-lg md:text-xl">{example}</td>
                   </tr>
                 ))}
               </tbody>
