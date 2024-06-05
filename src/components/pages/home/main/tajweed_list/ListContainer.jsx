@@ -17,24 +17,33 @@ class ListContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ getFilteredTajweeds: this.loadTajweedData() })
+    setTimeout(() => {
+      this.setState({
+        filterBy: this.props.t('filter_tajweeds.0'),
+        getFilteredTajweeds: this.loadTajweedData()
+      }, () => this.filterHandler(this.state.filterBy))
+    }, 10)
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.t !== this.props.t) {
-      this.setState({ getFilteredTajweeds: this.loadTajweedData() })
+      this.setState({
+        filterBy: this.props.t('filter_tajweeds.0'),
+        getFilteredTajweeds: this.loadTajweedData()
+      }, () => this.filterHandler(this.state.filterBy))
     }
   }
 
   loadTajweedData() {
     const tajweedData = []
-    tajweedLaws().sort((a, b) => a.id - b.id).forEach((_tajweedLaw, index) => {
+    const dataCopy = tajweedLaws().map(tajweedLaw => ({ ...tajweedLaw }))
+    dataCopy.sort((a, b) => a.id - b.id).forEach((_tajweedLaw, index) => {
       tajweedData.push({
         id: this.props.t(`tajweed_laws.${index}.id`),
         group: this.props.t(`tajweed_laws.${index}.group`),
         category: this.props.t(`tajweed_laws.${index}.category`),
         name: this.props.t(`tajweed_laws.${index}.name`),
-        page: this.props.t(`tajweed_laws.${index}.page`),
+        page: this.props.t(`tajweed_laws.${index}.page`)
       })
     })
     return tajweedData

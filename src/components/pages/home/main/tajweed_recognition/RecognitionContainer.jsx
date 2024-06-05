@@ -513,15 +513,16 @@ class RecognitionContainer extends React.Component {
             pdf.text(header.toLocaleString(), pageWidth - 130, 15, { baseline: 'top', })
             pdf.text(footer, pageWidth / 2 - (pdf.getTextWidth(footer) / 2), pageHeight - 15, { baseline: 'bottom' })
             const tableData = []
-            const data = [...this.state.filteredTajweeds.sort((a, b) => a.id - b.id)]
+            const dataCopy = this.state.filteredTajweeds.map(tajweed => ({ ...tajweed }))
+            dataCopy.sort((a, b) => a.id - b.id)
             for (let i = 0; i < 9; i++) {
               const rowData = []
-              for (let j = 0; j <= Math.ceil(data.length * 2 / 9); j++) {
+              for (let j = 0; j <= Math.ceil(dataCopy.length * 2 / 9); j++) {
                 if (j % 2 === 0) {
-                  const colorData = data[i % data.length + Math.ceil(j / 2) * 9]?.color
+                  const colorData = dataCopy[i % dataCopy.length + Math.ceil(j / 2) * 9]?.color
                   rowData.push(colorData ? colorData : '')
                 } else {
-                  const nameData = data[i % data.length + Math.floor(j / 2) * 9]?.name
+                  const nameData = dataCopy[i % dataCopy.length + Math.floor(j / 2) * 9]?.name
                   rowData.push(nameData ? ` :  ${nameData}`: '')
                 }
               }
