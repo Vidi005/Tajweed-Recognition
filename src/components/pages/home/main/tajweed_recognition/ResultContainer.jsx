@@ -141,7 +141,7 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
                       <hr />
                       <h1 style={{ fontFamily: "'Times New Roman', 'Serif'", fontSize: "14pt", fontWeight: "bold", textAlign: "center" }}>{state.docTitle}</h1>
                       <h2 style={{ display: "flex", alignItems: "center", justifyContent: "center", direction: "rtl", fontFamily: "'LPMQ Isep Misbah', 'Times New Roman', 'Arial'", fontSize: `${Number(state.twTextSize.replace('rem', '')) * 12}pt`, lineHeight: `${Number(state.twLineHeight.replace('rem', '')) * 12}pt`, textAlign: "center", width: "100%" }}>بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</h2>
-                      <p dangerouslySetInnerHTML={{ __html: state.coloredTajweeds.replace(/BF;/gm, ';') }} style={{ direction: "rtl", width: "100%", fontFamily: "'LPMQ Isep Misbah', 'Times New Roman', 'Arial'", fontSize: `${Number(state.twTextSize.replace('rem', '')) * 12}pt`, textAlign: "right", lineHeight: `${Number(state.twLineHeight.replace('rem', '')) * 12}pt` }}></p>
+                      <p dangerouslySetInnerHTML={{ __html: state.coloredTajweeds.replace(/BF;/gm, ';') }} style={{ direction: "rtl", width: "100%", fontFamily: "'LPMQ Isep Misbah', 'Times New Roman', 'Arial'", fontSize: `${Number(state.twTextSize.replace('rem', '')) * 12}pt`, textAlign: "right", color: "black", lineHeight: `${Number(state.twLineHeight.replace('rem', '')) * 12}pt` }}></p>
                     </article>
                     <article className="colored-tajweeds-doc hidden">
                       <h1 style={{ fontFamily: "'Times New Roman', 'Serif'", fontSize: "14pt", textAlign: "center" }}>{t('color_index')}</h1>
@@ -158,7 +158,7 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
                       </ul>
                       <hr />
                       <h1 style={{ fontFamily: "'Times New Roman', 'Serif'", fontSize: "14pt", fontWeight: "bold", textAlign: "center" }}>{state.docTitle}</h1>
-                      <p dangerouslySetInnerHTML={{ __html: state.coloredTajweeds.replace(/BF;/gm, ';') }} style={{ direction: "rtl", width: "100%", textAlign: "right", fontFamily: "'LPMQ Isep Misbah', 'Times New Roman', 'Arial'", fontSize: `${Number(state.twTextSize.replace('rem', '')) * 12}pt`, lineHeight: `${Number(state.twLineHeight.replace('rem', '')) * 12}pt` }}></p>
+                      <p dangerouslySetInnerHTML={{ __html: state.coloredTajweeds.replace(/BF;/gm, ';') }} style={{ direction: "rtl", width: "100%", textAlign: "right", color: "black", fontFamily: "'LPMQ Isep Misbah', 'Times New Roman', 'Arial'", fontSize: `${Number(state.twTextSize.replace('rem', '')) * 12}pt`, lineHeight: `${Number(state.twLineHeight.replace('rem', '')) * 12}pt` }}></p>
                     </article>
                     <article className="colored-tajweeds-pdf hidden w-[595.28px] font-amiri-regular text-black text-xl" dir="rtl">
                       {state.isBismillahAdded && <h2 className="text-xl text-center w-full leading-[4rem]">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</h2>}

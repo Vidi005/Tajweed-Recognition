@@ -25,12 +25,30 @@ const DetailTajweedContent = ({ t }) => {
   }
   if (findCurrentTajweedLaw() === '') {
     return (
-      <article className="no-tajweed-found hidden lg:grid items-center justify-center max-h-full w-3/4 font-black text-xl bg-green-50 text-green-900 dark:bg-gray-800 dark:text-white duration-200">{t('no_tajweed_found')}</article>
+      <article className="relative no-tajweed-found hidden lg:grid items-center justify-center max-h-full w-3/4 font-black text-xl bg-green-50 text-green-900 dark:bg-gray-800 dark:text-white duration-200 overflow-x-auto">
+        <div className="fixed dark:hidden bottom-0 right-0 md:w-1/3 w-3/4">
+          <img className="w-full origin-bottom-right object-contain opacity-25 animate__animated animate__slideInUp" src={`${import.meta.env.BASE_URL}images/detail-tajweed-picture.svg`} alt="Background Image" />
+          <span className="absolute w-full h-full inset-0 bg-gradient-to-br from-green-50"></span>
+        </div>
+        <div className="fixed hidden dark:block bottom-0 right-0 md:w-1/3 w-3/4">
+          <img className="w-full origin-bottom-right object-contain opacity-25 animate__animated animate__slideInUp" src={`${import.meta.env.BASE_URL}images/detail-tajweed-picture-dark.svg`} alt="Background Image" />
+          <span className="absolute w-full h-full inset-0 bg-gradient-to-br from-gray-800"></span>
+        </div>
+        {t('no_tajweed_found')}
+      </article>
     )
   } else {
     return (
-      <article className="detail-tajweed-content hidden lg:inline-flex flex-col justify-between max-h-full w-3/4 bg-green-50 dark:bg-gray-800 p-2 duration-200 overflow-y-auto">
-        <section>
+      <article className="detail-tajweed-content relative hidden lg:inline-flex flex-col justify-between max-h-full w-3/4 bg-green-50 dark:bg-gray-800 p-2 duration-200 overflow-y-auto">
+        <div className="fixed dark:hidden bottom-0 right-0 md:w-1/3 w-3/4">
+          <img className="w-full origin-bottom-right object-contain opacity-25 animate__animated animate__slideInUp" src={`${import.meta.env.BASE_URL}images/detail-tajweed-picture.svg`} alt="Background Image" />
+          <span className="absolute w-full h-full inset-0 bg-gradient-to-br from-green-50"></span>
+        </div>
+        <div className="fixed hidden dark:block bottom-0 right-0 md:w-1/3 w-3/4">
+          <img className="w-full origin-bottom-right object-contain opacity-25 animate__animated animate__slideInUp" src={`${import.meta.env.BASE_URL}images/detail-tajweed-picture-dark.svg`} alt="Background Image" />
+          <span className="absolute w-full h-full inset-0 bg-gradient-to-br from-gray-800"></span>
+        </div>
+        <section className="z-10">
           <h1 className="border-b-4 border-double border-b-green-800 dark:border-b-white p-2 text-green-900 dark:text-white"><strong>{findCurrentTajweedLaw().name}</strong></h1>
           <ul className="flex flex-wrap items-center my-4 list-none text-sm md:text-base">
             <li className="border border-green-900 dark:border-white mr-4 bg-green-800 dark:bg-gray-500 px-2 py-1 text-white rounded-md shadow dark:shadow-white/50">{findCurrentTajweedLaw().category}</li>
@@ -53,10 +71,10 @@ const DetailTajweedContent = ({ t }) => {
           </article>
           <FooterContainer t={t} />
         </section>
-        <section className="grid grid-cols-3 items-center justify-between w-full p-2 gap-2">
+        <section className="grid grid-cols-3 items-center justify-between w-full p-2 gap-2 z-10">
           {findPreviousTajweedLaw() ? (
             <a href={`/tajweed-list${findPreviousTajweedLaw().prevPage}`}>
-              <button className="flex items-center border border-green-900 dark:border-white hover:bg-green-800/25 dark:hover:bg-gray-100/25 px-4 py-2 text-green-900 hover:text-green-700 dark:text-white dark:hover:text-gray-200 hover:underline rounded-lg shadow-lg dark:shadow-white/50 duration-300">
+              <button className="flex items-center border border-green-900 dark:border-white hover:bg-green-800/25 dark:hover:bg-gray-100/25 backdrop-blur-sm px-4 py-2 text-green-900 hover:text-green-700 dark:text-white dark:hover:text-gray-200 hover:underline rounded-lg shadow-lg dark:shadow-white/50 duration-300">
                 <img className="max-h-8 mr-2 invert dark:invert-0" src={`${import.meta.env.BASE_URL}images/backward-icon.svg`} alt="Prev Page" />
                 <h4 className="font-normal">{t(`tajweed_laws.${findPreviousTajweedLaw().prevIdx}.name`)}</h4>
               </button>
@@ -65,7 +83,7 @@ const DetailTajweedContent = ({ t }) => {
           <h4 className="text-green-900 dark:text-white text-center">{findCurrentTajweedLaw().name}</h4>
           {findNextTajweedLaw() ? (
             <a href={`/tajweed-list${findNextTajweedLaw().nextPage}`}>
-              <button className="flex items-center ml-auto border border-green-900 dark:border-white hover:bg-green-800/25 dark:hover:bg-gray-100/25 px-4 py-2 text-green-900 hover:text-green-700 dark:text-white dark:hover:text-gray-200 hover:underline rounded-lg shadow-lg dark:shadow-white/50 duration-300">
+              <button className="flex items-center ml-auto border border-green-900 dark:border-white hover:bg-green-800/25 dark:hover:bg-gray-100/25 backdrop-blur-sm px-4 py-2 text-green-900 hover:text-green-700 dark:text-white dark:hover:text-gray-200 hover:underline rounded-lg shadow-lg dark:shadow-white/50 duration-300">
                 <h4 className="font-normal">{t(`tajweed_laws.${findNextTajweedLaw().nextIdx}.name`)}</h4>
                 <img className="max-h-8 ml-2 invert dark:invert-0 scale-[-1]" src={`${import.meta.env.BASE_URL}images/backward-icon.svg`} alt="Next Page" />
               </button>

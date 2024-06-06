@@ -3,9 +3,27 @@ import React, { Fragment } from "react"
 import Swal from "sweetalert2"
 
 const MenuBarContainer = ({ t, isEditMode, waqfSettingInfoRef, waqfSettingContentInfoRef, colorizationMode, isOddPosition, waqfMuanaqohContent, selectedWaqfIds, showWaqfSettingInfo, selectedTajweedIds, filteredWaqfs, filteredTajweeds, changeColorizationMode, changeWaqfMuanaqohStops, selectWaqf, toggleOption, handleAllColorization, toggleSelectAllGroup, closeResult }) => (
-  <header className="menu-bar__container flex flex-nowrap items-center w-full p-1 bg-green-50 dark:bg-gray-700 shadow-lg z-10">
-    <h3 className="title-bar flex-1 pl-2 text-green-900 dark:text-white">{isEditMode ? t('container_title.0') : t('container_title.1')}</h3>
-    <Popover className={"menu-btn flex-none inline-block lg:hidden h-10"}>
+  <header className="menu-bar__container relative flex flex-nowrap items-center w-full p-1 bg-green-50 dark:bg-gray-700 shadow-lg z-10">
+    <section className="absolute inset-0 flex flex-nowrap items-center justify-between">
+      <img className={`block dark:hidden object-contain object-left origin-left w-full h-full animate__animated animate__fadeIn`} src={`${import.meta.env.BASE_URL}images/bottom-nav-picture.svg`} alt="Background Image" />
+      <img className={`hidden dark:block object-contain object-left origin-left w-full h-full animate__animated animate__fadeIn`} src={`${import.meta.env.BASE_URL}images/bottom-nav-picture-dark.svg`} alt="Background Image" />
+      <img className={`block dark:hidden object-contain object-center origin-center w-full h-full animate__animated animate__fadeIn`} src={`${import.meta.env.BASE_URL}images/bottom-nav-picture.svg`} alt="Background Image" />
+      <img className={`hidden dark:block object-contain object-center origin-center w-full h-full animate__animated animate__fadeIn`} src={`${import.meta.env.BASE_URL}images/bottom-nav-picture-dark.svg`} alt="Background Image" />
+      <img className={`block dark:hidden object-contain object-center origin-center w-full h-full animate__animated animate__fadeIn`} src={`${import.meta.env.BASE_URL}images/bottom-nav-picture.svg`} alt="Background Image" />
+      <img className={`hidden dark:block object-contain object-center origin-center w-full h-full animate__animated animate__fadeIn`} src={`${import.meta.env.BASE_URL}images/bottom-nav-picture-dark.svg`} alt="Background Image" />
+      <img className={`block dark:hidden object-contain object-center origin-center w-full h-full animate__animated animate__fadeIn`} src={`${import.meta.env.BASE_URL}images/bottom-nav-picture.svg`} alt="Background Image" />
+      <img className={`hidden dark:block object-contain object-center origin-center w-full h-full animate__animated animate__fadeIn`} src={`${import.meta.env.BASE_URL}images/bottom-nav-picture-dark.svg`} alt="Background Image" />
+      <img className={`block dark:hidden object-contain object-center origin-center w-full h-full animate__animated animate__fadeIn`} src={`${import.meta.env.BASE_URL}images/bottom-nav-picture.svg`} alt="Background Image" />
+      <img className={`hidden dark:block object-contain object-center origin-center w-full h-full animate__animated animate__fadeIn`} src={`${import.meta.env.BASE_URL}images/bottom-nav-picture-dark.svg`} alt="Background Image" />
+      <img className={`block dark:hidden object-contain object-right origin-right w-full h-full animate__animated animate__fadeIn`} src={`${import.meta.env.BASE_URL}images/bottom-nav-picture.svg`} alt="Background Image" />
+      <img className={`hidden dark:block object-contain object-right origin-right w-full h-full animate__animated animate__fadeIn`} src={`${import.meta.env.BASE_URL}images/bottom-nav-picture-dark.svg`} alt="Background Image" />
+      <span className="absolute w-full h-1/6 bottom-0 bg-gradient-to-t from-green-50 dark:from-gray-700"></span>
+      <span className="absolute w-full h-1/6 top-0 bg-gradient-to-b from-green-50 dark:from-gray-700"></span>
+      <span className="absolute w-1/12 h-full left-0 bg-gradient-to-r from-green-50 dark:from-gray-700 via-transparent"></span>
+      <span className="absolute w-1/12 h-full right-0 bg-gradient-to-l from-green-50 dark:from-gray-700 via-transparent"></span>
+    </section>
+    <h3 className="title-bar flex-1 pl-2 text-green-900 dark:text-white z-10">{isEditMode ? t('container_title.0') : t('container_title.1')}</h3>
+    <Popover className={"menu-btn flex-none inline-block lg:hidden h-10 z-10"}>
       <Popover.Button className={"p-2 hover:bg-green-800/25 dark:hover:bg-gray-500 active:bg-green-800/40 dark:active:bg-gray-300 duration-200 rounded-md"} title="Tajweed Settings" disabled={filteredTajweeds.length === 0}>
         <img className="dark:hidden h-full duration-200" src="images/tajweed-menu-icon.svg" alt="Tajweed Settings" />
         <img className="hidden dark:block h-full duration-200" src="images/tajweed-menu-icon-dark.svg" alt="Tajweed Settings" />
@@ -19,7 +37,7 @@ const MenuBarContainer = ({ t, isEditMode, waqfSettingInfoRef, waqfSettingConten
         leaveFrom="transform opacity-100 scale-100 translate-y-0"
         leaveTo="transform opacity-0 scale-95 -translate-y-1/4"
       >
-        <Popover.Panel className={"absolute right-2 mt-2 max-w-full w-max max-h-[83%] p-2 origin-top-right bg-green-50 dark:bg-gray-700 shadow-xl dark:shadow-md dark:shadow-white/50 rounded-lg overflow-x-hidden z-10"}>
+        <Popover.Panel className={"fixed right-2 mt-2 max-w-full w-max max-h-[83%] p-2 origin-top-right bg-green-50 dark:bg-gray-700 shadow-xl dark:shadow-md dark:shadow-white/50 rounded-lg overflow-x-hidden z-10"}>
           <h5 className={"p-2 text-green-700 dark:text-gray-200 animate__animated animate__fadeInRight animate__faster"}>{t("colorization_setting")}:</h5>
           <RadioGroup value={colorizationMode} onChange={changeColorizationMode} className={"grid grid-cols-2 gap-2 mx-1 mb-2 text-xs md:text-sm animate__animated animate__fadeInRight animate__faster"}>
             <RadioGroup.Option value={"Text Color"} className={({ active, checked }) => `${active ? 'ring-2 ring-green-300 rounded-lg' : ''} ${checked ? 'border border-green-900 dark:border-green-400 text-white rounded-lg' : 'border bg-green-200/50 dark:bg-gray-700 rounded-lg'} border-green-900 dark:border-green-400 text-green-900 dark:text-white shadow-md dark:shadow-white/50 cursor-pointer duration-200`}>
@@ -197,7 +215,7 @@ const MenuBarContainer = ({ t, isEditMode, waqfSettingInfoRef, waqfSettingConten
         </Popover.Panel>
       </Transition>
     </Popover>
-    <button className="discard-btn flex-none h-10 p-2 hover:bg-green-800/25 dark:hover:bg-gray-500 active:bg-green-800/40 dark:active:bg-gray-300 duration-200 rounded-md" title="Close" onClick={() => {
+    <button className="discard-btn flex-none h-10 p-2 hover:bg-green-800/25 dark:hover:bg-gray-500 active:bg-green-800/40 dark:active:bg-gray-300 duration-200 rounded-md z-10" title="Close" onClick={() => {
       Swal.fire({
         title: t('close_result_prompt.0'),
         text: t('close_result_prompt.1'),

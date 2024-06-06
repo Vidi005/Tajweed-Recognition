@@ -6,15 +6,23 @@ import { tajweedLaws } from "../../../../../utils/data"
 const SidebarContainer = ({ t, searchItems, getFilteredTajweeds }) => {
   const currentUrlPath = location.pathname.split("/").slice(2).join("/")
   return (
-    <aside className="hidden max-h-full p-2 lg:inline-block lg:w-1/4 bg-green-100 dark:bg-gray-700 shadow-lg dark:shadow-white/50 duration-200 overflow-y-auto">
-      <h3 className="m-1 p-2 text-green-900 dark:text-white">{t('tajweed_list')}</h3>
+    <aside className="hidden relative max-h-full p-2 lg:inline-block lg:w-1/4 bg-green-100 dark:bg-gray-700 shadow-lg dark:shadow-white/50 duration-200 overflow-y-auto">
+      <div className="fixed dark:hidden bottom-0 w-1/6">
+        <img className="w-full object-contain origin-bottom-left opacity-25 animate__animated animate__slideInUp" src={`${import.meta.env.BASE_URL}images/sidebar-tajweed-list-picture.svg`} alt="Background Image" />
+        <span className="absolute w-full h-full inset-0 bg-gradient-to-bl from-green-100"></span>
+      </div>
+      <div className="hidden dark:block fixed bottom-0 w-1/6">
+        <img className="w-full object-contain origin-bottom-left opacity-25 animate__animated animate__slideInUp" src={`${import.meta.env.BASE_URL}images/sidebar-tajweed-list-picture-dark.svg`} alt="Background Image" />
+        <span className="absolute w-full h-full inset-0 bg-gradient-to-bl from-gray-700"></span>
+      </div>
+      <h3 className="m-1 p-2 text-green-900 dark:text-white z-10">{t('tajweed_list')}</h3>
       <SearchBar t={t} searchItems={searchItems} />
       {getFilteredTajweeds?.length > 0
         ? <>
           {Array.from(new Set(getFilteredTajweeds.map(tajweedLaw => tajweedLaw.category))).map(category => {
             const filteredCategory = getFilteredTajweeds.some(tajweedLaw => tajweedLaw.category === category && tajweedLaw.page === `/${currentUrlPath}`)
             return (
-              <Disclosure defaultOpen={filteredCategory} as={"menu"} key={category} className={"px-2"}>
+              <Disclosure defaultOpen={filteredCategory} as={"menu"} key={category} className={"relative px-2"}>
                 {({ open }) => (
                   <>
                     <Disclosure.Button className={"flex w-full items-center my-1 py-2 font-bold text-green-900 dark:text-gray-100 group hover:text-green-800/75 dark:hover:text-white duration-200"}>
@@ -46,7 +54,7 @@ const SidebarContainer = ({ t, searchItems, getFilteredTajweeds }) => {
           })}
         </>
         : (
-          <article className="nav-product-list__content max-h-full lg:hidden font-bold text-center text-green-900 dark:text-white dark:bg-gray-900">
+          <article className="nav-product-list__content max-h-full lg:hidden font-bold text-center text-green-900 dark:text-white dark:bg-gray-900 z-10">
             <p className="border border-green-800 dark:border-gray-300 m-1 p-4 bg-green-100 dark:bg-gray-800 rounded-lg">{t('empty_list')}</p>
           </article>
         )}

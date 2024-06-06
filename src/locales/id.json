@@ -4,7 +4,7 @@
         { "tab_name": "Recognize Tajweed", "tab_path": "/recognition"},
         { "tab_name": "Daftar Tajwid", "tab_path": "/tajweed-list"}
     ],
-    "app_description": "Selamat datang di Tajweed Recognition - Aplikasi inovatif yang menggunakan teknologi OCR untuk membedakan hukum dan aturan tajwid dalam teks Arab pada gambar, dilengkapi dengan penekanan warna pada tajwid dan penjelasan interaktif untuk memudahkan pembelajaran.",
+    "app_description": "Selamat datang di Tajweed Recognition - Aplikasi inovatif untuk membedakan hukum dan aturan tajwid dalam teks Arab pada berbagai jenis file dokumen dan gambar dengan OCR, dilengkapi dengan penekanan warna pada tajwid dan penjelasan interaktif untuk memudahkan pembelajaran.",
     "alternative_urls": "Alternatif:",
     "warning_message": "Hasil mungkin menjadi salah/berbeda jika terdapat Tajwid yang berdekatan/bertumpuk atau harokat yang tidak lengkap. Silakan pelajari Ilmu Tajwid terlebih dahulu sebelum menggunakan aplikasi ini.",
     "tab_icons": ["/images/recognition-icon.svg", "/images/list-icon.svg"],

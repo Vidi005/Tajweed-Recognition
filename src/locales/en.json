@@ -4,7 +4,7 @@
         { "tab_name": "Recognize Tajweed", "tab_path": "/recognition"},
         { "tab_name": "Tajweed List", "tab_path": "/tajweed-list"}
     ],
-    "app_description": "Welcome to Tajweed Recognition - An innovative application utilizing OCR technology to distinguish various rules of Tajweed within Arabic text on images, accompanied by color highlighting of Tajweed and interactive explanations for easier learning.",
+    "app_description": "Welcome to Tajweed Recognition - An innovative application to distinguish various rules of Tajweed within Arabic text from various type of document files and images with OCR, accompanied by color highlighting of Tajweed and interactive explanations for easier learning.",
     "alternative_urls": "Alternative:",
     "warning_message": "Tajweed results can be invalid if there are some neighboring Tajweed Laws or incomplete Harakahs. Please learn Tajweed Laws before using this application.",
     "tab_icons": ["/images/recognition-icon.svg", "/images/list-icon.svg"],
