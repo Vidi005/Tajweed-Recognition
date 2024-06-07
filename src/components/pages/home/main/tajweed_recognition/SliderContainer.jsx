@@ -38,7 +38,7 @@ const SliderContainer = ({ colorizedTajweeds, carouselItemsRefs, calculateLines,
     ]
   }
   return (
-    <footer className="footer-slider-container relative mx-6 bg-green-50 dark:bg-gray-700 text-center align-middle text-green-900 dark:text-white shadow-lg">
+    <footer className="footer-slider-container relative mx-6 bg-green-50 dark:bg-gray-700 text-center align-middle text-green-900 dark:text-white shadow-lg animate__animated animate__slideInUp">
       <Slider arrows {...settings}>
         {colorizedTajweeds?.map((tajweed, i) => (
           <span
