@@ -3,11 +3,11 @@ import React, { Fragment } from "react"
 
 const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, waqfSettingContentInfoRef, colorizationMode, isOddPosition, waqfMuanaqohContent, selectedWaqfIds, selectedTajweedIds, filteredWaqfs, filteredTajweeds, showWaqfSettingInfo, handleDisclosurePanels, handleAllColorization, changeColorizationMode, changeWaqfMuanaqohStops, selectWaqf, toggleOption, toggleSelectAllGroup }) => (
   <aside className="hidden w-0 lg:inline-block lg:w-1/4 bg-green-50 dark:bg-gray-700 shadow-lg dark:shadow-white/50 overflow-y-auto overflow-x-hidden">
-    <div className="fixed dark:hidden bottom-0 w-1/4">
+    <div className="fixed dark:hidden bottom-0 w-1/5">
       <img className="w-full object-contain origin-bottom-left opacity-25 animate__animated animate__slideInUp" src={`${import.meta.env.BASE_URL}images/sidebar-tajweed-settings-picture.svg`} alt="Background Image" />
       <span className="absolute w-full h-full inset-0 bg-gradient-to-bl from-green-50"></span>
     </div>
-    <div className="hidden dark:block fixed bottom-0 w-1/4">
+    <div className="hidden dark:block fixed bottom-0 w-1/5">
       <img className="w-full object-contain origin-bottom-left opacity-25 animate__animated animate__slideInUp" src={`${import.meta.env.BASE_URL}images/sidebar-tajweed-settings-picture-dark.svg`} alt="Background Image" />
       <span className="absolute w-full h-full inset-0 bg-gradient-to-bl from-gray-700"></span>
     </div>
@@ -72,8 +72,8 @@ const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, waqfSet
     >{t("waqf_setting_info")}</p>
     <RadioGroup value={isOddPosition} onChange={changeWaqfMuanaqohStops} className={waqfMuanaqohContent?.id === 44 ? "relative mx-3 animate__animated animate__slideInLeft" : "hidden"}>
       <RadioGroup.Description className="flex items-center flex-nowrap px-1">
-        <span className="text-base brightness-100 dark:brightness-200" style={{ color: waqfMuanaqohContent.color }}>{waqfMuanaqohContent.name}</span>
-        <span className="grow pl-3 font-lpmq-isep-misbah text-3xl brightness-100 dark:brightness-200" style={{ color: waqfMuanaqohContent.color }}>{waqfMuanaqohContent.unicode} ‾ {waqfMuanaqohContent.unicode}</span>
+        <span className="text-base brightness-100 dark:brightness-200 drop-shadow-md" style={{ color: waqfMuanaqohContent.color }}>{waqfMuanaqohContent.name}</span>
+        <span className="grow pl-3 font-lpmq-isep-misbah text-3xl brightness-100 dark:brightness-200 drop-shadow-md" style={{ color: waqfMuanaqohContent.color }}>{waqfMuanaqohContent.unicode} ‾ {waqfMuanaqohContent.unicode}</span>
       </RadioGroup.Description>
       <div className="grid grid-cols-2 gap-2 text-sm">
         <RadioGroup.Option value={true} className={({ active, checked }) => `${active ? 'ring-2 ring-red-300 rounded-lg' : ''} ${checked ? 'border border-red-900 dark:border-red-400 text-white rounded-lg' : 'border bg-green-200/50 dark:bg-gray-700 rounded-lg'} border-red-900 dark:border-red-400 text-red-900 dark:text-white hover:-translate-y-1 shadow-md dark:shadow-white/50 cursor-pointer duration-200`}>
@@ -142,14 +142,14 @@ const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, waqfSet
               style={{ accentColor: waqf.color }}
               checked={selectedWaqfIds.includes(waqf.id)}
               onChange={() => selectWaqf(waqf.id)} />
-            <span className="text-base brightness-150 dark:brightness-100" style={{ color: waqf.color }}>{waqf.name}</span>
-            <span className="grow pl-3 text-4xl brightness-150 dark:brightness-100" style={{ color: waqf.color }}>{waqf.unicode}</span>
+            <span className="text-base brightness-150 dark:brightness-100 drop-shadow-md" style={{ color: waqf.color }}>{waqf.name}</span>
+            <span className="grow pl-3 text-4xl brightness-150 dark:brightness-100 drop-shadow-md" style={{ color: waqf.color }}>{waqf.unicode}</span>
           </Listbox.Label>
         ))}
       </Listbox.Options>
     </Listbox>
     <h5 className={filteredTajweeds.length > 0 ? "px-3 py-1 text-green-700 dark:text-gray-200 z-10" : "hidden"}>{t("tajweed_setting")}:</h5>
-    <div className={filteredTajweeds.length > 0 ? "relative p-2 grid grid-cols-2 items-center gap-2 text-xs" : "hidden animate__animated animate__slideInLeft"}>
+    <div className={filteredTajweeds.length > 0 ? "relative p-2 grid grid-cols-2 items-center gap-2 text-xs animate__animated animate__slideInLeft" : "hidden"}>
       <button className="flex items-center justify-center border border-green-900 dark:border-white px-2 py-1 bg-green-800 dark:bg-gray-700 hover:bg-green-600 dark:hover:bg-gray-500 text-white rounded-lg shadow-md dark:shadow-white/50 duration-200" onClick={handleDisclosurePanels} title="Panels Configuration">
         <img src="images/expand-all-icon.svg" className={areAllPanelsExpanded ? "hidden" : "inline-flex max-h-6 mr-1 object-contain object-center animate__animated animate__flipInX"} alt="Expand All" />
         <img src="images/collapse-all-icon.svg" className={areAllPanelsExpanded ? "inline-flex max-h-6 mr-1 object-contain object-center animate__animated animate__flipInX" : "hidden"} alt="Collapse All" />
@@ -201,7 +201,7 @@ const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, waqfSet
                         style={{ accentColor: tajweedLaw.color }}
                         checked={selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id)}
                         onChange={() => toggleOption(tajweedLaw.id)} />
-                      <span className="grow text-base brightness-75 dark:brightness-110" style={{ color: tajweedLaw.color }}>{tajweedLaw.name}</span>
+                      <span className="grow text-base brightness-75 dark:brightness-110 drop-shadow-md" style={{ color: tajweedLaw.color }}>{tajweedLaw.name}</span>
                     </label>
                   ))}
                 </Transition.Child>

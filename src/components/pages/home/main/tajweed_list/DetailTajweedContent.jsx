@@ -25,12 +25,12 @@ const DetailTajweedContent = ({ t }) => {
   }
   if (findCurrentTajweedLaw() === '') {
     return (
-      <article className="relative no-tajweed-found hidden lg:grid items-center justify-center max-h-full w-3/4 font-black text-xl bg-green-50 text-green-900 dark:bg-gray-800 dark:text-white duration-200 overflow-x-auto">
-        <div className="fixed dark:hidden bottom-0 right-0 md:w-1/3 w-3/4">
+      <article className="no-tajweed-found hidden lg:grid items-center justify-center max-h-full w-3/4 font-black text-xl bg-green-50 text-green-900 dark:bg-gray-800 dark:text-white duration-200 overflow-y-auto overflow-x-hidden">
+        <div className="fixed dark:hidden bottom-0 right-4 md:w-1/3 w-3/5">
           <img className="w-full origin-bottom-right object-contain opacity-25 animate__animated animate__slideInUp" src={`${import.meta.env.BASE_URL}images/detail-tajweed-picture.svg`} alt="Background Image" />
           <span className="absolute w-full h-full inset-0 bg-gradient-to-br from-green-50"></span>
         </div>
-        <div className="fixed hidden dark:block bottom-0 right-0 md:w-1/3 w-3/4">
+        <div className="fixed hidden dark:block bottom-0 right-4 md:w-1/3 w-3/5">
           <img className="w-full origin-bottom-right object-contain opacity-25 animate__animated animate__slideInUp" src={`${import.meta.env.BASE_URL}images/detail-tajweed-picture-dark.svg`} alt="Background Image" />
           <span className="absolute w-full h-full inset-0 bg-gradient-to-br from-gray-800"></span>
         </div>
@@ -39,12 +39,12 @@ const DetailTajweedContent = ({ t }) => {
     )
   } else {
     return (
-      <article className="detail-tajweed-content relative hidden lg:inline-flex flex-col justify-between max-h-full w-3/4 bg-green-50 dark:bg-gray-800 p-2 duration-200 overflow-y-auto">
-        <div className="fixed dark:hidden bottom-0 right-0 md:w-1/3 w-3/4">
+      <article className="detail-tajweed-content hidden lg:inline-flex flex-col justify-between max-h-full w-3/4 bg-green-50 dark:bg-gray-800 p-2 duration-200 overflow-y-auto overflow-x-hidden">
+        <div className="fixed dark:hidden bottom-0 right-4 md:w-1/3 w-3/5">
           <img className="w-full origin-bottom-right object-contain opacity-25 animate__animated animate__slideInUp" src={`${import.meta.env.BASE_URL}images/detail-tajweed-picture.svg`} alt="Background Image" />
           <span className="absolute w-full h-full inset-0 bg-gradient-to-br from-green-50"></span>
         </div>
-        <div className="fixed hidden dark:block bottom-0 right-0 md:w-1/3 w-3/4">
+        <div className="fixed hidden dark:block bottom-0 right-4 md:w-1/3 w-3/5">
           <img className="w-full origin-bottom-right object-contain opacity-25 animate__animated animate__slideInUp" src={`${import.meta.env.BASE_URL}images/detail-tajweed-picture-dark.svg`} alt="Background Image" />
           <span className="absolute w-full h-full inset-0 bg-gradient-to-br from-gray-800"></span>
         </div>

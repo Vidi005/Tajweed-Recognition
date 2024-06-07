@@ -16,7 +16,7 @@ const TajweedGuidelines = ({ isCarouselItemHovered, lines, linesColor }) => isCa
     <svg className="absolute w-full h-full top-0 left-0 duration-300">
       {lines.map((line, index) => (
         <React.Fragment key={index}>
-          <g className="absolute" style={{ transform: `translate(${line.x1}px, ${line.y1}px)` }}>
+          <g className="absolute drop-shadow-sm" style={{ transform: `translate(${line.x1}px, ${line.y1}px)` }}>
             <circle
               className="animate-ping"
               cx={"0"}
@@ -28,6 +28,7 @@ const TajweedGuidelines = ({ isCarouselItemHovered, lines, linesColor }) => isCa
             <circle className="relative" cx="0" cy="0" r="3" fill={`${linesColor}BF`}/>
           </g>
           <line
+            className="drop-shadow"
             x1={line.x1}
             y1={line.y1}
             x2={line.x2}

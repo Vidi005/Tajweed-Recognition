@@ -6,7 +6,7 @@ import { tajweedLaws } from "../../../../../utils/data"
 const SidebarContainer = ({ t, searchItems, getFilteredTajweeds }) => {
   const currentUrlPath = location.pathname.split("/").slice(2).join("/")
   return (
-    <aside className="hidden relative max-h-full p-2 lg:inline-block lg:w-1/4 bg-green-100 dark:bg-gray-700 shadow-lg dark:shadow-white/50 duration-200 overflow-y-auto overflow-x-hidden">
+    <aside className="hidden max-h-full p-2 lg:inline-block lg:w-1/4 bg-green-100 dark:bg-gray-700 shadow-lg dark:shadow-white/50 duration-200 overflow-y-auto overflow-x-hidden">
       <div className="fixed dark:hidden bottom-0 w-1/6">
         <img className="w-full object-contain origin-bottom-left opacity-25 animate__animated animate__slideInUp" src={`${import.meta.env.BASE_URL}images/sidebar-tajweed-list-picture.svg`} alt="Background Image" />
         <span className="absolute w-full h-full inset-0 bg-gradient-to-bl from-green-100"></span>
@@ -27,7 +27,7 @@ const SidebarContainer = ({ t, searchItems, getFilteredTajweeds }) => {
                   <>
                     <Disclosure.Button className={"flex w-full items-center my-1 py-2 font-bold text-green-900 dark:text-gray-100 group hover:text-green-800/75 dark:hover:text-white duration-200"}>
                       <img className={`${open ? "duration-200" : "-rotate-90 duration-200"} max-h-8 invert dark:invert-0`} src={`${import.meta.env.BASE_URL}images/expand-icon.svg`} alt="Expand" />
-                      <span className="group-hover:underline duration-200">{category}</span>
+                      <span className="group-hover:underline duration-200 drop-shadow-md">{category}</span>
                     </Disclosure.Button>
                     <Transition as={Fragment} appear show={open}>
                       <Disclosure.Panel className={"max-w-full overflow-hidden"}>
@@ -40,8 +40,8 @@ const SidebarContainer = ({ t, searchItems, getFilteredTajweeds }) => {
                           leaveTo="opacity-50 -translate-y-1/2"
                         >
                           <ul>
-                            {getFilteredTajweeds.filter(tajweedLaw => tajweedLaw.category === category).map(tajweedLaw => <li className={`max-w-full my-1 ml-4 px-2 py-1 text-base ${location.toString().includes(tajweedLaw.page) ? "font-bold border-l-8" : "hover:border-l-8"} text-green-800 dark:text-gray-200 hover:text-green-700/75 dark:hover:text-gray-50 hover:underline hover:translate-x-2 cursor-pointer duration-300`} key={tajweedLaw.id} style={{ borderLeftColor: tajweedLaws().find(tajweed => tajweed.id === tajweedLaw.id).color }}>
-                              <a href={`/tajweed-list${tajweedLaw.page}`}>{tajweedLaw.name}</a>
+                            {getFilteredTajweeds.filter(tajweedLaw => tajweedLaw.category === category).map(tajweedLaw => <li className={`max-w-full my-1 ml-4 px-2 py-1 text-base ${location.toString().includes(tajweedLaw.page) ? "font-bold border-l-8" : "hover:border-l-8"} text-green-800 dark:text-gray-200 hover:text-green-700/75 dark:hover:text-gray-50 hover:underline hover:translate-x-2 cursor-pointer duration-300 drop-shadow-md`} key={tajweedLaw.id} style={{ borderLeftColor: tajweedLaws().find(tajweed => tajweed.id === tajweedLaw.id).color }}>
+                              <a className="drop-shadow-md" href={`/tajweed-list${tajweedLaw.page}`}>{tajweedLaw.name}</a>
                             </li>)}
                           </ul>
                         </Transition.Child>

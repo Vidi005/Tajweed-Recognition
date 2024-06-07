@@ -99,8 +99,8 @@ const MenuBarContainer = ({ t, isEditMode, waqfSettingInfoRef, waqfSettingConten
           </p>
           <RadioGroup value={isOddPosition} onChange={changeWaqfMuanaqohStops} className={waqfMuanaqohContent?.id === 44 ? "mx-1 mb-2 animate__animated animate__fadeInRight animate__faster" : "hidden"}>
             <RadioGroup.Description className="flex items-center flex-nowrap px-1">
-              <span className="text-sm md:text-base brightness-100 dark:brightness-200" style={{ color: waqfMuanaqohContent.color }}>{waqfMuanaqohContent.name}</span>
-              <span className="grow pl-3 font-lpmq-isep-misbah text-2xl md:text-3xl brightness-100 dark:brightness-200" style={{ color: waqfMuanaqohContent.color }}>{waqfMuanaqohContent.unicode} ‾ {waqfMuanaqohContent.unicode}</span>
+              <span className="text-sm md:text-base brightness-100 dark:brightness-200 drop-shadow" style={{ color: waqfMuanaqohContent.color }}>{waqfMuanaqohContent.name}</span>
+              <span className="grow pl-3 font-lpmq-isep-misbah text-2xl md:text-3xl brightness-100 dark:brightness-200 drop-shadow" style={{ color: waqfMuanaqohContent.color }}>{waqfMuanaqohContent.unicode} ‾ {waqfMuanaqohContent.unicode}</span>
             </RadioGroup.Description>
             <div className="grid grid-cols-2 gap-2 text-xs md:text-sm">
               <RadioGroup.Option value={true} className={({ active, checked }) => `${active ? 'ring-2 ring-red-300 rounded-lg' : ''} ${checked ? 'border border-red-900 dark:border-red-400 text-white rounded-lg' : 'border bg-green-200/50 dark:bg-gray-700 rounded-lg'} border-red-900 dark:border-red-400 text-red-900 dark:text-white shadow-md dark:shadow-white/50 cursor-pointer duration-200`}>
@@ -170,8 +170,8 @@ const MenuBarContainer = ({ t, isEditMode, waqfSettingInfoRef, waqfSettingConten
                     checked={selectedWaqfIds.includes(waqf.id)}
                     onChange={() => selectWaqf(waqf.id)}
                   />
-                  <span className="text-sm md:text-base brightness-150 dark:brightness-100" style={{ color: waqf.color }}>{waqf.name}</span>
-                  <span className="grow pl-3 text-3xl md:text-4xl brightness-150 dark:brightness-100" style={{ color: waqf.color }}>{waqf.unicode}</span>
+                  <span className="text-sm md:text-base brightness-150 dark:brightness-100 drop-shadow" style={{ color: waqf.color }}>{waqf.name}</span>
+                  <span className="grow pl-3 text-3xl md:text-4xl brightness-150 dark:brightness-100 drop-shadow" style={{ color: waqf.color }}>{waqf.unicode}</span>
                 </Listbox.Label>
               ))}
             </Listbox.Options>
@@ -194,7 +194,7 @@ const MenuBarContainer = ({ t, isEditMode, waqfSettingInfoRef, waqfSettingConten
                     checked={filteredTajweeds.filter(tajweedLaw => tajweedLaw.category === category).every(tajweedLaw => selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id))}
                     onChange={() => toggleSelectAllGroup(category)}
                   />
-                  <span className="grow text-sm md:text-base"><strong>{category}</strong></span>
+                  <span className="grow text-sm md:text-base drop-shadow"><strong>{category}</strong></span>
                 </Listbox.Option>
                 {filteredTajweeds.filter(tajweedLaw => tajweedLaw.category === category).map(tajweedLaw => (
                   <Listbox.Label className={"flex items-center flex-nowrap cursor-pointer p-2 text-green-900 dark:text-gray-50 animate__animated animate__fadeInRight animate__faster"} key={tajweedLaw.id} value={tajweedLaw.id}>
@@ -205,7 +205,7 @@ const MenuBarContainer = ({ t, isEditMode, waqfSettingInfoRef, waqfSettingConten
                       checked={selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id)}
                       onChange={() => toggleOption(tajweedLaw.id)}
                     />
-                    <span className="grow text-sm md:text-base brightness-75 dark:brightness-110" style={{ color: tajweedLaw.color }}>{tajweedLaw.name}</span>
+                    <span className="grow text-sm md:text-base brightness-75 dark:brightness-110 drop-shadow" style={{ color: tajweedLaw.color }}>{tajweedLaw.name}</span>
                   </Listbox.Label>
                 ))}
               </React.Fragment>
