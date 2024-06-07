@@ -2,7 +2,7 @@ import { Disclosure, Listbox, RadioGroup, Transition } from "@headlessui/react"
 import React, { Fragment } from "react"
 
 const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, waqfSettingContentInfoRef, colorizationMode, isOddPosition, waqfMuanaqohContent, selectedWaqfIds, selectedTajweedIds, filteredWaqfs, filteredTajweeds, showWaqfSettingInfo, handleDisclosurePanels, handleAllColorization, changeColorizationMode, changeWaqfMuanaqohStops, selectWaqf, toggleOption, toggleSelectAllGroup }) => (
-  <aside className="hidden w-0 lg:inline-block lg:w-1/4 bg-green-50 dark:bg-gray-700 shadow-lg dark:shadow-white/50 overflow-y-auto">
+  <aside className="hidden w-0 lg:inline-block lg:w-1/4 bg-green-50 dark:bg-gray-700 shadow-lg dark:shadow-white/50 overflow-y-auto overflow-x-hidden">
     <div className="fixed dark:hidden bottom-0 w-1/4">
       <img className="w-full object-contain origin-bottom-left opacity-25 animate__animated animate__slideInUp" src={`${import.meta.env.BASE_URL}images/sidebar-tajweed-settings-picture.svg`} alt="Background Image" />
       <span className="absolute w-full h-full inset-0 bg-gradient-to-bl from-green-50"></span>
@@ -13,7 +13,7 @@ const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, waqfSet
     </div>
     <h4 className="px-3 py-2 text-green-900 dark:text-white z-10">{t("sidebar_title")}</h4>
     <h5 className={"px-3 py-1 text-green-700 dark:text-gray-200 z-10"}>{t("colorization_setting")}:</h5>
-    <RadioGroup value={colorizationMode} onChange={changeColorizationMode} className={"relative grid grid-cols-2 gap-2 mx-3 py-2 text-sm"}>
+    <RadioGroup value={colorizationMode} onChange={changeColorizationMode} className={"relative grid grid-cols-2 gap-2 mx-3 py-2 text-sm animate__animated animate__slideInLeft"}>
       <RadioGroup.Option value={"Text Color"} className={({ active, checked }) => `${active ? 'ring-2 ring-green-300 rounded-lg' : ''} ${checked ? 'border border-green-900 dark:border-green-400 text-white rounded-lg' : 'border bg-green-200/50 dark:bg-gray-700 rounded-lg'} border-green-900 dark:border-green-400 text-green-900 dark:text-white hover:-translate-y-1 shadow-md dark:shadow-white/50 cursor-pointer duration-200`}>
         {({ checked }) => (
           checked ? (
@@ -70,7 +70,7 @@ const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, waqfSet
       ref={waqfSettingContentInfoRef}
       className="hidden absolute border-2 border-green-900 dark:border-white w-1/5 p-1.5 text-sm text-white dark:shadow-white/50 backdrop-blur-sm bg-green-700/50 dark:bg-gray-500/50 rounded-md shadow z-20 animate__animated animate__fadeIn animate__faster"
     >{t("waqf_setting_info")}</p>
-    <RadioGroup value={isOddPosition} onChange={changeWaqfMuanaqohStops} className={waqfMuanaqohContent?.id === 44 ? "relative mx-3" : "hidden"}>
+    <RadioGroup value={isOddPosition} onChange={changeWaqfMuanaqohStops} className={waqfMuanaqohContent?.id === 44 ? "relative mx-3 animate__animated animate__slideInLeft" : "hidden"}>
       <RadioGroup.Description className="flex items-center flex-nowrap px-1">
         <span className="text-base brightness-100 dark:brightness-200" style={{ color: waqfMuanaqohContent.color }}>{waqfMuanaqohContent.name}</span>
         <span className="grow pl-3 font-lpmq-isep-misbah text-3xl brightness-100 dark:brightness-200" style={{ color: waqfMuanaqohContent.color }}>{waqfMuanaqohContent.unicode} ‾ {waqfMuanaqohContent.unicode}</span>
@@ -133,7 +133,7 @@ const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, waqfSet
       </div>
     </RadioGroup>
     <Listbox value={selectedWaqfIds} multiple>
-      <Listbox.Options static className={filteredWaqfs.length > 0 ? "relative border border-green-900 dark:border-white bg-green-700/50 dark:bg-gray-800 mx-3 my-2 rounded-lg shadow-md dark:shadow-white/50 overflow-hidden" : "hidden"}>
+      <Listbox.Options static className={filteredWaqfs.length > 0 ? "relative border border-green-900 dark:border-white bg-green-700/50 dark:bg-gray-800 mx-3 my-2 rounded-lg shadow-md dark:shadow-white/50 overflow-hidden animate__animated animate__slideInLeft" : "hidden"}>
         {filteredWaqfs.sort((a, b) => b.id - a.id).map(waqf => (
           <Listbox.Label key={waqf.id} className="flex items-center flex-nowrap cursor-pointer px-3 hover:translate-x-2 duration-300">
             <input
@@ -149,7 +149,7 @@ const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, waqfSet
       </Listbox.Options>
     </Listbox>
     <h5 className={filteredTajweeds.length > 0 ? "px-3 py-1 text-green-700 dark:text-gray-200 z-10" : "hidden"}>{t("tajweed_setting")}:</h5>
-    <div className={filteredTajweeds.length > 0 ? "relative p-2 grid grid-cols-2 items-center gap-2 text-xs" : "hidden"}>
+    <div className={filteredTajweeds.length > 0 ? "relative p-2 grid grid-cols-2 items-center gap-2 text-xs" : "hidden animate__animated animate__slideInLeft"}>
       <button className="flex items-center justify-center border border-green-900 dark:border-white px-2 py-1 bg-green-800 dark:bg-gray-700 hover:bg-green-600 dark:hover:bg-gray-500 text-white rounded-lg shadow-md dark:shadow-white/50 duration-200" onClick={handleDisclosurePanels} title="Panels Configuration">
         <img src="images/expand-all-icon.svg" className={areAllPanelsExpanded ? "hidden" : "inline-flex max-h-6 mr-1 object-contain object-center animate__animated animate__flipInX"} alt="Expand All" />
         <img src="images/collapse-all-icon.svg" className={areAllPanelsExpanded ? "inline-flex max-h-6 mr-1 object-contain object-center animate__animated animate__flipInX" : "hidden"} alt="Collapse All" />
@@ -164,7 +164,7 @@ const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, waqfSet
       </button>
     </div>
     {Array.from(new Set(filteredTajweeds.map(tajweedLaw => tajweedLaw.category))).map(category => (
-      <Disclosure as={"menu"} key={category} className={"relative px-2"} defaultOpen={areAllPanelsExpanded}>
+      <Disclosure as={"menu"} key={category} className={"relative px-2 animate__animated animate__slideInLeft"} defaultOpen={areAllPanelsExpanded}>
         {({ open }) => (
           <>
             <Disclosure.Button className={"flex w-full items-center justify-between border border-green-100 dark:border-white m-1 px-3 py-2 bg-green-800/75 hover:bg-green-700 dark:bg-black dark:hover:bg-gray-500 text-white rounded-lg shadow-md dark:shadow-white/50 duration-200"}>

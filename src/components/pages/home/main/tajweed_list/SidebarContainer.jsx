@@ -6,7 +6,7 @@ import { tajweedLaws } from "../../../../../utils/data"
 const SidebarContainer = ({ t, searchItems, getFilteredTajweeds }) => {
   const currentUrlPath = location.pathname.split("/").slice(2).join("/")
   return (
-    <aside className="hidden relative max-h-full p-2 lg:inline-block lg:w-1/4 bg-green-100 dark:bg-gray-700 shadow-lg dark:shadow-white/50 duration-200 overflow-y-auto">
+    <aside className="hidden relative max-h-full p-2 lg:inline-block lg:w-1/4 bg-green-100 dark:bg-gray-700 shadow-lg dark:shadow-white/50 duration-200 overflow-y-auto overflow-x-hidden">
       <div className="fixed dark:hidden bottom-0 w-1/6">
         <img className="w-full object-contain origin-bottom-left opacity-25 animate__animated animate__slideInUp" src={`${import.meta.env.BASE_URL}images/sidebar-tajweed-list-picture.svg`} alt="Background Image" />
         <span className="absolute w-full h-full inset-0 bg-gradient-to-bl from-green-100"></span>
@@ -22,7 +22,7 @@ const SidebarContainer = ({ t, searchItems, getFilteredTajweeds }) => {
           {Array.from(new Set(getFilteredTajweeds.map(tajweedLaw => tajweedLaw.category))).map(category => {
             const filteredCategory = getFilteredTajweeds.some(tajweedLaw => tajweedLaw.category === category && tajweedLaw.page === `/${currentUrlPath}`)
             return (
-              <Disclosure defaultOpen={filteredCategory} as={"menu"} key={category} className={"relative px-2"}>
+              <Disclosure defaultOpen={filteredCategory} as={"menu"} key={category} className={"relative px-2 animate__animated animate__slideInLeft"}>
                 {({ open }) => (
                   <>
                     <Disclosure.Button className={"flex w-full items-center my-1 py-2 font-bold text-green-900 dark:text-gray-100 group hover:text-green-800/75 dark:hover:text-white duration-200"}>
