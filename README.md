@@ -46,8 +46,8 @@ Extracting Arabic Characters from a document file or an image file, and generati
 - Vite Plugin PWA
 
 ### Additional Resources:
-- Logo: Bing Ai
-- Images Stock: Google Icon & Pixabay
+- Logo: <a href="https://www.bing.com/search?q=Bing+AI&showconv=1&FORM=undexpand">Bing Ai</a>
+- Images Stock: <a href="https://fonts.google.com/icons">Google Icon</a> & <a href="https://pixabay.com/id/vectors/search/mosque%20decoration">Pixabay</a>
 
 ## Notes:
 This Tajweed Recognition App may still contain any unknown bugs. Please report in issues page of this repository if you found any bugs.
