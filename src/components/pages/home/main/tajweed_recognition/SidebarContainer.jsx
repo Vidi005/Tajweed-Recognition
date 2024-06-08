@@ -2,7 +2,7 @@ import { Disclosure, Listbox, RadioGroup, Transition } from "@headlessui/react"
 import React, { Fragment } from "react"
 
 const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, waqfSettingContentInfoRef, colorizationMode, isOddPosition, waqfMuanaqohContent, selectedWaqfIds, selectedTajweedIds, filteredWaqfs, filteredTajweeds, showWaqfSettingInfo, handleDisclosurePanels, handleAllColorization, changeColorizationMode, changeWaqfMuanaqohStops, selectWaqf, toggleOption, toggleSelectAllGroup }) => (
-  <aside className="hidden w-0 lg:inline-block lg:w-1/4 bg-green-50 dark:bg-gray-700 shadow-lg dark:shadow-white/50 overflow-y-auto overflow-x-hidden">
+  <aside className="hidden w-0 pb-2 lg:inline-block lg:w-1/4 bg-green-50 dark:bg-gray-700 shadow-lg dark:shadow-white/50 overflow-y-auto overflow-x-hidden">
     <div className="fixed dark:hidden bottom-0 w-1/5">
       <img className="w-full object-contain origin-bottom-left opacity-25 animate__animated animate__slideInUp" src={`${import.meta.env.BASE_URL}images/sidebar-tajweed-settings-picture.svg`} alt="Background Image" />
       <span className="absolute w-full h-full inset-0 bg-gradient-to-bl from-green-50"></span>
