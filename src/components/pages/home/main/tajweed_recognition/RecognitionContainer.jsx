@@ -417,6 +417,7 @@ class RecognitionContainer extends React.Component {
           })
         }
       }
+      document.getElementById('file-picker').value = null
     })
   }
 
