@@ -495,7 +495,7 @@ class RecognitionContainer extends React.Component {
         output: `${+new Date()}_${this.state.docTitle.length > 0 ? this.state.docTitle : 'Untitled'}.pdf`,
         html2canvas: {
           scrollX: 0,
-          scrollY: -window.scrollY,
+          scrollY: -window.scrollY
         },
         success: pdf => {
           getColoredTajweedsPdf.style.display = 'none'
