@@ -20,6 +20,11 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
     })
     return tajweedData
   }
+  const loadFilteredTajweedData = () => {
+    const dataCopy = state.filteredTajweeds.map(tajweed => ({ ...tajweed }))
+    dataCopy.sort((a, b) => a.id - b.id)
+    return dataCopy
+  }  
   return (
     !state.isResultClosed && (
       <Transition
@@ -160,10 +165,31 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
                       <h1 style={{ fontFamily: "'Times New Roman', 'Serif'", fontSize: "14pt", fontWeight: "bold", textAlign: "center" }}>{state.docTitle}</h1>
                       <p dangerouslySetInnerHTML={{ __html: state.coloredTajweeds.replace(/BF;/gm, ';') }} style={{ direction: "rtl", width: "100%", textAlign: "right", color: "black", fontFamily: "'LPMQ Isep Misbah', 'Times New Roman', 'Arial'", fontSize: `${Number(state.twTextSize.replace('rem', '')) * 12}pt`, lineHeight: `${Number(state.twLineHeight.replace('rem', '')) * 12}pt` }}></p>
                     </article>
-                    <article className="colored-tajweeds-pdf hidden w-[595.28px] font-amiri-regular text-black text-xl" dir="rtl">
-                      {state.isBismillahAdded && <h2 className="text-xl text-center w-full leading-[4rem]">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</h2>}
-                      <p dangerouslySetInnerHTML={{ __html: state.coloredTajweeds }} dir="rtl" className="w-full text-right leading-[4rem]"></p>
-                    </article>
+                    <div className="colored-tajweeds-print-container hidden w-full text-black">
+                      <h3 className="text-center" style={{ fontFamily: "serif" }}>{t('color_index')}</h3>
+                      <p className="w-full text-center text-base text-blue-500 active:text-purple-500 underline">
+                        <a style={{ fontFamily: "sans-serif" }} target="_blank" rel="noreferrer" href={location.origin.toString()}>{location.origin.toString()}</a>
+                      </p>
+                      <br />
+                      <ul>
+                        {loadFilteredTajweedData().map(tajweedLaw => (
+                          <li key={tajweedLaw.id} className="flex flex-nowrap w-full items-center text-base mb-1" style={{ fontFamily: "serif" }}>
+                            <span className="list-disc p-0.5 bg-black rounded-full"></span>&emsp;&emsp;
+                            <span className="border border-black" style={{ color: tajweedLaw.color, backgroundColor: tajweedLaw.color }}>______</span>&emsp;&emsp;&emsp;:&emsp;&emsp;
+                            <span className="grow text-justify">{tajweedLaw.name}&emsp;<i>({tajweedLaw.category})</i></span>
+                          </li>
+                        ))}
+                      </ul>
+                      <br />
+                      <hr />
+                      <h3 className="print-title text-center" style={{ fontFamily: "serif" }}>{state.docTitle}</h3>
+                      <article className="print-content w-full my-4 font-lpmq-isep-misbah" dir="rtl">
+                        {state.isBismillahAdded && 
+                          <><h2 className="text-center w-full" style={{ fontSize: `${Number(state.twTextSize.replace('rem', '')) * 12}pt`, lineHeight: `${Number(state.twLineHeight.replace('rem', '')) * 12}pt` }}>بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</h2><br /></>
+                        }
+                        <p dangerouslySetInnerHTML={{ __html: state.coloredTajweeds }} dir="rtl" className="w-full text-right" style={{ fontSize: `${Number(state.twTextSize.replace('rem', '')) * 12}pt`, lineHeight: `${Number(state.twLineHeight.replace('rem', '')) * 12}pt` }}></p>
+                      </article>
+                    </div>
                   </div>
                 )}
               </section>

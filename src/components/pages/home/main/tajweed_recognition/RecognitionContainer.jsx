@@ -13,9 +13,6 @@ import { Dialog } from "@headlessui/react"
 import { Helmet } from "react-helmet"
 import mammoth from "mammoth"
 import SaveFilePrompt from "./pop_up/SaveFilePrompt"
-import jsPDF from "jspdf"
-import autoTable from "jspdf-autotable"
-import html2PDF from "jspdf-html2canvas"
 import { createColorizationWorker, createTooltipWorker } from "../../../../../utils/worker"
 
 if (import.meta && import.meta.url) {
@@ -485,87 +482,7 @@ class RecognitionContainer extends React.Component {
     }
   }
 
-  saveAsPdf = async() => {
-    try {
-      const pdf = new jsPDF({ orientation: 'portrait', unit: 'pt', format: 'a4', compress: true })
-      const getColoredTajweedsPdf = document.querySelector('.colored-tajweeds-pdf')
-      getColoredTajweedsPdf.style.display = 'block'
-      await html2PDF(getColoredTajweedsPdf, {
-        jsPDF: pdf,
-        margin: { top: 45, right: 20, bottom: 135, left: 20 },
-        output: `${+new Date()}_${this.state.docTitle.length > 0 ? this.state.docTitle : 'Untitled'}.pdf`,
-        html2canvas: {
-          scrollX: 0,
-          scrollY: -window.scrollY
-        },
-        success: pdf => {
-          getColoredTajweedsPdf.style.display = 'none'
-          const pageCounter = pdf.getNumberOfPages()
-          for (let index = 1; index <= pageCounter; index++) {
-            pdf.setPage(index)
-            const pageSize = pdf.internal.pageSize
-            const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth()
-            const pageHeight = pageSize.height ? pageSize.height : pageSize.getHeight()
-            if (index === 1) pdf.setFont('times', 'normal').setFontSize(14).text(this.state.docTitle, 300, 50, { align: 'center', maxWidth: 600 })
-            const watermark = location.origin.toString()
-            const header = new Date()
-            const footer = `${this.props.t('page_numbers.0')} ${index} ${this.props.t('page_numbers.1')} ${pageCounter}`
-            pdf.setFont('helvetica', 'normal').setFontSize(10).textWithLink(watermark, 30, 25, { url: location.origin.toString() })
-            pdf.text(header.toLocaleString(), pageWidth - 130, 15, { baseline: 'top', })
-            pdf.text(footer, pageWidth / 2 - (pdf.getTextWidth(footer) / 2), pageHeight - 15, { baseline: 'bottom' })
-            const tableData = []
-            const dataCopy = this.state.filteredTajweeds.map(tajweed => ({ ...tajweed }))
-            dataCopy.sort((a, b) => a.id - b.id)
-            for (let i = 0; i < 9; i++) {
-              const rowData = []
-              for (let j = 0; j <= Math.ceil(dataCopy.length * 2 / 9); j++) {
-                if (j % 2 === 0) {
-                  const colorData = dataCopy[i % dataCopy.length + Math.ceil(j / 2) * 9]?.color
-                  rowData.push(colorData ? colorData : '')
-                } else {
-                  const nameData = dataCopy[i % dataCopy.length + Math.floor(j / 2) * 9]?.name
-                  rowData.push(nameData ? ` :  ${nameData}`: '')
-                }
-              }
-              tableData.push(rowData)
-            }
-            autoTable(pdf, {
-              body: tableData,
-              margin: { top: 0, bottom: 20, left: 20, right: 20 },
-              theme: 'plain',
-              tableLineWidth: 1,
-              tableLineColor: 'white',
-              startY: pdf.internal.pageSize.height - (10 * 7) - 60,
-              styles: {
-                valign: 'middle',
-                font: 'times',
-                fontSize: 8,
-                cellPadding: 1,
-                lineWidth: 1,
-                lineColor: 'white',
-                overflow: "ellipsize"
-              },
-              didParseCell: (data) => {
-                if (data.cell.text.toString().startsWith('#')) {
-                  data.cell.styles.fillColor = data.cell.text.toString()
-                  data.cell.styles.textColor = data.cell.text.toString()
-                }
-              }
-            })
-          }  
-          pdf.save(`${+new Date()}_${this.state.docTitle.length > 0 ? this.state.docTitle : 'Untitled'}.pdf`)
-        }
-      })
-      this.setState({ isDialogOpened: false })
-    } catch (error) {
-      Swal.fire({
-        icon: 'error',
-        title: `${this.props.t('error_alert')}`,
-        text: error.message,
-        confirmButtonColor: 'green'
-      })
-    }
-  }
+  onAfterPrint = () => this.setState({ isDialogOpened: false })
 
   takeScreenCapture = async() => {
     try {
@@ -1229,7 +1146,7 @@ class RecognitionContainer extends React.Component {
           onFocusHandler={this.onFocusHandler.bind(this)}
           addBismillah={this.addBismillah.bind(this)}
           saveAsDoc={this.saveAsDoc.bind(this)}
-          saveAsPdf={this.saveAsPdf.bind(this)}
+          onAfterPrint={this.onAfterPrint.bind(this)}
           cancelSaving={this.cancelSaving.bind(this)}
         />
         <TajweedPreview

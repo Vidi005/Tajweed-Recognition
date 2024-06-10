@@ -1,7 +1,9 @@
 import { Dialog, Listbox, Transition } from "@headlessui/react"
 import React, { Fragment } from "react"
+import ReactToPrint from "react-to-print"
+import Swal from "sweetalert2"
 
-const SaveFilePrompt = ({ t, inputRef, isDialogOpened, isFocused, isBismillahAdded, docTitle, handleTitleChange, onFocusHandler, onBlurHandler, addBismillah, saveAsDoc, saveAsPdf, cancelSaving }) => {
+const SaveFilePrompt = ({ t, inputRef, isDialogOpened, isFocused, isBismillahAdded, docTitle, handleTitleChange, onFocusHandler, onBlurHandler, addBismillah, saveAsDoc, onAfterPrint, cancelSaving }) => {
   let charsLimit = ''
   if (docTitle.length >= 100) charsLimit = `${t('chars_limit_exceeded')}`
   else charsLimit = `${docTitle.length} / 100`
@@ -74,7 +76,26 @@ const SaveFilePrompt = ({ t, inputRef, isDialogOpened, isFocused, isBismillahAdd
               </Listbox>
               <div className="flex w-full items-center justify-evenly text-sm md:text-base">
                 <button className="m-2 px-4 py-2 bg-green-800 hover:bg-green-900 active:bg-green-500 text-center text-white rounded-md shadow-md dark:shadow-white/50 duration-200" onClick={saveAsDoc}>{t('save_as_doc')}</button>
-                <button className="m-2 px-4 py-2 bg-green-800 hover:bg-green-900 active:bg-green-500 text-center text-white rounded-md shadow-md dark:shadow-white/50 duration-200" onClick={saveAsPdf}>{t('save_as_pdf')}</button>
+                <ReactToPrint
+                  trigger={() => <button className="m-2 px-4 py-2 bg-green-800 hover:bg-green-900 active:bg-green-500 text-center text-white rounded-md shadow-md dark:shadow-white/50 duration-200">{t('save_as_pdf')}</button>}
+                  onBeforeGetContent={() => document.querySelector('.colored-tajweeds-print-container').style.display = 'block'}
+                  content={() => document.querySelector('.colored-tajweeds-print-container')}
+                  documentTitle={`${+new Date()}_${docTitle.length > 0 ? docTitle : 'Untitled'}`}
+                  removeAfterPrint={true}
+                  onPrintError={error => {
+                    document.querySelector('.colored-tajweeds-print-container').style.display = 'none'
+                    Swal.fire({
+                      icon: 'error',
+                      title: `${this.props.t('error_alert')}`,
+                      text: error.toString(),
+                      confirmButtonColor: 'green'
+                    })
+                  }}
+                  onAfterPrint={() => {
+                    document.querySelector('.colored-tajweeds-print-container').style.display = 'none'
+                    onAfterPrint()
+                  }}
+                />
               </div>
             </section>
           </Dialog.Panel>
