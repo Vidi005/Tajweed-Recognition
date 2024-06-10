@@ -35,7 +35,7 @@ Extracting Arabic Characters from a document file or an image file, and generati
 - Headless UI
 - Animate CSS
 - i18next
-- JSPdf with auto table and html2canvas
+- React-to-Print
 - Mammoth DOCX Reader
 - React Dropzone
 - React PDF.js Reader
