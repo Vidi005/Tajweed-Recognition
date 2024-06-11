@@ -50,4 +50,4 @@ Extracting Arabic Characters from a document file or an image file, and generati
 - Images Stock: <a href="https://fonts.google.com/icons">Google Icon</a> & <a href="https://pixabay.com/id/vectors/search/mosque%20decoration">Pixabay</a>
 
 ## Notes:
-This Tajweed Recognition App may still contain any unknown bugs. Please report in <a href="https://github.com/Vidi005/Tajweed-Recognition/issues">issues page<a/> of this repository if you found any bugs.
+This Tajweed Recognition App is still far from perfect and still in development. Therefore it may still contain any unknown bugs. Please feel free to report in <a href="https://github.com/Vidi005/Tajweed-Recognition/issues">issues page<a/> of this repository if you found any bugs.
