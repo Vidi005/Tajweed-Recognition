@@ -114,7 +114,7 @@ const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, waqfSet
                   style={{ accentColor: waqfMuanaqohContent.color }}
                   checked={!isOddPosition}
                 />
-                <RadioGroup.Label htmlFor="even-pos" className="cursor-pointer">{t("even_position")}</RadioGroup.Label>
+                <RadioGroup.Label htmlFor="even-pos" className="tracking-tight cursor-pointer">{t("even_position")}</RadioGroup.Label>
               </div>
             ) : (
               <div className="flex items-center flex-nowrap p-2 cursor-pointer rounded-lg duration-300">
@@ -125,7 +125,7 @@ const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, waqfSet
                   style={{ accentColor: waqfMuanaqohContent.color }}
                   checked={!isOddPosition}
                 />
-                <RadioGroup.Label htmlFor="even-pos" className="cursor-pointer">{t("even_position")}</RadioGroup.Label>
+                <RadioGroup.Label htmlFor="even-pos" className="tracking-tight cursor-pointer">{t("even_position")}</RadioGroup.Label>
               </div>
             )
           )}
@@ -153,14 +153,14 @@ const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, waqfSet
       <button className="flex items-center justify-center border border-green-900 dark:border-white px-2 py-1 bg-green-800 dark:bg-gray-700 hover:bg-green-600 dark:hover:bg-gray-500 text-white rounded-lg shadow-md dark:shadow-white/50 duration-200" onClick={handleDisclosurePanels} title="Panels Configuration">
         <img src="images/expand-all-icon.svg" className={areAllPanelsExpanded ? "hidden" : "inline-flex max-h-6 mr-1 object-contain object-center animate__animated animate__flipInX"} alt="Expand All" />
         <img src="images/collapse-all-icon.svg" className={areAllPanelsExpanded ? "inline-flex max-h-6 mr-1 object-contain object-center animate__animated animate__flipInX" : "hidden"} alt="Collapse All" />
-        <span className={areAllPanelsExpanded ? "hidden" : "inline-flex animate__animated animate__fadeIn"}>{t("expand_all")}</span>
-        <span className={areAllPanelsExpanded ? "inline-flex animate__animated animate__fadeIn" : "hidden"}>{t("collapse_all")}</span>
+        <span className={areAllPanelsExpanded ? "hidden" : "inline-flex tracking-tight animate__animated animate__fadeIn"}>{t("expand_all")}</span>
+        <span className={areAllPanelsExpanded ? "inline-flex tracking-tight animate__animated animate__fadeIn" : "hidden"}>{t("collapse_all")}</span>
       </button>
       <button className="flex items-center justify-center border border-green-900 dark:border-white px-2 py-1 bg-green-800 dark:bg-gray-700 hover:bg-green-600 dark:hover:bg-gray-500 text-white rounded-lg shadow-md dark:shadow-white/50 duration-200" onClick={handleAllColorization} title="Colorization">
         <img src="images/clear-all-icon.svg" className={selectedTajweedIds.length === filteredTajweeds.length ? "inline-flex max-h-6 mr-1 object-contain object-center animate__animated animate__flipInY" : "hidden"} alt="Clear All" />
         <img src="images/colorize-all-icon.svg" className={selectedTajweedIds.length !== filteredTajweeds.length ? "inline-flex max-h-6 mr-1 object-contain object-center animate__animated animate__flipInY" : "hidden"} alt="Colorize All" />
-        <span className={selectedTajweedIds.length === filteredTajweeds.length ? "inline-flex animate__animated animate__fadeIn" : "hidden"}>{t("clear_all")}</span>
-        <span className={selectedTajweedIds.length !== filteredTajweeds.length ? "inline-flex animate__animated animate__fadeIn" : "hidden"}>{t("colorize_all")}</span>
+        <span className={selectedTajweedIds.length === filteredTajweeds.length ? "inline-flex tracking-tight animate__animated animate__fadeIn" : "hidden"}>{t("clear_all")}</span>
+        <span className={selectedTajweedIds.length !== filteredTajweeds.length ? "inline-flex tracking-tight animate__animated animate__fadeIn" : "hidden"}>{t("colorize_all")}</span>
       </button>
     </div>
     {Array.from(new Set(filteredTajweeds.map(tajweedLaw => tajweedLaw.category))).map(category => (
@@ -168,7 +168,7 @@ const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, waqfSet
         {({ open }) => (
           <>
             <Disclosure.Button className={"flex w-full items-center justify-between border border-green-100 dark:border-white m-1 px-3 py-2 bg-green-800/75 hover:bg-green-700 dark:bg-black dark:hover:bg-gray-500 text-white rounded-lg shadow-md dark:shadow-white/50 duration-200"}>
-              <span>{category}</span>
+              <span className="tracking-tight">{category}</span>
               <img className={`${open ? "-rotate-180 duration-200" : "duration-200"} max-h-8 p-1`} src="images/expand-icon.svg" alt="Expand" />
             </Disclosure.Button>
             <Transition as={Fragment} appear show={open}>
@@ -201,7 +201,7 @@ const SidebarContainer = ({ t, areAllPanelsExpanded, waqfSettingInfoRef, waqfSet
                         style={{ accentColor: tajweedLaw.color }}
                         checked={selectedTajweedIds.some(selectedTajweedId => selectedTajweedId === tajweedLaw.id)}
                         onChange={() => toggleOption(tajweedLaw.id)} />
-                      <span className="grow text-base brightness-75 dark:brightness-110 drop-shadow-md" style={{ color: tajweedLaw.color }}>{tajweedLaw.name}</span>
+                      <span className="grow text-base tracking-tight brightness-75 dark:brightness-110 drop-shadow-md" style={{ color: tajweedLaw.color }}>{tajweedLaw.name}</span>
                     </label>
                   ))}
                 </Transition.Child>

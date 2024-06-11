@@ -50,7 +50,7 @@ const SliderContainer = ({ colorizedTajweeds, carouselItemsRefs, calculateLines,
             onClick={() => showSummaryModal(tajweed.id)}
           >
             <div
-              className="border-t-4 border-b-2 border-x hover:bg-green-800/25 dark:hover:bg-gray-500 lg:text-lg sm:text-base text-sm p-2 cursor-pointer duration-200"
+              className="border-t-4 border-b-2 border-x hover:bg-green-800/25 dark:hover:bg-gray-500 tracking-tighter lg:text-lg sm:text-base text-sm p-2 cursor-pointer duration-200"
               style={{ borderTopColor: tajweed.color, borderBottomColor: tajweed.color }}
             >
               {tajweed.name}

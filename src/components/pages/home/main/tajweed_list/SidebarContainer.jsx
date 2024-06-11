@@ -27,7 +27,7 @@ const SidebarContainer = ({ t, searchItems, getFilteredTajweeds }) => {
                   <>
                     <Disclosure.Button className={"flex w-full items-center my-1 py-2 font-bold text-green-900 dark:text-gray-100 group hover:text-green-800/75 dark:hover:text-white duration-200"}>
                       <img className={`${open ? "duration-200" : "-rotate-90 duration-200"} max-h-8 invert dark:invert-0`} src={`${import.meta.env.BASE_URL}images/expand-icon.svg`} alt="Expand" />
-                      <span className="group-hover:underline duration-200 drop-shadow-md">{category}</span>
+                      <span className="group-hover:underline tracking-tight duration-200 drop-shadow-md">{category}</span>
                     </Disclosure.Button>
                     <Transition as={Fragment} appear show={open}>
                       <Disclosure.Panel className={"max-w-full overflow-hidden"}>
