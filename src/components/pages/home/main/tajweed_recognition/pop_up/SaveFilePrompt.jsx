@@ -81,7 +81,7 @@ const SaveFilePrompt = ({ t, inputRef, isDialogOpened, isFocused, isBismillahAdd
                   onBeforeGetContent={() => document.querySelector('.colored-tajweeds-print-container').style.display = 'block'}
                   content={() => document.querySelector('.colored-tajweeds-print-container')}
                   documentTitle={`${+new Date()}_${docTitle.length > 0 ? docTitle : 'Untitled'}`}
-                  removeAfterPrint={true}
+                  removeAfterPrint={false}
                   onPrintError={error => {
                     document.querySelector('.colored-tajweeds-print-container').style.display = 'none'
                     Swal.fire({

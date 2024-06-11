@@ -167,7 +167,7 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
                     </article>
                     <div className="colored-tajweeds-print-container hidden w-full text-black">
                       <h3 className="text-center" style={{ fontFamily: "serif" }}>{t('color_index')}</h3>
-                      <p className="w-full text-center text-base text-blue-500 active:text-purple-500 underline">
+                      <p className="w-full text-center text-base text-blue-700 active:text-purple-700 visited:text-purple-500 underline">
                         <a style={{ fontFamily: "sans-serif" }} target="_blank" rel="noreferrer" href={location.origin.toString()}>{location.origin.toString()}</a>
                       </p>
                       <br />
