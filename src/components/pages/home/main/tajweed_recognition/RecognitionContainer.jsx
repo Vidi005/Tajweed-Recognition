@@ -181,6 +181,7 @@ class RecognitionContainer extends React.Component {
         selectedTajweedIds,
         selectedTajweedLaws,
         isOddPosition,
+        areAllPanelsExpanded,
         isResultClosed
       } = JSON.parse(getResultContentTempData)
       this.setState({
@@ -197,6 +198,7 @@ class RecognitionContainer extends React.Component {
         selectedTajweedIds,
         selectedTajweedLaws,
         isOddPosition,
+        areAllPanelsExpanded,
         isResultClosed
       })
     }
@@ -289,6 +291,7 @@ class RecognitionContainer extends React.Component {
         selectedTajweedIds: this.state.selectedTajweedIds,
         selectedTajweedLaws: this.state.selectedTajweedLaws,
         isOddPosition: this.state.isOddPosition,
+        areAllPanelsExpanded: this.state.areAllPanelsExpanded,
         isResultClosed: this.state.isResultClosed
       }))
     }
@@ -843,7 +846,15 @@ class RecognitionContainer extends React.Component {
   }
 
   handleDisclosurePanels() {
-    this.setState(prevState => ({ areAllPanelsExpanded: !prevState.areAllPanelsExpanded }))
+    this.setState(prevState => ({ areAllPanelsExpanded: !prevState.areAllPanelsExpanded }), () => {
+      if (this.state.areAllPanelsExpanded) {
+        const collapsedPanels = document.querySelectorAll('button[aria-expanded="false"]')
+        collapsedPanels.forEach(panel => panel?.click())
+      } else {
+        const expandedPanels = document.querySelectorAll('button[aria-expanded="true"]')
+        expandedPanels.forEach(panel => panel?.click())
+      }
+    })
   }
 
   changeColorizationMode(colorizationMode) {
@@ -1011,6 +1022,7 @@ class RecognitionContainer extends React.Component {
   closeResult () {
     this.setState({
       isResultClosed: true,
+      areAllPanelsExpanded: false,
       isOddPosition: false,
       recognizedText: '',
       tajweedLawRules: getTajweedLaws(),
@@ -1020,7 +1032,7 @@ class RecognitionContainer extends React.Component {
       selectedTajweedIds: [],
       filteredWaqfs: [],
       filteredTajweeds: [],
-      selectedTajweedLaws: [],
+      selectedTajweedLaws: []
     })
     if (isStorageExist(this.props.t('browser_warning'))) sessionStorage.clear()
   }
