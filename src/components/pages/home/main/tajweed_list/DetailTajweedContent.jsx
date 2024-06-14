@@ -49,7 +49,7 @@ const DetailTajweedContent = ({ t }) => {
           <span className="absolute w-full h-full inset-0 bg-gradient-to-br from-gray-800"></span>
         </div>
         <section className="z-10">
-          <h1 className="border-b-4 border-double border-b-green-800 dark:border-b-white p-2 text-green-900 dark:text-white"><strong>{findCurrentTajweedLaw().name}</strong></h1>
+          <h2 className="border-b-4 border-double border-b-green-800 dark:border-b-white p-2 text-green-900 dark:text-white"><strong>{findCurrentTajweedLaw().name}</strong></h2>
           <ul className="flex flex-wrap items-center my-4 list-none text-sm md:text-base">
             <li className="border border-green-900 dark:border-white mr-4 bg-green-800 dark:bg-gray-500 px-2 py-1 text-white rounded-md shadow dark:shadow-white/50">{findCurrentTajweedLaw().category}</li>
             <li className="border border-green-900 dark:border-white bg-green-800 dark:bg-gray-500 px-2 py-1 text-white rounded-md shadow dark:shadow-white/50">{findCurrentTajweedLaw().group}</li>

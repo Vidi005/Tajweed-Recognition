@@ -31,7 +31,7 @@ const MainContainer = ({ t }) => {
     return (
       <React.Fragment>
         <main className="detail-tajweed-main lg:hidden grow w-full bg-green-100 dark:bg-gray-800 p-2 overflow-y-auto">
-          <h1 className="border-b-4 border-double border-b-green-800 dark:border-b-white p-2 text-green-900 dark:text-white"><strong>{findTajweedLaw().name}</strong></h1>
+          <h2 className="border-b-4 border-double border-b-green-800 dark:border-b-white p-2 text-green-900 dark:text-white"><strong>{findTajweedLaw().name}</strong></h2>
           <ul className="flex flex-wrap items-center my-4 list-none text-sm md:text-base">
             <li className="border border-green-900 dark:border-white mr-4 bg-green-800 dark:bg-gray-500 px-2 py-1 text-white rounded-md shadow dark:shadow-white/50">{findTajweedLaw().category}</li>
             <li className="border border-green-900 dark:border-white bg-green-800 dark:bg-gray-500 px-2 py-1 text-white rounded-md shadow dark:shadow-white/50">{findTajweedLaw().group}</li>
