@@ -4,9 +4,9 @@
         { "tab_name": "Recognize Tajweed", "tab_path": "/recognition"},
         { "tab_name": "Tajweed List", "tab_path": "/tajweed-list"}
     ],
-    "app_description": "Welcome to Tajweed Recognition - An innovative application to distinguish various rules of Tajweed within Arabic text from various type of document files and images with OCR, accompanied by color highlighting of Tajweed and interactive explanations for easier learning.",
+    "app_description": "Welcome to Tajweed Recognition - An innovative application to distinguish various rules of Tajweed within Arabic text from various type of document files and images with OCR, accompanied by color highlighting of Tajweed and interactive explanations.",
     "alternative_urls": "Alternative:",
-    "warning_message": "Tajweed results can be invalid if there are some neighboring Tajweed Laws or incomplete Harakahs. Please learn Tajweed Laws before using this application.",
+    "warning_message": "This application is still in development and may contains any unexpected error. Please learn Tajweed Laws before using this application.",
     "tab_icons": ["/images/recognition-icon.svg", "/images/list-icon.svg"],
     "tab_icons_dark": ["/images/recognition-icon-dark.svg", "/images/list-icon-dark.svg"],
     "browser_warning": "Your browser does not support Local Storage/Cookies!\nPlease enable cookies in your browser settings or disable incognito mode.\nThank you.",
@@ -62,6 +62,7 @@
     "save_as_doc": "Save as DOC",
     "save_as_pdf": "Save as PDF",
     "color_index": "Tajweed Index Colors",
+    "preview_info": "This Experiment Project is still in development and may contains any unexpected error",
     "page_numbers": ["Page", "of"],
     "close_result_prompt": ["Are you sure want to close this result?", "The result data will be removed."],
     "tajweed_list": "Tajweed List",
@@ -248,10 +249,10 @@
         },
         {
             "id": 11,
-            "name": "Idgham Mutajaanisain",
+            "name": "Idgham Mutajaaniseyn",
             "group": "Ahkämul Al-hurüf",
             "category": "Idgham",
-            "summary": "Idgham Mutajaanisain tajweed law happens if there is a letter with the meaning of sukun opposite a letter with the meaning of harakah, both have the same makhroj but have different characteristics.",
+            "summary": "Idgham Mutajaaniseyn tajweed law happens if there is a letter with the meaning of sukun opposite a letter with the meaning of harakah, both have the same makhroj but have different characteristics.",
             "detail": "The way to read it is by inserting or idghom the first letter in the second letter.",
             "examples": [
                 "إِذْ مَمَّتْ طَائِفَتْنِ Ta sakinah meets ط",
@@ -264,10 +265,10 @@
         },
         {
             "id": 12,
-            "name": "Idgham Mutaqaaribain",
+            "name": "Idgham Mutaqaaribeyn",
             "group": "Ahkämul Al-hurüf",
             "category": "Idgham",
-            "summary": "Idgham Mutaqaaribain tajweed law happens if a letter with a sukun meets a letter with a harakah, the two letters are close to each other, makhroj and its properties.",
+            "summary": "Idgham Mutaqaaribeyn tajweed law happens if a letter with a sukun meets a letter with a harakah, the two letters are close to each other, makhroj and its properties.",
             "detail": "The way to read it is by inserting or adding the first letter to the second letter.",
             "examples": [
                 "ارْ كَيْمَعَنَا Ba sakinah meets م",

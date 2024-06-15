@@ -131,10 +131,11 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
                       </span>
                     )}
                     <article className="colored-tajweeds-doc-bismillah hidden">
-                      <h1 style={{ fontFamily: "'Times New Roman', 'Serif'", fontSize: "14pt", textAlign: "center" }}>{t('color_index')}</h1>
-                      <p style={{ width: "100%", textAlign: "center" }}>
+                      <h1 style={{ fontFamily: "'Times New Roman', 'Serif'", fontSize: "14pt", textAlign: "center", marginTop: "1pt", marginBottom: "1pt" }}>{t('color_index')}</h1>
+                      <p style={{ width: "100%", textAlign: "center", marginTop: "1pt", marginBottom: "1pt" }}>
                         <a style={{ fontFamily: "'Helvetica', 'Arial'", fontSize: "10pt" }} href={location.origin.toString()}>{location.origin.toString()}</a>
                       </p>
+                      <p style={{ width: "100%", textAlign: "center", fontSize: "10pt", marginTop: "1pt", marginBottom: "1pt" }}>{t('preview_info')}</p>
                       <ul>
                         {loadTajweedData().map(tajweedLaw => (
                           <li key={tajweedLaw.id} style={{ display: "flex", alignItems: "center", width: "100%", marginBottom: "4px" }}>
@@ -149,10 +150,11 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
                       <p dangerouslySetInnerHTML={{ __html: state.coloredTajweeds.replace(/BF;/gm, ';') }} style={{ direction: "rtl", width: "100%", fontFamily: "'LPMQ Isep Misbah', 'Times New Roman', 'Arial'", fontSize: `${Number(state.twTextSize.replace('rem', '')) * 12}pt`, textAlign: "right", color: "black", lineHeight: `${Number(state.twLineHeight.replace('rem', '')) * 12}pt` }}></p>
                     </article>
                     <article className="colored-tajweeds-doc hidden">
-                      <h1 style={{ fontFamily: "'Times New Roman', 'Serif'", fontSize: "14pt", textAlign: "center" }}>{t('color_index')}</h1>
-                      <p style={{ width: "100%", textAlign: "center" }}>
+                      <h1 style={{ fontFamily: "'Times New Roman', 'Serif'", fontSize: "14pt", textAlign: "center", marginTop: "1pt", marginBottom: "1pt" }}>{t('color_index')}</h1>
+                      <p style={{ width: "100%", textAlign: "center", marginTop: "1pt", marginBottom: "1pt" }}>
                         <a style={{ fontFamily: "'Helvetica', 'Arial'", fontSize: "10pt" }} href={location.origin.toString()}>{location.origin.toString()}</a>
                       </p>
+                      <p style={{ width: "100%", textAlign: "center", fontSize: "10pt", marginTop: "1pt", marginBottom: "1pt" }}>{t('preview_info')}</p>
                       <ul>
                         {loadTajweedData().map(tajweedLaw => (
                           <li key={tajweedLaw.id} style={{ display: "flex", alignItems: "center", width: "100%", marginBottom: "4px" }}>
@@ -170,6 +172,7 @@ const ResultContainer = ({ t, state, downloadResult, increaseLineHeight, increas
                       <p className="w-full text-center text-base text-blue-700 active:text-purple-700 visited:text-purple-500 underline">
                         <a style={{ fontFamily: "sans-serif" }} target="_blank" rel="noreferrer" href={location.origin.toString()}>{location.origin.toString()}</a>
                       </p>
+                      <p className="w-full text-center text-sm" style={{ fontFamily: "sans-serif" }}>{t('preview_info')}</p>
                       <br />
                       <ul>
                         {loadFilteredTajweedData().map(tajweedLaw => (
