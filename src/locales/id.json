@@ -475,30 +475,10 @@
         },
         {
             "id": 29,
-            "name": "Mad Layyin",
-            "group": "Ahkämul-madd",
-            "category": "Mad",
-            "summary": "Hukum bacaan disebut Mad Layyin yakni, apabila ada huruf Mad, baik yang berupa Wau Sukun (ﻭْ) atau Yaa' Sukun (ﻱْ) didahului oleh huruf yang berharokat Fathah.",
-            "detail": "Cara membacanya dengan lunak dan lemas.",
-            "examples": [
-                "بِالْغَيْبِ Fathah bertemu يْ",
-                "عَلَيْهِ Fathah bertemu يْ",
-                "عَلَيْكُمْ Fathah bertemu يْ",
-                "إِلَيْكَ Fathah bertemu يْ",
-                "يَدَيْهَا Fathah bertemu يْ",
-                "فَتَمَنَّوُ الْمَوْتَ Fathah bertemu وْ",
-                "فَوْقَكُمْ Fathah bertemu وْ",
-                "يَوْمَ Fathah bertemu وْ",
-                "قَوْمًا Fathah bertemu وْ"
-            ],
-            "page": "/detail/mad-layyin"
-        },
-        {
-            "id": 30,
             "name": "Mad Arid Lissukun",
             "group": "Ahkämul-madd",
             "category": "Mad",
-            "summary": "Hukum bacaan disebut Mad Arid Lissukun yakni, apabila ada Mad Thobi'i atau Mad Layyin dan sesudahnya ada waqof (tempat berhenti).",
+            "summary": "Hukum bacaan disebut Mad Arid Lissukun yakni, apabila ada Mad Thobi'i yang terjadi karena ada waqof (tempat berhenti).",
             "detail": "Cara membacanya ada 3 macam :\na. Yang lebih utama, yakni dibaca panjang, sama dengan Mad Wajib Mutashil (tiga alif atau enam harokat).\nb. Yang pertengahan (sedang), yakni dibaca dua alif atau empat harokat (dua kali Mad Thobi'i).\nc.Yang pendek, yakni boleh hanya dibaca seperti Mad Thobi'i biasa (dua harokat).",
             "examples": [
                 "ِغَيْرِ حِسَابٍ . Mad Thobi'i di akhir kalimat/bertemu waqof",
@@ -511,6 +491,26 @@
                 "شَاكِرٌ عَلِيمٌ . Mad Thobi'i di akhir kalimat/bertemu waqof"
             ],
             "page": "/detail/mad-arid-lissukun"
+        },
+        {
+            "id": 30,
+            "name": "Mad Layyin",
+            "group": "Ahkämul-madd",
+            "category": "Mad",
+            "summary": "Hukum bacaan disebut Mad Layyin yakni, apabila terdapat huruf وْ atau يْ yang didahului oleh huruf hidup berharakat fathah dan berhenti karena waqaf.",
+            "detail": "Cara membacanya adalah 2 hingga 6 harakat (1 hingga 3 alif) dengan nada lunak dan lembut.",
+            "examples": [
+                "بِالْغَيْبِ Fathah bertemu يْ",
+                "عَلَيْهِ Fathah bertemu يْ",
+                "عَلَيْكُمْ Fathah bertemu يْ",
+                "إِلَيْكَ Fathah bertemu يْ",
+                "يَدَيْهَا Fathah bertemu يْ",
+                "فَتَمَنَّوُ الْمَوْتَ Fathah bertemu وْ",
+                "فَوْقَكُمْ Fathah bertemu وْ",
+                "يَوْمَ Fathah bertemu وْ",
+                "قَوْمًا Fathah bertemu وْ"
+            ],
+            "page": "/detail/mad-layyin"
         },
         {
             "id": 31,

@@ -475,30 +475,10 @@
         },
         {
             "id": 29,
-            "name": "Madd Al-Leen",
-            "group": "Ahkämul-madd",
-            "category": "Madd",
-            "summary": "Madd Al-Leen tajweed law happens if there is a Madd letter, whether it is Wau Sukun (ﻭْ) or Yaa' Sukun (ﻱْ) preceded by a fathah-harokat letter.",
-            "detail": "It is pronounced softly and smoothly.",
-            "examples": [
-                "بِالْغَيْبِ Fatha meets يْ",
-                "عَلَيْهِ Fatha meets يْ",
-                "عَلَيْكُمْ Fatha meets يْ",
-                "إِلَيْكَ Fatha meets يْ",
-                "يَدَيْهَا Fatha meets يْ",
-                "فَتَمَنَّوُ الْمَوْتَ Fatha meets وْ",
-                "فَوْقَكُمْ Fatha meets وْ",
-                "يَوْمَ Fatha meets وْ",
-                "قَوْمًا Fatha meets وْ"
-            ],
-            "page": "/detail/mad-layyin"
-        },
-        {
-            "id": 30,
             "name": "Madd Aridh Lissukun",
             "group": "Ahkämul-madd",
             "category": "Madd",
-            "summary": "Madd Aridh Lissukun tajweed law happens if there is Madd Tabe'ee or Madd Al-Leen followed by a waqf (stopping place).",
+            "summary": "Madd Aridh Lissukun tajweed law happens if there is Madd Tabe'ee that happens because of a waqf (stopping place).",
             "detail": "There are 3 ways to read it:\na. What is more important is that it is read long, the same as Madd Wajib Mutashil (three alif or six harakah).\nb. The middle (medium) one can only be read as two Alif or four harokats (twice Madd Tabe'ee).\nc. The sortest one may be only read as Madd Tabe'ee (two harakah).",
             "examples": [
                 "ِغَيْرِ حِسَابٍ . Madd Tabe'ee in the end of a sentence/meet waqfs",
@@ -511,6 +491,26 @@
                 "شَاكِرٌ عَلِيمٌ . Madd Tabe'ee in the end of a sentence/meet waqfs"
             ],
             "page": "/detail/mad-arid-lissukun"
+        },
+        {
+            "id": 30,
+            "name": "Madd Al-Leen",
+            "group": "Ahkämul-madd",
+            "category": "Madd",
+            "summary": "Madd Al-Leen tajweed law happens when there is a letter وْ (waw sukun) or يْ (ya sukun) preceded by a letter with a fatha and the reading stops due to waqf (a pause or stop).",
+            "detail": "The way to recite it is 2 to 6 harakats (1 to 3 alifs) with a soft tone.",
+            "examples": [
+                "بِالْغَيْبِ Fatha meets يْ",
+                "عَلَيْهِ Fatha meets يْ",
+                "عَلَيْكُمْ Fatha meets يْ",
+                "إِلَيْكَ Fatha meets يْ",
+                "يَدَيْهَا Fatha meets يْ",
+                "فَتَمَنَّوُ الْمَوْتَ Fatha meets وْ",
+                "فَوْقَكُمْ Fatha meets وْ",
+                "يَوْمَ Fatha meets وْ",
+                "قَوْمًا Fatha meets وْ"
+            ],
+            "page": "/detail/mad-layyin"
         },
         {
             "id": 31,
