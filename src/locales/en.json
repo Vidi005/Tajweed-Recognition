@@ -416,7 +416,7 @@
             "name": "Madd Wajib Muttasil",
             "group": "Ahkämul-madd",
             "category": "Madd",
-            "summary": "Madd Wajib Muttasil tajweed law happens if Madd Tabe'ee meets a living Hamzah (ء) within a word/sentence, it is mandatory to prolong it.",
+            "summary": "Madd Wajib Muttasil tajweed law happens if Madd Tabe'ee meets a living Hamzah (ء) within a word/sentence.",
             "detail": "The way to read it must be extended to two and a half Alif or five harokat or two and a half times the length of Madd Tabe'ee.",
             "examples": [
                 "مِنْهُ الْمَاءُ Madd Tabe'ee meets Hamzah (ء) within a word/sentence",
@@ -437,7 +437,7 @@
             "name": "Madd Ja'eez Munfasil",
             "group": "Ahkämul-madd",
             "category": "Madd",
-            "summary": "The recitation rule is called Madd Ja'eez Munfasil when Madd Tabe'ee (ء) is in a different word.",
+            "summary": "The recitation rule is called Madd Ja'eez Munfasil occurs when Madd Tabe'ee meet hamzah (ء) in a different word.",
             "detail": "The way to read it is better to extend it like the length of Madd Wajib Muttashil, but also may be extended like the length of Madd Tabe'ee.",
             "examples": [
                 "فِيهَا أَبَدًا Madd Tabe'ee meets Hamzah (ء) in different word",
@@ -581,7 +581,7 @@
             "name": "Madd Al-Badal",
             "group": "Ahkämul-madd",
             "category": "Madd",
-            "summary": "Madd Al-Badal tajweed law happens if Hamzah (ء) meets Madd from a sukun-hamzah, and this hamzah is changed and replaced with Alif (ا), Wau (ﻭ).",
+            "summary": "Madd Al-Badal tajweed law happens when a mad letter (alif, waw, or ya) is preceded by a hamzah (أ)",
             "detail": "It is pronounced by prolonging it for one alif or two harakah, like Madd Tabe'ee.",
             "examples": [
                 "أُوتُوا prolong (أ) like Madd Tabe'ee",
@@ -640,8 +640,8 @@
             "name": "Madd Tamkeen",
             "group": "Ahkämul-madd",
             "category": "Madd",
-            "summary": "The recitation rule called Madd Tamkeen occurs when there is a Yaa' Sukun (ﻱْ) preceded by a Yaa' with shaddah and a Kasra vowel (ﻱِ).",
-            "detail": "The reading is established with shaddah and its natural Madd is extended to the length of two vowels or one alif.",
+            "summary": "The recitation rule called Madd Tamkeen occurs when there there are two consecutive ya letters, the first with a vowel (harakat) and the second being a sukun (without a vowel).",
+            "detail": "The way to recite it is to prolong it by two harakats or one alif.",
             "examples": [
                 "وَإِذَا حُيِّيْتُمْ Yaa' shaddah meets (يْ)",
                 "وَخَاتَمَ النَّبِيِّينَ Yaa' shaddah meets (يْ)",

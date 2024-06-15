@@ -416,7 +416,7 @@
             "name": "Mad Wajib Muttasil",
             "group": "Ahkämul-madd",
             "category": "Mad",
-            "summary": "Hukum bacaan disebut Mad Wajib Muttasil yakni, apabila ada Mad Thobi'i bertemu dengan Hamzah (ء) berharokat hidup di dalam satu kata/kalimat.",
+            "summary": "Hukum bacaan disebut Mad Wajib Muttasil yakni, apabila ada Mad Thobi'ii bertemu dengan hamzah dalam satu kalimat.",
             "detail": "Cara membacanya wajib dipanjangkan sampai dua setengah Alif atau lima harokat atau dua setengah kali panjang Mad Thobi'i.",
             "examples": [
                 "مِنْهُ الْمَاءُ Mad Thobi'i bertemu Hamzah (ء) dalam satu kata/kalimat",
@@ -437,7 +437,7 @@
             "name": "Mad Jaiz Munfassil",
             "group": "Ahkämul-madd",
             "category": "Mad",
-            "summary": "Hukum bacaan disebut Mad Jaiz Munfashil yakni, apabila Mad Thobi'i bertemu dengan Hamzah (ء) di lain perkataan.",
+            "summary": "Hukum bacaan disebut Mad Jaiz Munfashil yakni, apabila Mad Thobi'ii bertemu dengan hamzah pada kata yang berbeda.",
             "detail": "Cara membacanya lebih baik dipanjangkan seperti panjangnya Mad Wajib Muttashil, tetapi juga boleh dipanjangkan seperti panjang Mad Thobi'i.",
             "examples": [
                 "فِيهَا أَبَدًا Mad Thobi'i bertemu Hamzah (ء) di perkataan lain",
@@ -497,7 +497,7 @@
             "name": "Mad Layyin",
             "group": "Ahkämul-madd",
             "category": "Mad",
-            "summary": "Hukum bacaan disebut Mad Layyin yakni, apabila terdapat huruf وْ atau يْ yang didahului oleh huruf hidup berharakat fathah dan berhenti karena waqaf.",
+            "summary": "Hukum bacaan disebut Mad Layyin yakni, apabila terdapat huruf وْ atau يْ yang didahului oleh huruf hidup berharakat fathah dan berhenti karena waqof.",
             "detail": "Cara membacanya adalah 2 hingga 6 harakat (1 hingga 3 alif) dengan nada lunak dan lembut.",
             "examples": [
                 "بِالْغَيْبِ Fathah bertemu يْ",
@@ -581,7 +581,7 @@
             "name": "Mad Badal",
             "group": "Ahkämul-madd",
             "category": "Mad",
-            "summary": "Apabila ada Hamzah (ء) bertemu dengan Mad yang berasal dari Hamzah Sukun, kemudian hamzah ini diubah dan diganti dengan Alif (ا), Wau (ﻭ)",
+            "summary": "Apabila terdapat huruf mad (alif, waw, atau ya) yang didahului oleh hamzah (أ).",
             "detail": "Cara membæanya harus dipanjangkan satu alif atau dua harokat seperti Mad Thobi'i.",
             "examples": [
                 "أُوتُوا memanjangkan (أ) seperti Mad Thobi'ii",
@@ -640,8 +640,8 @@
             "name": "Mad Tamkin",
             "group": "Ahkämul-madd",
             "category": "Mad",
-            "summary": "Hukum bacaan disebut Mad Tamkin yakni, apabila ada Yaa' Sukun (ﻱْ) yang didahului dengan Yaa' yang bertasydid dan harokatnya kasroh (ﻱِ).",
-            "detail": "Cara membacanya ditepatkan dengan tasydid dan Mad Thobi'i-nya sepanjang dua harokat atau satu alif.",
+            "summary": "Hukum bacaan disebut Mad Tamkin yakni, apabila  terdapat dua ya berturut-turut, yang pertama berharakat dan yang kedua mati.",
+            "detail": "Cara membacanya dipanjangkan dua harokat atau satu alif.",
             "examples": [
                 "وَإِذَا حُيِّيْتُمْ Yaa' taysdid bertemu (يْ)",
                 "وَخَاتَمَ النَّبِيِّينَ Yaa' taysdid bertemu (يْ)",
