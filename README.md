@@ -56,9 +56,10 @@ This experiment project is to demonstrate how to extracting Arabic Characters fr
 
 ### Limitations:
 Beside of those avaliable features, this Tajweed Recognition Application also have some limitation as follows:
-- The OCR feature for recognizing Arabic text on the image may not always accurate because of various kind of image quality, Arabic fonts, and skew factor from the text on the image.
+- The OCR feature for recognizing Arabic text on the image may not always accurate because of various kind of image quality, Arabic fonts, and skewness factor from the text on the image.
 - If there are more than one Tajweed Laws on the same group of Tajweed Law Rule Characters, Tajweed Colorization will be colorize from the first/the higher position of Tajweed Law items array position and the others will be stacked. Therefore only the last colorized Tajweed Law that will be displayed.
-- When thera more than one part of slice of Tajweed Laws on the same group of Tajweed Law Rule Characters, it only will be colorize the first occurence of Tajweed Law because the colorized characters html tags had been added some tajweed attributes.
+- When there are more than one part of slice of Tajweed Laws on the same group of Tajweed Law Rule Characters, it only will be colorize the first occurence of Tajweed Law because the colorized characters html tags had been added some tajweed attributes.
+- Some Arabic text diacritics position result which imported from PDF file might be shifted.
 - This application can work quiet well form <a href="https://quran.com/" target="_blank" rel="noopener noreferrer">https://quran.com</a> with Uthmani font and from <a href="https://quran.nu.or.id/" target="_blank" rel="noopener noreferrer">https://quran.nu.or.id</a> for now and might not colorize Tajweed Laws correctly on several types of Mushaf.
 
 ## Notes:
