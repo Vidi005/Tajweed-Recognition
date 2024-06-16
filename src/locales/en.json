@@ -500,15 +500,11 @@
             "summary": "Madd Al-Leen tajweed law happens when there is a letter وْ (waw sukun) or يْ (ya sukun) preceded by a letter with a fatha and the reading stops due to waqf (a pause or stop).",
             "detail": "The way to recite it is 2 to 6 harakats (1 to 3 alifs) with a soft tone.",
             "examples": [
-                "بِالْغَيْبِ Fatha meets يْ",
+                "بَيْتٍ Fatha meets يْ",
                 "عَلَيْهِ Fatha meets يْ",
-                "عَلَيْكُمْ Fatha meets يْ",
                 "إِلَيْكَ Fatha meets يْ",
-                "يَدَيْهَا Fatha meets يْ",
                 "فَتَمَنَّوُ الْمَوْتَ Fatha meets وْ",
-                "فَوْقَكُمْ Fatha meets وْ",
-                "يَوْمَ Fatha meets وْ",
-                "قَوْمًا Fatha meets وْ"
+                "خَوْفٍ Fatha meets وْ"
             ],
             "page": "/detail/mad-layyin"
         },

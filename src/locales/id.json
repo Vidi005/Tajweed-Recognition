@@ -500,15 +500,11 @@
             "summary": "Hukum bacaan disebut Mad Layyin yakni, apabila terdapat huruf وْ atau يْ yang didahului oleh huruf hidup berharakat fathah dan berhenti karena waqof.",
             "detail": "Cara membacanya adalah 2 hingga 6 harakat (1 hingga 3 alif) dengan nada lunak dan lembut.",
             "examples": [
-                "بِالْغَيْبِ Fathah bertemu يْ",
+                "بَيْتٍ Fathah bertemu يْ",
                 "عَلَيْهِ Fathah bertemu يْ",
-                "عَلَيْكُمْ Fathah bertemu يْ",
                 "إِلَيْكَ Fathah bertemu يْ",
-                "يَدَيْهَا Fathah bertemu يْ",
                 "فَتَمَنَّوُ الْمَوْتَ Fathah bertemu وْ",
-                "فَوْقَكُمْ Fathah bertemu وْ",
-                "يَوْمَ Fathah bertemu وْ",
-                "قَوْمًا Fathah bertemu وْ"
+                "خَوْفٍ Fathah bertemu وْ"
             ],
             "page": "/detail/mad-layyin"
         },
