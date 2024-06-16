@@ -27,7 +27,7 @@ const TajweedPreview = ({ t, isModalOpened, selectedTajweed, onCloseSummaryModal
       >
         <Dialog.Panel className={"flex flex-col items-center min-h-full max-w-5xl mx-4 bg-green-800 dark:bg-gray-700 text-green-900 dark:text-white shadow-lg dark:shadow-white/50 rounded-lg overflow-hidden"}>
           <span className="inline-flex w-full justify-between p-4 text-center dark:text-white">
-            <h3 className="grow text-green-50">{selectedTajweed.tajweedName}</h3>
+            <h3 className="grow text-green-50 tracking-tight md:tracking-normal">{selectedTajweed.tajweedName}</h3>
             <button className="px-2 font-mono text-green-900 dark:text-white bg-green-100/50 hover:bg-green-50 dark:bg-white/20 dark:hover:bg-black/50 duration-200 rounded-full shadow dark:shadow-white/50" title="Close" onClick={onCloseSummaryModal}>
               <h4>X</h4>
             </button>
