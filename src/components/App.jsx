@@ -96,7 +96,6 @@ class App extends React.Component {
       <React.Fragment>
         <Helmet>
           <title className="font-ramadhan-start">{i18n.t('app_name')}</title>
-          <meta name="dicoding:email" content="vidihidarlan@gmail.com"></meta>
           <meta name="description" content={i18n.t('app_description')} />
           <link rel="canonical" href={location.toString()} />
         </Helmet>
