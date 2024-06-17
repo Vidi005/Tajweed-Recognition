@@ -619,19 +619,6 @@
             "page": "/detail/mad-lazim-harfi-mutsaqqol"
         },
         {
-            "id": 37,
-            "name": "Madd Laazim Musyabba'",
-            "group": "Ahkämul-madd",
-            "category": "Madd",
-            "summary": "The law of recitation called Madd Laazim Musyabaa' is similar to Madd Laazim Harfi Muthaqqal, after the prolongation there is a silent letter which is not assimilated or doubled.",
-            "detail": "The way to recite it must be prolonged like Madd Laazim Harfi Muthaqqal, which is with three Alifs.",
-            "examples": [
-                "صٓ‌ read SHOOOOOOD",
-                "قٓ read QOOOOOOF"
-            ],
-            "page": "/detail/mad-lazim-musyabba"
-        },
-        {
             "id": 38,
             "name": "Madd Tamkeen",
             "group": "Ahkämul-madd",

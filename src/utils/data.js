@@ -1065,10 +1065,7 @@ const extractMadLazimHarfiMutsaqqolCharacters = () => [
   /(?:[\u0628-\u063A]|[\u0641-\u0647])(?:\u0605|\u0653|\u06E4)\s*(?:\u0646|\u0642|\u0635|\u0639|\u0633|\u0644|\u0643|\u0645)/gm,
   /(?:[\u0628-\u063A]|[\u0641-\u0647])\u0651(?:\u0605|\u0653|\u06E4)\s*(?:\u0646|\u0642|\u0635|\u0639|\u0633|\u0644|\u0643|\u0645)/gm,
   /(?:\u0646|\u0642|\u0635|\u0639|\u0633|\u0644|\u0643|\u0645)(?:\u0605|\u0653|\u06E4)\s*(?:[\u0628-\u063A]|[\u0641-\u0647])(?:\u0670|\u0605|\u0653|\u06E4)/gm,
-  /(?:\u0646|\u0642|\u0635|\u0639|\u0633|\u0644|\u0643|\u0645)\u0651(?:\u0605|\u0653|\u06E4)\s*(?:[\u0628-\u063A]|[\u0641-\u0647])(?:\u0670|\u0605|\u0653|\u06E4)/gm
-]
-
-const extractMadLazimMusyabbaCharacters = () => [
+  /(?:\u0646|\u0642|\u0635|\u0639|\u0633|\u0644|\u0643|\u0645)\u0651(?:\u0605|\u0653|\u06E4)\s*(?:[\u0628-\u063A]|[\u0641-\u0647])(?:\u0670|\u0605|\u0653|\u06E4)/gm,
   /(?<![\u064B-\u065F]|\u0670|\u0605|\u0622|\u06E4|[\u0628-\u0647])\s*(?:[\u0628-\u063A]|[\u0641-\u0647])\s*(?:\u0605|\u0653|\u06E4)\s*(?:[\u06D6-\u06D8]|\u06D5[\u06D6-\u06D8]|\u06D9\s*[\u0660-\u0669]|\u06D5\u06D9\s*[\u0660-\u0669]|\u06D9\s*\u06DD|\u06D5\u06D9\s*\u06DD|\u06DA|\u06DB|\u06D5\u06DA|[\u06D5-\u06DA]\u06DB|\u06E9|\u08D6|[\u0660-\u0669]|\u06DD|[\u066C\u06F0\u06DE]|\(?\d+\))/gm,
   /(?<![\u064B-\u065F]|\u0670|\u0605|\u0622|\u06E4|[\u0628-\u0647])\s*(?:[\u0628-\u063A]|[\u0641-\u0647])\u0651\s*(?:\u0605|\u0653|\u06E4)\s*(?:[\u06D6-\u06D8]|\u06D5[\u06D6-\u06D8]|\u06D9\s*[\u0660-\u0669]|\u06D5\u06D9\s*[\u0660-\u0669]|\u06D9\s*\u06DD|\u06D5\u06D9\s*\u06DD|\u06DA|\u06DB|\u06D5\u06DA|[\u06D5-\u06DA]\u06DB|\u06E9|\u08D6|[\u0660-\u0669]|\u06DD|[\u066C\u06F0\u06DE]|\(?\d+\))/gm
 ]
@@ -1146,7 +1143,6 @@ const madIwadTajweed = extractMadIwadCharacters()
 const madBadalTajweed = extractMadBadalCharacters()
 const madLazimHarfiMukhoffafTajweed = extractMadLazimHarfiMukhoffafCharacters()
 const madLazimHarfiMutsaqqolTajweed = extractMadLazimHarfiMutsaqqolCharacters()
-const madLazimMusyabbaTajweed = extractMadLazimMusyabbaCharacters()
 const madTamkinTajweed = extractMadTamkinCharacters()
 const madFarqTajweed = extractMadFarqCharacters()
 
@@ -1193,12 +1189,6 @@ const tajweedLaws = () => [
     color: '#00ff80',
     rules: madLazimHarfiMukhoffafTajweed,
     detailPage: '/detail/mad-lazim-harfi-mukhoffaf'
-  },
-  {
-    id: 37,
-    color: '#bf00ff',
-    rules: madLazimMusyabbaTajweed,
-    detailPage: '/detail/mad-lazim-musyabba'
   },
   {
     id: 27,

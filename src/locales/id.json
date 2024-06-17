@@ -619,19 +619,6 @@
             "page": "/detail/mad-lazim-harfi-mutsaqqol"
         },
         {
-            "id": 37,
-            "name": "Mad Lazim Musyabba'",
-            "group": "Ahkämul-madd",
-            "category": "Mad",
-            "summary": "Hukum bacaan disebut Mad Lazim Musyabaa' adalah seperti Mad Lazim Harfi Mutsaqqol, sesudah Mad terdapat suara huruf mati yang tidak diidghomkan åtau ditasydidkan.",
-            "detail": "Cara membacanya harus dipanjangkan seperti Mad Lazim Harfi Mutsaqqol, yaitu tiga alif.",
-            "examples": [
-                "صٓ‌ dibaca SHOOOOOOD",
-                "قٓ dibaca QOOOOOOF"
-            ],
-            "page": "/detail/mad-lazim-musyabba"
-        },
-        {
             "id": 38,
             "name": "Mad Tamkin",
             "group": "Ahkämul-madd",
