@@ -59,7 +59,7 @@ const SaveFilePrompt = ({ t, inputRef, isDialogOpened, isFocused, isBismillahAdd
               }
               <br />
               <p className="text-center text-sm text-green-700 dark:text-gray-200">
-                {t('pre_text_download')}<a className="underline text-blue-700 dark:text-blue-300 hover:text-blue-900 dark:hover:text-blue-50 active:text-violet-700" href="https://www.kolomedu.com/2020/07/cara-instal-font-lpmq-isep-misbah-font.html" target="_blank" rel="noopener noreferrer">LPMQ Isep Misbah</a>{t('post_text_download')}
+                {t('pre_text_download')}<a className="underline text-blue-700 dark:text-blue-300 hover:text-blue-900 dark:hover:text-blue-50 active:text-violet-700" href="https://lajnah.kemenag.go.id/unduhan/quran-kemenag/font-lpmq-isep-misbah.html" target="_blank" rel="noopener noreferrer">LPMQ Isep Misbah</a>{t('post_text_download')}
               </p>
               <Listbox value={isBismillahAdded} onChange={addBismillah} className="w-full p-1 bg-green-50 dark:bg-gray-900 text-green-900 dark:text-white">
                 <Listbox.Options static className="max-h-full flex items-center justify-center">

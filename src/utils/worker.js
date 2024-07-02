@@ -24,9 +24,17 @@ const createColorizationWorker = () => {
       if (colorizedChars.includes('\\u06DB')) {
         const applyOptionalColor = (part, regex, id, color) => {
           if (colorizationMode === 'Text Color') {
-            return part.replace(regex, match => '<span class="tajweed-' + id + '" style="color: ' + color + '; cursor: pointer;">' + match + '</span>')
+            if (id === 16) {
+              return part.replace(regex, match => '<span class="tajweed-' + id + '" style="letter-spacing: 0.01em; color: ' + color + '; cursor: pointer;">' + match + '</span>')
+            } else {
+              return part.replace(regex, match => '<span class="tajweed-' + id + '" style="color: ' + color + '; cursor: pointer;">' + match + '</span>')
+            }
           } else {
-            return part.replace(regex, match => '<span class="tajweed-' + id + '" style="background-color: ' + color + 'BF; cursor: pointer;">' + match + '</span>')
+            if (id === 16) {
+              return part.replace(regex, match => '<span class="tajweed-' + id + '" style="letter-spacing: 0.01em; background-color: ' + color + 'BF; cursor: pointer;">' + match + '</span>')
+            } else {
+              return part.replace(regex, match => '<span class="tajweed-' + id + '" style="background-color: ' + color + 'BF; cursor: pointer;">' + match + '</span>')
+            }
           }
         }
         const parts = colorizedChars.split('\\u06DB')
@@ -45,9 +53,17 @@ const createColorizationWorker = () => {
       } else {
         const applyColor = (regex, id, color) => {
           if (colorizationMode === 'Text Color') {
-            colorizedChars = colorizedChars.replace(regex, match => '<span class="tajweed-' + id + '" style="color: ' + color + '; cursor: pointer;">' + match + '</span>')
+            if (id === 16) {
+              colorizedChars = colorizedChars.replace(regex, match => '<span class="tajweed-' + id + '" style="letter-spacing: 0.01em; color: ' + color + '; cursor: pointer;">' + match + '</span>')
+            } else {
+              colorizedChars = colorizedChars.replace(regex, match => '<span class="tajweed-' + id + '" style="color: ' + color + '; cursor: pointer;">' + match + '</span>')
+            }
           } else {
-            colorizedChars = colorizedChars.replace(regex, match => '<span class="tajweed-' + id + '" style="background-color: ' + color + 'BF; cursor: pointer;">' + match + '</span>')
+            if (id === 16) {
+              colorizedChars = colorizedChars.replace(regex, match => '<span class="tajweed-' + id + '" style="letter-spacing: 0.01em; background-color: ' + color + 'BF; cursor: pointer;">' + match + '</span>')
+            } else {
+              colorizedChars = colorizedChars.replace(regex, match => '<span class="tajweed-' + id + '" style="background-color: ' + color + 'BF; cursor: pointer;">' + match + '</span>')
+            }
           }
         }
         tajweedLaws.forEach(tajweedLaw => {

@@ -16,7 +16,7 @@ export default defineConfig({
       manifest: {
         name: 'Tajweed Recognition',
         short_name: 'Tajweed Recognition',
-        description: 'Recognizing Arabic Characters from an image and generating Tajweed Colors from recognized text',
+        description: 'Extracting Arabic Characters from a document file or an image file, and generating Tajweed Colors from extracted text',
         theme_color: '#166534',
         orientation: 'portrait',
         icons: [
