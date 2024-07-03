@@ -1058,7 +1058,7 @@ const extractMadBadalCharacters = () => [
 
 const extractMadLazimHarfiMukhaffafCharacters = () => [
   /(?<!\u0646\s*|\u0642\s*|\u0635\s*|\u0639\s*|\u0633\s*|\u0644\s*|\u0643\s*|\u0645\s*|>\s*|\u0646\u0670\s*|\u0642\u0670\s*|\u0635\u0670\s*|\u0639\u0670\s*|\u0633\u0670\s*|\u0644\u0670\s*|\u0643\u0670\s*|\u0645\u0670\s*)\u0645(?:\u0605|\u0653|\u06E4)/gm,
-  /(?:[\u0628-\u063A]|[\u0641-\u0644]|[\u0646-\u0647])(?:\u0605|\u0653|\u06E4)/gm
+  /(?:\u0646|\u0642|\u0635|\u0639|\u0633|\u0644|\u0643)(?:\u0605|\u0653|\u06E4)/gm
 ]
 
 const extractMadLazimHarfiMutsaqqalCharacters = () => [
