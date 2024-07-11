@@ -255,6 +255,7 @@
             "summary": "Idgham Mutajaaniseyn tajweed law happens if there is a letter with the meaning of sukun opposite a letter with the meaning of harakah, both have the same makhroj but have different characteristics.",
             "detail": "The way to read it is by inserting or idghom the first letter in the second letter.",
             "examples": [
+                "ارْ كَيْمَعَنَا Ba sakinah meets م",
                 "إِذْ مَمَّتْ طَائِفَتْنِ Ta sakinah meets ط",
                 "اثْقَلَتْ دَعَوَا اللهَ Ta sakinah meets د",
                 "لَقَدْ تَابَ Da sakinah meets ت",
@@ -271,7 +272,6 @@
             "summary": "Idgham Mutaqaaribeyn tajweed law happens if a letter with a sukun meets a letter with a harakah, the two letters are close to each other, makhroj and its properties.",
             "detail": "The way to read it is by inserting or adding the first letter to the second letter.",
             "examples": [
-                "ارْ كَيْمَعَنَا Ba sakinah meets م",
                 "َذَّبَتْ ثَمُود Ta sakinah meets ث",
                 "يَلْهَثْ ذَلِكَ Tsa sakinah meets ذ",
                 "نَخْلُقُكُمْ Qaf sakinah meets ك",

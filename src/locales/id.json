@@ -255,6 +255,7 @@
             "summary": "Hukum bacaan disebut Idgham Mutajaanisain, yakni apabila ada suatu huruf yang sukun berhadapan dengan huruf yang berharakat, kedua-duanya itu sama makhrajnya tapi lain sifatnya.",
             "detail": "Cara menbacanya adalah dengan memasukkan atau mengidgham-kan huruf pertama pada huruf yang kedua.",
             "examples": [
+                "ارْ كَيْمَعَنَا Ba mati bertemu م",
                 "إِذْ مَمَّتْ طَائِفَتْنِ Ta mati bertemu ط",
                 "اثْقَلَتْ دَعَوَا اللهَ Ta mati bertemu د",
                 "لَقَدْ تَابَ Da mati bertemu ت",
@@ -271,7 +272,6 @@
             "summary": "Hukum bacaan disebut Idgham Mutaqaribain yakni, apabila ada huruf bersukun bertemu dengan huruf yang berharakat kedua huruf itu berdekatan makhraj dan sifatnya.",
             "detail": "Cara membacanya adalah dengan memasukkan atau mentasydid-kan huruf pertama pada huruf yang kedua.",
             "examples": [
-                "ارْ كَيْمَعَنَا Ba mati bertemu م",
                 "َذَّبَتْ ثَمُود Ta mati bertemu ث",
                 "يَلْهَثْ ذَلِكَ Tsa mati bertemu ذ",
                 "نَخْلُقُكُمْ Qaf mati bertemu ك",

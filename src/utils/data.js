@@ -626,6 +626,13 @@ const extractIdghamMutamasilainCharacters = () => [
 ]
 
 const extractIdghamMutajaanisainCharacters = () => [
+  // Ba, Mim
+  /بْ\s*م(?!\u0652)/gm,
+  /(?<!\u0652\s*)\s*\u0628(?![\u064B-\u065F]|\u0670)\s*م(?!\u0652)/gm,
+  /* La Washal Waqof */
+  /بْ\s*\u06D9\s*م(?!\u0652)/gm, /بْ\s*ەۙ\s*م(?!\u0652)/gm,
+  /(?<!\u0652\s*)\s*\u0628(?![\u064B-\u065F]|\u0670)\s*\u06D9\s*م(?!\u0652)/gm,
+  /(?<!\u0652\s*)\s*\u0628(?![\u064B-\u065F]|\u0670)\s*\u06D5\u06D9\s*م(?!\u0652)/gm,
   // Ta, Tho
   /تْ\s*ط(?!\u0652)/gm,
   /(?<!\u0652\s*)\s*\u062A(?![\u064B-\u065F]|\u0670)\s*ط(?!\u0652)/gm,
@@ -664,24 +671,21 @@ const extractIdghamMutajaanisainCharacters = () => [
 ]
 
 const extractIdghamMutaqaribainCharacters = () => [
-  /بْ\s*م(?!\u0652)/gm,
-  /(?<!\u0652\s*)\s*\u0628(?![\u064B-\u065F]|\u0670)\s*م(?!\u0652)/gm,
-  /* La Washal Waqof */
-  /بْ\s*\u06D9\s*م(?!\u0652)/gm, /بْ\s*ەۙ\s*م(?!\u0652)/gm,
-  /(?<!\u0652\s*)\s*\u0628(?![\u064B-\u065F]|\u0670)\s*\u06D9\s*م(?!\u0652)/gm,
-  /(?<!\u0652\s*)\s*\u0628(?![\u064B-\u065F]|\u0670)\s*\u06D5\u06D9\s*م(?!\u0652)/gm,
+  // Ta, Tsa
   /تْ\s*ث(?!\u0652)/gm,
   /(?<!\u0652\s*)\s*\u062A(?![\u064B-\u065F]|\u0670)\s*ث(?!\u0652)/gm,
   /* La Washal Waqof */
   /تْ\s*\u06D9\s*ث(?!\u0652)/gm, /تْ\s*ەۙ\s*ث(?!\u0652)/gm,
   /(?<!\u0652\s*)\s*\u062A(?![\u064B-\u065F]|\u0670)\s*\u06D9\s*ث(?!\u0652)/gm,
   /(?<!\u0652\s*)\s*\u062A(?![\u064B-\u065F]|\u0670)\s*\u06D5\u06D9\s*ث(?!\u0652)/gm,
+  // Tsa, Dzal
   /ثْ\s*ذ(?!\u0652)/gm,
   /(?<!\u0652\s*)\s*\u062B(?![\u064B-\u065F]|\u0670)\s*ذ(?!\u0652)/gm,
   /* La Washal Waqof */
   /ثْ\s*\u06D9\s*ذ(?!\u0652)/gm, /ثْ\s*ەۙ\s*ذ(?!\u0652)/gm,
   /(?<!\u0652\s*)\s*\u062B(?![\u064B-\u065F]|\u0670)\s*\u06D9\s*ذ(?!\u0652)/gm,
   /(?<!\u0652\s*)\s*\u062B(?![\u064B-\u065F]|\u0670)\s*\u06D5\u06D9\s*ذ(?!\u0652)/gm,
+  // Qaf, Kaf
   /قْ\s*ك(?!\u0652)/gm,
   /(?<!\u0652\s*)\s*\u0642(?![\u064B-\u065F]|\u0670)\s*ك(?!\u0652)/gm,
   /* La Washal Waqof */
