@@ -70,7 +70,7 @@
     "tajweed_content_desc": "Ilmu tajwid adalah ilmu yang digunakan untuk mengetahui kaidah dan cara membaca (membunyikan) huruf-huruf Al-Qur'an secara baik dan benar. Tujuannya adalah untuk memelihara bacaan Al-Qur'an dari kesalahan dan perubahan serta memelihara lisan (mulut) dari kesalahan membaca.\nMempelajari ilmu tajwid hukumnya Fardlu Kifayah, sedangkan membaca Al-Qur'an dengan baik sesuai dengan ilmu tajwid hukumnya FardIu 'Ain.",
     "learn_tajweed": "Pelajari Tajwid",
     "search_items": "Cari Tajwid",
-    "filter_tajweeds": ["Semua Kategori", "Sukun & Tanwin", "Mim Sukun", "Mim Tasydid & Nun Tasydid", "Idghom", "Lam Ta'rif", "Tafkhim & Tarqiq", "Qolqolah", "Mad", "Ahkämul Al-hurüf", "Shifatul Huruf", "Tanda-tanda Waqof"],
+    "filter_tajweeds": ["Semua Kategori", "Sukun & Tanwin", "Mim Sukun", "Mim Tasydid & Nun Tasydid", "Idgham", "Lam Ta'rif", "Tafkhim & Tarqiq", "Qalqalah", "Mad", "Ahkämul Al-hurüf", "Shifatul Huruf", "Tanda-tanda Waqof"],
     "empty_list": "Tidak Ada Tajwid Yang Ditemukan!",
     "group": "Kelompok",
     "category": "Kategori",
