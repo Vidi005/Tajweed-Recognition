@@ -127,8 +127,8 @@ class RecognitionContainer extends React.Component {
   loadWaqfMuanaqohData = () => {
     const waqfData = tajweedLaws().sort((a, b) => a.id - b.id).find(waqf => waqf.id === 44)
     return {
-      id: this.props.t('tajweed_laws.38.id'),
-      name: this.props.t('tajweed_laws.38.name'),
+      id: this.props.t('tajweed_laws.37.id'),
+      name: this.props.t('tajweed_laws.37.name'),
       color: waqfData.color,
       unicode: waqfData.unicode
     }
