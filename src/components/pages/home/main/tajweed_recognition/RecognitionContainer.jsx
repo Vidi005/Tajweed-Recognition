@@ -89,13 +89,15 @@ class RecognitionContainer extends React.Component {
 
   componentDidMount() {
     this.checkLocalStorage()
-    addEventListener('beforeunload', this.onUnloadPage)
+    if (this.state.recognizedText.length > 0) addEventListener('beforeunload', this.onUnloadPage)
   }
 
   componentDidUpdate() {
     if (this.state.isRecognizing || !this.state.isResultClosed) {
       document.body.style.overflow = 'hidden'
     } else document.body.style.overflow = 'auto'
+    if (this.state.recognizedText.length > 0) addEventListener('beforeunload', this.onUnloadPage)
+    else removeEventListener('beforeunload', this.onUnloadPage)
   }
 
   componentWillUnmount () {

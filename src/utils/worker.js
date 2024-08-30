@@ -80,5 +80,4 @@ const createColorizationWorker = () => {
   return new Worker(URL.createObjectURL(blob))
 }
 
-
 export { createTooltipWorker, createColorizationWorker }
