@@ -671,13 +671,6 @@ const extractIdghamMutajaanisainCharacters = () => [
 ]
 
 const extractIdghamMutaqaribainCharacters = () => [
-  // Ta, Tsa
-  /تْ\s*ث(?!\u0652)/gm,
-  /(?<!\u0652\s*)\s*\u062A(?![\u064B-\u065F]|\u0670)\s*ث(?!\u0652)/gm,
-  /* La Washal Waqof */
-  /تْ\s*\u06D9\s*ث(?!\u0652)/gm, /تْ\s*ەۙ\s*ث(?!\u0652)/gm,
-  /(?<!\u0652\s*)\s*\u062A(?![\u064B-\u065F]|\u0670)\s*\u06D9\s*ث(?!\u0652)/gm,
-  /(?<!\u0652\s*)\s*\u062A(?![\u064B-\u065F]|\u0670)\s*\u06D5\u06D9\s*ث(?!\u0652)/gm,
   // Tsa, Dzal
   /ثْ\s*ذ(?!\u0652)/gm,
   /(?<!\u0652\s*)\s*\u062B(?![\u064B-\u065F]|\u0670)\s*ذ(?!\u0652)/gm,
